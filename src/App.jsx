@@ -158,11 +158,15 @@ export default function App() {
             <div style={{ color: '#00aaff', fontWeight: 700, fontSize: '18px' }}>
               {tslaPrice ? `$${tslaPrice.toFixed(2)}` : '—'}
             </div>
+            <div style={{ color: '#333', fontSize: '9px', marginTop: '2px' }}>
+              {lastUpdated ? formatTime(lastUpdated) : '—'}
+            </div>
           </div>
           <div style={{ width: '1px', height: '32px', background: '#222' }} />
           <div style={{ textAlign: 'right' }}>
-            <div style={{ color: '#555', fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '2px' }}>Updated</div>
-            <div style={{ color: '#666', fontWeight: 500, fontSize: '13px' }}>{formatTime(lastUpdated)}</div>
+            <div style={{ color: '#555', fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '2px' }}>Catalyst Data</div>
+            <div style={{ color: '#666', fontWeight: 500, fontSize: '13px' }}>Daily</div>
+            <div style={{ color: '#333', fontSize: '9px', marginTop: '2px' }}>Updated 10am ET</div>
           </div>
         </div>
       </header>
