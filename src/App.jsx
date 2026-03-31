@@ -50,6 +50,7 @@ function Starfield() {
 export default function App() {
   const [selected, setSelected] = useState(null);
   const [showAbout, setShowAbout] = useState(false);
+  const [showHowTo, setShowHowTo] = useState(false);
   const [showDisclaimer, setShowDisclaimer] = useState(false);
   const { price: tslaPrice, lastUpdated } = useTSLAPrice();
 
@@ -132,6 +133,23 @@ export default function App() {
           fontSize: '13px',
         }}>
           <button
+            onClick={() => setShowHowTo(true)}
+            style={{
+              background: 'none',
+              border: '1px solid #333',
+              color: '#666',
+              fontSize: '10px',
+              letterSpacing: '2px',
+              textTransform: 'uppercase',
+              padding: '5px 12px',
+              cursor: 'pointer',
+              fontFamily: "'Space Grotesk', sans-serif",
+              transition: 'border-color 0.2s, color 0.2s',
+            }}
+            onMouseEnter={e => { e.target.style.borderColor = '#555'; e.target.style.color = '#aaa'; }}
+            onMouseLeave={e => { e.target.style.borderColor = '#333'; e.target.style.color = '#666'; }}
+          >How to Use</button>
+          <button
             onClick={() => setShowAbout(true)}
             style={{
               background: 'none',
@@ -189,6 +207,94 @@ export default function App() {
 
       {/* Detail Panel */}
       <Panel node={selected} onClose={() => setSelected(null)} />
+
+      {/* How to Use Modal */}
+      {showHowTo && (
+        <div
+          onClick={() => setShowHowTo(false)}
+          style={{
+            position: 'fixed', inset: 0, zIndex: 500,
+            background: 'rgba(0,0,0,0.80)',
+            backdropFilter: 'blur(6px)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+          }}
+        >
+          <div
+            onClick={e => e.stopPropagation()}
+            style={{
+              background: '#0a0a0a',
+              border: '1px solid #1e1e1e',
+              padding: '44px 48px',
+              maxWidth: '560px',
+              width: '90%',
+              maxHeight: '80vh',
+              overflowY: 'auto',
+            }}
+          >
+            <div style={{ fontSize: '9px', letterSpacing: '4px', color: '#333', textTransform: 'uppercase', marginBottom: '16px' }}>Guide</div>
+            <div style={{ fontSize: '18px', fontWeight: 600, color: '#fff', marginBottom: '28px', letterSpacing: '-0.3px' }}>
+              How to Use TSLA_QUANT
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+
+              {[
+                {
+                  icon: '⚪',
+                  heading: 'Orb Brightness — Likelihood',
+                  body: 'Each orb\'s brightness reflects the probability of that catalyst successfully occurring. A bright white orb means high confidence (90%+). A dim, dark orb means the outcome is uncertain or unlikely. The brighter the glow, the stronger the signal.',
+                },
+                {
+                  icon: '🔵',
+                  heading: 'Orb Size — Impact Score',
+                  body: 'Larger orbs carry more weight in the quant price model. Size represents how much that catalyst contributes to Tesla\'s valuation if achieved. A large orb that\'s dim means high potential but low confidence — a key risk to watch.',
+                },
+                {
+                  icon: '🖱️',
+                  heading: 'Click Any Orb',
+                  body: 'Click on any orb to open its detail panel. You\'ll see a full analysis with timestamped bullet points, likelihood score, expected timeline, and its estimated contribution to the model price target. Click a different orb at any time to switch — no need to close first.',
+                },
+                {
+                  icon: '🔗',
+                  heading: 'Connections — Dependencies',
+                  body: 'The lines connecting orbs show causal relationships. If one catalyst depends on another to succeed, they are linked. Animated particles travel along these lines — follow them to understand how progress in one area accelerates another.',
+                },
+                {
+                  icon: '💲',
+                  heading: 'Quant Model Price',
+                  body: 'The green price target in the header is a sum-of-parts valuation model. It is recalculated dynamically from the current likelihood scores of all 34 catalysts across 6 business units: Auto, Energy, Robotaxi, Optimus, FSD Software, and AI Infrastructure. Updated daily at 10am ET.',
+                },
+              ].map(({ icon, heading, body }) => (
+                <div key={heading} style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
+                  <div style={{ fontSize: '18px', flexShrink: 0, marginTop: '1px' }}>{icon}</div>
+                  <div>
+                    <div style={{ fontSize: '11px', letterSpacing: '1.5px', color: '#888', textTransform: 'uppercase', marginBottom: '6px' }}>{heading}</div>
+                    <p style={{ fontSize: '13px', color: '#666', lineHeight: '1.7', margin: 0 }}>{body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <button
+              onClick={() => setShowHowTo(false)}
+              style={{
+                marginTop: '36px',
+                background: 'none',
+                border: '1px solid #222',
+                color: '#444',
+                fontSize: '10px',
+                letterSpacing: '2px',
+                textTransform: 'uppercase',
+                padding: '7px 18px',
+                cursor: 'pointer',
+                fontFamily: "'Space Grotesk', sans-serif",
+              }}
+              onMouseEnter={e => { e.target.style.borderColor = '#444'; e.target.style.color = '#888'; }}
+              onMouseLeave={e => { e.target.style.borderColor = '#222'; e.target.style.color = '#444'; }}
+            >Got It</button>
+          </div>
+        </div>
+      )}
 
       {/* About Modal */}
       {showAbout && (
