@@ -35,7 +35,7 @@ export function useTSLAPrice() {
 
   useEffect(() => {
     fetchPrice();
-    const interval = setInterval(fetchPrice, 60000);
+    const interval = setInterval(fetchPrice, 5 * 60 * 1000); // every 5 minutes
     return () => clearInterval(interval);
   }, []);
 
