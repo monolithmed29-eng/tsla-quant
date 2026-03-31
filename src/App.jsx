@@ -2,10 +2,11 @@ import { useState, useEffect, useRef } from 'react';
 import Graph from './Graph';
 import Panel from './Panel';
 import { catalysts, links } from './data';
-import { calcPredictedPrice } from './priceModel';
+import { calcPredictedPrice, calcPriceBreakdown } from './priceModel';
 import { useTSLAPrice } from './useTSLAPrice';
 
 const PREDICTED = calcPredictedPrice(catalysts);
+const BREAKDOWN = calcPriceBreakdown(catalysts);
 
 // Starfield
 function Starfield() {
@@ -353,7 +354,7 @@ export default function App() {
 
         <div style={{ marginLeft: 'auto', display: 'flex', gap: '20px', alignItems: 'center' }}>
           <span style={{ fontSize: '10px', color: '#2a2a2a', letterSpacing: '1px' }}>
-            Click nodes to explore · Bear $120 · Bull $450
+            Click nodes to explore · Bear $145 · Bull $1,030
           </span>
           <button
             onClick={() => setShowDisclaimer(true)}
