@@ -137,7 +137,7 @@ export default function Panel({ node, onClose }) {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '10px' }}>
           <div style={{ fontSize: '10px', color: '#666', letterSpacing: '1.5px', textTransform: 'uppercase' }}>Analysis</div>
           {node.updated && (
-            <div style={{ fontSize: '9px', color: '#333', letterSpacing: '1px' }}>Updated {node.updated}</div>
+            <div style={{ fontSize: '9px', color: '#666', letterSpacing: '1px' }}>Updated {node.updated}</div>
           )}
         </div>
         {Array.isArray(node.description) ? (

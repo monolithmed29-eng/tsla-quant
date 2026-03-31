@@ -172,14 +172,12 @@ export default function App() {
         </div>
       </header>
 
-      {/* Graph canvas area */}
+      {/* Graph canvas area — always full width, panel overlays on top */}
       <div style={{
         position: 'absolute',
         inset: 0,
         paddingTop: '99px',
         paddingBottom: '56px',
-        paddingRight: selected ? '340px' : '0',
-        transition: 'padding-right 0.3s ease',
         zIndex: 1,
       }}>
         <Graph
@@ -324,7 +322,7 @@ export default function App() {
       {/* Bottom Legend */}
       <footer style={{
         position: 'fixed',
-        bottom: 0, left: 0, right: selected ? '340px' : '0',
+        bottom: 0, left: 0, right: 0,
         zIndex: 100,
         padding: '10px 28px',
         borderTop: '1px solid #111',
