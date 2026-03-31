@@ -6,6 +6,18 @@ export function useTSLAPrice() {
 
   const fetchPrice = async () => {
     try {
+      // Try serverless proxy first (production)
+      const res = await fetch('/api/tsla-price');
+      const data = await res.json();
+      if (data?.price) {
+        setPrice(data.price);
+        setLastUpdated(new Date());
+        return;
+      }
+    } catch (_) {}
+
+    // Fallback: direct fetch (works in local dev)
+    try {
       const res = await fetch(
         'https://query1.finance.yahoo.com/v8/finance/chart/TSLA?interval=1d&range=1d',
         { headers: { 'Accept': 'application/json' } }
