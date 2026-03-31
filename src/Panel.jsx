@@ -134,8 +134,28 @@ export default function Panel({ node, onClose }) {
 
       {/* Description */}
       <div style={{ marginBottom: '20px' }}>
-        <div style={{ fontSize: '10px', color: '#666', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '8px' }}>Analysis</div>
-        <p style={{ fontSize: '13px', color: '#aaa', lineHeight: 1.6 }}>{node.description}</p>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '10px' }}>
+          <div style={{ fontSize: '10px', color: '#666', letterSpacing: '1.5px', textTransform: 'uppercase' }}>Analysis</div>
+          {node.updated && (
+            <div style={{ fontSize: '9px', color: '#333', letterSpacing: '1px' }}>Updated {node.updated}</div>
+          )}
+        </div>
+        {Array.isArray(node.description) ? (
+          <ul style={{ margin: 0, padding: 0, listStyle: 'none' }}>
+            {node.description.map((point, i) => (
+              <li key={i} style={{
+                display: 'flex', gap: '8px',
+                fontSize: '12px', color: '#aaa', lineHeight: 1.6,
+                marginBottom: '5px', alignItems: 'flex-start',
+              }}>
+                <span style={{ color: '#333', marginTop: '1px', flexShrink: 0 }}>·</span>
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p style={{ fontSize: '13px', color: '#aaa', lineHeight: 1.6, margin: 0 }}>{node.description}</p>
+        )}
       </div>
 
       {/* Price Impact */}
