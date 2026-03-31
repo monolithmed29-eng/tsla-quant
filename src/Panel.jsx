@@ -1,4 +1,5 @@
 import { calcPriceImpact } from './priceModel';
+import { catalysts } from './data';
 
 function getLuminescenceColor(likelihood) {
   if (likelihood >= 0.9) return 'rgba(255,255,255,1.0)';
@@ -23,7 +24,7 @@ export default function Panel({ node, onClose }) {
 
   const statusColor = getLuminescenceColor(node.likelihood);
   const catColor = 'rgba(160,185,220,0.85)';
-  const priceImpact = calcPriceImpact(node);
+  const priceImpact = calcPriceImpact(node, catalysts);
 
   return (
     <div style={{
