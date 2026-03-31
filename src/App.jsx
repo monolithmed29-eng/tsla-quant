@@ -52,7 +52,7 @@ export default function App() {
   const [showAbout, setShowAbout] = useState(false);
   const [showHowTo, setShowHowTo] = useState(false);
   const [showDisclaimer, setShowDisclaimer] = useState(false);
-  const { price: tslaPrice, lastUpdated } = useTSLAPrice();
+  const { price: tslaPrice, lastUpdated, marketOpen } = useTSLAPrice();
 
   const luminescenceLevels = [
     { label: 'Dim', color: 'rgba(80,100,140,0.55)', glow: 'rgba(70,90,130,0.4)' },
@@ -174,11 +174,11 @@ export default function App() {
           <div style={{ width: '1px', height: '32px', background: '#222' }} />
           <div style={{ textAlign: 'right' }}>
             <div style={{ color: '#555', fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '2px' }}>TSLA Live</div>
-            <div style={{ color: '#00aaff', fontWeight: 700, fontSize: '18px' }}>
+            <div style={{ color: marketOpen ? '#00aaff' : '#444', fontWeight: 700, fontSize: '18px' }}>
               {tslaPrice ? `$${tslaPrice.toFixed(2)}` : '—'}
             </div>
-            <div style={{ color: '#333', fontSize: '9px', marginTop: '2px' }}>
-              {lastUpdated ? formatTime(lastUpdated) : '—'}
+            <div style={{ color: '#555', fontSize: '9px', marginTop: '2px' }}>
+              {marketOpen ? (lastUpdated ? formatTime(lastUpdated) : '—') : 'Market Closed'}
             </div>
           </div>
           <div style={{ width: '1px', height: '32px', background: '#222' }} />
