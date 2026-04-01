@@ -1,0 +1,172 @@
+import { useState } from 'react';
+import { breakingNews } from './newsData';
+
+const CATEGORY_COLORS = {
+  autonomy:      'hsl(210,100%,60%)',
+  robotics:      'hsl(200,30%,65%)',
+  financials:    'hsl(142,70%,55%)',
+  product:       'hsl(270,80%,70%)',
+  manufacturing: 'hsl(35,90%,60%)',
+  energy:        'hsl(15,100%,60%)',
+  corporate:     'hsl(55,80%,60%)',
+};
+
+const CATEGORY_LABELS = {
+  autonomy:      'Autonomy',
+  robotics:      'Robotics / AI',
+  financials:    'Financials',
+  product:       'Product',
+  manufacturing: 'Manufacturing',
+  energy:        'Energy',
+  corporate:     'Corporate',
+};
+
+export default function BreakingNews() {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <div
+      style={{
+        position: 'fixed',
+        right: 0,
+        top: '50%',
+        transform: 'translateY(-50%)',
+        zIndex: 300,
+        display: 'flex',
+        alignItems: 'stretch',
+      }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      {/* Panel */}
+      <div style={{
+        width: hovered ? '340px' : '0px',
+        overflow: 'hidden',
+        transition: 'width 0.3s ease',
+        background: 'rgba(5,5,5,0.97)',
+        borderLeft: '1px solid #1a1a1a',
+        borderTop: '1px solid #1a1a1a',
+        borderBottom: '1px solid #1a1a1a',
+        backdropFilter: 'blur(8px)',
+        maxHeight: '70vh',
+        overflowY: hovered ? 'auto' : 'hidden',
+        display: 'flex',
+        flexDirection: 'column',
+      }}>
+        <div style={{ padding: '20px', minWidth: '340px' }}>
+          {/* Header */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
+            <span style={{
+              width: '7px', height: '7px', borderRadius: '50%',
+              background: '#ff3333',
+              boxShadow: '0 0 6px 2px #ff3333',
+              display: 'inline-block',
+              animation: 'pulse 1.5s infinite',
+            }} />
+            <span style={{ fontSize: '10px', letterSpacing: '3px', color: '#fff', textTransform: 'uppercase', fontFamily: "'Space Grotesk', sans-serif" }}>
+              Breaking News
+            </span>
+          </div>
+
+          {/* News items */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+            {breakingNews.map((item, i) => {
+              const color = CATEGORY_COLORS[item.category] || '#aaa';
+              const label = CATEGORY_LABELS[item.category] || item.category;
+              return (
+                <div key={i} style={{
+                  borderLeft: `2px solid ${color}33`,
+                  paddingLeft: '12px',
+                }}>
+                  {/* Category + timestamp */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '5px' }}>
+                    <span style={{
+                      width: '6px', height: '6px', borderRadius: '50%',
+                      background: color,
+                      boxShadow: `0 0 6px 2px ${color}`,
+                      flexShrink: 0,
+                      display: 'inline-block',
+                    }} />
+                    <span style={{ fontSize: '9px', color: color, letterSpacing: '1.5px', textTransform: 'uppercase', fontFamily: "'Space Grotesk', sans-serif" }}>
+                      {label}
+                    </span>
+                    <span style={{ fontSize: '9px', color: '#333', marginLeft: 'auto', fontFamily: "'Space Grotesk', sans-serif" }}>
+                      {item.timestamp}
+                    </span>
+                  </div>
+
+                  {/* Headline */}
+                  {item.url ? (
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        fontSize: '12px',
+                        color: '#bbb',
+                        lineHeight: 1.5,
+                        textDecoration: 'none',
+                        fontFamily: "'Space Grotesk', sans-serif",
+                        display: 'block',
+                      }}
+                      onMouseEnter={e => e.target.style.color = '#fff'}
+                      onMouseLeave={e => e.target.style.color = '#bbb'}
+                    >
+                      {item.headline}
+                    </a>
+                  ) : (
+                    <p style={{
+                      fontSize: '12px', color: '#bbb', lineHeight: 1.5,
+                      margin: 0, fontFamily: "'Space Grotesk', sans-serif",
+                    }}>
+                      {item.headline}
+                    </p>
+                  )}
+
+                  {/* Source */}
+                  <div style={{ fontSize: '9px', color: '#333', marginTop: '4px', fontFamily: "'Space Grotesk', sans-serif" }}>
+                    {item.source}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Footer */}
+          <div style={{ marginTop: '16px', paddingTop: '12px', borderTop: '1px solid #111', fontSize: '9px', color: '#2a2a2a', fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '1px' }}>
+            Updated 3× daily · Tesla IR + X
+          </div>
+        </div>
+      </div>
+
+      {/* Tab */}
+      <div style={{
+        writingMode: 'vertical-rl',
+        textOrientation: 'mixed',
+        background: 'rgba(5,5,5,0.95)',
+        border: '1px solid #1a1a1a',
+        borderRight: 'none',
+        padding: '16px 8px',
+        cursor: 'pointer',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '8px',
+        userSelect: 'none',
+      }}>
+        <span style={{
+          width: '6px', height: '6px', borderRadius: '50%',
+          background: '#ff3333',
+          boxShadow: '0 0 6px 2px #ff3333',
+          display: 'inline-block',
+          flexShrink: 0,
+        }} />
+        <span style={{
+          fontSize: '9px', letterSpacing: '3px', color: '#666',
+          textTransform: 'uppercase', fontFamily: "'Space Grotesk', sans-serif",
+        }}>
+          Breaking News
+        </span>
+      </div>
+    </div>
+  );
+}

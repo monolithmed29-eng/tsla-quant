@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Graph from './Graph';
 import Panel from './Panel';
+import BreakingNews from './BreakingNews';
 import { catalysts, links } from './data';
 import { calcPredictedPrice, calcPriceBreakdown } from './priceModel';
 import { useTSLAPrice } from './useTSLAPrice';
@@ -207,6 +208,9 @@ export default function App() {
 
       {/* Detail Panel */}
       <Panel node={selected} onClose={() => setSelected(null)} />
+
+      {/* Breaking News Tab */}
+      <BreakingNews />
 
       {/* How to Use Modal */}
       {showHowTo && (
