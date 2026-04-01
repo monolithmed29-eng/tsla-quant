@@ -664,7 +664,7 @@ export const catalysts = [
     category: "robotics",
     weight: 0.06,
     status: "upcoming",
-    expected: "Q3 2026",
+    expected: "Q1 2026",
     likelihood: 0.55,
     updated: "Apr 1, 2026",
     description: [
@@ -705,7 +705,7 @@ export const catalysts = [
     category: "robotics",
     weight: 0.05,
     status: "in_progress",
-    expected: "Q2 2026",
+    expected: "Q4 2026",
     likelihood: 0.60,
     updated: "Apr 1, 2026",
     description: [

@@ -71,7 +71,7 @@ const UNITS = [
     bear:  5,
     base:  50,
     bull:  200,
-    catalystIds: ['optimus_production', 'optimus_external', 'optimus_factory'],
+    catalystIds: ['optimus_production', 'optimus_external', 'optimus_factory', 'cortex2', 'digital_optimus'],
   },
   {
     id: 'fsd_sw',
@@ -96,7 +96,7 @@ const UNITS = [
     bear:  0,
     base:  15,
     bull:  60,
-    catalystIds: ['dojo_v2', 'hw5_chip', 'ai_inference'],
+    catalystIds: ['dojo_v2', 'hw5_chip', 'ai_inference', 'terafab'],
   },
 ];
 
