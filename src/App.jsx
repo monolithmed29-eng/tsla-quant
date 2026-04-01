@@ -175,7 +175,7 @@ export default function App() {
             onClick={() => setShowPriceModal(true)}
             title="Click to see full SOTP breakdown"
           >
-            <div style={{ color: '#555', fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '2px' }}>Quant Model ↗</div>
+            <div style={{ color: '#999', fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '2px' }}>Quant Model ↗</div>
             <div style={{
               color: '#00ff88', fontWeight: 700, fontSize: '18px',
               textDecoration: 'underline', textUnderlineOffset: '3px', textDecorationColor: '#00ff8844',
