@@ -127,8 +127,8 @@ export default function App() {
           <div style={{ fontSize: '20px', fontWeight: 700, letterSpacing: '2px', color: '#fff' }}>
             TSLA_QUANT
           </div>
-          <div style={{ fontSize: '10px', letterSpacing: '3px', color: '#555', textTransform: 'uppercase', marginTop: '3px' }}>
-            v1.1
+          <div style={{ fontSize: '10px', letterSpacing: '3px', color: '#888', textTransform: 'uppercase', marginTop: '3px' }}>
+            v1.2
           </div>
         </div>
         <div style={{
@@ -139,8 +139,8 @@ export default function App() {
             onClick={() => setShowHowTo(true)}
             style={{
               background: 'none',
-              border: '1px solid #333',
-              color: '#666',
+              border: '1px solid #444',
+              color: '#aaa',
               fontSize: '10px',
               letterSpacing: '2px',
               textTransform: 'uppercase',
@@ -149,15 +149,15 @@ export default function App() {
               fontFamily: "'Space Grotesk', sans-serif",
               transition: 'border-color 0.2s, color 0.2s',
             }}
-            onMouseEnter={e => { e.target.style.borderColor = '#555'; e.target.style.color = '#aaa'; }}
-            onMouseLeave={e => { e.target.style.borderColor = '#333'; e.target.style.color = '#666'; }}
+            onMouseEnter={e => { e.target.style.borderColor = '#888'; e.target.style.color = '#fff'; }}
+            onMouseLeave={e => { e.target.style.borderColor = '#444'; e.target.style.color = '#aaa'; }}
           >How to Use</button>
           <button
             onClick={() => setShowAbout(true)}
             style={{
               background: 'none',
-              border: '1px solid #333',
-              color: '#666',
+              border: '1px solid #444',
+              color: '#aaa',
               fontSize: '10px',
               letterSpacing: '2px',
               textTransform: 'uppercase',
@@ -166,8 +166,8 @@ export default function App() {
               fontFamily: "'Space Grotesk', sans-serif",
               transition: 'border-color 0.2s, color 0.2s',
             }}
-            onMouseEnter={e => { e.target.style.borderColor = '#555'; e.target.style.color = '#aaa'; }}
-            onMouseLeave={e => { e.target.style.borderColor = '#333'; e.target.style.color = '#666'; }}
+            onMouseEnter={e => { e.target.style.borderColor = '#888'; e.target.style.color = '#fff'; }}
+            onMouseLeave={e => { e.target.style.borderColor = '#444'; e.target.style.color = '#aaa'; }}
           >About</button>
           <div style={{ width: '1px', height: '32px', background: '#222' }} />
           <div
@@ -183,19 +183,19 @@ export default function App() {
           </div>
           <div style={{ width: '1px', height: '32px', background: '#222' }} />
           <div style={{ textAlign: 'right' }}>
-            <div style={{ color: '#555', fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '2px' }}>TSLA Live</div>
-            <div style={{ color: marketOpen ? '#00aaff' : '#444', fontWeight: 700, fontSize: '18px' }}>
+            <div style={{ color: '#999', fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '2px' }}>TSLA Live</div>
+            <div style={{ color: marketOpen ? '#00aaff' : '#666', fontWeight: 700, fontSize: '18px' }}>
               {tslaPrice ? `$${tslaPrice.toFixed(2)}` : '—'}
             </div>
-            <div style={{ color: '#555', fontSize: '9px', marginTop: '2px' }}>
+            <div style={{ color: '#888', fontSize: '9px', marginTop: '2px' }}>
               {marketOpen ? (lastUpdated ? formatTime(lastUpdated) : '—') : 'Market Closed'}
             </div>
           </div>
           <div style={{ width: '1px', height: '32px', background: '#222' }} />
           <div style={{ textAlign: 'right' }}>
-            <div style={{ color: '#555', fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '2px' }}>Catalyst Data</div>
-            <div style={{ color: '#666', fontWeight: 500, fontSize: '13px' }}>Daily</div>
-            <div style={{ color: '#333', fontSize: '9px', marginTop: '2px' }}>Updated 10am ET</div>
+            <div style={{ color: '#999', fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '2px' }}>Catalyst Data</div>
+            <div style={{ color: '#bbb', fontWeight: 500, fontSize: '13px' }}>Daily</div>
+            <div style={{ color: '#777', fontSize: '9px', marginTop: '2px' }}>Updated 10am ET</div>
           </div>
         </div>
       </header>
