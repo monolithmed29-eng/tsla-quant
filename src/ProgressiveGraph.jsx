@@ -172,8 +172,9 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
       .force('collision', d3.forceCollide(n => getR(n) + (n.isMaster ? 70 : 48)))
       .force('boundX',    d3.forceX(W / 2).strength(0.06))
       .force('boundY',    d3.forceY(H / 2).strength(0.06))
-      .alpha(0.9)
-      .alphaDecay(0.0035);
+      .alpha(0.6)
+      .alphaDecay(0.002)
+      .velocityDecay(0.7);
   }, [catalysts, links]);
 
   // ── Initial mount ─────────────────────────────────────────────────────────
