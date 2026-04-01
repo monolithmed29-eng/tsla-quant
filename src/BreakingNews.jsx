@@ -154,9 +154,9 @@ export default function BreakingNews() {
         userSelect: 'none',
       }}>
         <span style={{
-          width: '6px', height: '6px', borderRadius: '50%',
+          width: '8px', height: '8px', borderRadius: '50%',
           background: '#ff3333',
-          boxShadow: '0 0 6px 2px #ff3333',
+          boxShadow: '0 0 12px 5px #ff3333, 0 0 24px 8px #ff333366',
           display: 'inline-block',
           flexShrink: 0,
         }} />
