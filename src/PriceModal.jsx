@@ -81,36 +81,36 @@ export default function PriceModal({ breakdown, total, livePrice, onClose }) {
         {/* Close */}
         <button onClick={onClose} style={{
           position: 'absolute', top: '16px', right: '20px',
-          background: 'none', border: 'none', color: '#444', fontSize: '20px',
+          background: 'none', border: 'none', color: '#888', fontSize: '20px',
           cursor: 'pointer', fontFamily: "'Space Grotesk', sans-serif", lineHeight: 1,
         }}
           onMouseEnter={e => e.target.style.color = '#aaa'}
-          onMouseLeave={e => e.target.style.color = '#444'}
+          onMouseLeave={e => e.target.style.color = '#888'}
         >✕</button>
 
         {/* Header */}
         <div style={{ marginBottom: '32px' }}>
-          <div style={{ fontSize: '9px', letterSpacing: '4px', color: '#444', textTransform: 'uppercase', marginBottom: '10px' }}>
+          <div style={{ fontSize: '9px', letterSpacing: '4px', color: '#aaa', textTransform: 'uppercase', marginBottom: '10px' }}>
             Sum-of-Parts Valuation · Cern Basher / InvestAnswers Framework
           </div>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: '20px', flexWrap: 'wrap' }}>
             <div>
-              <span style={{ fontSize: '11px', color: '#555', letterSpacing: '2px', textTransform: 'uppercase' }}>Quant Model</span>
+              <span style={{ fontSize: '11px', color: '#bbb', letterSpacing: '2px', textTransform: 'uppercase' }}>Quant Model</span>
               <div style={{ fontSize: '48px', fontWeight: 700, color: '#00ff88', letterSpacing: '-1px', lineHeight: 1.1 }}>
                 ${total}
               </div>
             </div>
             {livePrice && (
               <>
-                <div style={{ color: '#222', fontSize: '28px', alignSelf: 'center' }}>vs</div>
+                <div style={{ color: '#666', fontSize: '28px', alignSelf: 'center' }}>vs</div>
                 <div>
-                  <span style={{ fontSize: '11px', color: '#555', letterSpacing: '2px', textTransform: 'uppercase' }}>TSLA Live</span>
+                  <span style={{ fontSize: '11px', color: '#bbb', letterSpacing: '2px', textTransform: 'uppercase' }}>TSLA Live</span>
                   <div style={{ fontSize: '48px', fontWeight: 700, color: '#00aaff', letterSpacing: '-1px', lineHeight: 1.1 }}>
                     ${livePrice.toFixed(0)}
                   </div>
                 </div>
                 <div style={{ alignSelf: 'center', marginLeft: '4px' }}>
-                  <div style={{ fontSize: '11px', color: '#555', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '4px' }}>Implied Upside</div>
+                  <div style={{ fontSize: '11px', color: '#bbb', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '4px' }}>Implied Upside</div>
                   <div style={{ fontSize: '28px', fontWeight: 700, color: total > livePrice ? '#00ff88' : '#ff4444' }}>
                     {total > livePrice ? '+' : ''}{(((total - livePrice) / livePrice) * 100).toFixed(0)}%
                   </div>
@@ -118,7 +118,7 @@ export default function PriceModal({ breakdown, total, livePrice, onClose }) {
               </>
             )}
           </div>
-          <p style={{ fontSize: '13px', color: '#555', lineHeight: 1.7, marginTop: '14px', maxWidth: '640px' }}>
+          <p style={{ fontSize: '13px', color: '#aaa', lineHeight: 1.7, marginTop: '14px', maxWidth: '640px' }}>
             Each business unit is valued independently using bear / base / bull scenarios. The current model price is dynamically interpolated from live catalyst confidence scores — as milestones are achieved, the price target updates in real time.
           </p>
         </div>
@@ -145,7 +145,7 @@ export default function PriceModal({ breakdown, total, livePrice, onClose }) {
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px', flexWrap: 'wrap', gap: '8px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <span style={{ fontSize: '18px' }}>{desc?.icon}</span>
-                    <span style={{ fontSize: '13px', fontWeight: 600, color: '#ccc', letterSpacing: '0.5px' }}>{unit.label}</span>
+                    <span style={{ fontSize: '13px', fontWeight: 600, color: '#fff', letterSpacing: '0.5px' }}>{unit.label}</span>
                     <span style={{
                       fontSize: '9px', letterSpacing: '1.5px', color: color,
                       textTransform: 'uppercase', border: `1px solid ${color}44`,
@@ -156,7 +156,7 @@ export default function PriceModal({ breakdown, total, livePrice, onClose }) {
                   </div>
                   <div style={{ textAlign: 'right' }}>
                     <span style={{ fontSize: '26px', fontWeight: 700, color: color }}>${unit.value}</span>
-                    <span style={{ fontSize: '11px', color: '#444', marginLeft: '6px' }}>/share</span>
+                    <span style={{ fontSize: '11px', color: '#999', marginLeft: '6px' }}>/share</span>
                   </div>
                 </div>
 
@@ -181,7 +181,7 @@ export default function PriceModal({ breakdown, total, livePrice, onClose }) {
                     }} />
                   </div>
                   {/* Labels */}
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '9px', color: '#333', letterSpacing: '1px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '9px', color: '#888', letterSpacing: '1px' }}>
                     <span>Bear ${unit.bear}</span>
                     <span>Base ${unit.base}</span>
                     <span>Bull ${unit.bull}</span>
@@ -190,7 +190,7 @@ export default function PriceModal({ breakdown, total, livePrice, onClose }) {
 
                 {/* Summary text */}
                 {desc && (
-                  <p style={{ fontSize: '12px', color: '#666', lineHeight: 1.7, margin: '0 0 14px 0' }}>
+                  <p style={{ fontSize: '12px', color: '#bbb', lineHeight: 1.7, margin: '0 0 14px 0' }}>
                     {desc.summary(unit.value, unit.score)}
                   </p>
                 )}
@@ -200,8 +200,8 @@ export default function PriceModal({ breakdown, total, livePrice, onClose }) {
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                     {desc.drivers.map(d => (
                       <span key={d} style={{
-                        fontSize: '9px', letterSpacing: '1px', color: '#444',
-                        border: '1px solid #1e1e1e', padding: '3px 8px',
+                        fontSize: '9px', letterSpacing: '1px', color: '#999',
+                        border: '1px solid #333', padding: '3px 8px',
                         textTransform: 'uppercase',
                       }}>{d}</span>
                     ))}
@@ -214,17 +214,17 @@ export default function PriceModal({ breakdown, total, livePrice, onClose }) {
 
         {/* Footer */}
         <div style={{ marginTop: '32px', paddingTop: '20px', borderTop: '1px solid #111', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
-          <div style={{ fontSize: '10px', color: '#333', letterSpacing: '1px', lineHeight: 1.7 }}>
+          <div style={{ fontSize: '10px', color: '#999', letterSpacing: '1px', lineHeight: 1.7 }}>
             Model informed by Cern Basher (@CernBasher) · InvestAnswers (James Douma) · Morgan Stanley · BofA SOTP<br />
             Not investment advice. Probability-weighted scenarios — not predictions.
           </div>
           <button onClick={onClose} style={{
-            background: 'none', border: '1px solid #222', color: '#444',
+            background: 'none', border: '1px solid #222', color: '#999',
             fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase',
             padding: '7px 18px', cursor: 'pointer', fontFamily: "'Space Grotesk', sans-serif",
           }}
-            onMouseEnter={e => { e.target.style.borderColor = '#444'; e.target.style.color = '#888'; }}
-            onMouseLeave={e => { e.target.style.borderColor = '#222'; e.target.style.color = '#444'; }}
+            onMouseEnter={e => { e.target.style.borderColor = '#888'; e.target.style.color = '#fff'; }}
+            onMouseLeave={e => { e.target.style.borderColor = '#555'; e.target.style.color = '#aaa'; }}
           >Close</button>
         </div>
       </div>
