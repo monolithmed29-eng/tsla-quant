@@ -28,7 +28,7 @@ export default function BreakingNews() {
     <div
       style={{
         position: 'fixed',
-        right: 0,
+        left: 0,
         top: '50%',
         transform: 'translateY(-50%)',
         zIndex: 300,
@@ -44,7 +44,7 @@ export default function BreakingNews() {
         overflow: 'hidden',
         transition: 'width 0.3s ease',
         background: 'rgba(5,5,5,0.97)',
-        borderLeft: '1px solid #1a1a1a',
+        borderRight: '1px solid #1a1a1a',
         borderTop: '1px solid #1a1a1a',
         borderBottom: '1px solid #1a1a1a',
         backdropFilter: 'blur(8px)',
@@ -90,7 +90,7 @@ export default function BreakingNews() {
                     <span style={{ fontSize: '9px', color: color, letterSpacing: '1.5px', textTransform: 'uppercase', fontFamily: "'Space Grotesk', sans-serif" }}>
                       {label}
                     </span>
-                    <span style={{ fontSize: '9px', color: '#333', marginLeft: 'auto', fontFamily: "'Space Grotesk', sans-serif" }}>
+                    <span style={{ fontSize: '9px', color: '#666', marginLeft: 'auto', fontFamily: "'Space Grotesk', sans-serif" }}>
                       {item.timestamp}
                     </span>
                   </div>
@@ -103,20 +103,20 @@ export default function BreakingNews() {
                       rel="noopener noreferrer"
                       style={{
                         fontSize: '12px',
-                        color: '#bbb',
+                        color: '#ddd',
                         lineHeight: 1.5,
                         textDecoration: 'none',
                         fontFamily: "'Space Grotesk', sans-serif",
                         display: 'block',
                       }}
                       onMouseEnter={e => e.target.style.color = '#fff'}
-                      onMouseLeave={e => e.target.style.color = '#bbb'}
+                      onMouseLeave={e => e.target.style.color = '#ddd'}
                     >
                       {item.headline}
                     </a>
                   ) : (
                     <p style={{
-                      fontSize: '12px', color: '#bbb', lineHeight: 1.5,
+                      fontSize: '12px', color: '#ddd', lineHeight: 1.5,
                       margin: 0, fontFamily: "'Space Grotesk', sans-serif",
                     }}>
                       {item.headline}
@@ -145,7 +145,7 @@ export default function BreakingNews() {
         textOrientation: 'mixed',
         background: 'rgba(5,5,5,0.95)',
         border: '1px solid #1a1a1a',
-        borderRight: 'none',
+        borderLeft: 'none',
         padding: '16px 8px',
         cursor: 'pointer',
         display: 'flex',

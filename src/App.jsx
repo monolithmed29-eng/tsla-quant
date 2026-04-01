@@ -268,6 +268,11 @@ export default function App() {
                   heading: 'Quant Model Price',
                   body: 'The green price target in the header is a sum-of-parts valuation model. It is recalculated dynamically from the current likelihood scores of all 34 catalysts across 6 business units: Auto, Energy, Robotaxi, Optimus, FSD Software, and AI Infrastructure. Updated daily at 10am ET.',
                 },
+                {
+                  icon: '📰',
+                  heading: 'Breaking News Tab',
+                  body: 'Hover over the "Breaking News" tab on the left edge of the screen to see the latest Tesla developments. Each story is tagged with a color-coded category dot matching the neural network. The feed is automatically refreshed 3× daily (8am, 1pm, 6pm ET) from Tesla IR and Tesla\'s X account.',
+                },
               ].map(({ icon, heading, body }) => (
                 <div key={heading} style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
                   <div style={{ fontSize: '18px', flexShrink: 0, marginTop: '1px' }}>{icon}</div>
