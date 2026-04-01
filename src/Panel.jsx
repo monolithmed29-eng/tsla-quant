@@ -1,12 +1,32 @@
 import { calcPriceImpact } from './priceModel';
 import { catalysts } from './data';
 
-function getLuminescenceColor(likelihood) {
-  if (likelihood >= 0.9) return 'rgba(255,255,255,1.0)';
-  if (likelihood >= 0.7) return 'rgba(220,235,255,0.95)';
-  if (likelihood >= 0.5) return 'rgba(180,200,230,0.85)';
-  if (likelihood >= 0.3) return 'rgba(130,150,190,0.70)';
-  return 'rgba(80,100,140,0.55)';
+const CATEGORY_COLORS = {
+  autonomy:      { h: 210, sat: 100 },
+  robotics:      { h: 200, sat: 30  },
+  financials:    { h: 142, sat: 70  },
+  product:       { h: 270, sat: 80  },
+  manufacturing: { h: 35,  sat: 90  },
+  energy:        { h: 15,  sat: 100 },
+  corporate:     { h: 55,  sat: 80  },
+};
+
+function hslToRgb(h, s, l) {
+  s /= 100; l /= 100;
+  const a = s * Math.min(l, 1 - l);
+  const f = n => {
+    const k = (n + h / 30) % 12;
+    return l - a * Math.max(-1, Math.min(k - 3, 9 - k, 1));
+  };
+  return [Math.round(f(0)*255), Math.round(f(8)*255), Math.round(f(4)*255)];
+}
+
+function getLuminescenceColor(likelihood, category) {
+  const cat = CATEGORY_COLORS[category] || { h: 210, sat: 60 };
+  const lightness = likelihood >= 0.9 ? 92 : likelihood >= 0.7 ? 80 : likelihood >= 0.5 ? 65 : likelihood >= 0.3 ? 45 : 28;
+  const alpha = likelihood >= 0.9 ? 1.0 : likelihood >= 0.7 ? 0.95 : likelihood >= 0.5 ? 0.85 : likelihood >= 0.3 ? 0.70 : 0.55;
+  const [r, g, b] = hslToRgb(cat.h, cat.sat, lightness);
+  return `rgba(${r},${g},${b},${alpha})`;
 }
 
 const CATEGORY_LABELS = {
@@ -22,7 +42,7 @@ const CATEGORY_LABELS = {
 export default function Panel({ node, onClose }) {
   if (!node) return null;
 
-  const statusColor = getLuminescenceColor(node.likelihood);
+  const statusColor = getLuminescenceColor(node.likelihood, node.category);
   const catColor = 'rgba(160,185,220,0.85)';
   const priceImpact = calcPriceImpact(node, catalysts);
 
