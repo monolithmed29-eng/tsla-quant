@@ -172,9 +172,9 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
       .force('collision', d3.forceCollide(n => getR(n) + (n.isMaster ? 70 : 48)))
       .force('boundX',    d3.forceX(W / 2).strength(0.06))
       .force('boundY',    d3.forceY(H / 2).strength(0.06))
-      .alpha(0.6)
-      .alphaDecay(0.002)
-      .velocityDecay(0.7);
+      .alpha(0.4)
+      .alphaDecay(0.001)
+      .velocityDecay(0.88);
   }, [catalysts, links]);
 
   // ── Initial mount ─────────────────────────────────────────────────────────
@@ -224,13 +224,11 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
         const curveOffset = dist * 0.22 * (li % 2 === 0 ? 1 : -1);
         const cpx = mx + perpX * curveOffset, cpy = my + perpY * curveOffset;
 
-        const isMasterLink = src.isMaster || tgt.isMaster;
-
         ctx.beginPath();
         ctx.moveTo(src.x, src.y);
         ctx.quadraticCurveTo(cpx, cpy, tgt.x, tgt.y);
-        ctx.strokeStyle = isMasterLink ? 'rgba(255,255,255,0.18)' : 'rgba(255,255,255,0.11)';
-        ctx.lineWidth   = isMasterLink ? 1.4 : 1.0;
+        ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+        ctx.lineWidth   = 1.2;
         ctx.stroke();
 
         // Electron
@@ -238,7 +236,7 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
         const ex = (1-te)*(1-te)*src.x + 2*(1-te)*te*cpx + te*te*tgt.x;
         const ey = (1-te)*(1-te)*src.y + 2*(1-te)*te*cpy + te*te*tgt.y;
         ctx.beginPath();
-        ctx.arc(ex, ey, isMasterLink ? 2.5 : 1.8, 0, Math.PI * 2);
+        ctx.arc(ex, ey, 2, 0, Math.PI * 2);
         ctx.fillStyle = 'rgba(255,255,255,0.65)';
         ctx.fill();
       });
