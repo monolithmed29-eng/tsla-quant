@@ -10,51 +10,19 @@ function getNodeRadius(weight) {
   return MIN_R + t * (MAX_R - MIN_R);
 }
 
-// Category color palette
-const CATEGORY_COLORS = {
-  autonomy:      { h: '210', sat: '100%' }, // electric blue
-  robotics:      { h: '200', sat: '30%'  }, // silver/steel
-  financials:    { h: '142', sat: '70%'  }, // green
-  product:       { h: '270', sat: '80%'  }, // purple
-  manufacturing: { h: '35',  sat: '90%'  }, // amber/orange
-  energy:        { h: '15',  sat: '100%' }, // fiery red-orange
-  corporate:     { h: '55',  sat: '80%'  }, // gold/yellow
-};
-
-// Returns { core, outerGlow } blended from category color + likelihood brightness
-function getLuminescence(likelihood, category) {
-  const cat = CATEGORY_COLORS[category] || { h: '210', sat: '60%' };
-  const { h, sat } = cat;
-
-  // Brightness scales with likelihood
-  let lightness, alpha, glowAlpha;
+// Returns { core, outerGlow } rgba strings based on likelihood
+function getLuminescence(likelihood) {
   if (likelihood >= 0.9) {
-    lightness = '92%'; alpha = 1.0; glowAlpha = 0.30;
+    return { core: 'rgba(255,255,255,1.0)', outerGlow: 'rgba(255,255,255,0.25)' };
   } else if (likelihood >= 0.7) {
-    lightness = '80%'; alpha = 0.95; glowAlpha = 0.22;
+    return { core: 'rgba(220,235,255,0.95)', outerGlow: 'rgba(200,220,255,0.18)' };
   } else if (likelihood >= 0.5) {
-    lightness = '65%'; alpha = 0.85; glowAlpha = 0.15;
+    return { core: 'rgba(180,200,230,0.85)', outerGlow: 'rgba(160,185,220,0.13)' };
   } else if (likelihood >= 0.3) {
-    lightness = '45%'; alpha = 0.70; glowAlpha = 0.10;
+    return { core: 'rgba(130,150,190,0.70)', outerGlow: 'rgba(120,140,180,0.09)' };
   } else {
-    lightness = '28%'; alpha = 0.55; glowAlpha = 0.06;
+    return { core: 'rgba(80,100,140,0.55)', outerGlow: 'rgba(70,90,130,0.06)' };
   }
-
-  // Parse hsl → rgb helper for canvas
-  const hslToRgb = (h, s, l) => {
-    h = parseFloat(h); s = parseFloat(s) / 100; l = parseFloat(l) / 100;
-    const a = s * Math.min(l, 1 - l);
-    const f = n => {
-      const k = (n + h / 30) % 12;
-      return l - a * Math.max(-1, Math.min(k - 3, 9 - k, 1));
-    };
-    return [Math.round(f(0)*255), Math.round(f(8)*255), Math.round(f(4)*255)];
-  };
-
-  const [r, g, b] = hslToRgb(h, sat, lightness);
-  const core = `rgba(${r},${g},${b},${alpha})`;
-  const glow = `rgba(${r},${g},${b},${glowAlpha})`;
-  return { core, outerGlow: glow };
 }
 
 export default function Graph({ nodes, links, onNodeClick }) {
@@ -150,7 +118,7 @@ export default function Graph({ nodes, links, onNodeClick }) {
       nodesRef.current.forEach((node, nodeIndex) => {
         if (!node.x) return;
         const r = getNodeRadius(node.weight);
-        const { core, outerGlow } = getLuminescence(node.likelihood, node.category);
+        const { core, outerGlow } = getLuminescence(node.likelihood);
 
         // Per-node independent breathing pulse
         const firePulse = Math.sin(now * 0.002 + nodeIndex * 0.7) * 0.3 + 0.7;

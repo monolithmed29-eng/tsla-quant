@@ -439,27 +439,21 @@ export default function App() {
         alignItems: 'center',
         transition: 'right 0.3s ease',
       }}>
-        {/* Category legend */}
-        <div style={{ display: 'flex', gap: '14px', alignItems: 'center', flexWrap: 'wrap' }}>
-          <span style={{ fontSize: '9px', color: '#444', letterSpacing: '2px', textTransform: 'uppercase' }}>Category</span>
-          {[
-            { label: 'Autonomy',      color: 'hsl(210,100%,60%)' },
-            { label: 'Robotics',      color: 'hsl(200,30%,65%)'  },
-            { label: 'Financials',    color: 'hsl(142,70%,55%)'  },
-            { label: 'Product',       color: 'hsl(270,80%,70%)'  },
-            { label: 'Manufacturing', color: 'hsl(35,90%,60%)'   },
-            { label: 'Energy',        color: 'hsl(15,100%,60%)'  },
-            { label: 'Corporate',     color: 'hsl(55,80%,60%)'   },
-          ].map(cat => (
-            <div key={cat.label} style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+        {/* Luminescence legend */}
+        <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+          <span style={{ fontSize: '9px', color: '#444', letterSpacing: '2px', textTransform: 'uppercase' }}>Likelihood</span>
+          {luminescenceLevels.map(lv => (
+            <div key={lv.label} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
               <div style={{
-                width: '8px', height: '8px', borderRadius: '50%',
-                background: cat.color,
-                boxShadow: `0 0 5px ${cat.color}`,
+                width: '9px', height: '9px',
+                borderRadius: '50%',
+                background: lv.color,
+                boxShadow: `0 0 6px ${lv.glow}`,
               }} />
-              <span style={{ fontSize: '10px', color: '#666' }}>{cat.label}</span>
+              <span style={{ fontSize: '10px', color: '#888' }}>{lv.label}</span>
             </div>
           ))}
+          <span style={{ fontSize: '10px', color: '#555', marginLeft: '4px' }}>→ Bright (high likelihood)</span>
         </div>
 
         <div style={{ marginLeft: 'auto', display: 'flex', gap: '20px', alignItems: 'center' }}>
