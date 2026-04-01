@@ -3,6 +3,27 @@
 
 export const breakingNews = [
   {
+    headline: "Tesla/xAI 'Digital Optimus' (Macrohard) revealed — Grok LLM paired with Tesla AI agent for agentic task execution; joint xAI-Tesla investment project",
+    category: "robotics",
+    source: "CNBC / Teslarati / Musk on X",
+    timestamp: "Mar 11, 2026",
+    url: "https://www.cnbc.com/2026/03/11/musk-unveils-joint-tesla-xai-project-macrohard.html",
+  },
+  {
+    headline: "Terafab announced — $20–25B joint Tesla/SpaceX chip fab targeting 1 terawatt AI compute/yr; AI5 chips for vehicles + Optimus, D3 for orbital satellites",
+    category: "robotics",
+    source: "Business Insider / Electrek",
+    timestamp: "Mar 21, 2026",
+    url: "https://www.businessinsider.com/elon-musk-terafab-details-spacex-tesla-ai-satellites-terawatt-2026-3",
+  },
+  {
+    headline: "Cortex 2.0 supercomputer confirmed at Giga Texas — first 250MW phase activates April 2026, full 500MW by mid-2026; 5x original Cortex cluster",
+    category: "robotics",
+    source: "@JoeTegtmeyer / Not a Tesla App",
+    timestamp: "Mar 7, 2026",
+    url: "https://www.basenor.com/blogs/news/tesla-cortex-2-0-powers-up-in-april-what-it-means-for-optimus",
+  },
+  {
     headline: "FSD v14.3 hits employee testing — Musk says wide public release expected 'this week'",
     category: "autonomy",
     source: "TeslaNorth",
