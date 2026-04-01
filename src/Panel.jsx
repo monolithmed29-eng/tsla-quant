@@ -9,6 +9,16 @@ function getLuminescenceColor(likelihood) {
   return 'rgba(80,100,140,0.55)';
 }
 
+const CATEGORY_COLORS = {
+  autonomy:      'hsl(210,100%,60%)',
+  robotics:      'hsl(200,30%,65%)',
+  financials:    'hsl(142,70%,55%)',
+  product:       'hsl(270,80%,70%)',
+  manufacturing: 'hsl(35,90%,60%)',
+  energy:        'hsl(15,100%,60%)',
+  corporate:     'hsl(55,80%,60%)',
+};
+
 const CATEGORY_LABELS = {
   autonomy: 'Autonomy',
   robotics: 'Robotics / AI',
@@ -92,7 +102,9 @@ export default function Panel({ node, onClose }) {
       }}>
         <span style={{
           width: '8px', height: '8px', borderRadius: '50%',
-          background: catColor, display: 'inline-block',
+          background: CATEGORY_COLORS[node.category] || catColor,
+          boxShadow: `0 0 5px ${CATEGORY_COLORS[node.category] || catColor}`,
+          display: 'inline-block', flexShrink: 0,
         }} />
         {CATEGORY_LABELS[node.category] || node.category}
       </div>
