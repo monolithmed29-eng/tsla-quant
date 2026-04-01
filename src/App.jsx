@@ -3,6 +3,7 @@ import Graph from './Graph';
 import Panel from './Panel';
 import BreakingNews from './BreakingNews';
 import PriceModal from './PriceModal';
+import SimpleView from './SimpleView';
 import { catalysts, links } from './data';
 import { calcPredictedPrice, calcPriceBreakdown } from './priceModel';
 import { useTSLAPrice } from './useTSLAPrice';
@@ -55,6 +56,7 @@ export default function App() {
   const [showHowTo, setShowHowTo] = useState(false);
   const [showDisclaimer, setShowDisclaimer] = useState(false);
   const [showPriceModal, setShowPriceModal] = useState(false);
+  const [simpleView, setSimpleView] = useState(true);
   const { price: tslaPrice, lastUpdated, marketOpen } = useTSLAPrice();
 
   const luminescenceLevels = [
@@ -135,6 +137,31 @@ export default function App() {
           display: 'flex', gap: '32px', alignItems: 'center',
           fontSize: '13px',
         }}>
+          {/* View toggle */}
+          <button
+            onClick={() => setSimpleView(v => !v)}
+            style={{
+              background: simpleView ? 'rgba(0,255,136,0.12)' : 'none',
+              border: `1px solid ${simpleView ? '#00ff88' : '#444'}`,
+              color: simpleView ? '#00ff88' : '#aaa',
+              fontSize: '10px',
+              letterSpacing: '2px',
+              textTransform: 'uppercase',
+              padding: '5px 14px',
+              cursor: 'pointer',
+              fontFamily: "'Space Grotesk', sans-serif",
+              transition: 'all 0.25s ease',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '7px',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = '#00ff88'; e.currentTarget.style.color = '#00ff88'; }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = simpleView ? '#00ff88' : '#444'; e.currentTarget.style.color = simpleView ? '#00ff88' : '#aaa'; }}
+          >
+            <span style={{ fontSize: '12px' }}>{simpleView ? '◉' : '⬡'}</span>
+            {simpleView ? 'Overview' : 'Full Network'}
+          </button>
+          <div style={{ width: '1px', height: '32px', background: '#222' }} />
           <button
             onClick={() => setShowHowTo(true)}
             style={{
@@ -200,7 +227,7 @@ export default function App() {
         </div>
       </header>
 
-      {/* Graph canvas area — always full width, panel overlays on top */}
+      {/* Graph / Simple view area */}
       <div style={{
         position: 'absolute',
         inset: 0,
@@ -208,11 +235,21 @@ export default function App() {
         paddingBottom: '56px',
         zIndex: 1,
       }}>
-        <Graph
-          nodes={catalysts}
-          links={links}
-          onNodeClick={setSelected}
-        />
+        {simpleView ? (
+          <SimpleView
+            catalysts={catalysts}
+            predicted={PREDICTED}
+            onCategoryClick={(catId) => {
+              setSimpleView(false);
+            }}
+          />
+        ) : (
+          <Graph
+            nodes={catalysts}
+            links={links}
+            onNodeClick={setSelected}
+          />
+        )}
       </div>
 
       {/* Detail Panel */}
