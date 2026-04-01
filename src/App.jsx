@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import Graph from './Graph';
 import Panel from './Panel';
 import BreakingNews from './BreakingNews';
+import PriceModal from './PriceModal';
 import { catalysts, links } from './data';
 import { calcPredictedPrice, calcPriceBreakdown } from './priceModel';
 import { useTSLAPrice } from './useTSLAPrice';
@@ -53,6 +54,7 @@ export default function App() {
   const [showAbout, setShowAbout] = useState(false);
   const [showHowTo, setShowHowTo] = useState(false);
   const [showDisclaimer, setShowDisclaimer] = useState(false);
+  const [showPriceModal, setShowPriceModal] = useState(false);
   const { price: tslaPrice, lastUpdated, marketOpen } = useTSLAPrice();
 
   const luminescenceLevels = [
@@ -168,9 +170,16 @@ export default function App() {
             onMouseLeave={e => { e.target.style.borderColor = '#333'; e.target.style.color = '#666'; }}
           >About</button>
           <div style={{ width: '1px', height: '32px', background: '#222' }} />
-          <div style={{ textAlign: 'right' }}>
-            <div style={{ color: '#555', fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '2px' }}>Quant Model</div>
-            <div style={{ color: '#00ff88', fontWeight: 700, fontSize: '18px' }}>${PREDICTED.toFixed(0)}</div>
+          <div
+            style={{ textAlign: 'right', cursor: 'pointer' }}
+            onClick={() => setShowPriceModal(true)}
+            title="Click to see full SOTP breakdown"
+          >
+            <div style={{ color: '#555', fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '2px' }}>Quant Model ↗</div>
+            <div style={{
+              color: '#00ff88', fontWeight: 700, fontSize: '18px',
+              textDecoration: 'underline', textUnderlineOffset: '3px', textDecorationColor: '#00ff8844',
+            }}>${PREDICTED.toFixed(0)}</div>
           </div>
           <div style={{ width: '1px', height: '32px', background: '#222' }} />
           <div style={{ textAlign: 'right' }}>
@@ -432,6 +441,16 @@ export default function App() {
             >Close</button>
           </div>
         </div>
+      )}
+
+      {/* Price Breakdown Modal */}
+      {showPriceModal && (
+        <PriceModal
+          breakdown={BREAKDOWN}
+          total={PREDICTED}
+          livePrice={tslaPrice}
+          onClose={() => setShowPriceModal(false)}
+        />
       )}
 
       {/* Bottom Legend */}
