@@ -49,8 +49,9 @@ export const catalysts = [
     status: "in_progress",
     expected: "Q3 2026",
     likelihood: 0.65,
-    updated: "Mar 31, 2026",
+    updated: "Apr 1, 2026",
     description: [
+      "FSD v14.3 entered Tesla employee beta Apr 1, 2026 — wide release expected end of week",
       "Austin: unsupervised pilot active — 11.1% of rides fully driverless (last 7 days)",
       "Bay Area: 438 vehicles deployed but supervised-only — awaiting CA regulatory approval",
       "FSD v14.2.2.5 rolling out via OTA as of March 2026",
@@ -166,10 +167,10 @@ export const catalysts = [
     status: "in_progress",
     expected: "Q3 2026",
     likelihood: 0.55,
-    updated: "Mar 23, 2026",
+    updated: "Apr 1, 2026",
     description: [
       "Musk shared major Optimus Gen 3 production update — scaling confirmed beyond first line",
-      "Tesla ending Model S/X production to free factory floor space for Optimus",
+      "Model S and Model X production officially ends Q2 2026 (started Apr 1) — factory space freed for Optimus",
       "Optimus 4 targeted for Gigafactory Texas at higher volumes (2026–2027)",
       "Currently ~1,000 units/yr internal deployment pace — target is 10K+ by end 2026",
       "Musk long-term thesis: Optimus becomes 80% of Tesla's total value",
