@@ -1,9 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
-import Graph from './Graph';
 import Panel from './Panel';
 import BreakingNews from './BreakingNews';
 import PriceModal from './PriceModal';
-import SimpleView from './SimpleView';
+import ProgressiveGraph from './ProgressiveGraph';
 import { catalysts, links } from './data';
 import { calcPredictedPrice, calcPriceBreakdown } from './priceModel';
 import { useTSLAPrice } from './useTSLAPrice';
@@ -56,7 +55,7 @@ export default function App() {
   const [showHowTo, setShowHowTo] = useState(false);
   const [showDisclaimer, setShowDisclaimer] = useState(false);
   const [showPriceModal, setShowPriceModal] = useState(false);
-  const [simpleView, setSimpleView] = useState(true);
+  const [expandAll, setExpandAll] = useState(false);
   const { price: tslaPrice, lastUpdated, marketOpen } = useTSLAPrice();
 
   const luminescenceLevels = [
@@ -139,11 +138,11 @@ export default function App() {
         }}>
           {/* View toggle */}
           <button
-            onClick={() => setSimpleView(v => !v)}
+            onClick={() => setExpandAll(v => !v)}
             style={{
-              background: simpleView ? 'rgba(0,255,136,0.12)' : 'none',
-              border: `1px solid ${simpleView ? '#00ff88' : '#444'}`,
-              color: simpleView ? '#00ff88' : '#aaa',
+              background: expandAll ? 'rgba(0,255,136,0.12)' : 'none',
+              border: `1px solid ${expandAll ? '#00ff88' : '#444'}`,
+              color: expandAll ? '#00ff88' : '#aaa',
               fontSize: '10px',
               letterSpacing: '2px',
               textTransform: 'uppercase',
@@ -156,10 +155,10 @@ export default function App() {
               gap: '7px',
             }}
             onMouseEnter={e => { e.currentTarget.style.borderColor = '#00ff88'; e.currentTarget.style.color = '#00ff88'; }}
-            onMouseLeave={e => { e.currentTarget.style.borderColor = simpleView ? '#00ff88' : '#444'; e.currentTarget.style.color = simpleView ? '#00ff88' : '#aaa'; }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = expandAll ? '#00ff88' : '#444'; e.currentTarget.style.color = expandAll ? '#00ff88' : '#aaa'; }}
           >
-            <span style={{ fontSize: '12px' }}>{simpleView ? '◉' : '⬡'}</span>
-            {simpleView ? 'Overview' : 'Full Network'}
+            <span style={{ fontSize: '12px' }}>{expandAll ? '◉' : '⬡'}</span>
+            {expandAll ? 'Full Network' : 'Overview'}
           </button>
           <div style={{ width: '1px', height: '32px', background: '#222' }} />
           <button
@@ -227,7 +226,7 @@ export default function App() {
         </div>
       </header>
 
-      {/* Graph / Simple view area */}
+      {/* Progressive graph */}
       <div style={{
         position: 'absolute',
         inset: 0,
@@ -235,21 +234,12 @@ export default function App() {
         paddingBottom: '56px',
         zIndex: 1,
       }}>
-        {simpleView ? (
-          <SimpleView
-            catalysts={catalysts}
-            predicted={PREDICTED}
-            onCategoryClick={(catId) => {
-              setSimpleView(false);
-            }}
-          />
-        ) : (
-          <Graph
-            nodes={catalysts}
-            links={links}
-            onNodeClick={setSelected}
-          />
-        )}
+        <ProgressiveGraph
+          catalysts={catalysts}
+          links={links}
+          onNodeClick={setSelected}
+          expandAll={expandAll}
+        />
       </div>
 
       {/* Detail Panel */}
