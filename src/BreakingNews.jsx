@@ -1,6 +1,17 @@
 import { useState } from 'react';
 import { breakingNews } from './newsData';
 
+const glowStyle = `
+  @keyframes redPulse {
+    0%   { box-shadow: 0 0 6px 3px #ff3333, 0 0 14px 6px #ff333388; }
+    50%  { box-shadow: 0 0 16px 8px #ff3333, 0 0 32px 14px #ff3333aa; }
+    100% { box-shadow: 0 0 6px 3px #ff3333, 0 0 14px 6px #ff333388; }
+  }
+  .red-orb {
+    animation: redPulse 1.4s ease-in-out infinite;
+  }
+`;
+
 const CATEGORY_COLORS = {
   autonomy:      'hsl(210,100%,60%)',
   robotics:      'hsl(200,30%,65%)',
@@ -38,6 +49,7 @@ export default function BreakingNews() {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
+      <style>{glowStyle}</style>
       {/* Panel */}
       <div style={{
         width: hovered ? '340px' : '0px',
@@ -141,26 +153,30 @@ export default function BreakingNews() {
 
       {/* Tab */}
       <div style={{
-        writingMode: 'vertical-rl',
-        textOrientation: 'mixed',
         background: 'rgba(5,5,5,0.95)',
         border: '1px solid #1a1a1a',
         borderLeft: 'none',
-        padding: '16px 8px',
+        padding: '16px 10px',
         cursor: 'pointer',
         display: 'flex',
+        flexDirection: 'column',
         alignItems: 'center',
-        gap: '8px',
+        justifyContent: 'center',
+        gap: '10px',
         userSelect: 'none',
+        minWidth: '28px',
       }}>
-        <span style={{
-          width: '8px', height: '8px', borderRadius: '50%',
+        {/* Orb — NOT rotated, sits on its own */}
+        <span className="red-orb" style={{
+          width: '9px', height: '9px', borderRadius: '50%',
           background: '#ff3333',
-          boxShadow: '0 0 12px 5px #ff3333, 0 0 24px 8px #ff333366',
-          display: 'inline-block',
+          display: 'block',
           flexShrink: 0,
         }} />
+        {/* Rotated text */}
         <span style={{
+          writingMode: 'vertical-rl',
+          textOrientation: 'mixed',
           fontSize: '9px', letterSpacing: '3px', color: '#aaa',
           textTransform: 'uppercase', fontFamily: "'Space Grotesk', sans-serif",
         }}>
