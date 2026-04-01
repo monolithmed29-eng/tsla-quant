@@ -56,6 +56,7 @@ export default function App() {
   const [showDisclaimer, setShowDisclaimer] = useState(false);
   const [showPriceModal, setShowPriceModal] = useState(false);
   const [expandAll, setExpandAll] = useState(false);
+  const [graphKey, setGraphKey] = useState(0);
   const { price: tslaPrice, lastUpdated, marketOpen } = useTSLAPrice();
 
   const luminescenceLevels = [
@@ -138,7 +139,11 @@ export default function App() {
         }}>
           {/* View toggle */}
           <button
-            onClick={() => setExpandAll(v => !v)}
+            onClick={() => {
+              const next = !expandAll;
+              setExpandAll(next);
+              if (!next) setGraphKey(k => k + 1); // reset to overview
+            }}
             style={{
               background: expandAll ? 'rgba(0,255,136,0.12)' : 'none',
               border: `1px solid ${expandAll ? '#00ff88' : '#444'}`,
@@ -235,6 +240,7 @@ export default function App() {
         zIndex: 1,
       }}>
         <ProgressiveGraph
+          key={graphKey}
           catalysts={catalysts}
           links={links}
           onNodeClick={setSelected}
