@@ -173,7 +173,7 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
       .force('boundX',    d3.forceX(W / 2).strength(0.06))
       .force('boundY',    d3.forceY(H / 2).strength(0.06))
       .alpha(0.9)
-      .alphaDecay(0.025);
+      .alphaDecay(0.013);
   }, [catalysts, links]);
 
   // ── Initial mount ─────────────────────────────────────────────────────────
