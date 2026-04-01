@@ -103,7 +103,7 @@ export default function Panel({ node, onClose }) {
         <span style={{
           width: '8px', height: '8px', borderRadius: '50%',
           background: CATEGORY_COLORS[node.category] || catColor,
-          boxShadow: `0 0 5px ${CATEGORY_COLORS[node.category] || catColor}`,
+          boxShadow: `0 0 8px 3px ${CATEGORY_COLORS[node.category] || catColor}, 0 0 16px 4px ${CATEGORY_COLORS[node.category] || catColor}`,
           display: 'inline-block', flexShrink: 0,
         }} />
         {CATEGORY_LABELS[node.category] || node.category}
