@@ -90,21 +90,21 @@ export default function App() {
         justifyContent: 'center',
         gap: '16px',
       }}>
-        <span style={{ fontSize: '10px', color: '#444', letterSpacing: '1.5px', textTransform: 'uppercase' }}>
+        <span style={{ fontSize: '10px', color: '#666', letterSpacing: '1.5px', textTransform: 'uppercase' }}>
           Independent TSLA Analysis Platform — Not affiliated with Tesla, Inc.
         </span>
-        <span style={{ color: '#222', fontSize: '10px' }}>·</span>
+        <span style={{ color: '#444', fontSize: '10px' }}>·</span>
         <button
           onClick={() => setShowDisclaimer(true)}
           style={{
             background: 'none', border: 'none', padding: 0,
-            color: '#333', fontSize: '10px', letterSpacing: '1.5px',
+            color: '#555', fontSize: '10px', letterSpacing: '1.5px',
             textTransform: 'uppercase', cursor: 'pointer',
             fontFamily: "'Space Grotesk', sans-serif",
             textDecoration: 'underline', textUnderlineOffset: '3px',
           }}
-          onMouseEnter={e => e.target.style.color = '#666'}
-          onMouseLeave={e => e.target.style.color = '#333'}
+          onMouseEnter={e => e.target.style.color = '#999'}
+          onMouseLeave={e => e.target.style.color = '#555'}
         >Disclaimer</button>
       </div>
 
@@ -122,11 +122,11 @@ export default function App() {
         justifyContent: 'space-between',
       }}>
         <div>
-          <div style={{ fontSize: '11px', letterSpacing: '4px', color: '#555', textTransform: 'uppercase', marginBottom: '2px' }}>
-            CATALYST INTELLIGENCE · 2026
-          </div>
           <div style={{ fontSize: '20px', fontWeight: 700, letterSpacing: '2px', color: '#fff' }}>
             TSLA_QUANT
+          </div>
+          <div style={{ fontSize: '10px', letterSpacing: '3px', color: '#555', textTransform: 'uppercase', marginTop: '3px' }}>
+            v1.1
           </div>
         </div>
         <div style={{
@@ -466,20 +466,17 @@ export default function App() {
         </div>
 
         <div style={{ marginLeft: 'auto', display: 'flex', gap: '20px', alignItems: 'center' }}>
-          <span style={{ fontSize: '10px', color: '#2a2a2a', letterSpacing: '1px' }}>
-            Click nodes to explore · Bear $145 · Bull $1,030
-          </span>
           <button
             onClick={() => setShowDisclaimer(true)}
             style={{
               background: 'none', border: 'none', padding: 0,
-              color: '#2a2a2a', fontSize: '10px', letterSpacing: '1.5px',
+              color: '#555', fontSize: '10px', letterSpacing: '1.5px',
               textTransform: 'uppercase', cursor: 'pointer',
               fontFamily: "'Space Grotesk', sans-serif",
               textDecoration: 'underline', textUnderlineOffset: '3px',
             }}
-            onMouseEnter={e => e.target.style.color = '#555'}
-            onMouseLeave={e => e.target.style.color = '#2a2a2a'}
+            onMouseEnter={e => e.target.style.color = '#999'}
+            onMouseLeave={e => e.target.style.color = '#555'}
           >Disclaimer</button>
         </div>
       </footer>

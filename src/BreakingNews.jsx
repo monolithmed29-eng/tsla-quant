@@ -124,7 +124,7 @@ export default function BreakingNews() {
                   )}
 
                   {/* Source */}
-                  <div style={{ fontSize: '9px', color: '#333', marginTop: '4px', fontFamily: "'Space Grotesk', sans-serif" }}>
+                  <div style={{ fontSize: '9px', color: '#555', marginTop: '4px', fontFamily: "'Space Grotesk', sans-serif" }}>
                     {item.source}
                   </div>
                 </div>
@@ -133,7 +133,7 @@ export default function BreakingNews() {
           </div>
 
           {/* Footer */}
-          <div style={{ marginTop: '16px', paddingTop: '12px', borderTop: '1px solid #111', fontSize: '9px', color: '#2a2a2a', fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '1px' }}>
+          <div style={{ marginTop: '16px', paddingTop: '12px', borderTop: '1px solid #111', fontSize: '9px', color: '#555', fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '1px' }}>
             Updated 3× daily · Tesla IR + X
           </div>
         </div>
@@ -161,7 +161,7 @@ export default function BreakingNews() {
           flexShrink: 0,
         }} />
         <span style={{
-          fontSize: '9px', letterSpacing: '3px', color: '#666',
+          fontSize: '9px', letterSpacing: '3px', color: '#aaa',
           textTransform: 'uppercase', fontFamily: "'Space Grotesk', sans-serif",
         }}>
           Breaking News
