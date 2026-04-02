@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 
 const QUICK_QUERIES = [
   'FSD v14 Impact',
@@ -40,6 +40,11 @@ export default function OracleSearch() {
   const inputRef = useRef(null);
   const loadingIntervalRef = useRef(null);
 
+  // Check for token in URL (returned from Stripe redirect)
+  const urlToken = typeof window !== 'undefined'
+    ? new URLSearchParams(window.location.search).get('oracle_token')
+    : null;
+
   const LOADING_MESSAGES = [
     'Consulting TSLAquant Oracle...',
     'Processing Milestone Correlations...',
@@ -72,11 +77,15 @@ export default function OracleSearch() {
     setPhase('loading');
     cycleLoadingText();
 
+    // Store query in sessionStorage so we can resume after Stripe redirect
+    sessionStorage.setItem('oracle_pending_query', finalQuery);
+
     try {
+      const token = urlToken || sessionStorage.getItem('oracle_token') || '';
       const res = await fetch('/api/oracle', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query: finalQuery }),
+        body: JSON.stringify({ query: finalQuery, token }),
       });
       stopLoading();
 
@@ -89,14 +98,28 @@ export default function OracleSearch() {
       if (data.unlocked && data.result) {
         setResult(data.result);
         setPhase('result');
+        // Cache token for session
+        if (token) sessionStorage.setItem('oracle_token', token);
       } else {
         setPhase('paywall');
       }
     } catch {
       stopLoading();
-      setPhase('paywall'); // fallback to paywall if backend not yet live
+      setPhase('paywall');
     }
   }
+
+  // Auto-resume query if returning from Stripe with token
+  useEffect(() => {
+    if (urlToken) {
+      sessionStorage.setItem('oracle_token', urlToken);
+      const pending = sessionStorage.getItem('oracle_pending_query');
+      if (pending) {
+        setQuery(pending);
+        handleAnalyze(pending);
+      }
+    }
+  }, []);
 
   function handleReset() {
     setPhase('idle');
