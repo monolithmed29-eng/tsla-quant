@@ -121,6 +121,7 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
   const expandedRef = useRef(new Set());
   const [tooltip, setTooltip] = useState(null);
   const [allExpanded, setAllExpanded] = useState(false);
+  const [anyExpanded, setAnyExpanded] = useState(false);
 
   // ── Build + (re)start simulation ──────────────────────────────────────────
   const rebuild = useCallback((expandedSet, prevMap) => {
@@ -376,6 +377,7 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
     if (node.isMaster) {
       const prevMap = new Map(nodesRef.current.map(n => [n.id, { ...n }]));
       expandedRef.current.add(node.category);
+      setAnyExpanded(true);
       rebuild(expandedRef.current, prevMap);
       // If all categories are now expanded, notify parent
       if (expandedRef.current.size >= ALL_CATEGORIES.length) {
@@ -397,7 +399,7 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
       />
 
       {/* Hint — hidden once all nodes expanded */}
-      {!allExpanded && !expandAll && (
+      {!allExpanded && !expandAll && !anyExpanded && (
         <div style={{
           position: 'absolute', bottom: 20, left: '50%', transform: 'translateX(-50%)',
           fontSize: '10px', color: 'rgba(255,255,255,0.9)',
