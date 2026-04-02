@@ -397,7 +397,7 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
       />
 
       {/* Hint — hidden once all nodes expanded */}
-      {!allExpanded && (
+      {!allExpanded && !expandAll && (
         <div style={{
           position: 'absolute', bottom: 20, left: '50%', transform: 'translateX(-50%)',
           fontSize: '10px', color: 'rgba(255,255,255,0.9)',
