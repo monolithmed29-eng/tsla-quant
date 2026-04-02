@@ -366,8 +366,8 @@ export default function App() {
                 <div key={heading} style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
                   <div style={{ fontSize: '18px', flexShrink: 0, marginTop: '1px' }}>{icon}</div>
                   <div>
-                    <div style={{ fontSize: '11px', letterSpacing: '1.5px', color: '#888', textTransform: 'uppercase', marginBottom: '6px' }}>{heading}</div>
-                    <p style={{ fontSize: '13px', color: '#666', lineHeight: '1.7', margin: 0 }}>{body}</p>
+                    <div style={{ fontSize: '11px', letterSpacing: '1.5px', color: '#ffffff', textTransform: 'uppercase', marginBottom: '6px' }}>{heading}</div>
+                    <p style={{ fontSize: '13px', color: '#b0b0b0', lineHeight: '1.7', margin: 0 }}>{body}</p>
                   </div>
                 </div>
               ))}
