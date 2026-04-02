@@ -173,7 +173,7 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
       .force('center',    d3.forceCenter(W / 2, H / 2).strength(0.06))
       .force('collision', d3.forceCollide(n => getR(n) + (n.isMaster ? 70 : 48)))
       .force('boundX',    d3.forceX(W / 2).strength(0.06))
-      .force('boundY',    d3.forceY(H / 2).strength(0.06))
+      .force('boundY',    d3.forceY((H - 60) / 2).strength(0.08))
       .alpha(0.4)
       .alphaDecay(0.001)
       .velocityDecay(0.88);
@@ -207,11 +207,11 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
 
       ctx.clearRect(0, 0, W, H);
 
-      // Clamp
+      // Clamp — extra bottom padding to keep nodes above the hint text
       nodesRef.current.forEach(node => {
         const r = getR(node), pad = r + 50;
         if (node.x !== undefined) node.x = Math.max(pad, Math.min(W - pad, node.x));
-        if (node.y !== undefined) node.y = Math.max(pad, Math.min(H - pad, node.y));
+        if (node.y !== undefined) node.y = Math.max(pad, Math.min(H - pad - 60, node.y));
       });
 
       // Links
