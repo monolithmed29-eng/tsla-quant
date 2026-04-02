@@ -175,7 +175,7 @@ export default function OracleSearch() {
         <div style={{
           fontSize: '15px',
           fontWeight: 600,
-          color: '#fff',
+          color: '#ffffff',
           letterSpacing: '0.5px',
         }}>
           Ask the Agent: Deep-Dive Quant Analysis on any Tesla Milestone.
@@ -227,7 +227,7 @@ export default function OracleSearch() {
               background: 'transparent',
               border: 'none',
               outline: 'none',
-              color: '#e8e8e8',
+              color: '#ffffff',
               fontSize: '13px',
               padding: '14px 12px',
               fontFamily: "'Space Grotesk', sans-serif",
@@ -279,7 +279,7 @@ export default function OracleSearch() {
             style={{
               background: phase === 'loading' ? '#1a0a0a' : '#e53935',
               border: 'none',
-              color: '#fff',
+              color: '#ffffff',
               fontSize: '10px',
               letterSpacing: '2px',
               textTransform: 'uppercase',
@@ -360,7 +360,7 @@ export default function OracleSearch() {
           }} />
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <span style={{ color: '#e53935', fontSize: '11px', letterSpacing: '1px' }}>ROGER@TSLAQUANT:~$</span>
-            <span style={{ color: '#ccc', fontSize: '12px', letterSpacing: '0.5px' }}>{loadingText}</span>
+            <span style={{ color: '#ffffff', fontSize: '12px', letterSpacing: '0.5px' }}>{loadingText}</span>
             <span style={{
               display: 'inline-block', width: '8px', height: '14px',
               background: '#e53935', opacity: 0.9,
@@ -426,7 +426,7 @@ export default function OracleSearch() {
               rel="noopener noreferrer"
               style={{
                 background: '#e53935',
-                color: '#fff',
+                color: '#ffffff',
                 textDecoration: 'none',
                 fontSize: '11px',
                 letterSpacing: '2px',

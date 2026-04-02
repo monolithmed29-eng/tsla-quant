@@ -3,8 +3,8 @@ import OracleSearch from './OracleSearch';
 
 const pulseAnim = `
   @keyframes oraclePulseTab {
-    0%,100% { box-shadow: 0 0 6px 2px rgba(229,57,53,0.4); }
-    50%     { box-shadow: 0 0 12px 4px rgba(229,57,53,0.7); }
+    0%,100% { box-shadow: 0 0 8px 3px rgba(229,57,53,0.9), 0 0 20px 8px rgba(229,57,53,0.5), 0 0 40px 16px rgba(229,57,53,0.2); }
+    50%     { box-shadow: 0 0 16px 6px rgba(255,50,50,1.0), 0 0 36px 14px rgba(229,57,53,0.7), 0 0 60px 24px rgba(229,57,53,0.35); }
   }
 `;
 
@@ -29,10 +29,10 @@ export default function OracleCommandCenter() {
         overflow: 'hidden',
         maxHeight: open ? '600px' : '0px',
         transition: 'max-height 0.35s cubic-bezier(0.4,0,0.2,1)',
-        background: 'rgba(5,5,5,0.97)',
-        border: open ? '1px solid #1e1e1e' : 'none',
+        background: 'rgba(2,2,2,1.0)',
+        border: open ? '1px solid #2a2a2a' : 'none',
         borderBottom: 'none',
-        backdropFilter: 'blur(12px)',
+        backdropFilter: 'blur(16px)',
       }}>
         <div style={{ padding: '24px 28px 20px' }}>
           <OracleSearch />
@@ -43,38 +43,39 @@ export default function OracleCommandCenter() {
       <div
         onClick={() => setOpen(o => !o)}
         style={{
-          background: 'rgba(8,8,8,0.97)',
-          border: '1px solid #1e1e1e',
+          background: 'rgba(2,2,2,1.0)',
+          border: '1px solid #2a2a2a',
           borderBottom: 'none',
           padding: '8px 20px',
           cursor: 'pointer',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          backdropFilter: 'blur(8px)',
+          backdropFilter: 'blur(16px)',
           userSelect: 'none',
           transition: 'border-color 0.2s',
         }}
-        onMouseEnter={e => e.currentTarget.style.borderColor = '#e5393544'}
-        onMouseLeave={e => e.currentTarget.style.borderColor = '#1e1e1e'}
+        onMouseEnter={e => e.currentTarget.style.borderColor = '#e53935'}
+        onMouseLeave={e => e.currentTarget.style.borderColor = '#2a2a2a'}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <span style={{
-            width: '7px', height: '7px', borderRadius: '50%',
-            background: '#e53935',
+            width: '10px', height: '10px', borderRadius: '50%',
+            background: '#ff1a1a',
             display: 'inline-block',
-            animation: 'oraclePulseTab 2s infinite',
+            animation: 'oraclePulseTab 1.6s infinite',
+            flexShrink: 0,
           }} />
           <span style={{
             fontSize: '9px',
             letterSpacing: '3px',
-            color: '#e53935',
+            color: '#ff3333',
             textTransform: 'uppercase',
-            fontWeight: 600,
+            fontWeight: 700,
           }}>
             Command Center
           </span>
-          <span style={{ fontSize: '10px', color: '#444', letterSpacing: '1px' }}>
+          <span style={{ fontSize: '10px', color: '#888', letterSpacing: '1px' }}>
             · Ask the Agent
           </span>
         </div>
