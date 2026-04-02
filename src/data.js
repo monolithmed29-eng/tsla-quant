@@ -7,8 +7,8 @@ export const catalysts = [
     weight: 0.15,
     status: "in_progress",
     expected: "Q2 2026",
-    likelihood: 0.80,
-    updated: "Apr 1, 2026",
+    likelihood: 0.75,
+    updated: "Apr 2, 2026",
     description: [
       "Limited city rollout confirmed begun Apr 1, 2026 — production vehicles being delivered",
       "Mass production at Gigafactory Texas confirmed for April 2026",
@@ -19,6 +19,7 @@ export const catalysts = [
       "TSMC hardware batches in early validation as of March 2026",
       "Unboxed manufacturing process being deployed for Cybercab line",
       "Morgan Stanley (Mar 18, 2026): officially classified Tesla as AI platform company, Cybercab as core catalyst",
+      "⚠️ RISK (Apr 2026): 3 Cybercab team leaders departed within weeks — program manager, ride-hailing infrastructure director, AND assembly leader all gone; FSD reliability concerns cited",
     ]
   },
   {
@@ -29,17 +30,16 @@ export const catalysts = [
     status: "achieved",
     expected: "Q2 2025",
     likelihood: 0.95,
-    updated: "Apr 1, 2026",
+    updated: "Apr 2, 2026",
     description: [
       "LIVE — Austin fleet operational as of mid-2025",
       "94 total vehicles discovered (cumulative) — source: robotaxitracker.com",
-      "9 vehicles active last 30 days | 50 inactive (30d unseen)",
-      "44 unsupervised-capable vehicles | 27 Cybercabs in test fleet",
+      "9 vehicles active last 30 days | 44 unsupervised-capable | 27 Cybercabs in test fleet",
       "Unsupervised rides last 7 days: 3 of 27 rides (11.1%)",
-      "Fleet estimated ~999,188 total miles driven | current rate: 4,787 mi/day",
-      "1,557 community-logged rides | avg fare raised 40% this month (demand signal)",
+      "🏁 MILESTONE (Apr 2, 2026): Austin fleet crossed 1 MILLION miles — 1,008,694 total | current rate: 4,726 mi/day",
+      "Austin pricing: avg fare $4.95 | median $4.20 | $1.67/mi | 1,377 logged ride fares",
       "Coverage area: 244 sq mi — majority supervised, unsupervised pilot ramping",
-      "MAJOR (Mar 31): Unsupervised geofence MORE THAN DOUBLED — now crosses Colorado River into downtown Austin for first time",
+      "MAJOR (Mar 31): Unsupervised geofence MORE THAN DOUBLED — crosses Colorado River into downtown Austin",
       "Min ride age lowered to 8 years old (with adult present) — expanding consumer access",
       "NHTSA: 28 all-time ADS incident reports, 10 in last 90 days",
     ]
@@ -56,7 +56,7 @@ export const catalysts = [
     description: [
       "FSD v14.3 entered Tesla employee beta Apr 1, 2026 — wide release expected end of week",
       "Austin: unsupervised pilot active — 11.1% of rides fully driverless (last 7 days)",
-      "Bay Area: 438 vehicles deployed but supervised-only — awaiting CA regulatory approval",
+      "Bay Area: 449 vehicles deployed but supervised-only — awaiting CA regulatory approval",
       "FSD v14.2.2.5 rolling out via OTA as of March 2026",
       "FSD v14 won MotorTrend 2026 Driver Assistance System of the Year",
       "Cumulative FSD miles: 8.4 billion — 42x Waymo's ~200M fully driverless miles",
@@ -76,7 +76,7 @@ export const catalysts = [
     updated: "Apr 1, 2026",
     description: [
       "Las Vegas & Dallas launches looking imminent as of Apr 1, 2026",
-      "Bay Area (CA): 438 vehicles active — human-driver only, 1,094 sq mi coverage",
+      "Bay Area (CA): 449 vehicles active — human-driver only, 1,094 sq mi coverage",
       "36 Cybercabs spotted across 7 regions as of March 2026",
       "Planned 1H 2026 expansion: Dallas TX, Houston TX, Las Vegas NV",
       "Planned 1H 2026 expansion: Miami FL, Orlando FL, Phoenix AZ, Tampa FL",

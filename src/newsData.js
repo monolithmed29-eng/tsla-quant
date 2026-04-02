@@ -1,13 +1,13 @@
 // Auto-updated 3x daily by cron — do not edit manually
-// Last updated: Apr 2, 2026 09:10 ET
+// Last updated: Apr 2, 2026 13:00 ET
 
 export const breakingNews = [
   {
-    headline: "🚨 OFFICIAL: Tesla Q1 2026 deliveries: 358,023 (+6% YoY) — MISSED consensus of 365,600. Production: 408,386. Model 3/Y: 341,893 delivered / 394,611 produced. Other: 16,130 delivered. Energy: 8.8 GWh. Earnings call: April 22 @ 5:30 PM ET.",
+    headline: "🚨 OFFICIAL: Tesla Q1 2026 deliveries: 358,023 (+6% YoY) — MISSED consensus of 365,600 by 7,600 units. Production: 408,386 — built 50,000 MORE cars than it sold, deepening inventory glut. Earnings call: April 22 @ 5:30 PM ET.",
     category: "financials",
-    source: "Tesla IR / Sawyer Merritt",
+    source: "Tesla IR / Ars Technica / Electrek",
     timestamp: "Apr 2, 2026",
-    url: "https://ir.tesla.com",
+    url: "https://arstechnica.com/cars/2026/04/tesla-sales-grew-by-6-in-q1-but-company-has-an-overproduction-problem/",
   },
   {
     headline: "Tesla Robotaxi service set to cover 70% of US population within 2 weeks — public launch expansion imminent beyond Austin/Palo Alto",
@@ -66,10 +66,10 @@ export const breakingNews = [
     url: "https://eletric-vehicles.com/tesla/musk-hints-tesla-is-building-something-way-cooler-than-a-minivan/",
   },
   {
-    headline: "Tesla in late-stage FSD licensing talks with two major legacy automakers — deal could unlock significant high-margin recurring revenue",
-    category: "corporate",
-    source: "FinancialContent",
-    timestamp: "Apr 1, 2026",
-    url: "https://markets.financialcontent.com/stocks/article/finterra-2026-4-1-tesla-tsla-in-2026-the-great-pivot-from-evs-to-ai-and-robotics",
+    headline: "Cybercab production starts THIS MONTH — but two manufacturing leaders depart just before launch; robotaxi network expansion to Dallas, Houston, Phoenix, Miami planned H1 2026",
+    category: "autonomy",
+    source: "Austin Statesman / humai.blog",
+    timestamp: "Apr 2, 2026",
+    url: "https://www.statesman.com/business/article/tesla-cybercab-leaders-departing-elon-musk-22160513.php",
   },
 ];
