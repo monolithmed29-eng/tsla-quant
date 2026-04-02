@@ -161,8 +161,8 @@ export default function App() {
               gap: '7px',
             }}
           >
-            <span style={{ fontSize: '12px' }}>{!expandAll ? '◉' : '⬡'}</span>
-            {!expandAll ? 'Overview' : 'Full Network'}
+            <span style={{ fontSize: '12px' }}>{!expandAll ? '⬡' : '◉'}</span>
+            {!expandAll ? 'Full Network' : 'Overview'}
           </button>
           <div style={{ width: '1px', height: '32px', background: '#222' }} />
           <button
