@@ -148,22 +148,21 @@ export default function App() {
               background: !expandAll ? 'rgba(0,255,136,0.12)' : 'none',
               border: `1px solid ${!expandAll ? '#00ff88' : '#444'}`,
               color: !expandAll ? '#00ff88' : '#aaa',
+              boxShadow: !expandAll ? '0 0 10px rgba(0,255,136,0.35)' : 'none',
               fontSize: '10px',
               letterSpacing: '2px',
               textTransform: 'uppercase',
               padding: '5px 14px',
               cursor: 'pointer',
               fontFamily: "'Space Grotesk', sans-serif",
-              transition: 'all 0.25s ease',
+              transition: 'all 0.3s ease',
               display: 'flex',
               alignItems: 'center',
               gap: '7px',
             }}
-            onMouseEnter={e => { e.currentTarget.style.borderColor = '#00ff88'; e.currentTarget.style.color = '#00ff88'; }}
-            onMouseLeave={e => { e.currentTarget.style.borderColor = !expandAll ? '#00ff88' : '#444'; e.currentTarget.style.color = !expandAll ? '#00ff88' : '#aaa'; }}
           >
-            <span style={{ fontSize: '12px' }}>{expandAll ? '◉' : '⬡'}</span>
-            {expandAll ? 'Full Network' : 'Overview'}
+            <span style={{ fontSize: '12px' }}>{!expandAll ? '◉' : '⬡'}</span>
+            {!expandAll ? 'Overview' : 'Full Network'}
           </button>
           <div style={{ width: '1px', height: '32px', background: '#222' }} />
           <button
