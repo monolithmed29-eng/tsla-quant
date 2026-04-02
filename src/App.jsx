@@ -69,6 +69,27 @@ export default function App() {
 
   const formatTime = (d) => d ? d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }) : '—';
 
+  // Live Pulse — minutes since last data sync (10am ET cron)
+  const [minsSinceSync, setMinsSinceSync] = useState(0);
+  useEffect(() => {
+    function calcMins() {
+      const now = new Date();
+      const sync = new Date(now);
+      sync.setHours(10, 0, 0, 0); // 10am ET
+      if (now < sync) sync.setDate(sync.getDate() - 1);
+      setMinsSinceSync(Math.floor((now - sync) / 60000));
+    }
+    calcMins();
+    const iv = setInterval(calcMins, 30000);
+    return () => clearInterval(iv);
+  }, []);
+
+  const syncLabel = minsSinceSync < 60
+    ? `${minsSinceSync}m ago`
+    : minsSinceSync < 1440
+      ? `${Math.floor(minsSinceSync / 60)}h ago`
+      : 'today';
+
   return (
     <div style={{
       background: '#000',
@@ -80,6 +101,12 @@ export default function App() {
       position: 'relative',
     }}>
       <Starfield />
+      <style>{`
+        @keyframes greenPulse {
+          0%, 100% { box-shadow: 0 0 8px 3px rgba(0,255,136,0.7), 0 0 16px 6px rgba(0,255,136,0.3); }
+          50%       { box-shadow: 0 0 14px 6px rgba(0,255,136,1.0), 0 0 28px 10px rgba(0,255,136,0.5); }
+        }
+      `}</style>
 
       {/* Affiliation bar */}
       <div style={{
@@ -223,9 +250,21 @@ export default function App() {
           </div>
           <div style={{ width: '1px', height: '32px', background: '#222' }} />
           <div style={{ textAlign: 'right' }}>
-            <div style={{ color: '#999', fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '2px' }}>Catalyst Data</div>
-            <div style={{ color: '#bbb', fontWeight: 500, fontSize: '13px' }}>Daily</div>
-            <div style={{ color: '#777', fontSize: '9px', marginTop: '2px' }}>Updated 10am ET</div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '6px', marginBottom: '4px' }}>
+              <span style={{
+                width: '7px', height: '7px', borderRadius: '50%',
+                background: '#00ff88',
+                boxShadow: '0 0 8px 3px rgba(0,255,136,0.7), 0 0 16px 6px rgba(0,255,136,0.3)',
+                display: 'inline-block',
+                animation: 'greenPulse 2s ease-in-out infinite',
+              }} />
+              <span style={{ fontSize: '9px', color: '#00ff88', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: 600 }}>
+                AI Engine: Online
+              </span>
+            </div>
+            <div style={{ fontSize: '9px', color: '#666', letterSpacing: '1px', textAlign: 'right' }}>
+              Last Sync: {syncLabel}
+            </div>
           </div>
         </div>
       </header>
