@@ -157,7 +157,7 @@ export default function App() {
             TSLA_QUANT
           </div>
           <div style={{ fontSize: '10px', letterSpacing: '3px', color: '#888', textTransform: 'uppercase', marginTop: '3px' }}>
-            v1.2
+            v1.3
           </div>
         </div>
         <div style={{
