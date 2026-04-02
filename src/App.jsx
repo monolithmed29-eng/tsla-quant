@@ -245,6 +245,7 @@ export default function App() {
           links={links}
           onNodeClick={setSelected}
           expandAll={expandAll}
+          onAllExpanded={() => setExpandAll(true)}
         />
       </div>
 

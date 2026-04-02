@@ -111,7 +111,7 @@ function buildVisibleLinks(expandedSet, catalysts, links) {
 }
 
 // ─── Component ────────────────────────────────────────────────────────────────
-export default function ProgressiveGraph({ catalysts, links, onNodeClick, expandAll }) {
+export default function ProgressiveGraph({ catalysts, links, onNodeClick, expandAll, onAllExpanded }) {
   const canvasRef   = useRef(null);
   const simRef      = useRef(null);
   const rafRef      = useRef(null);
@@ -213,8 +213,11 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
       });
 
       // Links
+      ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+      ctx.lineWidth   = 1.2;
       linksRef.current.forEach((link, li) => {
-        const src = link.source, tgt = link.target;
+        const src = typeof link.source === 'object' ? link.source : nodesRef.current.find(n => n.id === link.source);
+        const tgt = typeof link.target === 'object' ? link.target : nodesRef.current.find(n => n.id === link.target);
         if (!src?.x || !tgt?.x) return;
 
         const dx = tgt.x - src.x, dy = tgt.y - src.y;
@@ -227,8 +230,6 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
         ctx.beginPath();
         ctx.moveTo(src.x, src.y);
         ctx.quadraticCurveTo(cpx, cpy, tgt.x, tgt.y);
-        ctx.strokeStyle = 'rgba(255,255,255,0.15)';
-        ctx.lineWidth   = 1.2;
         ctx.stroke();
 
         // Electron
@@ -372,10 +373,13 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
     const { node } = hit;
 
     if (node.isMaster) {
-      // Bloom: expand this category
       const prevMap = new Map(nodesRef.current.map(n => [n.id, { ...n }]));
       expandedRef.current.add(node.category);
       rebuild(expandedRef.current, prevMap);
+      // If all categories are now expanded, notify parent
+      if (expandedRef.current.size >= ALL_CATEGORIES.length) {
+        onAllExpanded?.();
+      }
     } else {
       onNodeClick(node);
     }
