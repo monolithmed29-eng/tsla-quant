@@ -788,6 +788,10 @@ export const links = [
   { source: "robotaxi_app", target: "robotaxi_expansion" },
   { source: "insurance_profit", target: "margin_recovery" },
   { source: "virtual_powerplant", target: "energy_revenue" },
+  { source: "supercharger_network", target: "energy_revenue" },
+  { source: "supercharger_network", target: "delivery_rebound" },
+  { source: "roadster_reveal", target: "brand_recovery" },
+  { source: "roadster_reveal", target: "delivery_rebound" },
   // New 2026 catalysts
   { source: "terafab", target: "hw5_chip" },
   { source: "terafab", target: "ai_inference" },
