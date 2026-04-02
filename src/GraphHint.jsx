@@ -41,13 +41,13 @@ export default function GraphHint({ dismissed }) {
         <div style={{
           background: 'rgba(5,5,5,0.92)',
           border: '1px solid #1a1a1a',
-          padding: '12px 14px',
-          width: '160px',
+          padding: '18px 21px',
+          width: '240px',
           backdropFilter: 'blur(8px)',
         }}>
-          <div style={{ fontSize: '16px', marginBottom: '6px', animation: 'hintBob 2s ease-in-out infinite' }}>⬡</div>
-          <div style={{ fontSize: '9px', letterSpacing: '2px', color: '#00ff88', textTransform: 'uppercase', marginBottom: '4px' }}>Full Network</div>
-          <div style={{ fontSize: '11px', color: '#ffffff', lineHeight: 1.5 }}>
+          <div style={{ fontSize: '24px', marginBottom: '8px', animation: 'hintBob 2s ease-in-out infinite' }}>⬡</div>
+          <div style={{ fontSize: '13px', letterSpacing: '2px', color: '#00ff88', textTransform: 'uppercase', marginBottom: '6px' }}>Full Network</div>
+          <div style={{ fontSize: '16px', color: '#ffffff', lineHeight: 1.5 }}>
             Click <span style={{ color: '#00ff88' }}>Full Network</span> to explode all 34 catalyst nodes
           </div>
         </div>
@@ -56,13 +56,13 @@ export default function GraphHint({ dismissed }) {
         <div style={{
           background: 'rgba(5,5,5,0.92)',
           border: '1px solid #1a1a1a',
-          padding: '12px 14px',
-          width: '160px',
+          padding: '18px 21px',
+          width: '240px',
           backdropFilter: 'blur(8px)',
         }}>
-          <div style={{ fontSize: '16px', marginBottom: '6px', animation: 'hintBob 2s ease-in-out infinite 0.3s' }}>◉</div>
-          <div style={{ fontSize: '9px', letterSpacing: '2px', color: '#ffffff', textTransform: 'uppercase', marginBottom: '4px' }}>Click Any Node</div>
-          <div style={{ fontSize: '11px', color: '#ffffff', lineHeight: 1.5 }}>
+          <div style={{ fontSize: '24px', marginBottom: '8px', animation: 'hintBob 2s ease-in-out infinite 0.3s' }}>◉</div>
+          <div style={{ fontSize: '13px', letterSpacing: '2px', color: '#ffffff', textTransform: 'uppercase', marginBottom: '6px' }}>Click Any Node</div>
+          <div style={{ fontSize: '16px', color: '#ffffff', lineHeight: 1.5 }}>
             Click any orb to open its <span style={{ color: '#ccc' }}>deep-dive analysis</span>
           </div>
         </div>
@@ -71,18 +71,18 @@ export default function GraphHint({ dismissed }) {
         <div style={{
           background: 'rgba(5,5,5,0.92)',
           border: '1px solid #1a1a1a',
-          padding: '12px 14px',
-          width: '160px',
+          padding: '18px 21px',
+          width: '240px',
           backdropFilter: 'blur(8px)',
         }}>
-          <div style={{ fontSize: '16px', marginBottom: '6px', animation: 'hintBob 2s ease-in-out infinite 0.6s' }}>🔗</div>
-          <div style={{ fontSize: '9px', letterSpacing: '2px', color: '#ffffff', textTransform: 'uppercase', marginBottom: '4px' }}>Connections</div>
-          <div style={{ fontSize: '11px', color: '#ffffff', lineHeight: 1.5 }}>
+          <div style={{ fontSize: '24px', marginBottom: '8px', animation: 'hintBob 2s ease-in-out infinite 0.6s' }}>🔗</div>
+          <div style={{ fontSize: '13px', letterSpacing: '2px', color: '#ffffff', textTransform: 'uppercase', marginBottom: '6px' }}>Connections</div>
+          <div style={{ fontSize: '16px', color: '#ffffff', lineHeight: 1.5 }}>
             Lines show <span style={{ color: '#ccc' }}>dependencies</span> between catalysts
           </div>
         </div>
 
-      <div style={{ fontSize: '9px', color: '#555', letterSpacing: '1.5px', textTransform: 'uppercase' }}>
+      <div style={{ fontSize: '13px', color: '#ffffff', letterSpacing: '1.5px', textTransform: 'uppercase' }}>
         click any node to dismiss
       </div>
     </div>
