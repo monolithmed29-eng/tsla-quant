@@ -145,9 +145,9 @@ export default function App() {
               if (!next) setGraphKey(k => k + 1); // reset to overview
             }}
             style={{
-              background: expandAll ? 'rgba(0,255,136,0.12)' : 'none',
-              border: `1px solid ${expandAll ? '#00ff88' : '#444'}`,
-              color: expandAll ? '#00ff88' : '#aaa',
+              background: !expandAll ? 'rgba(0,255,136,0.12)' : 'none',
+              border: `1px solid ${!expandAll ? '#00ff88' : '#444'}`,
+              color: !expandAll ? '#00ff88' : '#aaa',
               fontSize: '10px',
               letterSpacing: '2px',
               textTransform: 'uppercase',
@@ -160,7 +160,7 @@ export default function App() {
               gap: '7px',
             }}
             onMouseEnter={e => { e.currentTarget.style.borderColor = '#00ff88'; e.currentTarget.style.color = '#00ff88'; }}
-            onMouseLeave={e => { e.currentTarget.style.borderColor = expandAll ? '#00ff88' : '#444'; e.currentTarget.style.color = expandAll ? '#00ff88' : '#aaa'; }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = !expandAll ? '#00ff88' : '#444'; e.currentTarget.style.color = !expandAll ? '#00ff88' : '#aaa'; }}
           >
             <span style={{ fontSize: '12px' }}>{expandAll ? '◉' : '⬡'}</span>
             {expandAll ? 'Full Network' : 'Overview'}

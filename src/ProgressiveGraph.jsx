@@ -405,7 +405,7 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
           fontFamily: "'Space Grotesk', sans-serif", pointerEvents: 'none', whiteSpace: 'nowrap',
           textShadow: '0 0 12px rgba(255,255,255,0.8), 0 0 28px rgba(255,255,255,0.4)',
         }}>
-          Click any node to expand · Toggle Full Network to reveal all
+          Click any node to expand · Click Full Network to reveal all
         </div>
       )}
 
