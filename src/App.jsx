@@ -3,6 +3,7 @@ import Panel from './Panel';
 import BreakingNews from './BreakingNews';
 import PriceModal from './PriceModal';
 import ProgressiveGraph from './ProgressiveGraph';
+import OracleSearch from './OracleSearch';
 import { catalysts, links } from './data';
 import { calcPredictedPrice, calcPriceBreakdown } from './priceModel';
 import { useTSLAPrice } from './useTSLAPrice';
@@ -292,6 +293,24 @@ export default function App() {
 
       {/* Breaking News Tab */}
       <BreakingNews />
+
+      {/* Oracle Search — Command Center */}
+      <div style={{
+        position: 'fixed',
+        bottom: '56px',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        zIndex: 150,
+        width: 'calc(100% - 56px)',
+        maxWidth: '800px',
+        padding: '20px 24px',
+        background: 'rgba(5,5,5,0.92)',
+        border: '1px solid #1a1a1a',
+        backdropFilter: 'blur(12px)',
+        borderBottom: 'none',
+      }}>
+        <OracleSearch />
+      </div>
 
       {/* How to Use Modal */}
       {showHowTo && (
