@@ -1,13 +1,13 @@
 // Auto-updated 3x daily by cron — do not edit manually
-// Last updated: Apr 2, 2026 08:00 ET
+// Last updated: Apr 2, 2026 09:10 ET
 
 export const breakingNews = [
   {
-    headline: "Tesla Q1 2026 deliveries confirmed: 365,645 vehicles (+8% YoY) — Cybertruck 38,500 units (+111%), Model 3/Y 312,200 (+2.3%), Model S/X 12,445 (-15.9%)",
+    headline: "🚨 OFFICIAL: Tesla Q1 2026 deliveries: 358,023 (+6% YoY) — MISSED consensus of 365,600. Production: 408,386. Model 3/Y: 341,893 delivered / 394,611 produced. Other: 16,130 delivered. Energy: 8.8 GWh. Earnings call: April 22 @ 5:30 PM ET.",
     category: "financials",
-    source: "ad-hoc-news.de / Tesla IR",
+    source: "Tesla IR / Sawyer Merritt",
     timestamp: "Apr 2, 2026",
-    url: "https://www.ad-hoc-news.de/boerse/news/ueberblick/tesla-cybertruck-powers-q1-2026-deliveries-with-111-percent-growth-key/69050362",
+    url: "https://ir.tesla.com",
   },
   {
     headline: "Tesla Robotaxi service set to cover 70% of US population within 2 weeks — public launch expansion imminent beyond Austin/Palo Alto",
