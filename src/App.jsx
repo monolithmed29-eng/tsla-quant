@@ -145,10 +145,10 @@ export default function App() {
               if (!next) setGraphKey(k => k + 1); // reset to overview
             }}
             style={{
-              background: !expandAll ? 'rgba(0,255,136,0.12)' : 'none',
-              border: `1px solid ${!expandAll ? '#00ff88' : '#444'}`,
-              color: !expandAll ? '#00ff88' : '#aaa',
-              boxShadow: !expandAll ? '0 0 10px rgba(0,255,136,0.35)' : 'none',
+              background: 'rgba(0,255,136,0.12)',
+              border: '1px solid #00ff88',
+              color: '#00ff88',
+              boxShadow: '0 0 10px rgba(0,255,136,0.45), 0 0 20px rgba(0,255,136,0.2)',
               fontSize: '10px',
               letterSpacing: '2px',
               textTransform: 'uppercase',
