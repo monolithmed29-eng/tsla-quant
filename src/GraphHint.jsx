@@ -9,11 +9,13 @@ export default function GraphHint({ dismissed }) {
 
   if (!visible) return null;
 
+  // leftmost node in overview is roughly at 18-20% from left
+  // halfway between edge (0) and that = ~9-10% → use 9vw
   return (
     <div style={{
         position: 'fixed',
         top: '50%',
-        left: '20px',
+        left: '9vw',
         transform: 'translateY(-50%)',
         zIndex: 90,
         pointerEvents: 'none',
@@ -45,7 +47,7 @@ export default function GraphHint({ dismissed }) {
         }}>
           <div style={{ fontSize: '16px', marginBottom: '6px', animation: 'hintBob 2s ease-in-out infinite' }}>⬡</div>
           <div style={{ fontSize: '9px', letterSpacing: '2px', color: '#00ff88', textTransform: 'uppercase', marginBottom: '4px' }}>Full Network</div>
-          <div style={{ fontSize: '11px', color: '#666', lineHeight: 1.5 }}>
+          <div style={{ fontSize: '11px', color: '#ffffff', lineHeight: 1.5 }}>
             Click <span style={{ color: '#00ff88' }}>Full Network</span> to explode all 34 catalyst nodes
           </div>
         </div>
@@ -59,9 +61,9 @@ export default function GraphHint({ dismissed }) {
           backdropFilter: 'blur(8px)',
         }}>
           <div style={{ fontSize: '16px', marginBottom: '6px', animation: 'hintBob 2s ease-in-out infinite 0.3s' }}>◉</div>
-          <div style={{ fontSize: '9px', letterSpacing: '2px', color: '#aaa', textTransform: 'uppercase', marginBottom: '4px' }}>Click Any Node</div>
-          <div style={{ fontSize: '11px', color: '#666', lineHeight: 1.5 }}>
-            Click any orb to open its <span style={{ color: '#aaa' }}>deep-dive analysis</span>
+          <div style={{ fontSize: '9px', letterSpacing: '2px', color: '#ffffff', textTransform: 'uppercase', marginBottom: '4px' }}>Click Any Node</div>
+          <div style={{ fontSize: '11px', color: '#ffffff', lineHeight: 1.5 }}>
+            Click any orb to open its <span style={{ color: '#ccc' }}>deep-dive analysis</span>
           </div>
         </div>
 
@@ -74,13 +76,13 @@ export default function GraphHint({ dismissed }) {
           backdropFilter: 'blur(8px)',
         }}>
           <div style={{ fontSize: '16px', marginBottom: '6px', animation: 'hintBob 2s ease-in-out infinite 0.6s' }}>🔗</div>
-          <div style={{ fontSize: '9px', letterSpacing: '2px', color: '#aaa', textTransform: 'uppercase', marginBottom: '4px' }}>Connections</div>
-          <div style={{ fontSize: '11px', color: '#666', lineHeight: 1.5 }}>
-            Lines show <span style={{ color: '#aaa' }}>dependencies</span> between catalysts
+          <div style={{ fontSize: '9px', letterSpacing: '2px', color: '#ffffff', textTransform: 'uppercase', marginBottom: '4px' }}>Connections</div>
+          <div style={{ fontSize: '11px', color: '#ffffff', lineHeight: 1.5 }}>
+            Lines show <span style={{ color: '#ccc' }}>dependencies</span> between catalysts
           </div>
         </div>
 
-      <div style={{ fontSize: '9px', color: '#333', letterSpacing: '1.5px', textTransform: 'uppercase' }}>
+      <div style={{ fontSize: '9px', color: '#555', letterSpacing: '1.5px', textTransform: 'uppercase' }}>
         click any node to dismiss
       </div>
     </div>
