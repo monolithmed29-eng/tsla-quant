@@ -120,6 +120,7 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
   const pulseRef    = useRef(0);
   const expandedRef = useRef(new Set());
   const [tooltip, setTooltip] = useState(null);
+  const [allExpanded, setAllExpanded] = useState(false);
 
   // ── Build + (re)start simulation ──────────────────────────────────────────
   const rebuild = useCallback((expandedSet, prevMap) => {
@@ -378,6 +379,7 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
       rebuild(expandedRef.current, prevMap);
       // If all categories are now expanded, notify parent
       if (expandedRef.current.size >= ALL_CATEGORIES.length) {
+        setAllExpanded(true);
         onAllExpanded?.();
       }
     } else {
@@ -394,14 +396,18 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
         onClick={handleClick}
       />
 
-      {/* Hint — only shown before first expansion */}
-      <div style={{
-        position: 'absolute', bottom: 20, left: '50%', transform: 'translateX(-50%)',
-        fontSize: '10px', color: '#2a2a2a', letterSpacing: '2px', textTransform: 'uppercase',
-        fontFamily: "'Space Grotesk', sans-serif", pointerEvents: 'none', whiteSpace: 'nowrap',
-      }}>
-        Click any node to expand · Toggle Full Network to reveal all
-      </div>
+      {/* Hint — hidden once all nodes expanded */}
+      {!allExpanded && (
+        <div style={{
+          position: 'absolute', bottom: 20, left: '50%', transform: 'translateX(-50%)',
+          fontSize: '10px', color: 'rgba(255,255,255,0.9)',
+          letterSpacing: '2.5px', textTransform: 'uppercase',
+          fontFamily: "'Space Grotesk', sans-serif", pointerEvents: 'none', whiteSpace: 'nowrap',
+          textShadow: '0 0 12px rgba(255,255,255,0.8), 0 0 28px rgba(255,255,255,0.4)',
+        }}>
+          Click any node to expand · Toggle Full Network to reveal all
+        </div>
+      )}
 
       {/* Tooltip */}
       {tooltip && (
