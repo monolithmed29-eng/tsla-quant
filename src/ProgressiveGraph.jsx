@@ -14,6 +14,7 @@ const CATEGORY_LABELS = {
   manufacturing: 'Manufacturing',
   energy:        'Energy',
   corporate:     'Corporate',
+  spacex:        'SpaceX Merger',
 };
 
 const ALL_CATEGORIES = Object.keys(CATEGORY_LABELS);
@@ -283,6 +284,51 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
         // Bright center
         ctx.beginPath(); ctx.arc(node.x, node.y, r * 0.4, 0, Math.PI*2);
         ctx.fillStyle = 'rgba(255,255,255,0.92)'; ctx.fill();
+
+        // ── SpaceX special: orbiting rocket ────────────────────────────────
+        if (node.category === 'spacex' && !node.isMaster) {
+          const orbitR = r * 2.2;
+          const angle = now * 0.0012 + ni * 1.3;
+
+          // Orbit ring
+          ctx.save();
+          ctx.beginPath();
+          ctx.arc(node.x, node.y, orbitR, 0, Math.PI * 2);
+          ctx.strokeStyle = 'rgba(255,255,255,0.12)';
+          ctx.lineWidth = 0.8;
+          ctx.setLineDash([3, 5]);
+          ctx.stroke();
+          ctx.setLineDash([]);
+          ctx.restore();
+
+          // Rocket position on orbit
+          const rx = node.x + Math.cos(angle) * orbitR;
+          const ry = node.y + Math.sin(angle) * orbitR;
+
+          // Rocket trail
+          ctx.save();
+          const trailLen = 5;
+          for (let t = 0; t < trailLen; t++) {
+            const ta = angle - (t + 1) * 0.18;
+            const tx = node.x + Math.cos(ta) * orbitR;
+            const ty = node.y + Math.sin(ta) * orbitR;
+            ctx.beginPath();
+            ctx.arc(tx, ty, 1.2 - t * 0.18, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255,255,255,${0.35 - t * 0.06})`;
+            ctx.fill();
+          }
+          ctx.restore();
+
+          // Rocket emoji drawn on canvas
+          ctx.save();
+          ctx.translate(rx, ry);
+          ctx.rotate(angle + Math.PI / 2);
+          ctx.font = `${Math.max(9, r * 0.55)}px serif`;
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText('🚀', 0, 0);
+          ctx.restore();
+        }
 
         // ── Label ──────────────────────────────────────────────────────────
         ctx.save();

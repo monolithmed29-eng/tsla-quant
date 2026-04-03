@@ -1,6 +1,12 @@
 import { useEffect, useRef } from 'react';
 
 const UNIT_DESCRIPTIONS = {
+  spacex: {
+    icon: '🚀',
+    summary: (v, score) =>
+      `The wildcard. In March 2026, Tesla's $2B xAI investment was converted into SpaceX shares following SpaceX's acquisition of xAI — giving Tesla its first direct equity stake in SpaceX. At ${score}% confidence, contributing $${v}/share. The thesis: Musk's "system-of-systems" vision converges Tesla (energy/transport/robotics) with SpaceX (launch/Starlink/interplanetary). Even without a full merger, Starlink integration in Tesla vehicles and shared AI/robotics R&D represent compounding synergies. A formal merger would collapse the valuation gap between public Tesla and private SpaceX (~$350B latest round) — the bull case is unlike anything currently modeled by Wall Street.`,
+    drivers: ['Cross-equity stake deepens (Mar 2026 inflection)', 'Starlink standard in Tesla vehicles', 'Formal merger or JV announced', 'Shared Optimus/SpaceX actuator R&D', 'SpaceX IPO or public listing pathway'],
+  },
   auto: {
     icon: '🚗',
     summary: (v, score) =>
@@ -46,6 +52,7 @@ const CATEGORY_COLOR = {
   optimus:  '#34d399',
   fsd_sw:   '#60a5fa',
   ai_infra: '#f472b6',
+  spacex:   '#e2e8f0',
 };
 
 export default function PriceModal({ breakdown, total, livePrice, quantChange, onClose }) {
@@ -118,7 +125,7 @@ export default function PriceModal({ breakdown, total, livePrice, quantChange, o
                   {' '}since last update —{' '}
                   {quantChange < 0
                     ? `Q1 2026 delivery data lowered confidence across the auto and energy segments: delivery volume rebound (0.55→0.45), energy deployments missed consensus by 39% (8.8 GWh vs 14.4 expected), gross margin outlook pressured by a 50K-unit inventory build, and Model Y demand uplift weaker than expected. Each adjustment flows into the weighted SOTP calculation.`
-                    : `Catalyst confidence improved across one or more business units. Each likelihood score feeds directly into the weighted sum-of-parts calculation — higher confidence interpolates the unit value closer to its bull scenario.`
+                    : `SpaceX Synergy unit added to the SOTP model (Apr 3, 2026). Tesla's $2B xAI investment was converted into SpaceX equity in March 2026 — the first direct cross-equity stake between the two companies. Even at a low 28% confidence, the bear/base/bull range ($0–$120/share) adds meaningful optionality to the model. Net effect: +$11 to the model price.`
                   }
                 </div>
               )}

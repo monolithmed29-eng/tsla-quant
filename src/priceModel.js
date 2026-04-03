@@ -98,6 +98,18 @@ const UNITS = [
     bull:  60,
     catalystIds: ['dojo_v2', 'hw5_chip', 'ai_inference', 'terafab'],
   },
+  {
+    id: 'spacex',
+    label: 'SpaceX Synergy',
+    // Tesla holds a small (<1%) SpaceX equity stake as of March 2026 (via xAI conversion)
+    // Bear: stake remains token; no formal merger or deep integration; regulatory blocked
+    // Base: Starlink becomes standard Tesla connectivity option; shared R&D on actuators/materials
+    // Bull: formal merger or JV unlocks SpaceX valuation discount into Tesla; combined entity TAM explodes
+    bear:  0,
+    base:  20,
+    bull:  120,
+    catalystIds: ['spacex_merger'],
+  },
 ];
 
 // ─── Catalyst Score Lookup ────────────────────────────────────────────────────

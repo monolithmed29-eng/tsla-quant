@@ -731,6 +731,30 @@ export const catalysts = [
       "Risk: multi-company coordination complexity; xAI and Tesla have different incentive structures",
     ]
   },
+  // SPACEX MERGER
+  {
+    id: "spacex_merger",
+    label: "SpaceX–Tesla Merger",
+    category: "spacex",
+    weight: 0.10,
+    status: "in_progress",
+    expected: "2027–2028",
+    likelihood: 0.28,
+    updated: "Apr 3, 2026",
+    description: [
+      "Cross-Equity Inflection Point (Mar 2026): Tesla's $2B xAI investment converted to SpaceX shares after SpaceX acquired xAI — Tesla now holds a direct, albeit small (<1%), stake in SpaceX for the first time",
+      "Regulatory filings in March 2026 formally linked the two companies financially — first official cross-entity equity bridge",
+      "Musk's 'system-of-systems' vision: Tesla (energy/transport/robotics) + SpaceX (launch/connectivity/interplanetary) converge into a unified platform",
+      "Starlink integration thesis: Tesla vehicles as premium Starlink endpoints — always-on high-bandwidth connectivity without cellular dependency",
+      "Satellite V2 Mini mass production underway — Starlink at automotive-grade reliability and cost becomes plausible by 2026–2027",
+      "Optimus + SpaceX: shared actuator/materials R&D; space-hardened components reduce cost curve for terrestrial robotics",
+      "A formal merger or deep partnership would collapse the valuation discount between Tesla (public, volatile) and SpaceX (private, ~$350B latest round)",
+      "Bull case: combined entity = largest vertically integrated tech/energy/transport/space company in history — TAM expands beyond any current Tesla model",
+      "Bear case: regulatory, shareholder, and conflicts-of-interest barriers remain substantial; SpaceX shareholders resistant to public market exposure",
+      "Near-term catalyst watch: any formal joint venture announcement, expanded Starlink Tesla integration, or SEC filings deepening cross-equity",
+    ]
+  },
+
   {
     id: "elon_focus",
     label: "Elon Returns Full Focus",
@@ -812,4 +836,9 @@ export const links = [
   { source: "digital_optimus", target: "optimus_production" },
   { source: "digital_optimus", target: "optimus_external" },
   { source: "elon_focus", target: "digital_optimus" },
+  // SpaceX merger chain
+  { source: "elon_focus", target: "spacex_merger" },
+  { source: "spacex_merger", target: "optimus_external" },
+  { source: "spacex_merger", target: "digital_optimus" },
+  { source: "spacex_merger", target: "ai_inference" },
 ];
