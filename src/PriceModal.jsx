@@ -111,8 +111,15 @@ export default function PriceModal({ breakdown, total, livePrice, quantChange, o
                 )}
               </div>
               {quantChange !== null && (
-                <div style={{ fontSize: '10px', color: '#666', letterSpacing: '1px', marginTop: '4px' }}>
-                  vs yesterday's model
+                <div style={{ fontSize: '11px', color: '#666', lineHeight: 1.6, marginTop: '6px', maxWidth: '520px' }}>
+                  <span style={{ color: quantChange >= 0 ? '#00ff8899' : '#ff444499', fontWeight: 600 }}>
+                    {quantChange >= 0 ? '+' : ''}{quantChange} pts
+                  </span>
+                  {' '}since last update —{' '}
+                  {quantChange < 0
+                    ? `Q1 2026 delivery data lowered confidence across the auto and energy segments: delivery volume rebound (0.55→0.45), energy deployments missed consensus by 39% (8.8 GWh vs 14.4 expected), gross margin outlook pressured by a 50K-unit inventory build, and Model Y demand uplift weaker than expected. Each adjustment flows into the weighted SOTP calculation.`
+                    : `Catalyst confidence improved across one or more business units. Each likelihood score feeds directly into the weighted sum-of-parts calculation — higher confidence interpolates the unit value closer to its bull scenario.`
+                  }
                 </div>
               )}
             </div>
