@@ -585,20 +585,20 @@ export default function App() {
         transition: 'right 0.3s ease',
       }}>
         {/* Luminescence legend */}
-        <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-          <span style={{ fontSize: '9px', color: '#444', letterSpacing: '2px', textTransform: 'uppercase' }}>Likelihood</span>
+        <div style={{ display: 'flex', gap: '18px', alignItems: 'center' }}>
+          <span style={{ fontSize: '10px', color: '#888', letterSpacing: '2px', textTransform: 'uppercase' }}>Likelihood</span>
           {luminescenceLevels.map(lv => (
-            <div key={lv.label} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <div key={lv.label} style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
               <div style={{
-                width: '9px', height: '9px',
+                width: '11px', height: '11px',
                 borderRadius: '50%',
                 background: lv.color,
-                boxShadow: `0 0 6px ${lv.glow}`,
+                boxShadow: `0 0 8px 2px ${lv.glow}, 0 0 16px 4px ${lv.glow}`,
               }} />
-              <span style={{ fontSize: '10px', color: '#888' }}>{lv.label}</span>
+              <span style={{ fontSize: '11px', color: '#bbb', fontWeight: 500 }}>{lv.label}</span>
             </div>
           ))}
-          <span style={{ fontSize: '10px', color: '#555', marginLeft: '4px' }}>→ Bright (high likelihood)</span>
+          <span style={{ fontSize: '11px', color: '#888', marginLeft: '4px' }}>→ Bright (high likelihood)</span>
         </div>
 
         <div style={{ marginLeft: 'auto', display: 'flex', gap: '20px', alignItems: 'center' }}>
@@ -606,13 +606,13 @@ export default function App() {
             onClick={() => setShowDisclaimer(true)}
             style={{
               background: 'none', border: 'none', padding: 0,
-              color: '#555', fontSize: '10px', letterSpacing: '1.5px',
+              color: '#aaa', fontSize: '11px', letterSpacing: '1.5px',
               textTransform: 'uppercase', cursor: 'pointer',
               fontFamily: "'Space Grotesk', sans-serif",
               textDecoration: 'underline', textUnderlineOffset: '3px',
             }}
-            onMouseEnter={e => e.target.style.color = '#999'}
-            onMouseLeave={e => e.target.style.color = '#555'}
+            onMouseEnter={e => e.target.style.color = '#fff'}
+            onMouseLeave={e => e.target.style.color = '#aaa'}
           >Disclaimer</button>
         </div>
       </footer>
