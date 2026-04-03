@@ -13,6 +13,32 @@ import { useTSLAPrice } from './useTSLAPrice';
 const PREDICTED = calcPredictedPrice(catalysts);
 const BREAKDOWN = calcPriceBreakdown(catalysts);
 
+// ─── Quant Model Daily Change ─────────────────────────────────────────────────
+// Persists yesterday's model price in localStorage so we can show the delta
+function getQuantModelChange() {
+  try {
+    const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+    const stored = localStorage.getItem('tsla_quant_daily');
+    if (stored) {
+      const { date, price } = JSON.parse(stored);
+      if (date !== today) {
+        // New day — yesterday's price was `price`
+        const prevPrice = price;
+        localStorage.setItem('tsla_quant_daily', JSON.stringify({ date: today, price: PREDICTED }));
+        return { prevPrice, change: PREDICTED - prevPrice };
+      }
+      // Same day — no change to report yet (or already set today)
+      return { prevPrice: null, change: null };
+    }
+    // First ever run — store today's price
+    localStorage.setItem('tsla_quant_daily', JSON.stringify({ date: today, price: PREDICTED }));
+    return { prevPrice: null, change: null };
+  } catch {
+    return { prevPrice: null, change: null };
+  }
+}
+const { change: QUANT_CHANGE } = getQuantModelChange();
+
 // Starfield
 function Starfield() {
   const canvasRef = useRef(null);
@@ -238,10 +264,20 @@ export default function App() {
             title="Click to see full SOTP breakdown"
           >
             <div style={{ color: '#999', fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '2px' }}>Quant Model ↗</div>
-            <div style={{
-              color: '#00ff88', fontWeight: 700, fontSize: '18px',
-              textDecoration: 'underline', textUnderlineOffset: '3px', textDecorationColor: '#00ff8844',
-            }}>${PREDICTED.toFixed(0)}</div>
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', justifyContent: 'flex-end' }}>
+              <div style={{
+                color: '#00ff88', fontWeight: 700, fontSize: '18px',
+                textDecoration: 'underline', textUnderlineOffset: '3px', textDecorationColor: '#00ff8844',
+              }}>${PREDICTED.toFixed(0)}</div>
+              {QUANT_CHANGE !== null && (
+                <div style={{
+                  fontSize: '11px', fontWeight: 600,
+                  color: QUANT_CHANGE >= 0 ? '#00ff88' : '#ff4444',
+                }}>
+                  ({QUANT_CHANGE >= 0 ? '+' : ''}{QUANT_CHANGE.toFixed(0)})
+                </div>
+              )}
+            </div>
           </div>
           <div style={{ width: '1px', height: '32px', background: '#222' }} />
           <div style={{ textAlign: 'right' }}>
@@ -529,6 +565,7 @@ export default function App() {
           breakdown={BREAKDOWN}
           total={PREDICTED}
           livePrice={tslaPrice}
+          quantChange={QUANT_CHANGE}
           onClose={() => setShowPriceModal(false)}
         />
       )}

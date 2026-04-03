@@ -48,7 +48,7 @@ const CATEGORY_COLOR = {
   ai_infra: '#f472b6',
 };
 
-export default function PriceModal({ breakdown, total, livePrice, onClose }) {
+export default function PriceModal({ breakdown, total, livePrice, quantChange, onClose }) {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -96,9 +96,25 @@ export default function PriceModal({ breakdown, total, livePrice, onClose }) {
           <div style={{ display: 'flex', alignItems: 'baseline', gap: '20px', flexWrap: 'wrap' }}>
             <div>
               <span style={{ fontSize: '11px', color: '#bbb', letterSpacing: '2px', textTransform: 'uppercase' }}>Quant Model</span>
-              <div style={{ fontSize: '48px', fontWeight: 700, color: '#00ff88', letterSpacing: '-1px', lineHeight: 1.1 }}>
-                ${total}
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px' }}>
+                <div style={{ fontSize: '48px', fontWeight: 700, color: '#00ff88', letterSpacing: '-1px', lineHeight: 1.1 }}>
+                  ${total}
+                </div>
+                {quantChange !== null && (
+                  <div style={{
+                    fontSize: '18px', fontWeight: 600,
+                    color: quantChange >= 0 ? '#00ff88' : '#ff4444',
+                    lineHeight: 1.1,
+                  }}>
+                    ({quantChange >= 0 ? '+' : ''}{quantChange.toFixed(0)})
+                  </div>
+                )}
               </div>
+              {quantChange !== null && (
+                <div style={{ fontSize: '10px', color: '#666', letterSpacing: '1px', marginTop: '4px' }}>
+                  vs yesterday's model
+                </div>
+              )}
             </div>
             {livePrice && (
               <>
