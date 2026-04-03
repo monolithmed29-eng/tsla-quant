@@ -10,8 +10,8 @@ const UNIT_DESCRIPTIONS = {
   energy: {
     icon: '⚡',
     summary: (v, score) =>
-      `Energy is Tesla's fastest-growing segment — $12.8B revenue in 2025, up 30% YoY. At ${score}% confidence, contributing $${v}/share. Megapack backlog remains 2–3 years deep with essentially no competition at scale. Virtual Power Plant programs add a recurring software revenue layer.`,
-    drivers: ['Megapack utility deployments', 'Powerwall 3 residential ramp', 'Virtual Power Plant scale', 'Energy gross margin expansion'],
+      `Energy was Tesla's fastest-growing segment — $12.8B revenue in 2025, up 30% YoY. Q1 2026 delivered 8.8 GWh, down 15% vs Q1 2025 (10.4 GWh) and sharply below Q4 2025's record 14.2 GWh. The backlog remains 2–3 years deep, suggesting supply/timing rather than demand is the issue — but Q2 2026 is a critical proof point. At ${score}% confidence, contributing $${v}/share.`,
+    drivers: ['Q2 2026 deployment recovery', 'Megapack utility deployments', 'Powerwall 3 residential ramp', 'Virtual Power Plant scale', 'Energy gross margin expansion'],
   },
   robotaxi: {
     icon: '🤖',
