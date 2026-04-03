@@ -111,7 +111,7 @@ export default function PriceModal({ breakdown, total, livePrice, quantChange, o
                 )}
               </div>
               {quantChange !== null && (
-                <div style={{ fontSize: '11px', color: '#666', lineHeight: 1.6, marginTop: '6px', maxWidth: '520px' }}>
+                <div style={{ fontSize: '11px', color: '#999', lineHeight: 1.6, marginTop: '6px', maxWidth: '520px' }}>
                   <span style={{ color: quantChange >= 0 ? '#00ff8899' : '#ff444499', fontWeight: 600 }}>
                     {quantChange >= 0 ? '+' : ''}{quantChange} pts
                   </span>
