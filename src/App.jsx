@@ -14,30 +14,11 @@ const PREDICTED = calcPredictedPrice(catalysts);
 const BREAKDOWN = calcPriceBreakdown(catalysts);
 
 // ─── Quant Model Daily Change ─────────────────────────────────────────────────
-// Persists yesterday's model price in localStorage so we can show the delta
-function getQuantModelChange() {
-  try {
-    const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
-    const stored = localStorage.getItem('tsla_quant_daily');
-    if (stored) {
-      const { date, price } = JSON.parse(stored);
-      if (date !== today) {
-        // New day — yesterday's price was `price`
-        const prevPrice = price;
-        localStorage.setItem('tsla_quant_daily', JSON.stringify({ date: today, price: PREDICTED }));
-        return { prevPrice, change: PREDICTED - prevPrice };
-      }
-      // Same day — no change to report yet (or already set today)
-      return { prevPrice: null, change: null };
-    }
-    // First ever run — store today's price
-    localStorage.setItem('tsla_quant_daily', JSON.stringify({ date: today, price: PREDICTED }));
-    return { prevPrice: null, change: null };
-  } catch {
-    return { prevPrice: null, change: null };
-  }
-}
-const { change: QUANT_CHANGE } = getQuantModelChange();
+// PREV_PREDICTED = the model price before today's data updates.
+// Update this manually whenever a meaningful data change is deployed.
+// This ensures ALL visitors see the delta, not just returning ones.
+const PREV_PREDICTED = 587; // pre-Q1-2026-delivery-report model price (Apr 2, 2026)
+const QUANT_CHANGE = PREDICTED !== PREV_PREDICTED ? PREDICTED - PREV_PREDICTED : null;
 
 // Starfield
 function Starfield() {
