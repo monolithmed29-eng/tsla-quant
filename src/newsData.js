@@ -1,7 +1,28 @@
 // Auto-updated 3x daily by cron — do not edit manually
-// Last updated: Apr 3, 2026 13:00 ET
+// Last updated: Apr 3, 2026 18:00 ET
 
 export const breakingNews = [
+  {
+    headline: "EU FSD approval (UN R-171) expected by April 10, 2026 — would unlock FSD in Europe for first time; cited as major near-term catalyst ahead of Cybercab ramp",
+    category: "autonomy",
+    source: "Techi.com",
+    timestamp: "Apr 3, 2026",
+    url: "https://www.techi.com/tesla-stock-price-prediction/",
+  },
+  {
+    headline: "TechCrunch: 'The final days of Model X and S are here — all bets on Cybercab' — Fremont retooling underway as Tesla fully pivots from legacy EV to autonomous/robotics",
+    category: "manufacturing",
+    source: "TechCrunch",
+    timestamp: "Apr 3, 2026",
+    url: "https://techcrunch.com/2026/04/03/the-final-days-of-the-tesla-model-x-and-s-are-here-all-bets-are-on-the-cybercab/",
+  },
+  {
+    headline: "Tesla Europe recovery: France registrations tripled in March, Nordic countries more than doubled — brand sentiment improving after early-2026 lows",
+    category: "financials",
+    source: "Reuters",
+    timestamp: "Apr 3, 2026",
+    url: "https://www.reuters.com/business/elon-musk/",
+  },
   {
     headline: "🚨 TSLA suffers steepest single-day drop of 2026, now down 20% YTD — Q1 deliveries 358,023 missed 365,600 consensus; 50,000-vehicle overproduction glut triggers demand alarm. Q1 earnings call: April 22 @ 5:30 PM ET.",
     category: "financials",
@@ -10,25 +31,18 @@ export const breakingNews = [
     url: "https://www.cnbc.com/2026/04/02/tesla-tsla-q1-2026-vehicle-delivery-production.html",
   },
   {
-    headline: "Trump sets new drug tariffs + adjusts metals duties on Liberation Day anniversary — adds macro headwinds across markets; TSLA exposed via Giga Shanghai & global supply chain costs",
-    category: "corporate",
-    source: "Yahoo Finance",
-    timestamp: "Apr 3, 2026",
-    url: "https://ca.finance.yahoo.com/news/liberation-day-trump-sets-drug-233131086.html",
-  },
-  {
-    headline: "Wedbush reiterates Outperform on TSLA, $600 target — cites Cybercab production ramp and robotaxi network as core AI thesis despite Q1 delivery miss",
-    category: "financials",
-    source: "Investing.com",
-    timestamp: "Apr 3, 2026",
-    url: "https://www.investing.com/news/analyst-ratings/wedbush-reiterates-outperform-on-tesla-stock-600-target-on-ai-focus-93CH-4595918",
-  },
-  {
     headline: "Musk confirms FSD v14.3 broad rollout this week — calls it 'last piece of the puzzle'; EU approval still pending; 8.3B supervised miles logged as of Feb 2026",
     category: "autonomy",
     source: "24/7 Wall St. / Wikipedia",
     timestamp: "Apr 2, 2026",
     url: "https://247wallst.com/investing/2026/04/02/tesla-slides-3-on-delivery-shortfall-why-the-20-billion-robotaxi-bet-makes-this-miss-hard-to-judge/",
+  },
+  {
+    headline: "Tesla Robotaxi app adds Apple Pay & Google Pay support — rollout coincides with Cybercab mass production launch at Giga Texas this month",
+    category: "product",
+    source: "TeslaNorth",
+    timestamp: "Apr 2, 2026",
+    url: "https://teslanorth.com/2026/04/02/tesla-robotaxi-app-update-apple-pay-and-google-pay-support-added/",
   },
   {
     headline: "Cybercab steering-wheel variant coming Q2 2026 — pragmatic regulatory hedge to accelerate Giga Texas production ramp before full unsupervised approval",
@@ -45,18 +59,11 @@ export const breakingNews = [
     url: "https://www.eweek.com/news/tesla-robotaxis-human-remote-control-autonomy/",
   },
   {
-    headline: "Cybercab mass production confirmed to start April 2026 at Giga Texas — target <$30K price; volume ramp through year-end; first unit rolled off line Feb 18, 2026",
+    headline: "Cybercab mass production confirmed to start April 2026 at Giga Texas — target <$30K price; robotaxi expansion to Dallas, Houston, Phoenix, Miami, Las Vegas planned H1 2026",
     category: "manufacturing",
-    source: "Grokipedia / FinancialContent",
+    source: "FinancialContent / Techi.com",
     timestamp: "Apr 3, 2026",
     url: "https://markets.financialcontent.com/stocks/article/finterra-2026-4-3-tesla-tsla-2026-deep-dive-from-ev-pioneer-to-physical-ai-titan",
-  },
-  {
-    headline: "NYT: $4/gallon US gas reviving EV interest — Tesla Q1 sales rose YoY for first time in a year; Iran war energy shock cited as key tailwind for 2026 demand",
-    category: "financials",
-    source: "The New York Times",
-    timestamp: "Apr 3, 2026",
-    url: "https://www.nytimes.com/2026/04/02/business/tesla-sales-electric-vehicles.html",
   },
   {
     headline: "Optimus Gen 3 needs 'finishing touches' before unveil — robot working at Tesla Diner LA; 1,000 units/week target for end of 2026; external sales from summer",
@@ -64,12 +71,5 @@ export const breakingNews = [
     source: "Teslarati / FinancialContent",
     timestamp: "Apr 1, 2026",
     url: "https://markets.financialcontent.com/stocks/article/finterra-2026-4-2-teslas-great-ai-pivot-a-deep-dive-stock-research-report-april-2026",
-  },
-  {
-    headline: "Musk holds Model S/X farewell ceremony as production ends — Fremont factory floor being retooled for Optimus humanoid manufacturing; Tesla now sells 5 models only",
-    category: "manufacturing",
-    source: "TechRadar / Wikipedia",
-    timestamp: "Apr 3, 2026",
-    url: "https://www.techradar.com/vehicle-tech/hybrid-electric-vehicles/we-will-have-an-official-ceremony-to-mark-the-ending-of-an-era-i-love-those-cars-elon-musk-mourns-the-officially-retired-tesla-model-s-and-model-x",
   },
 ];
