@@ -65,6 +65,8 @@ export default function App() {
   const [showHowTo, setShowHowTo] = useState(false);
   const [showDisclaimer, setShowDisclaimer] = useState(false);
   const [showPriceModal, setShowPriceModal] = useState(false);
+  const [showToS, setShowToS] = useState(false);
+  const [showRefund, setShowRefund] = useState(false);
   const [expandAll, setExpandAll] = useState(false);
   const [graphKey, setGraphKey] = useState(0);
   const { price: tslaPrice, lastUpdated, marketOpen } = useTSLAPrice();
@@ -540,6 +542,89 @@ export default function App() {
         </div>
       )}
 
+      {/* Terms of Service Modal */}
+      {showToS && (
+        <div onClick={() => setShowToS(false)} style={{
+          position: 'fixed', inset: 0, zIndex: 500,
+          background: 'rgba(0,0,0,0.82)', backdropFilter: 'blur(6px)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+        }}>
+          <div onClick={e => e.stopPropagation()} style={{
+            background: '#0a0a0a', border: '1px solid #1e1e1e',
+            padding: '44px 48px', maxWidth: '600px', width: '90%', maxHeight: '80vh', overflowY: 'auto',
+          }}>
+            <div style={{ fontSize: '9px', letterSpacing: '4px', color: '#333', textTransform: 'uppercase', marginBottom: '16px' }}>Legal</div>
+            <div style={{ fontSize: '18px', fontWeight: 600, color: '#fff', marginBottom: '28px' }}>Terms of Service</div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              {[
+                { h: 'Acceptance', b: 'By accessing or using TSLAquant ("the Platform"), you agree to be bound by these Terms of Service. If you do not agree, please do not use the Platform.' },
+                { h: 'Description of Service', b: 'TSLAquant is an independent, AI-assisted research and information platform that tracks Tesla-related catalysts and provides probabilistic valuation modeling. All content is for informational and educational purposes only.' },
+                { h: 'No Financial Advice', b: 'Nothing on this Platform constitutes financial, investment, legal, or tax advice. The quant model, price targets, and catalyst scores are speculative in nature. Do not make investment decisions based solely on content from this Platform. Always consult a qualified financial professional.' },
+                { h: 'Paid Features', b: 'Certain features (such as Oracle AI analysis) require a one-time access fee. Payments are processed securely via Stripe. By purchasing access, you agree to pay the stated fee. All purchases are final unless otherwise stated in our Refund Policy.' },
+                { h: 'Intellectual Property', b: 'All original content, design, and code on the Platform is the property of TSLAquant. You may not reproduce, distribute, or create derivative works without express written permission.' },
+                { h: 'No Warranty', b: 'The Platform is provided "as is" without warranty of any kind. We do not guarantee accuracy, completeness, or timeliness of any information. Data may be delayed or incorrect.' },
+                { h: 'Limitation of Liability', b: 'To the maximum extent permitted by law, TSLAquant and its operators shall not be liable for any direct, indirect, incidental, or consequential damages arising from your use of the Platform.' },
+                { h: 'Changes to Terms', b: 'We reserve the right to modify these Terms at any time. Continued use of the Platform after changes constitutes acceptance of the revised Terms.' },
+                { h: 'Contact', b: 'Questions about these Terms? Contact us at: info@tslaquant.com' },
+              ].map(({ h, b }) => (
+                <div key={h} style={{ borderLeft: '2px solid #1e1e1e', paddingLeft: '16px' }}>
+                  <div style={{ fontSize: '10px', letterSpacing: '1.5px', color: '#666', textTransform: 'uppercase', marginBottom: '6px' }}>{h}</div>
+                  <p style={{ fontSize: '13px', color: '#bbb', lineHeight: '1.7', margin: 0 }}>{b}</p>
+                </div>
+              ))}
+            </div>
+            <button onClick={() => setShowToS(false)} style={{
+              marginTop: '36px', background: 'none', border: '1px solid #222', color: '#666',
+              fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase',
+              padding: '7px 18px', cursor: 'pointer', fontFamily: "'Space Grotesk', sans-serif",
+            }}
+              onMouseEnter={e => { e.target.style.borderColor = '#444'; e.target.style.color = '#aaa'; }}
+              onMouseLeave={e => { e.target.style.borderColor = '#222'; e.target.style.color = '#666'; }}
+            >Close</button>
+          </div>
+        </div>
+      )}
+
+      {/* Refund Policy Modal */}
+      {showRefund && (
+        <div onClick={() => setShowRefund(false)} style={{
+          position: 'fixed', inset: 0, zIndex: 500,
+          background: 'rgba(0,0,0,0.82)', backdropFilter: 'blur(6px)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+        }}>
+          <div onClick={e => e.stopPropagation()} style={{
+            background: '#0a0a0a', border: '1px solid #1e1e1e',
+            padding: '44px 48px', maxWidth: '600px', width: '90%', maxHeight: '80vh', overflowY: 'auto',
+          }}>
+            <div style={{ fontSize: '9px', letterSpacing: '4px', color: '#333', textTransform: 'uppercase', marginBottom: '16px' }}>Legal</div>
+            <div style={{ fontSize: '18px', fontWeight: 600, color: '#fff', marginBottom: '28px' }}>Refund Policy</div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              {[
+                { h: 'Digital Access Purchases', b: 'TSLAquant sells digital access tokens for AI-powered features such as Oracle Analysis. Because access is granted immediately upon purchase, all sales are generally final.' },
+                { h: 'Eligibility for Refund', b: 'We will issue a full refund if: (1) you were charged but did not receive access due to a technical error on our end, or (2) you were charged more than once for the same purchase. Refund requests must be submitted within 7 days of the original transaction.' },
+                { h: 'Non-Refundable Circumstances', b: 'We do not offer refunds for: change of mind after purchase, dissatisfaction with AI-generated analysis content, or failure to use purchased access within the validity period.' },
+                { h: 'How to Request a Refund', b: 'Email info@tslaquant.com with your purchase receipt or Stripe transaction ID. We will respond within 2 business days and process approved refunds within 5–10 business days.' },
+                { h: 'Stripe Processing', b: 'Payments are processed by Stripe, Inc. Refunds are issued to the original payment method. Processing times may vary by bank or card issuer.' },
+                { h: 'Contact', b: 'For refund requests or billing questions: info@tslaquant.com' },
+              ].map(({ h, b }) => (
+                <div key={h} style={{ borderLeft: '2px solid #1e1e1e', paddingLeft: '16px' }}>
+                  <div style={{ fontSize: '10px', letterSpacing: '1.5px', color: '#666', textTransform: 'uppercase', marginBottom: '6px' }}>{h}</div>
+                  <p style={{ fontSize: '13px', color: '#bbb', lineHeight: '1.7', margin: 0 }}>{b}</p>
+                </div>
+              ))}
+            </div>
+            <button onClick={() => setShowRefund(false)} style={{
+              marginTop: '36px', background: 'none', border: '1px solid #222', color: '#666',
+              fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase',
+              padding: '7px 18px', cursor: 'pointer', fontFamily: "'Space Grotesk', sans-serif",
+            }}
+              onMouseEnter={e => { e.target.style.borderColor = '#444'; e.target.style.color = '#aaa'; }}
+              onMouseLeave={e => { e.target.style.borderColor = '#222'; e.target.style.color = '#666'; }}
+            >Close</button>
+          </div>
+        </div>
+      )}
+
       {/* Price Breakdown Modal */}
       {showPriceModal && (
         <PriceModal
@@ -583,18 +668,22 @@ export default function App() {
         </div>
 
         <div style={{ marginLeft: 'auto', display: 'flex', gap: '20px', alignItems: 'center' }}>
-          <button
-            onClick={() => setShowDisclaimer(true)}
-            style={{
+          {[
+            { label: 'Disclaimer', fn: () => setShowDisclaimer(true) },
+            { label: 'Terms of Service', fn: () => setShowToS(true) },
+            { label: 'Refund Policy', fn: () => setShowRefund(true) },
+          ].map(({ label, fn }) => (
+            <button key={label} onClick={fn} style={{
               background: 'none', border: 'none', padding: 0,
               color: '#aaa', fontSize: '11px', letterSpacing: '1.5px',
               textTransform: 'uppercase', cursor: 'pointer',
               fontFamily: "'Space Grotesk', sans-serif",
               textDecoration: 'underline', textUnderlineOffset: '3px',
             }}
-            onMouseEnter={e => e.target.style.color = '#fff'}
-            onMouseLeave={e => e.target.style.color = '#aaa'}
-          >Disclaimer</button>
+              onMouseEnter={e => e.target.style.color = '#fff'}
+              onMouseLeave={e => e.target.style.color = '#aaa'}
+            >{label}</button>
+          ))}
         </div>
       </footer>
     </div>
