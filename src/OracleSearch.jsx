@@ -1,12 +1,12 @@
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { getCredits, decrementCredit, addCredits, isPro, getCreditSig, setProStatus } from './creditManager';
+import UpgradeModal from './UpgradeModal';
 
 const QUICK_QUERIES = [
   'FSD v14 Impact',
   'Cortex 2.0 Status',
   'Q2 Delivery Quant',
 ];
-
-const STRIPE_LINK = 'https://buy.stripe.com/PLACEHOLDER'; // Rooz: replace with your Stripe payment link
 
 const glowAnim = `
   @keyframes terminalCursor {
@@ -25,25 +25,46 @@ const glowAnim = `
     from { opacity: 0; transform: translateY(8px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-  @keyframes typewriter {
-    from { width: 0; }
-    to   { width: 100%; }
+  @keyframes creditPulse {
+    0%,100% { opacity: 1; }
+    50%      { opacity: 0.6; }
   }
 `;
 
 export default function OracleSearch() {
   const [query, setQuery] = useState('');
-  const [phase, setPhase] = useState('idle'); // idle | loading | paywall | result
+  const [phase, setPhase] = useState('idle'); // idle | loading | result
   const [loadingText, setLoadingText] = useState('');
   const [result, setResult] = useState('');
   const [showTooltip, setShowTooltip] = useState(false);
+  const [credits, setCredits] = useState(getCredits);
+  const [showUpgrade, setShowUpgrade] = useState(false);
+  const [upgradeReason, setUpgradeReason] = useState('no_credits');
   const inputRef = useRef(null);
   const loadingIntervalRef = useRef(null);
 
-  // Check for token in URL (returned from Stripe redirect)
-  const urlToken = typeof window !== 'undefined'
-    ? new URLSearchParams(window.location.search).get('oracle_token')
-    : null;
+  // Handle Stripe redirect params (?upgrade=active_trader or ?oracle_token=xxx)
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const upgradeParam = params.get('upgrade');
+    const tokenParam = params.get('oracle_token');
+
+    if (upgradeParam === 'active_trader' || upgradeParam === 'institutional') {
+      setProStatus(upgradeParam);
+      window.history.replaceState({}, '', window.location.pathname);
+    } else if (tokenParam) {
+      sessionStorage.setItem('oracle_token', tokenParam);
+      // Add 1 credit for single query purchase
+      const next = addCredits(1);
+      setCredits(next);
+      window.history.replaceState({}, '', window.location.pathname);
+      const pending = sessionStorage.getItem('oracle_pending_query');
+      if (pending) {
+        setQuery(pending);
+        handleAnalyze(pending);
+      }
+    }
+  }, []);
 
   const LOADING_MESSAGES = [
     'Consulting TSLAquant Oracle...',
@@ -70,56 +91,69 @@ export default function OracleSearch() {
     }
   }
 
+  function openUpgrade(reason = 'no_credits') {
+    setUpgradeReason(reason);
+    setShowUpgrade(true);
+  }
+
   async function handleAnalyze(q) {
     const finalQuery = q || query;
     if (!finalQuery.trim()) return;
+
+    // Credit gate
+    const pro = isPro();
+    const currentCredits = getCredits();
+    if (!pro && currentCredits <= 0) {
+      openUpgrade('no_credits');
+      return;
+    }
+
     setQuery(finalQuery);
     setPhase('loading');
     cycleLoadingText();
-
-    // Store query in sessionStorage so we can resume after Stripe redirect
     sessionStorage.setItem('oracle_pending_query', finalQuery);
 
     try {
-      const token = urlToken || sessionStorage.getItem('oracle_token') || '';
+      const token = sessionStorage.getItem('oracle_token') || '';
+      // Send credit payload for backend validation
       const res = await fetch('/api/oracle', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query: finalQuery, token }),
+        body: JSON.stringify({
+          query: finalQuery,
+          token,
+          credits: currentCredits,
+          sig: getCreditSig(),
+          pro,
+        }),
       });
       stopLoading();
 
       if (res.status === 402) {
-        setPhase('paywall');
+        openUpgrade('no_credits');
+        setPhase('idle');
         return;
       }
 
       const data = await res.json();
       if (data.unlocked && data.result) {
+        // Deduct credit (unless pro)
+        if (!pro) {
+          const next = decrementCredit();
+          setCredits(next);
+        }
         setResult(data.result);
         setPhase('result');
-        // Cache token for session
-        if (token) sessionStorage.setItem('oracle_token', token);
       } else {
-        setPhase('paywall');
+        openUpgrade('no_credits');
+        setPhase('idle');
       }
     } catch {
       stopLoading();
-      setPhase('paywall');
+      openUpgrade('no_credits');
+      setPhase('idle');
     }
   }
-
-  // Auto-resume query if returning from Stripe with token
-  useEffect(() => {
-    if (urlToken) {
-      sessionStorage.setItem('oracle_token', urlToken);
-      const pending = sessionStorage.getItem('oracle_pending_query');
-      if (pending) {
-        setQuery(pending);
-        handleAnalyze(pending);
-      }
-    }
-  }, []);
 
   function handleReset() {
     setPhase('idle');
@@ -129,6 +163,10 @@ export default function OracleSearch() {
   }
 
   useEffect(() => () => stopLoading(), []);
+
+  const pro = isPro();
+  const creditsLeft = getCredits();
+  const depleted = !pro && creditsLeft <= 0;
 
   return (
     <div style={{
@@ -189,19 +227,56 @@ export default function OracleSearch() {
         position: 'relative',
         animation: 'fadeInUp 0.7s ease',
       }}>
+        {/* Credits badge */}
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'flex-end',
+          marginBottom: '6px',
+          gap: '8px',
+        }}>
+          {pro ? (
+            <span style={{
+              fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase',
+              color: '#00ff88', padding: '2px 8px',
+              border: '1px solid #00ff8844', background: '#00ff8811',
+            }}>
+              ✓ Pro — Unlimited
+            </span>
+          ) : (
+            <span
+              onClick={() => depleted && openUpgrade('no_credits')}
+              style={{
+                fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase',
+                color: depleted ? '#e53935' : '#aaa',
+                padding: '2px 10px',
+                border: `1px solid ${depleted ? '#e5393566' : '#2a2a2a'}`,
+                background: depleted ? '#e5393511' : 'transparent',
+                cursor: depleted ? 'pointer' : 'default',
+                animation: depleted ? 'creditPulse 1.5s ease-in-out infinite' : 'none',
+              }}
+            >
+              Credits Remaining: {creditsLeft}
+              {depleted && ' — Refill ↗'}
+            </span>
+          )}
+        </div>
+
         <div style={{
           display: 'flex',
           alignItems: 'center',
           background: '#0d1117',
-          border: '1px solid #2a2a2a',
+          border: `1px solid ${depleted ? '#e5393566' : '#2a2a2a'}`,
           transition: 'border-color 0.2s, box-shadow 0.2s',
         }}
           onFocusCapture={e => {
-            e.currentTarget.style.borderColor = '#e53935';
-            e.currentTarget.style.boxShadow = '0 0 0 1px #e5393544, 0 0 20px 4px #e5393522';
+            if (!depleted) {
+              e.currentTarget.style.borderColor = '#e53935';
+              e.currentTarget.style.boxShadow = '0 0 0 1px #e5393544, 0 0 20px 4px #e5393522';
+            }
           }}
           onBlurCapture={e => {
-            e.currentTarget.style.borderColor = '#2a2a2a';
+            e.currentTarget.style.borderColor = depleted ? '#e5393566' : '#2a2a2a';
             e.currentTarget.style.boxShadow = 'none';
           }}
         >
@@ -209,7 +284,7 @@ export default function OracleSearch() {
           <span style={{
             padding: '0 0 0 16px',
             fontSize: '12px',
-            color: '#e53935',
+            color: depleted ? '#e5393566' : '#e53935',
             letterSpacing: '1px',
             whiteSpace: 'nowrap',
             userSelect: 'none',
@@ -220,18 +295,19 @@ export default function OracleSearch() {
             value={query}
             onChange={e => setQuery(e.target.value)}
             onKeyDown={e => e.key === 'Enter' && handleAnalyze()}
-            placeholder="Enter your Tesla quant query..."
-            disabled={phase === 'loading'}
+            placeholder={depleted ? 'No credits remaining — upgrade to continue' : 'Enter your Tesla quant query...'}
+            disabled={phase === 'loading' || depleted}
             style={{
               flex: 1,
               background: 'transparent',
               border: 'none',
               outline: 'none',
-              color: '#ffffff',
+              color: depleted ? '#555' : '#ffffff',
               fontSize: '13px',
               padding: '14px 12px',
               fontFamily: "'Space Grotesk', sans-serif",
               letterSpacing: '0.3px',
+              cursor: depleted ? 'not-allowed' : 'text',
             }}
           />
 
@@ -272,36 +348,66 @@ export default function OracleSearch() {
             )}
           </div>
 
-          {/* Analyze button */}
-          <button
-            onClick={() => handleAnalyze()}
-            disabled={phase === 'loading' || !query.trim()}
-            style={{
-              background: phase === 'loading' ? '#1a0a0a' : '#e53935',
-              border: 'none',
-              color: '#ffffff',
-              fontSize: '10px',
-              letterSpacing: '2px',
-              textTransform: 'uppercase',
-              padding: '0 20px',
-              height: '100%',
-              cursor: phase === 'loading' || !query.trim() ? 'not-allowed' : 'pointer',
-              fontFamily: "'Space Grotesk', sans-serif",
-              fontWeight: 600,
-              opacity: !query.trim() && phase !== 'loading' ? 0.4 : 1,
-              transition: 'background 0.2s, opacity 0.2s',
-              whiteSpace: 'nowrap',
-              minWidth: '90px',
-              alignSelf: 'stretch',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-            onMouseEnter={e => { if (phase !== 'loading' && query.trim()) e.target.style.background = '#c62828'; }}
-            onMouseLeave={e => { if (phase !== 'loading') e.target.style.background = '#e53935'; }}
-          >
-            {phase === 'loading' ? '...' : 'Analyze ↵'}
-          </button>
+          {/* Analyze / Refill button */}
+          {depleted ? (
+            <button
+              onClick={() => openUpgrade('no_credits')}
+              style={{
+                background: '#e53935',
+                border: 'none',
+                color: '#ffffff',
+                fontSize: '10px',
+                letterSpacing: '2px',
+                textTransform: 'uppercase',
+                padding: '0 20px',
+                height: '100%',
+                cursor: 'pointer',
+                fontFamily: "'Space Grotesk', sans-serif",
+                fontWeight: 600,
+                whiteSpace: 'nowrap',
+                minWidth: '110px',
+                alignSelf: 'stretch',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                animation: 'oraclePulse 2s infinite',
+              }}
+              onMouseEnter={e => { e.target.style.background = '#c62828'; }}
+              onMouseLeave={e => { e.target.style.background = '#e53935'; }}
+            >
+              Refill Credits
+            </button>
+          ) : (
+            <button
+              onClick={() => handleAnalyze()}
+              disabled={phase === 'loading' || !query.trim()}
+              style={{
+                background: phase === 'loading' ? '#1a0a0a' : '#e53935',
+                border: 'none',
+                color: '#ffffff',
+                fontSize: '10px',
+                letterSpacing: '2px',
+                textTransform: 'uppercase',
+                padding: '0 20px',
+                height: '100%',
+                cursor: phase === 'loading' || !query.trim() ? 'not-allowed' : 'pointer',
+                fontFamily: "'Space Grotesk', sans-serif",
+                fontWeight: 600,
+                opacity: !query.trim() && phase !== 'loading' ? 0.4 : 1,
+                transition: 'background 0.2s, opacity 0.2s',
+                whiteSpace: 'nowrap',
+                minWidth: '90px',
+                alignSelf: 'stretch',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+              onMouseEnter={e => { if (phase !== 'loading' && query.trim()) e.target.style.background = '#c62828'; }}
+              onMouseLeave={e => { if (phase !== 'loading') e.target.style.background = '#e53935'; }}
+            >
+              {phase === 'loading' ? '...' : 'Analyze ↵'}
+            </button>
+          )}
         </div>
 
         {/* Quick Query chips */}
@@ -314,21 +420,21 @@ export default function OracleSearch() {
           {QUICK_QUERIES.map(q => (
             <button
               key={q}
-              onClick={() => handleAnalyze(q)}
+              onClick={() => depleted ? openUpgrade('no_credits') : handleAnalyze(q)}
               disabled={phase === 'loading'}
               style={{
                 background: 'transparent',
                 border: '1px solid #2a2a2a',
-                color: '#666',
+                color: depleted ? '#333' : '#666',
                 fontSize: '10px',
                 letterSpacing: '1px',
                 padding: '4px 12px',
-                cursor: 'pointer',
+                cursor: depleted ? 'pointer' : 'pointer',
                 fontFamily: "'Space Grotesk', sans-serif",
                 transition: 'border-color 0.2s, color 0.2s',
               }}
               onMouseEnter={e => { e.currentTarget.style.borderColor = '#e53935'; e.currentTarget.style.color = '#e53935'; }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = '#2a2a2a'; e.currentTarget.style.color = '#666'; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = '#2a2a2a'; e.currentTarget.style.color = depleted ? '#333' : '#666'; }}
             >
               {q}
             </button>
@@ -349,7 +455,6 @@ export default function OracleSearch() {
           position: 'relative',
           overflow: 'hidden',
         }}>
-          {/* scanline */}
           <div style={{
             position: 'absolute',
             top: 0, left: 0, right: 0,
@@ -366,100 +471,6 @@ export default function OracleSearch() {
               background: '#e53935', opacity: 0.9,
               animation: 'terminalCursor 0.8s step-end infinite',
             }} />
-          </div>
-        </div>
-      )}
-
-      {/* Paywall Modal */}
-      {phase === 'paywall' && (
-        <div style={{
-          marginTop: '16px',
-          width: '100%',
-          maxWidth: '720px',
-          background: '#0d1117',
-          border: '1px solid #e5393522',
-          padding: '28px 28px',
-          animation: 'fadeInUp 0.3s ease',
-          textAlign: 'center',
-          position: 'relative',
-        }}>
-          <div style={{ fontSize: '9px', letterSpacing: '4px', color: '#e53935', textTransform: 'uppercase', marginBottom: '12px' }}>
-            Analysis Ready
-          </div>
-
-          {/* Blurred preview */}
-          <div style={{
-            background: '#111',
-            border: '1px solid #1a1a1a',
-            padding: '16px',
-            marginBottom: '20px',
-            position: 'relative',
-            overflow: 'hidden',
-          }}>
-            <div style={{
-              filter: 'blur(4px)',
-              userSelect: 'none',
-              pointerEvents: 'none',
-              fontSize: '11px',
-              color: '#00ff88',
-              fontFamily: 'monospace',
-              lineHeight: 1.7,
-              textAlign: 'left',
-            }}>
-              {`> QUERY: "${query}"\n> LOADING CATALYST MATRIX...\n> CROSS-REFERENCING 34 NODES...\n> PROBABILITY SCORE: 0.██ | IMPACT: $███\n> RISK FACTOR: ████████\n> RECOMMENDATION: ██████████████████`}
-            </div>
-            <div style={{
-              position: 'absolute',
-              inset: 0,
-              background: 'linear-gradient(to bottom, transparent 20%, #0d1117 80%)',
-            }} />
-          </div>
-
-          <div style={{ fontSize: '13px', color: '#888', marginBottom: '20px', lineHeight: 1.6 }}>
-            Unlock the full deep-dive analysis for this query.
-          </div>
-
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
-            <a
-              href={STRIPE_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                background: '#e53935',
-                color: '#ffffff',
-                textDecoration: 'none',
-                fontSize: '11px',
-                letterSpacing: '2px',
-                textTransform: 'uppercase',
-                padding: '12px 28px',
-                fontFamily: "'Space Grotesk', sans-serif",
-                fontWeight: 600,
-                display: 'inline-block',
-                transition: 'background 0.2s',
-              }}
-              onMouseEnter={e => e.currentTarget.style.background = '#c62828'}
-              onMouseLeave={e => e.currentTarget.style.background = '#e53935'}
-            >
-              🔓 Unlock Analysis — $5
-            </a>
-            <button
-              onClick={handleReset}
-              style={{
-                background: 'none',
-                border: '1px solid #333',
-                color: '#555',
-                fontSize: '10px',
-                letterSpacing: '2px',
-                textTransform: 'uppercase',
-                padding: '12px 20px',
-                cursor: 'pointer',
-                fontFamily: "'Space Grotesk', sans-serif",
-              }}
-              onMouseEnter={e => { e.target.style.borderColor = '#555'; e.target.style.color = '#aaa'; }}
-              onMouseLeave={e => { e.target.style.borderColor = '#333'; e.target.style.color = '#555'; }}
-            >
-              ← New Query
-            </button>
           </div>
         </div>
       )}
@@ -525,6 +536,11 @@ export default function OracleSearch() {
             ← New Query
           </button>
         </div>
+      )}
+
+      {/* Upgrade Modal */}
+      {showUpgrade && (
+        <UpgradeModal reason={upgradeReason} onClose={() => setShowUpgrade(false)} />
       )}
     </div>
   );

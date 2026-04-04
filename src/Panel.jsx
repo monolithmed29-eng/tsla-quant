@@ -1,5 +1,8 @@
+import { useState } from 'react';
 import { calcPriceImpact } from './priceModel';
 import { catalysts } from './data';
+import { isPro } from './creditManager';
+import UpgradeModal from './UpgradeModal';
 
 function getLuminescenceColor(likelihood) {
   if (likelihood >= 0.9) return 'rgba(255,255,255,1.0)';
@@ -17,173 +20,280 @@ const CATEGORY_COLORS = {
   manufacturing: 'hsl(35,90%,60%)',
   energy:        'hsl(15,100%,60%)',
   corporate:     'hsl(55,80%,60%)',
+  spacex:        'hsl(270,60%,60%)',
 };
 
 const CATEGORY_LABELS = {
-  autonomy: 'Autonomy',
-  robotics: 'Robotics / AI',
-  financials: 'Financials',
-  product: 'Product',
+  autonomy:      'Autonomy',
+  robotics:      'Robotics / AI',
+  financials:    'Financials',
+  product:       'Product',
   manufacturing: 'Manufacturing',
-  energy: 'Energy',
-  corporate: 'Corporate',
+  energy:        'Energy',
+  corporate:     'Corporate',
+  spacex:        'SpaceX Synergy',
 };
 
+const blurAnim = `
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes softPulse {
+    0%,100% { opacity: 0.7; }
+    50%      { opacity: 1; }
+  }
+`;
+
 export default function Panel({ node, onClose }) {
+  const [showUpgrade, setShowUpgrade] = useState(false);
+
   if (!node) return null;
 
+  const pro = isPro();
   const statusColor = getLuminescenceColor(node.likelihood);
   const catColor = 'rgba(160,185,220,0.85)';
   const priceImpact = calcPriceImpact(node, catalysts);
 
   return (
-    <div style={{
-      position: 'fixed',
-      top: 0,
-      right: 0,
-      width: '340px',
-      height: '100vh',
-      background: 'rgba(0,0,0,0.95)',
-      borderLeft: `1px solid ${statusColor}33`,
-      padding: '24px 20px',
-      zIndex: 1000,
-      fontFamily: "'Space Grotesk', sans-serif",
-      color: '#fff',
-      overflowY: 'auto',
-      boxShadow: `-8px 0 40px ${statusColor}22`,
-    }}>
-      {/* Close */}
-      <button
-        onClick={onClose}
-        style={{
-          position: 'absolute', top: 16, right: 16,
-          background: 'none', border: 'none',
-          color: '#666', cursor: 'pointer', fontSize: '18px',
-          fontFamily: "'Space Grotesk', sans-serif",
-        }}
-      >✕</button>
-
-      {/* Status badge */}
+    <>
+      <style>{blurAnim}</style>
       <div style={{
-        display: 'inline-block',
-        padding: '3px 10px',
-        background: `${statusColor}22`,
-        border: `1px solid ${statusColor}`,
-        color: statusColor,
-        fontSize: '10px',
-        letterSpacing: '2px',
-        textTransform: 'uppercase',
-        marginBottom: '16px',
+        position: 'fixed',
+        top: 0,
+        right: 0,
+        width: '340px',
+        height: '100vh',
+        background: 'rgba(0,0,0,0.95)',
+        borderLeft: `1px solid ${statusColor}33`,
+        padding: '24px 20px',
+        zIndex: 1000,
+        fontFamily: "'Space Grotesk', sans-serif",
+        color: '#fff',
+        overflowY: 'auto',
+        boxShadow: `-8px 0 40px ${statusColor}22`,
       }}>
-        {node.status.replace('_', ' ')}
-      </div>
+        {/* Close */}
+        <button
+          onClick={onClose}
+          style={{
+            position: 'absolute', top: 16, right: 16,
+            background: 'none', border: 'none',
+            color: '#666', cursor: 'pointer', fontSize: '18px',
+            fontFamily: "'Space Grotesk', sans-serif",
+          }}
+        >✕</button>
 
-      {/* Title */}
-      <h2 style={{
-        fontSize: '18px',
-        fontWeight: 700,
-        lineHeight: 1.3,
-        marginBottom: '8px',
-        letterSpacing: '-0.3px',
-      }}>
-        {node.label}
-      </h2>
-
-      {/* Category */}
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: '6px',
-        marginBottom: '20px',
-        fontSize: '12px',
-        color: catColor,
-        textTransform: 'uppercase',
-        letterSpacing: '1.5px',
-      }}>
-        <span style={{
-          width: '8px', height: '8px', borderRadius: '50%',
-          background: CATEGORY_COLORS[node.category] || catColor,
-          boxShadow: `0 0 8px 3px ${CATEGORY_COLORS[node.category] || catColor}, 0 0 16px 4px ${CATEGORY_COLORS[node.category] || catColor}`,
-          display: 'inline-block', flexShrink: 0,
-        }} />
-        {CATEGORY_LABELS[node.category] || node.category}
-      </div>
-
-      {/* Divider */}
-      <div style={{ height: '1px', background: '#222', marginBottom: '20px' }} />
-
-      {/* Expected */}
-      <div style={{ marginBottom: '16px' }}>
-        <div style={{ fontSize: '10px', color: '#666', letterSpacing: '1.5px', marginBottom: '4px', textTransform: 'uppercase' }}>Expected</div>
-        <div style={{ fontSize: '14px', color: '#ccc' }}>{node.expected}</div>
-      </div>
-
-      {/* Likelihood */}
-      <div style={{ marginBottom: '20px' }}>
+        {/* Status badge */}
         <div style={{
-          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-          fontSize: '10px', color: '#666', letterSpacing: '1.5px', textTransform: 'uppercase',
+          display: 'inline-block',
+          padding: '3px 10px',
+          background: `${statusColor}22`,
+          border: `1px solid ${statusColor}`,
+          color: statusColor,
+          fontSize: '10px',
+          letterSpacing: '2px',
+          textTransform: 'uppercase',
+          marginBottom: '16px',
+        }}>
+          {node.status.replace('_', ' ')}
+        </div>
+
+        {/* Title */}
+        <h2 style={{
+          fontSize: '18px',
+          fontWeight: 700,
+          lineHeight: 1.3,
           marginBottom: '8px',
+          letterSpacing: '-0.3px',
         }}>
-          <span>Likelihood</span>
-          <span style={{ color: statusColor, fontSize: '16px', fontWeight: 700 }}>
-            {Math.round(node.likelihood * 100)}%
-          </span>
-        </div>
-        <div style={{
-          height: '4px', background: '#111',
-          position: 'relative', overflow: 'hidden',
-        }}>
-          <div style={{
-            height: '100%',
-            width: `${node.likelihood * 100}%`,
-            background: `linear-gradient(90deg, ${statusColor}88, ${statusColor})`,
-            boxShadow: `0 0 8px ${statusColor}`,
-            transition: 'width 0.5s ease',
-          }} />
-        </div>
-      </div>
+          {node.label}
+        </h2>
 
-      {/* Description */}
-      <div style={{ marginBottom: '20px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '10px' }}>
-          <div style={{ fontSize: '10px', color: '#666', letterSpacing: '1.5px', textTransform: 'uppercase' }}>Analysis</div>
-          {node.updated && (
-            <div style={{ fontSize: '9px', color: '#666', letterSpacing: '1px' }}>Updated {node.updated}</div>
+        {/* Category */}
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '6px',
+          marginBottom: '20px',
+          fontSize: '12px',
+          color: catColor,
+          textTransform: 'uppercase',
+          letterSpacing: '1.5px',
+        }}>
+          <span style={{
+            width: '8px', height: '8px', borderRadius: '50%',
+            background: CATEGORY_COLORS[node.category] || catColor,
+            boxShadow: `0 0 8px 3px ${CATEGORY_COLORS[node.category] || catColor}, 0 0 16px 4px ${CATEGORY_COLORS[node.category] || catColor}`,
+            display: 'inline-block', flexShrink: 0,
+          }} />
+          {CATEGORY_LABELS[node.category] || node.category}
+        </div>
+
+        {/* Divider */}
+        <div style={{ height: '1px', background: '#222', marginBottom: '20px' }} />
+
+        {/* Expected */}
+        <div style={{ marginBottom: '16px' }}>
+          <div style={{ fontSize: '10px', color: '#666', letterSpacing: '1.5px', marginBottom: '4px', textTransform: 'uppercase' }}>Expected</div>
+          <div style={{ fontSize: '14px', color: '#ccc' }}>{node.expected}</div>
+        </div>
+
+        {/* Likelihood */}
+        <div style={{ marginBottom: '20px' }}>
+          <div style={{
+            display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+            fontSize: '10px', color: '#666', letterSpacing: '1.5px', textTransform: 'uppercase',
+            marginBottom: '8px',
+          }}>
+            <span>Likelihood</span>
+            <span style={{ color: statusColor, fontSize: '16px', fontWeight: 700 }}>
+              {Math.round(node.likelihood * 100)}%
+            </span>
+          </div>
+          <div style={{
+            height: '4px', background: '#111',
+            position: 'relative', overflow: 'hidden',
+          }}>
+            <div style={{
+              height: '100%',
+              width: `${node.likelihood * 100}%`,
+              background: `linear-gradient(90deg, ${statusColor}88, ${statusColor})`,
+              boxShadow: `0 0 8px ${statusColor}`,
+              transition: 'width 0.5s ease',
+            }} />
+          </div>
+        </div>
+
+        {/* Avg Weight */}
+        <div style={{ marginBottom: '16px' }}>
+          <div style={{ fontSize: '10px', color: '#666', letterSpacing: '1.5px', marginBottom: '4px', textTransform: 'uppercase' }}>Avg Weight</div>
+          <div style={{ fontSize: '14px', color: '#aaa' }}>{(node.weight * 100).toFixed(0)}% toward model price</div>
+        </div>
+
+        {/* Description */}
+        <div style={{ marginBottom: '20px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '10px' }}>
+            <div style={{ fontSize: '10px', color: '#666', letterSpacing: '1.5px', textTransform: 'uppercase' }}>Analysis</div>
+            {node.updated && (
+              <div style={{ fontSize: '9px', color: '#666', letterSpacing: '1px' }}>Updated {node.updated}</div>
+            )}
+          </div>
+          {Array.isArray(node.description) ? (
+            <ul style={{ margin: 0, padding: 0, listStyle: 'none' }}>
+              {node.description.map((point, i) => (
+                <li key={i} style={{
+                  display: 'flex', gap: '8px',
+                  fontSize: '12px', color: '#aaa', lineHeight: 1.6,
+                  marginBottom: '5px', alignItems: 'flex-start',
+                }}>
+                  <span style={{ color: '#333', marginTop: '1px', flexShrink: 0 }}>·</span>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p style={{ fontSize: '13px', color: '#aaa', lineHeight: 1.6, margin: 0 }}>{node.description}</p>
           )}
         </div>
-        {Array.isArray(node.description) ? (
-          <ul style={{ margin: 0, padding: 0, listStyle: 'none' }}>
-            {node.description.map((point, i) => (
-              <li key={i} style={{
-                display: 'flex', gap: '8px',
-                fontSize: '12px', color: '#aaa', lineHeight: 1.6,
-                marginBottom: '5px', alignItems: 'flex-start',
+
+        {/* Price Impact — gated for non-pro */}
+        <div style={{
+          padding: '14px',
+          background: '#0a0a0a',
+          border: '1px solid #1a1a1a',
+          position: 'relative',
+          overflow: 'hidden',
+        }}>
+          <div style={{ fontSize: '10px', color: '#666', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '8px' }}>
+            Price Contribution
+          </div>
+
+          {pro ? (
+            // Unlocked — show exact price impact
+            <>
+              <div style={{ fontSize: '24px', fontWeight: 700, color: '#00ff88' }}>
+                +${priceImpact.toFixed(1)}
+              </div>
+              <div style={{ fontSize: '11px', color: '#555', marginTop: '4px' }}>
+                Estimated impact on model price · Weight: {(node.weight * 100).toFixed(0)}%
+              </div>
+            </>
+          ) : (
+            // Gated — blurred with upgrade prompt
+            <div style={{ position: 'relative' }}>
+              {/* Blurred value */}
+              <div style={{
+                filter: 'blur(6px)',
+                userSelect: 'none',
+                pointerEvents: 'none',
+                fontSize: '24px',
+                fontWeight: 700,
+                color: '#00ff88',
               }}>
-                <span style={{ color: '#333', marginTop: '1px', flexShrink: 0 }}>·</span>
-                <span>{point}</span>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p style={{ fontSize: '13px', color: '#aaa', lineHeight: 1.6, margin: 0 }}>{node.description}</p>
-        )}
+                +${priceImpact.toFixed(1)}
+              </div>
+              <div style={{
+                filter: 'blur(4px)',
+                userSelect: 'none',
+                pointerEvents: 'none',
+                fontSize: '11px',
+                color: '#555',
+                marginTop: '4px',
+              }}>
+                Estimated impact on model price · Weight: {(node.weight * 100).toFixed(0)}%
+              </div>
+
+              {/* Overlay prompt */}
+              <div style={{
+                position: 'absolute',
+                inset: 0,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexDirection: 'column',
+                gap: '6px',
+                animation: 'fadeInUp 0.3s ease',
+              }}>
+                <button
+                  onClick={() => setShowUpgrade(true)}
+                  style={{
+                    background: 'rgba(0,0,0,0.85)',
+                    border: '1px solid #e5393566',
+                    color: '#e53935',
+                    fontSize: '9px',
+                    letterSpacing: '2px',
+                    textTransform: 'uppercase',
+                    padding: '6px 14px',
+                    cursor: 'pointer',
+                    fontFamily: "'Space Grotesk', sans-serif",
+                    fontWeight: 600,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    transition: 'all 0.2s',
+                    animation: 'softPulse 2s ease-in-out infinite',
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.background = '#e5393522';
+                    e.currentTarget.style.borderColor = '#e53935';
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.background = 'rgba(0,0,0,0.85)';
+                    e.currentTarget.style.borderColor = '#e5393566';
+                  }}
+                >
+                  🔒 View Exact Impact
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
 
-      {/* Price Impact */}
-      <div style={{
-        padding: '14px',
-        background: '#0a0a0a',
-        border: '1px solid #1a1a1a',
-      }}>
-        <div style={{ fontSize: '10px', color: '#666', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '8px' }}>Price Impact</div>
-        <div style={{ fontSize: '24px', fontWeight: 700, color: '#00ff88' }}>
-          +${priceImpact.toFixed(1)}
-        </div>
-        <div style={{ fontSize: '11px', color: '#555', marginTop: '4px' }}>
-          Weight: {(node.weight * 100).toFixed(0)}% · Contribution to model price
-        </div>
-      </div>
-    </div>
+      {showUpgrade && (
+        <UpgradeModal reason="price_contribution" onClose={() => setShowUpgrade(false)} />
+      )}
+    </>
   );
 }

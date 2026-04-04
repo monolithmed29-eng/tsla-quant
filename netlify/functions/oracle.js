@@ -78,14 +78,32 @@ export default async (req, context) => {
     return new Response(JSON.stringify({ error: 'Invalid JSON' }), { status: 400 });
   }
 
-  const { query, token } = body;
+  const { query, token, credits, sig, pro } = body;
 
   if (!query?.trim()) {
     return new Response(JSON.stringify({ error: 'Query required' }), { status: 400 });
   }
 
-  // Check token
-  const isUnlocked = token && validTokens.has(token);
+  // ── Access check ──────────────────────────────────────────────────────────
+  // 1. Valid oracle token (single query purchase)
+  const hasToken = token && validTokens.has(token);
+
+  // 2. Pro tier flag + server-side credit signature validation
+  const SALT = 'tslaquant-v1';
+  function serverSign(n) {
+    let h = 0;
+    const s = `${SALT}:${n}`;
+    for (let i = 0; i < s.length; i++) { h = ((h << 5) - h) + s.charCodeAt(i); h |= 0; }
+    return h.toString(36);
+  }
+  const creditsNum = parseInt(credits, 10);
+  const sigValid = !isNaN(creditsNum) && sig && serverSign(creditsNum) === sig;
+  const hasCredits = sigValid && creditsNum > 0;
+
+  // Pro bypass: trust the pro flag only if credits sig is valid (proves localStorage wasn't blanket-wiped)
+  const isProUnlocked = pro && sigValid;
+
+  const isUnlocked = hasToken || hasCredits || isProUnlocked;
 
   if (!isUnlocked) {
     return new Response(JSON.stringify({ unlocked: false }), {
