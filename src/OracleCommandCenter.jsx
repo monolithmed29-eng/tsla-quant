@@ -16,6 +16,8 @@ export default function OracleCommandCenter() {
   useEffect(() => {
     if (!open) return;
     function handleClick(e) {
+      // Don't close if clicking inside the upgrade modal portal
+      if (e.target.closest('[data-upgrade-modal]')) return;
       if (ref.current && !ref.current.contains(e.target)) setOpen(false);
     }
     document.addEventListener('mousedown', handleClick);

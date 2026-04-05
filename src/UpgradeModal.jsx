@@ -85,6 +85,7 @@ export default function UpgradeModal({ reason = 'no_credits', onClose }) {
 
   return createPortal(
     <div
+      data-upgrade-modal="true"
       onClick={onClose}
       style={{
         position: 'fixed', inset: 0, zIndex: 800,
