@@ -142,7 +142,7 @@ export default function UpgradeModal({ reason = 'no_credits', onClose }) {
               style={{
                 background: tier.highlight ? '#0d0d0d' : '#0a0b0c',
                 border: tier.highlight ? '1px solid #e53935' : '1px solid #1e1e1e',
-                padding: '24px 20px',
+                padding: tier.highlight ? '36px 20px 24px' : '24px 20px',
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '12px',
