@@ -75,6 +75,8 @@ export default function OracleCommandCenter() {
           left: 0,
           width: '780px',
           maxWidth: '90vw',
+          maxHeight: 'calc(100vh - 120px)',
+          overflowY: 'auto',
           background: 'rgba(2,2,2,1.0)',
           border: '1px solid #2a2a2a',
           borderTop: '2px solid #e53935',
