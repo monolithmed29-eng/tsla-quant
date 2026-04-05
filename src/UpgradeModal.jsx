@@ -185,6 +185,7 @@ export default function UpgradeModal({ reason = 'no_credits', onClose }) {
 
               <a
                 href={tier.link}
+                onClick={e => e.stopPropagation()}
                 style={{
                   display: 'block',
                   background: tier.highlight ? '#e53935' : 'transparent',
