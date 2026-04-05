@@ -183,11 +183,11 @@ export default function UpgradeModal({ reason = 'no_credits', onClose }) {
                 ))}
               </ul>
 
-              <a
-                href={tier.link}
-                onClick={e => e.stopPropagation()}
+              <button
+                onClick={e => { e.stopPropagation(); window.open(tier.link, '_blank'); }}
                 style={{
                   display: 'block',
+                  width: '100%',
                   background: tier.highlight ? '#e53935' : 'transparent',
                   border: tier.highlight ? 'none' : '1px solid #333',
                   color: tier.highlight ? '#fff' : '#888',
@@ -196,7 +196,6 @@ export default function UpgradeModal({ reason = 'no_credits', onClose }) {
                   fontSize: '10px',
                   letterSpacing: '2px',
                   textTransform: 'uppercase',
-                  textDecoration: 'none',
                   fontFamily: "'Space Grotesk', sans-serif",
                   fontWeight: tier.highlight ? 600 : 400,
                   transition: 'all 0.2s',
@@ -221,7 +220,7 @@ export default function UpgradeModal({ reason = 'no_credits', onClose }) {
                 }}
               >
                 {tier.cta}
-              </a>
+              </button>
             </div>
           ))}
         </div>
