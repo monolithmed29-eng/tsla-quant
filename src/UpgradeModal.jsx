@@ -2,6 +2,7 @@
 // Shown when credits hit 0, or when gated content is clicked.
 // `reason` prop: 'no_credits' | 'price_contribution' | 'pdf_upload'
 
+import { createPortal } from 'react-dom';
 import { setProStatus } from './creditManager';
 
 // ── Stripe Price IDs (set via Netlify env vars) ───────────────────────────────
@@ -82,7 +83,7 @@ const glowAnim = `
 export default function UpgradeModal({ reason = 'no_credits', onClose }) {
   const copy = REASON_COPY[reason] || REASON_COPY.no_credits;
 
-  return (
+  return createPortal(
     <div
       onClick={onClose}
       style={{
@@ -231,6 +232,7 @@ export default function UpgradeModal({ reason = 'no_credits', onClose }) {
           Payments secured by Stripe · Cancel monthly plans anytime
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
