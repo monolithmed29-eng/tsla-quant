@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { getCredits, decrementCredit, addCredits, isPro, getCreditSig, setProStatus } from './creditManager';
+import { getFingerprint } from './fingerprint';
 import UpgradeModal from './UpgradeModal';
 
 const QUICK_QUERIES = [
@@ -38,10 +39,24 @@ export default function OracleSearch() {
   const [result, setResult] = useState('');
   const [showTooltip, setShowTooltip] = useState(false);
   const [credits, setCredits] = useState(getCredits);
+  const [fp, setFp] = useState(null);
   const [showUpgrade, setShowUpgrade] = useState(false);
   const [upgradeReason, setUpgradeReason] = useState('no_credits');
   const inputRef = useRef(null);
   const loadingIntervalRef = useRef(null);
+
+  // Init fingerprint + sync server-side credits on mount
+  useEffect(() => {
+    getFingerprint().then(async fingerprint => {
+      setFp(fingerprint);
+      try {
+        const res = await fetch(`/api/credits?fp=${encodeURIComponent(fingerprint)}`);
+        const data = await res.json();
+        if (typeof data.credits === 'number') setCredits(data.credits);
+        if (data.pro) { setProStatus(data.pro); }
+      } catch { /* use localStorage fallback */ }
+    });
+  }, []);
 
   // Handle Stripe redirect params (?upgrade=active_trader or ?oracle_token=xxx)
   useEffect(() => {
@@ -52,6 +67,14 @@ export default function OracleSearch() {
     if (upgradeParam === 'active_trader' || upgradeParam === 'institutional') {
       setProStatus(upgradeParam);
       window.history.replaceState({}, '', window.location.pathname);
+      // Sync pro status to server
+      getFingerprint().then(fingerprint => {
+        fetch('/api/credits', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ fp: fingerprint, action: 'set_pro', tier: upgradeParam }),
+        }).catch(() => {});
+      });
     } else if (tokenParam) {
       sessionStorage.setItem('oracle_token', tokenParam);
       // Add 1 credit for single query purchase
@@ -115,17 +138,11 @@ export default function OracleSearch() {
 
     try {
       const token = sessionStorage.getItem('oracle_token') || '';
-      // Send credit payload for backend validation
+      const fingerprint = fp || await getFingerprint();
       const res = await fetch('/api/oracle', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          query: finalQuery,
-          token,
-          credits: currentCredits,
-          sig: getCreditSig(),
-          pro,
-        }),
+        body: JSON.stringify({ query: finalQuery, fp: fingerprint, token }),
       });
       stopLoading();
 
@@ -137,11 +154,8 @@ export default function OracleSearch() {
 
       const data = await res.json();
       if (data.unlocked && data.result) {
-        // Deduct credit (unless pro)
-        if (!pro) {
-          const next = decrementCredit();
-          setCredits(next);
-        }
+        // Sync credits from server response
+        if (typeof data.credits === 'number') setCredits(data.credits);
         setResult(data.result);
         setPhase('result');
       } else {

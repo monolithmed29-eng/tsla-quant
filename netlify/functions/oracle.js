@@ -1,13 +1,19 @@
 // TSLA_QUANT Oracle — AI deep-dive analysis on Tesla catalysts
-// POST /api/oracle { query: string, token?: string }
-// Returns 402 if no valid token, 200 with result if unlocked
+// POST /api/oracle { query, fp, token? }
+// Returns 402 if no valid credits/token, 200 with result if unlocked
+
+import { getStore } from '@netlify/blobs';
 
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
-const STRIPE_WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET;
-const UNLOCK_TOKENS = process.env.ORACLE_UNLOCK_TOKENS || ''; // comma-sep valid tokens
+const UNLOCK_TOKENS = process.env.ORACLE_UNLOCK_TOKENS || '';
+const FREE_CREDITS = 3;
 
-// Simple in-memory token store (resets on cold start — good enough for MVP)
 const validTokens = new Set(UNLOCK_TOKENS.split(',').map(t => t.trim()).filter(Boolean));
+
+function compositeKey(fp, ip) {
+  const coarseIp = (ip || '').split('.').slice(0, 2).join('.');
+  return `${fp}__${coarseIp}`;
+}
 
 const SYSTEM_PROMPT = `You are the TSLAquant Proprietary Research Agent — a high-conviction quantitative analyst covering Tesla Inc. ($TSLA) for paid institutional and retail clients.
 
@@ -78,40 +84,39 @@ export default async (req, context) => {
     return new Response(JSON.stringify({ error: 'Invalid JSON' }), { status: 400 });
   }
 
-  const { query, token, credits, sig, pro } = body;
+  const { query, fp, token } = body;
 
   if (!query?.trim()) {
     return new Response(JSON.stringify({ error: 'Query required' }), { status: 400 });
   }
 
   // ── Access check ──────────────────────────────────────────────────────────
-  // 1. Valid oracle token (single query purchase)
   const hasToken = token && validTokens.has(token);
 
-  // 2. Pro tier flag + server-side credit signature validation
-  const SALT = 'tslaquant-v1';
-  function serverSign(n) {
-    let h = 0;
-    const s = `${SALT}:${n}`;
-    for (let i = 0; i < s.length; i++) { h = ((h << 5) - h) + s.charCodeAt(i); h |= 0; }
-    return h.toString(36);
+  // Server-side credit/pro check via Netlify Blobs
+  let serverRecord = null;
+  let blobKey = null;
+  if (fp) {
+    try {
+      const store = getStore('oracle-credits');
+      const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || '';
+      blobKey = compositeKey(fp, ip);
+      serverRecord = await store.get(blobKey, { type: 'json' }).catch(() => null);
+      if (!serverRecord) {
+        serverRecord = { credits: FREE_CREDITS, pro: null, created: Date.now() };
+        await store.setJSON(blobKey, serverRecord);
+      }
+    } catch { /* blob unavailable — fall through to token check */ }
   }
-  const creditsNum = parseInt(credits, 10);
-  const sigValid = !isNaN(creditsNum) && sig && serverSign(creditsNum) === sig;
-  const hasCredits = sigValid && creditsNum > 0;
 
-  // Pro bypass: trust the pro flag only if credits sig is valid (proves localStorage wasn't blanket-wiped)
-  const isProUnlocked = pro && sigValid;
-
-  const isUnlocked = hasToken || hasCredits || isProUnlocked;
+  const isPro = serverRecord?.pro;
+  const hasServerCredits = serverRecord && serverRecord.credits > 0;
+  const isUnlocked = hasToken || isPro || hasServerCredits;
 
   if (!isUnlocked) {
-    return new Response(JSON.stringify({ unlocked: false }), {
+    return new Response(JSON.stringify({ unlocked: false, credits: serverRecord?.credits ?? 0 }), {
       status: 402,
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      }
+      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
     });
   }
 
@@ -141,7 +146,18 @@ export default async (req, context) => {
 
     if (!result) throw new Error('Empty response from Oracle');
 
-    return new Response(JSON.stringify({ unlocked: true, result }), {
+    // Decrement server-side credits (skip for pro and token holders)
+    let creditsRemaining = serverRecord?.credits ?? 0;
+    if (!isPro && !hasToken && serverRecord && blobKey) {
+      try {
+        const store = getStore('oracle-credits');
+        serverRecord.credits = Math.max(0, serverRecord.credits - 1);
+        await store.setJSON(blobKey, serverRecord);
+        creditsRemaining = serverRecord.credits;
+      } catch { /* non-fatal */ }
+    }
+
+    return new Response(JSON.stringify({ unlocked: true, result, credits: creditsRemaining }), {
       status: 200,
       headers: {
         'Content-Type': 'application/json',
