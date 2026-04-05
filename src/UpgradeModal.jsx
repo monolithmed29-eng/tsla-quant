@@ -185,8 +185,6 @@ export default function UpgradeModal({ reason = 'no_credits', onClose }) {
 
               <a
                 href={tier.link}
-                target="_blank"
-                rel="noopener noreferrer"
                 style={{
                   display: 'block',
                   background: tier.highlight ? '#e53935' : 'transparent',
