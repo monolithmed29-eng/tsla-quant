@@ -129,7 +129,7 @@ export default async (req, context) => {
         'anthropic-version': '2023-06-01',
       },
       body: JSON.stringify({
-        model: 'claude-3-5-haiku-20241022',
+        model: 'claude-sonnet-4-6',
         max_tokens: 600,
         system: SYSTEM_PROMPT,
         messages: [{ role: 'user', content: query }],
