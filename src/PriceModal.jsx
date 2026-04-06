@@ -124,8 +124,8 @@ export default function PriceModal({ breakdown, total, livePrice, quantChange, o
                   </span>
                   {' '}since last update —{' '}
                   {quantChange < 0
-                    ? `Q1 2026 delivery data lowered confidence across the auto and energy segments: delivery volume rebound (0.55→0.45), energy deployments missed consensus by 39% (8.8 GWh vs 14.4 expected), gross margin outlook pressured by a 50K-unit inventory build, and Model Y demand uplift weaker than expected. Each adjustment flows into the weighted SOTP calculation.`
-                    : `SpaceX Synergy unit added to the SOTP model (Apr 3, 2026). Tesla's $2B xAI investment was converted into SpaceX equity in March 2026 — the first direct cross-equity stake between the two companies. Even at a low 28% confidence, the bear/base/bull range ($0–$120/share) adds meaningful optionality to the model. Net effect: +$11 to the model price.`
+                    ? `Apr 6, 2026 recalibration: Q1 delivery miss (358K vs 365K consensus) lowered delivery rebound and earnings beat confidence. Partially offset by Cybercab mass production confirmation (0.75→0.92), EU FSD approval imminent Apr 10 (0.73→0.82), NHTSA probe closure boosting regulatory confidence (0.40→0.47), and Megapack Houston confirmation. Net effect reflects stronger autonomy pipeline vs weaker near-term financials.`
+                    : `Apr 6, 2026 recalibration: Cybercab production confirmed at Giga Texas, EU FSD approval expected April 10, NHTSA probe closed — autonomy catalysts strengthened significantly. Q1 delivery miss (358K vs 365K) and 50K-unit inventory build pressured financial catalysts. Net effect: stronger platform thesis, softer near-term earnings outlook.`
                   }
                 </div>
               )}
