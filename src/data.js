@@ -32,6 +32,7 @@ export const catalysts = [
     likelihood: 0.95,
     updated: "Apr 5, 2026",
     description: [
+      "Morgan Stanley (Apr 5, 2026): 'Scaling the unsupervised robotaxi fleet is the most important catalyst for $TSLA this year' — each incremental mile accelerates FSD learning → higher attach rates → re-accelerates auto demand → improves FCF. Stock expected to trade in close correlation to robotaxi fleet scaling + 7-city expansion by end of June.",
       "LIVE — Austin fleet operational as of mid-2025",
       "44 vehicles observed last 30d | 9 unsupervised active | Bay Area: 453 total observed (supervised only) — source: robotaxitracker.com (Apr 5, 2026)",
       "🏁 Austin fleet total mileage: ~1.01M+ miles | current rate: ~4,700 mi/day",
@@ -577,8 +578,9 @@ export const catalysts = [
     likelihood: 0.68,
     updated: "Apr 2, 2026",
     description: [
-      "⚠️ Q1 2026: 8.8 GWh deployed — down 15% YoY vs Q1 2025 (10.4 GWh) and sharply below Q4 2025 record of 14.2 GWh",
-      "Q4 seasonality is typical (utilities frontload calendar-year projects), but YoY decline is a concern",
+      "⚠️ Q1 2026: 8.8 GWh deployed — missed 14.4 GWh consensus by 40%; down vs Q4 2025 record of 14.2 GWh",
+      "Morgan Stanley (Apr 5, 2026): 'Far too early to call this a trend' — energy storage is inherently lumpy due to permits, labor, interconnect approvals. Data center customer demand remains robust. Improving unit economics for utility-scale ESS intact.",
+      "Q4 seasonality is typical (utilities frontload calendar-year projects), but YoY decline worth watching",
       "Full year 2025 energy revenue: $12.8B — up ~30% YoY",
       "Megapack backlog: 2–3 year waitlist for large utility projects — demand intact, execution uncertain",
       "New Megafactory (Lathrop, CA) and Shanghai energy factory both ramping — supply constraints may explain Q1 dip",

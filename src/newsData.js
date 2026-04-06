@@ -3,6 +3,13 @@
 
 export const breakingNews = [
   {
+    headline: "Morgan Stanley (Andrew Percoco, Apr 5): 'Scaling the unsupervised robotaxi fleet is the most important catalyst for $TSLA this year' — each incremental mile accelerates FSD learning + re-accelerates auto demand. PT unchanged $415. 2026 delivery forecast: 1.6M. Energy miss (8.8 GWh vs 14.4 GWh) called 'lumpy, not a trend' — data center demand intact.",
+    category: "financials",
+    source: "Morgan Stanley",
+    timestamp: "Apr 5, 2026",
+    url: "https://x.com/",
+  },
+  {
     headline: "EU FSD approval (UN R-171) expected by April 10, 2026 — would unlock FSD in Europe for first time; cited as major near-term catalyst ahead of Cybercab ramp",
     category: "autonomy",
     source: "Techi.com",
