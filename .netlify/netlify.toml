@@ -6,12 +6,13 @@ redirects = []
 
 [build]
 publish = "/Users/openclaw/.openclaw/workspace/tesla-catalyst-graph/dist"
-publishOrigin = "ui"
-commandOrigin = "ui"
+publishOrigin = "config"
+commandOrigin = "config"
 command = "npm run build"
 functions = "/Users/openclaw/.openclaw/workspace/tesla-catalyst-graph/netlify/functions"
 
 [build.environment]
+NODE_VERSION = "22"
 
 [build.processing]
 
