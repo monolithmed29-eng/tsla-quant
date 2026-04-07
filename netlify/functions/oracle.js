@@ -84,11 +84,16 @@ export default async (req, context) => {
     return new Response(JSON.stringify({ error: 'Invalid JSON' }), { status: 400 });
   }
 
-  const { query, fp, token } = body;
+  const { query, fp, token, content } = body;
 
   if (!query?.trim()) {
     return new Response(JSON.stringify({ error: 'Query required' }), { status: 400 });
   }
+
+  // Build Claude message content — text only, or text + document/image
+  const userContent = Array.isArray(content) && content.length > 0
+    ? content
+    : [{ type: 'text', text: query }];
 
   // ── Access check ──────────────────────────────────────────────────────────
   const hasToken = token && validTokens.has(token);
@@ -135,9 +140,9 @@ export default async (req, context) => {
       },
       body: JSON.stringify({
         model: 'claude-sonnet-4-6',
-        max_tokens: 600,
+        max_tokens: 1200,
         system: SYSTEM_PROMPT,
-        messages: [{ role: 'user', content: query }],
+        messages: [{ role: 'user', content: userContent }],
       }),
     });
 

@@ -16,7 +16,6 @@ export default function OracleCommandCenter() {
   useEffect(() => {
     if (!open) return;
     function handleClick(e) {
-      // Don't close if clicking inside the upgrade modal portal
       if (e.target.closest('[data-upgrade-modal]')) return;
       if (ref.current && !ref.current.contains(e.target)) setOpen(false);
     }
@@ -25,7 +24,7 @@ export default function OracleCommandCenter() {
   }, [open]);
 
   return (
-    <div ref={ref} style={{ position: 'relative', fontFamily: "'Space Grotesk', sans-serif" }}>
+    <div ref={ref} style={{ position: 'relative', fontFamily: "'Space Grotesk', sans-serif", display: 'flex', alignItems: 'center', gap: '0' }}>
       <style>{pulseAnim}</style>
 
       {/* Header button */}
@@ -34,6 +33,7 @@ export default function OracleCommandCenter() {
         style={{
           background: open ? 'rgba(229,57,53,0.12)' : 'transparent',
           border: `1px solid ${open ? '#e53935' : '#3a1a1a'}`,
+          borderRight: 'none',
           color: '#ff3333',
           fontSize: '10px',
           letterSpacing: '2px',
@@ -47,6 +47,7 @@ export default function OracleCommandCenter() {
           gap: '8px',
           transition: 'all 0.2s ease',
           boxShadow: open ? '0 0 12px rgba(229,57,53,0.3)' : 'none',
+          whiteSpace: 'nowrap',
         }}
         onMouseEnter={e => {
           e.currentTarget.style.borderColor = '#e53935';
@@ -69,13 +70,34 @@ export default function OracleCommandCenter() {
         Command Center
       </button>
 
-      {/* Dropdown panel — opens downward from header */}
+      {/* Fake search stub — makes it obvious this is a query interface */}
+      <div
+        onClick={() => setOpen(true)}
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '6px',
+          background: '#0d1117',
+          border: `1px solid ${open ? '#e53935' : '#2a2a2a'}`,
+          padding: '5px 12px',
+          cursor: 'text',
+          transition: 'border-color 0.2s',
+          minWidth: '200px',
+        }}
+        onMouseEnter={e => { e.currentTarget.style.borderColor = '#e53935'; }}
+        onMouseLeave={e => { if (!open) e.currentTarget.style.borderColor = '#2a2a2a'; }}
+      >
+        <span style={{ color: '#e53935', fontSize: '10px', letterSpacing: '1px', userSelect: 'none', whiteSpace: 'nowrap' }}>ROGER@TSLAQUANT:~$</span>
+        <span style={{ color: '#333', fontSize: '11px', letterSpacing: '0.5px', userSelect: 'none' }}>Query Tesla catalysts...</span>
+      </div>
+
+      {/* Dropdown panel */}
       {open && (
         <div style={{
           position: 'absolute',
           top: 'calc(100% + 8px)',
           left: 0,
-          width: '780px',
+          width: '820px',
           maxWidth: '90vw',
           maxHeight: 'calc(100vh - 120px)',
           overflowY: 'auto',

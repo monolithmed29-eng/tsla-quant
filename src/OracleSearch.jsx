@@ -37,12 +37,16 @@ export default function OracleSearch() {
   const [phase, setPhase] = useState('idle'); // idle | loading | result
   const [loadingText, setLoadingText] = useState('');
   const [result, setResult] = useState('');
+  const [lastQuery, setLastQuery] = useState('');
   const [showTooltip, setShowTooltip] = useState(false);
   const [credits, setCredits] = useState(getCredits);
   const [fp, setFp] = useState(null);
   const [showUpgrade, setShowUpgrade] = useState(false);
   const [upgradeReason, setUpgradeReason] = useState('no_credits');
+  const [attachment, setAttachment] = useState(null); // { name, base64, mediaType }
+  const [attachError, setAttachError] = useState('');
   const inputRef = useRef(null);
+  const fileInputRef = useRef(null);
   const loadingIntervalRef = useRef(null);
 
   // Init fingerprint + sync server-side credits on mount
@@ -67,7 +71,6 @@ export default function OracleSearch() {
     if (upgradeParam === 'active_trader' || upgradeParam === 'institutional') {
       setProStatus(upgradeParam);
       window.history.replaceState({}, '', window.location.pathname);
-      // Sync pro status to server
       getFingerprint().then(fingerprint => {
         fetch('/api/credits', {
           method: 'POST',
@@ -77,7 +80,6 @@ export default function OracleSearch() {
       });
     } else if (tokenParam) {
       sessionStorage.setItem('oracle_token', tokenParam);
-      // Add 1 credit for single query purchase
       const next = addCredits(1);
       setCredits(next);
       window.history.replaceState({}, '', window.location.pathname);
@@ -119,19 +121,52 @@ export default function OracleSearch() {
     setShowUpgrade(true);
   }
 
-  async function handleAnalyze(q) {
-    const finalQuery = q || query;
-    if (!finalQuery.trim()) return;
+  // Handle file attachment (PDF or image, max 10MB)
+  function handleFileChange(e) {
+    setAttachError('');
+    const file = e.target.files?.[0];
+    if (!file) return;
 
-    // Credit gate
-    const pro = isPro();
-    const currentCredits = getCredits();
-    if (!pro && currentCredits <= 0) {
-      openUpgrade('no_credits');
+    const allowed = ['application/pdf', 'image/png', 'image/jpeg', 'image/gif', 'image/webp'];
+    if (!allowed.includes(file.type)) {
+      setAttachError('Only PDF, PNG, JPG, GIF, or WEBP files supported.');
+      return;
+    }
+    if (file.size > 10 * 1024 * 1024) {
+      setAttachError('File must be under 10MB.');
       return;
     }
 
-    setQuery(finalQuery);
+    const reader = new FileReader();
+    reader.onload = () => {
+      const base64 = reader.result.split(',')[1];
+      setAttachment({ name: file.name, base64, mediaType: file.type });
+    };
+    reader.readAsDataURL(file);
+    // Reset input so same file can be re-attached
+    e.target.value = '';
+  }
+
+  function removeAttachment() {
+    setAttachment(null);
+    setAttachError('');
+  }
+
+  async function handleAnalyze(q) {
+    const finalQuery = (q || query).trim();
+    if (!finalQuery) return;
+
+    const pro = isPro();
+    const currentCredits = getCredits();
+    if (!pro && currentCredits <= 0) {
+      const token = sessionStorage.getItem('oracle_token') || '';
+      if (!token) {
+        openUpgrade('no_credits');
+        return;
+      }
+    }
+
+    setLastQuery(finalQuery);
     setPhase('loading');
     cycleLoadingText();
     sessionStorage.setItem('oracle_pending_query', finalQuery);
@@ -139,10 +174,28 @@ export default function OracleSearch() {
     try {
       const token = sessionStorage.getItem('oracle_token') || '';
       const fingerprint = fp || await getFingerprint();
+
+      // Build content array for Claude — text + optional attachment
+      const userContent = [];
+      if (attachment) {
+        if (attachment.mediaType === 'application/pdf') {
+          userContent.push({
+            type: 'document',
+            source: { type: 'base64', media_type: 'application/pdf', data: attachment.base64 },
+          });
+        } else {
+          userContent.push({
+            type: 'image',
+            source: { type: 'base64', media_type: attachment.mediaType, data: attachment.base64 },
+          });
+        }
+      }
+      userContent.push({ type: 'text', text: finalQuery });
+
       const res = await fetch('/api/oracle', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query: finalQuery, fp: fingerprint, token }),
+        body: JSON.stringify({ query: finalQuery, fp: fingerprint, token, content: userContent }),
       });
       stopLoading();
 
@@ -154,10 +207,11 @@ export default function OracleSearch() {
 
       const data = await res.json();
       if (data.unlocked && data.result) {
-        // Sync credits from server response
         if (typeof data.credits === 'number') setCredits(data.credits);
         setResult(data.result);
         setPhase('result');
+        // Clear attachment after successful query
+        setAttachment(null);
       } else {
         openUpgrade('no_credits');
         setPhase('idle');
@@ -169,18 +223,20 @@ export default function OracleSearch() {
     }
   }
 
-  function handleReset() {
+  function handleFollowUp() {
     setPhase('idle');
     setQuery('');
+    // Keep result visible? No — reset fully for follow-up
     setResult('');
-    stopLoading();
+    setLastQuery('');
+    setTimeout(() => inputRef.current?.focus(), 50);
   }
 
   useEffect(() => () => stopLoading(), []);
 
   const pro = isPro();
   const creditsLeft = getCredits();
-  const depleted = !pro && creditsLeft <= 0;
+  const depleted = !pro && creditsLeft <= 0 && !sessionStorage.getItem('oracle_token');
 
   return (
     <div style={{
@@ -230,11 +286,11 @@ export default function OracleSearch() {
           color: '#ffffff',
           letterSpacing: '0.5px',
         }}>
-          Ask the Agent: Deep-Dive Quant Analysis on any Tesla Milestone.
+          Ask Roger: Deep-Dive Quant Analysis on any Tesla Milestone.
         </div>
       </div>
 
-      {/* Search Bar */}
+      {/* Search / Input Area */}
       <div style={{
         width: '100%',
         maxWidth: '720px',
@@ -276,9 +332,8 @@ export default function OracleSearch() {
           )}
         </div>
 
+        {/* Terminal input box */}
         <div style={{
-          display: 'flex',
-          alignItems: 'center',
           background: '#0d1117',
           border: `1px solid ${depleted ? '#e5393566' : '#2a2a2a'}`,
           transition: 'border-color 0.2s, box-shadow 0.2s',
@@ -294,134 +349,198 @@ export default function OracleSearch() {
             e.currentTarget.style.boxShadow = 'none';
           }}
         >
-          {/* Prompt prefix */}
-          <span style={{
-            padding: '0 0 0 16px',
-            fontSize: '12px',
-            color: depleted ? '#e5393566' : '#e53935',
-            letterSpacing: '1px',
-            whiteSpace: 'nowrap',
-            userSelect: 'none',
-          }}>ROGER@TSLAQUANT:~$</span>
+          {/* Top bar with prompt + single-line query preview */}
+          <div style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #1a1a1a' }}>
+            <span style={{
+              padding: '10px 0 10px 16px',
+              fontSize: '12px',
+              color: depleted ? '#e5393566' : '#e53935',
+              letterSpacing: '1px',
+              whiteSpace: 'nowrap',
+              userSelect: 'none',
+              flexShrink: 0,
+            }}>ROGER@TSLAQUANT:~$</span>
 
-          <input
+            {/* Tooltip trigger */}
+            <div style={{ position: 'relative', padding: '0 8px', marginLeft: 'auto', flexShrink: 0 }}>
+              <button
+                onMouseEnter={() => setShowTooltip(true)}
+                onMouseLeave={() => setShowTooltip(false)}
+                style={{
+                  background: 'none', border: '1px solid #333',
+                  color: '#555', width: '20px', height: '20px',
+                  borderRadius: '50%', fontSize: '11px',
+                  cursor: 'pointer', fontFamily: "'Space Grotesk', sans-serif",
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  flexShrink: 0,
+                }}
+              >?</button>
+              {showTooltip && (
+                <div style={{
+                  position: 'absolute',
+                  bottom: '28px',
+                  right: 0,
+                  width: '240px',
+                  background: '#111',
+                  border: '1px solid #222',
+                  padding: '12px 14px',
+                  fontSize: '11px',
+                  color: '#888',
+                  lineHeight: 1.6,
+                  zIndex: 999,
+                  animation: 'fadeInUp 0.2s ease',
+                }}>
+                  Roger uses real-time milestone data from a proprietary neural catalyst network to generate deep-dive quant analysis on Tesla catalysts.
+                  <div style={{ marginTop: '6px', color: '#555', fontSize: '10px' }}>
+                    Powered by live neural catalyst data · Updated daily
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Textarea — full height, terminal style */}
+          <textarea
             ref={inputRef}
             value={query}
             onChange={e => setQuery(e.target.value)}
-            onKeyDown={e => e.key === 'Enter' && handleAnalyze()}
-            placeholder={depleted ? 'No credits remaining — upgrade to continue' : 'Enter your Tesla quant query...'}
+            onKeyDown={e => {
+              if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                handleAnalyze();
+              }
+            }}
+            placeholder={depleted
+              ? 'No credits remaining — upgrade to continue'
+              : 'Type your Tesla quant query here...\n(Shift+Enter for new line, Enter to submit)'}
             disabled={phase === 'loading' || depleted}
+            rows={4}
             style={{
-              flex: 1,
+              width: '100%',
               background: 'transparent',
               border: 'none',
               outline: 'none',
               color: depleted ? '#555' : '#ffffff',
               fontSize: '13px',
-              padding: '14px 12px',
-              fontFamily: "'Space Grotesk', sans-serif",
+              padding: '14px 16px',
+              fontFamily: 'monospace',
               letterSpacing: '0.3px',
               cursor: depleted ? 'not-allowed' : 'text',
+              resize: 'vertical',
+              minHeight: '90px',
+              lineHeight: 1.6,
+              boxSizing: 'border-box',
             }}
           />
 
-          {/* Tooltip trigger */}
-          <div style={{ position: 'relative', padding: '0 8px' }}>
-            <button
-              onMouseEnter={() => setShowTooltip(true)}
-              onMouseLeave={() => setShowTooltip(false)}
-              style={{
-                background: 'none', border: '1px solid #333',
-                color: '#555', width: '20px', height: '20px',
-                borderRadius: '50%', fontSize: '11px',
-                cursor: 'pointer', fontFamily: "'Space Grotesk', sans-serif",
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                flexShrink: 0,
-              }}
-            >?</button>
-            {showTooltip && (
-              <div style={{
-                position: 'absolute',
-                bottom: '28px',
-                right: 0,
-                width: '240px',
-                background: '#111',
-                border: '1px solid #222',
-                padding: '12px 14px',
-                fontSize: '11px',
-                color: '#888',
-                lineHeight: 1.6,
-                zIndex: 999,
-                animation: 'fadeInUp 0.2s ease',
-              }}>
-                The Agent uses real-time milestone data from a local GPU cluster running on a Mac Mini to generate deep-dive quant analysis on Tesla catalysts.
-                <div style={{ marginTop: '6px', color: '#555', fontSize: '10px' }}>
-                  Powered by live neural catalyst data · Updated daily
+          {/* Bottom bar: attachment + submit */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            borderTop: '1px solid #1a1a1a',
+            padding: '8px 12px',
+            gap: '10px',
+          }}>
+            {/* Paperclip / attachment */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flex: 1 }}>
+              <button
+                title="Attach PDF or image (income statement, filing, chart)"
+                onClick={() => fileInputRef.current?.click()}
+                disabled={phase === 'loading' || depleted}
+                style={{
+                  background: 'none',
+                  border: '1px solid #2a2a2a',
+                  color: attachment ? '#00ff88' : '#555',
+                  padding: '4px 10px',
+                  cursor: depleted ? 'not-allowed' : 'pointer',
+                  fontSize: '14px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '5px',
+                  transition: 'border-color 0.2s, color 0.2s',
+                  borderColor: attachment ? '#00ff8844' : '#2a2a2a',
+                }}
+                onMouseEnter={e => { if (!depleted) { e.currentTarget.style.borderColor = '#e53935'; e.currentTarget.style.color = '#e53935'; } }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = attachment ? '#00ff8844' : '#2a2a2a'; e.currentTarget.style.color = attachment ? '#00ff88' : '#555'; }}
+              >
+                📎
+                <span style={{ fontSize: '9px', letterSpacing: '1px', textTransform: 'uppercase', fontFamily: "'Space Grotesk', sans-serif" }}>
+                  {attachment ? 'Attached' : 'Attach'}
+                </span>
+              </button>
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept=".pdf,image/png,image/jpeg,image/gif,image/webp"
+                onChange={handleFileChange}
+                style={{ display: 'none' }}
+              />
+              {attachment && (
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <span style={{ fontSize: '10px', color: '#00ff88', maxWidth: '180px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                    {attachment.name}
+                  </span>
+                  <button
+                    onClick={removeAttachment}
+                    style={{ background: 'none', border: 'none', color: '#555', cursor: 'pointer', fontSize: '12px', padding: '0 2px' }}
+                    title="Remove attachment"
+                  >✕</button>
                 </div>
-              </div>
+              )}
+              {attachError && (
+                <span style={{ fontSize: '10px', color: '#e53935', letterSpacing: '0.5px' }}>{attachError}</span>
+              )}
+            </div>
+
+            {/* Analyze / Refill button */}
+            {depleted ? (
+              <button
+                onClick={() => openUpgrade('no_credits')}
+                style={{
+                  background: '#e53935',
+                  border: 'none',
+                  color: '#ffffff',
+                  fontSize: '10px',
+                  letterSpacing: '2px',
+                  textTransform: 'uppercase',
+                  padding: '8px 20px',
+                  cursor: 'pointer',
+                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontWeight: 600,
+                  whiteSpace: 'nowrap',
+                  animation: 'oraclePulse 2s infinite',
+                }}
+                onMouseEnter={e => { e.target.style.background = '#c62828'; }}
+                onMouseLeave={e => { e.target.style.background = '#e53935'; }}
+              >
+                Refill Credits
+              </button>
+            ) : (
+              <button
+                onClick={() => handleAnalyze()}
+                disabled={phase === 'loading' || !query.trim()}
+                style={{
+                  background: phase === 'loading' ? '#1a0a0a' : '#e53935',
+                  border: 'none',
+                  color: '#ffffff',
+                  fontSize: '10px',
+                  letterSpacing: '2px',
+                  textTransform: 'uppercase',
+                  padding: '8px 20px',
+                  cursor: phase === 'loading' || !query.trim() ? 'not-allowed' : 'pointer',
+                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontWeight: 600,
+                  opacity: !query.trim() && phase !== 'loading' ? 0.4 : 1,
+                  transition: 'background 0.2s, opacity 0.2s',
+                  whiteSpace: 'nowrap',
+                }}
+                onMouseEnter={e => { if (phase !== 'loading' && query.trim()) e.target.style.background = '#c62828'; }}
+                onMouseLeave={e => { if (phase !== 'loading') e.target.style.background = '#e53935'; }}
+              >
+                {phase === 'loading' ? '...' : 'Analyze ↵'}
+              </button>
             )}
           </div>
-
-          {/* Analyze / Refill button */}
-          {depleted ? (
-            <button
-              onClick={() => openUpgrade('no_credits')}
-              style={{
-                background: '#e53935',
-                border: 'none',
-                color: '#ffffff',
-                fontSize: '10px',
-                letterSpacing: '2px',
-                textTransform: 'uppercase',
-                padding: '0 20px',
-                height: '100%',
-                cursor: 'pointer',
-                fontFamily: "'Space Grotesk', sans-serif",
-                fontWeight: 600,
-                whiteSpace: 'nowrap',
-                minWidth: '110px',
-                alignSelf: 'stretch',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                animation: 'oraclePulse 2s infinite',
-              }}
-              onMouseEnter={e => { e.target.style.background = '#c62828'; }}
-              onMouseLeave={e => { e.target.style.background = '#e53935'; }}
-            >
-              Refill Credits
-            </button>
-          ) : (
-            <button
-              onClick={() => handleAnalyze()}
-              disabled={phase === 'loading' || !query.trim()}
-              style={{
-                background: phase === 'loading' ? '#1a0a0a' : '#e53935',
-                border: 'none',
-                color: '#ffffff',
-                fontSize: '10px',
-                letterSpacing: '2px',
-                textTransform: 'uppercase',
-                padding: '0 20px',
-                height: '100%',
-                cursor: phase === 'loading' || !query.trim() ? 'not-allowed' : 'pointer',
-                fontFamily: "'Space Grotesk', sans-serif",
-                fontWeight: 600,
-                opacity: !query.trim() && phase !== 'loading' ? 0.4 : 1,
-                transition: 'background 0.2s, opacity 0.2s',
-                whiteSpace: 'nowrap',
-                minWidth: '90px',
-                alignSelf: 'stretch',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-              onMouseEnter={e => { if (phase !== 'loading' && query.trim()) e.target.style.background = '#c62828'; }}
-              onMouseLeave={e => { if (phase !== 'loading') e.target.style.background = '#e53935'; }}
-            >
-              {phase === 'loading' ? '...' : 'Analyze ↵'}
-            </button>
-          )}
         </div>
 
         {/* Quick Query chips */}
@@ -443,7 +562,7 @@ export default function OracleSearch() {
                 fontSize: '10px',
                 letterSpacing: '1px',
                 padding: '4px 12px',
-                cursor: depleted ? 'pointer' : 'pointer',
+                cursor: 'pointer',
                 fontFamily: "'Space Grotesk', sans-serif",
                 transition: 'border-color 0.2s, color 0.2s',
               }}
@@ -464,7 +583,7 @@ export default function OracleSearch() {
           maxWidth: '720px',
           background: '#0d1117',
           border: '1px solid #1a1a1a',
-          padding: '20px 20px',
+          padding: '20px',
           animation: 'fadeInUp 0.3s ease',
           position: 'relative',
           overflow: 'hidden',
@@ -497,13 +616,13 @@ export default function OracleSearch() {
           maxWidth: '720px',
           background: '#0d1117',
           border: '1px solid #00ff8833',
-          padding: '24px',
           animation: 'fadeInUp 0.4s ease',
           position: 'relative',
           overflow: 'hidden',
         }}>
+          {/* macOS-style title bar */}
           <div style={{
-            position: 'absolute', top: 0, left: 0, right: 0,
+            position: 'relative', top: 0, left: 0, right: 0,
             padding: '7px 14px',
             background: '#0a0f0a',
             borderBottom: '1px solid #00ff8822',
@@ -516,9 +635,11 @@ export default function OracleSearch() {
             <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#28c840', display: 'inline-block' }} />
             <span style={{ fontSize: '10px', color: '#555', letterSpacing: '2px', marginLeft: '8px' }}>TSLAQUANT — ORACLE OUTPUT</span>
           </div>
-          <div style={{ marginTop: '28px' }}>
+
+          {/* Result body */}
+          <div style={{ padding: '20px 24px' }}>
             <div style={{ fontSize: '10px', color: '#e53935', letterSpacing: '1px', marginBottom: '6px' }}>
-              ROGER@TSLAQUANT:~$ analyze "{query}"
+              ROGER@TSLAQUANT:~$ analyze "{lastQuery}"
             </div>
             <pre style={{
               fontFamily: 'monospace',
@@ -530,25 +651,40 @@ export default function OracleSearch() {
               margin: 0,
             }}>{result}</pre>
           </div>
-          <button
-            onClick={handleReset}
-            style={{
-              marginTop: '20px',
-              background: 'none',
-              border: '1px solid #1a2a1a',
-              color: '#3a6a3a',
-              fontSize: '10px',
-              letterSpacing: '2px',
-              textTransform: 'uppercase',
-              padding: '7px 16px',
-              cursor: 'pointer',
-              fontFamily: "'Space Grotesk', sans-serif",
-            }}
-            onMouseEnter={e => { e.target.style.borderColor = '#2a5a2a'; e.target.style.color = '#00ff88'; }}
-            onMouseLeave={e => { e.target.style.borderColor = '#1a2a1a'; e.target.style.color = '#3a6a3a'; }}
-          >
-            ← New Query
-          </button>
+
+          {/* Follow-up prompt — mimics terminal ready state */}
+          <div style={{
+            borderTop: '1px solid #0a1a0a',
+            padding: '14px 24px',
+            background: '#080d08',
+          }}>
+            <div style={{ fontSize: '10px', color: '#3a6a3a', letterSpacing: '1px', marginBottom: '8px' }}>
+              — Analysis complete. Ask a follow-up or run a new query.
+            </div>
+            <div
+              onClick={handleFollowUp}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                background: '#0d1117',
+                border: '1px solid #1a2a1a',
+                padding: '10px 14px',
+                cursor: 'text',
+                transition: 'border-color 0.2s, box-shadow 0.2s',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = '#e53935'; e.currentTarget.style.boxShadow = '0 0 0 1px #e5393522'; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = '#1a2a1a'; e.currentTarget.style.boxShadow = 'none'; }}
+            >
+              <span style={{ color: '#e53935', fontSize: '11px', letterSpacing: '1px', userSelect: 'none', whiteSpace: 'nowrap' }}>ROGER@TSLAQUANT:~$</span>
+              <span style={{ color: '#333', fontSize: '12px', fontFamily: 'monospace', flex: 1 }}>Type next query...</span>
+              <span style={{
+                display: 'inline-block', width: '7px', height: '13px',
+                background: '#e53935', opacity: 0.7,
+                animation: 'terminalCursor 0.8s step-end infinite',
+              }} />
+            </div>
+          </div>
         </div>
       )}
 
