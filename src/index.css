@@ -24,3 +24,18 @@ html, body, #root {
 ::-webkit-scrollbar-thumb {
   background: #222;
 }
+
+/* Node orb interaction */
+.node-orb {
+  transition: transform 0.2s ease-in-out;
+  cursor: crosshair;
+}
+
+.node-orb:hover {
+  transform: scale(1.1);
+}
+
+.node-container:hover .node-label {
+  color: #ffffff !important;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}

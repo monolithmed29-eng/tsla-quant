@@ -5,7 +5,6 @@ import PriceModal from './PriceModal';
 import ProgressiveGraph from './ProgressiveGraph';
 import OracleSearch from './OracleSearch';
 import OracleCommandCenter from './OracleCommandCenter';
-import GraphHint from './GraphHint';
 import { catalysts, links } from './data';
 import { calcPredictedPrice, calcPriceBreakdown } from './priceModel';
 import { useTSLAPrice } from './useTSLAPrice';
@@ -317,8 +316,7 @@ export default function App() {
       {/* Breaking News Tab */}
       <BreakingNews />
 
-      {/* Graph hint overlay — dismisses on node click */}
-      <GraphHint dismissed={!!selected} />
+
 
       {/* How to Use Modal */}
       {showHowTo && (
