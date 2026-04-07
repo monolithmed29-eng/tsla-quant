@@ -124,8 +124,8 @@ export default function PriceModal({ breakdown, total, livePrice, quantChange, o
                   </span>
                   {' '}since last update —{' '}
                   {quantChange < 0
-                    ? `Apr 6, 2026 recalibration: Q1 delivery miss (358K vs 365K consensus) lowered delivery rebound and earnings beat confidence. Partially offset by Cybercab mass production confirmation (0.75→0.92), EU FSD approval imminent Apr 10 (0.73→0.82), NHTSA probe closure boosting regulatory confidence (0.40→0.47), and Megapack Houston confirmation. Net effect reflects stronger autonomy pipeline vs weaker near-term financials.`
-                    : `Apr 6, 2026 recalibration: Cybercab production confirmed at Giga Texas, EU FSD approval expected April 10, NHTSA probe closed — autonomy catalysts strengthened significantly. Q1 delivery miss (358K vs 365K) and 50K-unit inventory build pressured financial catalysts. Net effect: stronger platform thesis, softer near-term earnings outlook.`
+                    ? `Apr 7, 2026 update: FSD v14.3 officially released — ground-up rewrite with new RL training, new vision system, and new compiler (0.82→0.85). Intel joined Terafab chip fab project, reducing execution risk (0.55→0.65). Tesla Germany registrations quadrupled YoY to 9,252 units — best March ever, broad EU recovery confirmed across Norway, Sweden, Denmark, UK (brand recovery 0.55→0.60). Net effect: autonomy and platform catalysts strengthened.`
+                    : `Apr 7, 2026 update: FSD v14.3 released (new RL model, new vision, new compiler). Intel joins Terafab. Tesla Germany +315% YoY — EU brand recovery confirmed. Autonomy and platform catalysts all strengthened.`
                   }
                 </div>
               )}
