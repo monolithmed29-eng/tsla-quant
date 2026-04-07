@@ -1,13 +1,13 @@
 // Auto-updated 3x daily by cron — do not edit manually
-// Last updated: Apr 7, 2026 13:00 ET
+// Last updated: Apr 7, 2026 15:39 ET
 
 export const breakingNews = [
   {
-    headline: "FSD v14.3 wider rollout imminent — after employee beta, Musk signals broad release 'this week'; HW3 owners to get lighter FSD v14 Lite by mid-2026",
+    headline: "🚨 FSD v14.3 officially released — ground-up rewrite: new RL training, new vision system, new compiler/runtime. Drives better than human, sees better, reacts faster.",
     category: "autonomy",
-    source: "Quartz / Not a Tesla App",
+    source: "Tesla",
     timestamp: "Apr 7, 2026",
-    url: "https://qz.com/is-tesla-s-fsd-v14-3-ready-for-a-wider-rollout-this-week",
+    url: "https://www.notateslaapp.com/news/",
   },
   {
     headline: "Cybercab mass production scheduled to start April 2026 — dedicated robotaxi with no steering wheel or pedals; 'Unboxed' process targets 50% cost reduction",
