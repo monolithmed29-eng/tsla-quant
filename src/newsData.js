@@ -1,7 +1,21 @@
 // Auto-updated 3x daily by cron — do not edit manually
-// Last updated: Apr 7, 2026 08:00 ET
+// Last updated: Apr 7, 2026 12:12 ET
 
 export const breakingNews = [
+  {
+    headline: "Intel joins Terafab — commits to ultra-high-performance chip design, fabrication, and packaging at scale to help Tesla/SpaceX produce 1 TW/year of AI compute",
+    category: "ai",
+    source: "Intel / Terafab",
+    timestamp: "Apr 7, 2026",
+    url: "https://tslaquant.com",
+  },
+  {
+    headline: "Tesla Germany registrations quadruple to 9,252 units in March — best March ever, +315% YoY, +307% MoM; Q1 2026 already 66% of full-year 2025 volume",
+    category: "demand",
+    source: "EVwire / KBA",
+    timestamp: "Apr 7, 2026",
+    url: "https://evwire.com/p/tesla-germany-registrations-quadruple-9252-vehicles-march",
+  },
   {
     headline: "FSD v14.3 enters employee beta — Musk hints at broad rollout 'soon'; upgrades target unsupervised autonomy milestones and complex urban navigation ahead of Cybercab ramp",
     category: "autonomy",
