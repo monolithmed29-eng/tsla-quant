@@ -120,6 +120,7 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
   const linksRef    = useRef([]);
   const pulseRef    = useRef(0);
   const expandedRef = useRef(new Set());
+  const hoveredNodeRef = useRef(null);
   const [tooltip, setTooltip] = useState(null);
   const [allExpanded, setAllExpanded] = useState(false);
   const [anyExpanded, setAnyExpanded] = useState(false);
@@ -246,12 +247,24 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
       });
 
       // Nodes
+      const hoveredId = hoveredNodeRef.current?.id ?? null;
+      const anyHovered = hoveredId !== null;
       nodesRef.current.forEach((node, ni) => {
         if (!node.x) return;
         const r = getR(node);
+        const isHovered = node.id === hoveredId;
+        const scaleFactor = isHovered ? 1.08 : 1.0;
         const { core, outerGlow } = getLum(node.likelihood);
         const firePulse = Math.sin(now * 0.002 + ni * 0.7) * 0.3 + 0.7;
         const masterMult = node.isMaster ? 1.4 : 1.0;
+
+        // Apply scale transform for hovered node
+        if (scaleFactor !== 1.0) {
+          ctx.save();
+          ctx.translate(node.x, node.y);
+          ctx.scale(scaleFactor, scaleFactor);
+          ctx.translate(-node.x, -node.y);
+        }
 
         // Outer halo
         const outerR = r * 3.5 * firePulse * masterMult;
@@ -330,26 +343,35 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
           ctx.restore();
         }
 
+        // Restore scale transform after orb drawing, before label
+        if (scaleFactor !== 1.0) {
+          ctx.restore();
+        }
+
         // ── Label ──────────────────────────────────────────────────────────
+        // Label brightness: pure white on hovered, dimmed on others when something is hovered
+        const labelAlpha = isHovered ? 1.0 : anyHovered ? 0.35 : 1.0;
+        const labelColor = `rgba(255,255,255,${labelAlpha})`;
+
         ctx.save();
         ctx.textAlign = 'center';
         ctx.textBaseline = 'top';
         ctx.shadowColor = 'rgba(0,0,0,0.95)';
-        ctx.shadowBlur = 10;
+        ctx.shadowBlur = isHovered ? 14 : 10;
 
         const labelY = node.y + r + (node.isMaster ? 13 : 9);
 
         if (node.isMaster) {
           ctx.font = "700 13px 'Space Grotesk', sans-serif";
-          ctx.fillStyle = 'rgba(255,255,255,1)';
+          ctx.fillStyle = labelColor;
           ctx.fillText(node.label, node.x, labelY);
 
           ctx.font = "500 11px 'Space Grotesk', sans-serif";
-          ctx.fillStyle = 'rgba(180,210,255,0.85)';
+          ctx.fillStyle = isHovered ? 'rgba(180,210,255,1)' : `rgba(180,210,255,${labelAlpha})`;
           ctx.fillText(`${Math.round(node.likelihood * 100)}%  ·  ${node.childCount} catalysts`, node.x, labelY + 17);
         } else {
           ctx.font = "600 11px 'Space Grotesk', sans-serif";
-          ctx.fillStyle = 'rgba(255,255,255,1)';
+          ctx.fillStyle = labelColor;
           const lbl = node.label;
           if (lbl.length > 18) {
             const words = lbl.split(' ');
@@ -407,11 +429,13 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
   function handleMouseMove(e) {
     const hit = getNodeAt(e);
     if (hit) {
+      hoveredNodeRef.current = hit.node;
       setTooltip({ node: hit.node, x: hit.mx, y: hit.my });
-      canvasRef.current.style.cursor = 'pointer';
+      canvasRef.current.style.cursor = 'crosshair';
     } else {
+      hoveredNodeRef.current = null;
       setTooltip(null);
-      canvasRef.current.style.cursor = 'default';
+      canvasRef.current.style.cursor = 'crosshair';
     }
   }
 
@@ -439,7 +463,7 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
     <div style={{ position: 'relative', width: '100%', height: '100%' }}>
       <canvas
         ref={canvasRef}
-        style={{ display: 'block', width: '100%', height: '100%' }}
+        style={{ display: 'block', width: '100%', height: '100%', cursor: 'crosshair' }}
         onMouseMove={handleMouseMove}
         onClick={handleClick}
       />
