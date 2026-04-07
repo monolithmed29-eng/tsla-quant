@@ -378,7 +378,7 @@ export default function OracleSearch() {
               {showTooltip && (
                 <div style={{
                   position: 'absolute',
-                  bottom: '28px',
+                  top: '28px',
                   right: 0,
                   width: '240px',
                   background: '#111',
@@ -405,14 +405,11 @@ export default function OracleSearch() {
             value={query}
             onChange={e => setQuery(e.target.value)}
             onKeyDown={e => {
-              if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
-                handleAnalyze();
-              }
+              // Enter always adds a new line — must click Analyze to submit
             }}
             placeholder={depleted
               ? 'No credits remaining — upgrade to continue'
-              : 'Type your Tesla quant query here...\n(Shift+Enter for new line, Enter to submit)'}
+              : 'Type your Tesla quant query here...'}
             disabled={phase === 'loading' || depleted}
             rows={4}
             style={{

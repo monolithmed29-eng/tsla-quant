@@ -88,7 +88,7 @@ export default function OracleCommandCenter() {
         onMouseLeave={e => { if (!open) e.currentTarget.style.borderColor = '#2a2a2a'; }}
       >
         <span style={{ color: '#e53935', fontSize: '10px', letterSpacing: '1px', userSelect: 'none', whiteSpace: 'nowrap' }}>ROGER@TSLAQUANT:~$</span>
-        <span style={{ color: '#333', fontSize: '11px', letterSpacing: '0.5px', userSelect: 'none' }}>Query Tesla catalysts...</span>
+        <span style={{ color: '#777', fontSize: '11px', letterSpacing: '0.5px', userSelect: 'none' }}>Query Tesla catalysts...</span>
       </div>
 
       {/* Dropdown panel */}
