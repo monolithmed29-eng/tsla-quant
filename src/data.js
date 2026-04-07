@@ -666,17 +666,19 @@ export const catalysts = [
     weight: 0.04,
     status: "upcoming",
     expected: "Q3 2026",
-    likelihood: 0.55,
-    updated: "Apr 6, 2026",
+    likelihood: 0.60,
+    updated: "Apr 7, 2026",
     description: [
+      "🆕 Apr 7, 2026: Germany registrations QUADRUPLE to 9,252 units in March — best March ever, +315% YoY, +307% MoM",
+      "Germany Q1 2026 now highest quarterly sales in 2 years; March alone = 72% of Q1 total (surge pattern)",
+      "UK +20% YoY in March (8,599 units); Norway +178%, Sweden +144%, Denmark +96% — broad EU recovery confirmed",
+      "Q1 2026 Germany volume already 66% of full-year 2025 — pace is accelerating dramatically",
       "Apr 1, 2026: March registrations TRIPLE in France, DOUBLE in Nordic countries — first hard data of EU demand rebound",
       "Europe: Tesla new car registrations down 28% in 2025 — brand damage documented",
       "Musk DOGE/political involvement strongly correlated with demand drop in EU and blue US states",
-      "Vandalism incidents at Tesla dealerships and charging stations increasing in 2025–2026",
       "Brand recovery requires: reduced Musk political visibility, product momentum, positive press",
       "Refreshed Model Y and Cybercab launch are key product catalysts for narrative reset",
       "Brand sentiment ≠ product quality — vehicles still receive top safety/satisfaction ratings",
-      "Key signal: if Q2 2026 EU registrations stabilize or recover, sentiment shift is underway",
     ]
   },
   {
