@@ -686,8 +686,8 @@ export const catalysts = [
     weight: 0.06,
     status: "upcoming",
     expected: "Q1 2026",
-    likelihood: 0.55,
-    updated: "Apr 1, 2026",
+    likelihood: 0.65,
+    updated: "Apr 7, 2026",
     description: [
       "Announced by Elon Musk on March 21, 2026 — joint Tesla/SpaceX venture",
       "Goal: build a vertically integrated facility producing 1+ terawatt of AI compute per year",
@@ -696,8 +696,9 @@ export const catalysts = [
       "Small-batch AI5 production expected 2026 — full fab ramp 2027–2028",
       "Eliminates reliance on TSMC and Nvidia — near-100% vertical integration of AI stack",
       "Actively hiring as of March 26, 2026 (Business Insider confirmed)",
+      "🆕 Apr 7, 2026: Intel confirmed joining Terafab — bringing ultra-high-performance chip design, fabrication, and packaging expertise at scale",
+      "Intel partnership directly addresses the key execution risk: chip fab is notoriously difficult and Intel has decades of manufacturing know-how",
       "Risk: $25B is enormous capital commitment on top of existing $20B+ CapEx plan",
-      "Risk: chip fab is notoriously difficult — TSMC took decades to achieve current scale",
     ]
   },
   {
