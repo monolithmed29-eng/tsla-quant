@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { getCredits, decrementCredit, addCredits, isPro, getCreditSig, setProStatus } from './creditManager';
+import { getCredits, decrementCredit, addCredits, isPro, getCreditSig, setProStatus, isInstitutional } from './creditManager';
 import { getFingerprint } from './fingerprint';
 import UpgradeModal from './UpgradeModal';
 
@@ -441,18 +441,19 @@ export default function OracleSearch() {
             padding: '8px 12px',
             gap: '10px',
           }}>
-            {/* Paperclip / attachment */}
+            {/* Paperclip / attachment — Institutional tier only */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flex: 1 }}>
+              {isInstitutional() ? (
               <button
                 title="Attach PDF or image (income statement, filing, chart)"
                 onClick={() => fileInputRef.current?.click()}
-                disabled={phase === 'loading' || depleted}
+                disabled={phase === 'loading'}
                 style={{
                   background: 'none',
                   border: '1px solid #2a2a2a',
                   color: attachment ? '#00ff88' : '#555',
                   padding: '4px 10px',
-                  cursor: depleted ? 'not-allowed' : 'pointer',
+                  cursor: 'pointer',
                   fontSize: '14px',
                   display: 'flex',
                   alignItems: 'center',
@@ -460,7 +461,7 @@ export default function OracleSearch() {
                   transition: 'border-color 0.2s, color 0.2s',
                   borderColor: attachment ? '#00ff8844' : '#2a2a2a',
                 }}
-                onMouseEnter={e => { if (!depleted) { e.currentTarget.style.borderColor = '#e53935'; e.currentTarget.style.color = '#e53935'; } }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = '#e53935'; e.currentTarget.style.color = '#e53935'; }}
                 onMouseLeave={e => { e.currentTarget.style.borderColor = attachment ? '#00ff8844' : '#2a2a2a'; e.currentTarget.style.color = attachment ? '#00ff88' : '#555'; }}
               >
                 📎
@@ -468,6 +469,31 @@ export default function OracleSearch() {
                   {attachment ? 'Attached' : 'Attach'}
                 </span>
               </button>
+              ) : (
+              <button
+                title="Document upload — Institutional tier only"
+                onClick={() => openUpgrade('no_credits')}
+                style={{
+                  background: 'none',
+                  border: '1px solid #2a2a2a',
+                  color: '#333',
+                  padding: '4px 10px',
+                  cursor: 'pointer',
+                  fontSize: '14px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '5px',
+                  transition: 'border-color 0.2s, color 0.2s',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = '#e5393566'; e.currentTarget.style.color = '#555'; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = '#2a2a2a'; e.currentTarget.style.color = '#333'; }}
+              >
+                📎
+                <span style={{ fontSize: '9px', letterSpacing: '1px', textTransform: 'uppercase', fontFamily: "'Space Grotesk', sans-serif" }}>
+                  Institutional
+                </span>
+              </button>
+              )}
               <input
                 ref={fileInputRef}
                 type="file"
