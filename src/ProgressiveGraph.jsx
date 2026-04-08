@@ -313,27 +313,22 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
         if (showDot) {
           const dotX = node.x + r * 0.78;
           const dotY = node.y - r * 0.78;
-          const dotR = Math.max(4, r * 0.22);
-          // Heartbeat: 2-beat thump then ~1s pause. Period = 1600ms.
-          // Beat1: 0–120ms, pause: 120–280ms, Beat2: 280–400ms, rest: 400–1600ms
+          const dotR = 3;
+          // Heartbeat: sharp double-thump then silence. Period = 1600ms.
+          // Beat1: 0–100ms, gap: 100–220ms, Beat2: 220–320ms, rest: 320–1600ms
           const period = 1600;
           const t = now % period;
           let dp;
-          if (t < 120)        dp = Math.sin((t / 120) * Math.PI);       // beat 1 up+down
-          else if (t < 280)   dp = 0;                                    // pause
-          else if (t < 400)   dp = Math.sin(((t - 280) / 120) * Math.PI) * 0.75; // beat 2 (softer)
-          else                dp = 0;                                    // rest
-          const alpha = 0.4 + dp * 0.6;
-          // Glow ring
-          const dg = ctx.createRadialGradient(dotX, dotY, 0, dotX, dotY, dotR * 3);
-          dg.addColorStop(0, `rgba(255,50,50,${(alpha * 0.5).toFixed(2)})`);
-          dg.addColorStop(1, 'transparent');
-          ctx.beginPath(); ctx.arc(dotX, dotY, dotR * 3, 0, Math.PI * 2);
-          ctx.fillStyle = dg; ctx.fill();
-          // Solid core
-          ctx.beginPath(); ctx.arc(dotX, dotY, dotR, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(255,50,50,${alpha.toFixed(2)})`;
-          ctx.fill();
+          if (t < 100)       dp = Math.sin((t / 100) * Math.PI);
+          else if (t < 220)  dp = 0;
+          else if (t < 320)  dp = Math.sin(((t - 220) / 100) * Math.PI);
+          else               dp = 0;
+          if (dp > 0.01) {
+            // Solid tiny dot, fully opaque at peak
+            ctx.beginPath(); ctx.arc(dotX, dotY, dotR, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255,50,50,${dp.toFixed(2)})`;
+            ctx.fill();
+          }
         }
 
         // ── SpaceX special: orbiting rocket ────────────────────────────────
