@@ -160,10 +160,10 @@ export default function PriceModal({ breakdown, total, livePrice, quantChange, o
           {breakdown.map(unit => {
             const color = CATEGORY_COLOR[unit.id] || '#aaa';
             const desc = UNIT_DESCRIPTIONS[unit.id];
-            const barPct = (unit.value / maxVal) * 100;
-            const bearPct = (unit.bear / maxVal) * 100;
-            const basePct = (unit.base / maxVal) * 100;
-            const bullPct = (unit.bull / maxVal) * 100;
+            const range = unit.bull - unit.bear;
+            // Normalize to unit's own bear→bull range so fill aligns with Bear/Base/Bull labels
+            const barPct  = Math.min(100, Math.max(0, ((unit.value - unit.bear) / range) * 100));
+            const basePct = ((unit.base  - unit.bear) / range) * 100;
 
             return (
               <div key={unit.id} style={{
@@ -194,13 +194,9 @@ export default function PriceModal({ breakdown, total, livePrice, quantChange, o
                 <div style={{ marginBottom: '16px' }}>
                   {/* Track */}
                   <div style={{ position: 'relative', height: '6px', background: '#1a1a1a', borderRadius: '3px', marginBottom: '8px' }}>
-                    {/* Bear marker */}
-                    <div style={{ position: 'absolute', left: `${bearPct}%`, top: '-4px', width: '1px', height: '14px', background: '#333' }} />
-                    {/* Base marker */}
+                    {/* Base marker at 50% */}
                     <div style={{ position: 'absolute', left: `${basePct}%`, top: '-4px', width: '1px', height: '14px', background: '#333' }} />
-                    {/* Bull marker */}
-                    <div style={{ position: 'absolute', left: `${bullPct}%`, top: '-4px', width: '1px', height: '14px', background: '#333' }} />
-                    {/* Fill to current */}
+                    {/* Fill — normalized to bear→bull range */}
                     <div style={{
                       position: 'absolute', left: 0, top: 0,
                       width: `${barPct}%`, height: '100%',
@@ -208,16 +204,6 @@ export default function PriceModal({ breakdown, total, livePrice, quantChange, o
                       borderRadius: '3px',
                       boxShadow: `0 0 8px ${color}66`,
                       transition: 'width 0.6s ease',
-                    }} />
-                    {/* Current value diamond */}
-                    <div style={{
-                      position: 'absolute',
-                      left: `${barPct}%`,
-                      top: '50%',
-                      transform: 'translate(-50%, -50%) rotate(45deg)',
-                      width: '8px', height: '8px',
-                      background: color,
-                      boxShadow: `0 0 6px ${color}`,
                     }} />
                   </div>
                   {/* Labels */}
