@@ -124,8 +124,8 @@ export default function PriceModal({ breakdown, total, livePrice, quantChange, o
                   </span>
                   {' '}since last update —{' '}
                   {quantChange < 0
-                    ? `Apr 8, 2026 update: ~60 Teslas staged in Phoenix signal imminent robotaxi expansion (multi-city +0.63). NHTSA opened FSD investigation (red lights/illegal turns) — regulatory headwind (federal approval 0.47→0.45). JPMorgan cuts Q1 EPS est. to $0.30 and full-year to $1.80. Net: expansion positive offset by new FSD probe, model holds at $646.`
-                    : `Apr 8, 2026 update: Phoenix robotaxi staging (~60 vehicles) accelerates multi-city timeline. NHTSA closes Smart Summon probe but opens FSD red-light investigation. JPMorgan cuts estimates. Net change: $0 — catalysts balanced.`
+                    ? `Apr 8, 2026 update: JPMorgan cuts Q1 EPS est to $0.30 and full-year 2026 to $1.80; TSLA down 23% YTD. Bearish earnings pressure trims Q1 beat probability. Model holds at $646.`
+                    : `Apr 8, 2026 update: JPMorgan cuts EPS estimates and reiterates $145 PT; TSLA down 23% YTD though premarket +5% bounce. Q1 earnings beat probability trimmed (0.37→0.35). No net model change.`
                   }
                 </div>
               )}
