@@ -210,11 +210,11 @@ export default function PriceModal({ breakdown, total, livePrice, quantChange, o
                       transition: 'width 0.6s ease',
                     }} />
                   </div>
-                  {/* Labels */}
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '9px', color: '#888', letterSpacing: '1px' }}>
-                    <span>Bear ${unit.bear}</span>
-                    <span>Base ${unit.base}</span>
-                    <span>Bull ${unit.bull}</span>
+                  {/* Labels — anchored to actual marker positions */}
+                  <div style={{ position: 'relative', height: '14px', fontSize: '9px', color: '#555', letterSpacing: '1px' }}>
+                    <span style={{ position: 'absolute', left: `${bearPct}%`, transform: 'translateX(-50%)', whiteSpace: 'nowrap' }}>Bear ${unit.bear}</span>
+                    <span style={{ position: 'absolute', left: `${basePct}%`, transform: 'translateX(-50%)', whiteSpace: 'nowrap', color: '#777' }}>Base ${unit.base}</span>
+                    <span style={{ position: 'absolute', left: `${bullPct}%`, transform: 'translateX(-50%)', whiteSpace: 'nowrap' }}>Bull ${unit.bull}</span>
                   </div>
                 </div>
 
