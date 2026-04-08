@@ -217,7 +217,16 @@ export default function OracleSearch() {
 
       const data = await res.json();
       if (data.unlocked && data.result) {
-        if (typeof data.credits === 'number') setCredits(data.credits);
+        // Clear one-time token after use so next query uses credits
+        sessionStorage.removeItem('oracle_token');
+        sessionStorage.removeItem('oracle_pending_query');
+        if (typeof data.credits === 'number') {
+          setCredits(data.credits);
+        } else {
+          // Fallback: decrement local count
+          const next = decrementCredit();
+          setCredits(next);
+        }
         setResult(data.result);
         setPhase('result');
         // Clear attachment after successful query

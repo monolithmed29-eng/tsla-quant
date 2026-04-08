@@ -159,9 +159,9 @@ export default async (req, context) => {
 
     if (!result) throw new Error('Empty response from Oracle');
 
-    // Decrement server-side credits (skip for pro and token holders)
+    // Decrement server-side credits (skip for pro only — token holders still burn credits)
     let creditsRemaining = serverRecord?.credits ?? 0;
-    if (!isPro && !hasToken && serverRecord && blobKey) {
+    if (!isPro && serverRecord && blobKey) {
       try {
         const store = getStore('oracle-credits');
         serverRecord.credits = Math.max(0, serverRecord.credits - 1);
