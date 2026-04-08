@@ -88,7 +88,7 @@ export default function UpgradeModal({ reason = 'no_credits', onClose }) {
       data-upgrade-modal="true"
       onClick={onClose}
       style={{
-        position: 'fixed', inset: 0, zIndex: 800,
+        position: 'fixed', inset: 0, zIndex: 10000,
         background: 'rgba(0,0,0,0.85)',
         backdropFilter: 'blur(8px)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -103,7 +103,9 @@ export default function UpgradeModal({ reason = 'no_credits', onClose }) {
           border: '1px solid #1e1e1e',
           maxWidth: '760px',
           width: '100%',
-          padding: '40px 44px',
+          maxHeight: '90vh',
+          overflowY: 'auto',
+          padding: window.innerWidth < 640 ? '28px 16px' : '40px 44px',
           animation: 'fadeInUp 0.3s ease',
           position: 'relative',
           fontFamily: "'Space Grotesk', sans-serif",
@@ -135,7 +137,7 @@ export default function UpgradeModal({ reason = 'no_credits', onClose }) {
         {/* Tier cards */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
+          gridTemplateColumns: window.innerWidth < 640 ? '1fr' : 'repeat(3, 1fr)',
           gap: '16px',
         }}>
           {TIERS.map(tier => (

@@ -488,7 +488,7 @@ export default function OracleSearch() {
               ) : (
               <button
                 title="Document upload — Institutional tier only"
-                onClick={() => openUpgrade('no_credits')}
+                onClick={() => openUpgrade('pdf_upload')}
                 style={{
                   background: 'none',
                   border: '1px solid #2a2a2a',
