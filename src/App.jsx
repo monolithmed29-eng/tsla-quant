@@ -356,6 +356,20 @@ export default function App() {
                 Mobile
               </span>
             </div>
+
+            {/* How to Use — top right */}
+            <button
+              onClick={() => setShowHowTo(true)}
+              style={{
+                background: 'none', border: 'none',
+                color: '#fff', fontSize: '15px', fontWeight: 300,
+                cursor: 'pointer', padding: '2px 6px',
+                fontFamily: "'Space Grotesk', sans-serif",
+                letterSpacing: '0',
+                lineHeight: 1,
+                opacity: 0.85,
+              }}
+            >?</button>
           </header>
 
           {/* Row 2: price bar */}
@@ -452,10 +466,10 @@ export default function App() {
             style={{
               background: '#0a0a0a',
               border: '1px solid #1e1e1e',
-              padding: '44px 48px',
+              padding: isMobile ? '24px 18px' : '44px 48px',
               maxWidth: '560px',
-              width: '90%',
-              maxHeight: '80vh',
+              width: '92%',
+              maxHeight: '88vh',
               overflowY: 'auto',
             }}
           >
@@ -478,6 +492,11 @@ export default function App() {
                   body: 'Larger orbs carry more weight in the quant price model. Size represents how much that catalyst contributes to Tesla\'s valuation if achieved. A large orb that\'s dim means high potential but low confidence — a key risk to watch.',
                 },
                 {
+                  icon: '🔴',
+                  heading: 'Red Pulsing Dot — Updated Today',
+                  body: 'A small red dot pulsing at the top-right of an orb means that catalyst was updated today with new data. The beat follows a heartbeat rhythm — two quick pulses, then silence. On the main view, a red dot on a category orb means at least one sub-catalyst inside it received a fresh update.',
+                },
+                {
                   icon: '🖱️',
                   heading: 'Click Any Orb',
                   body: 'Click on any orb to open its detail panel. You\'ll see a full analysis with timestamped bullet points, likelihood score, expected timeline, and its estimated contribution to the model price target. Click a different orb at any time to switch — no need to close first.',
@@ -493,9 +512,14 @@ export default function App() {
                   body: 'The green price target in the header is a sum-of-parts valuation model. It is recalculated dynamically from the current likelihood scores of all 34 catalysts across 6 business units: Auto, Energy, Robotaxi, Optimus, FSD Software, and AI Infrastructure. Updated daily at 10am ET.',
                 },
                 {
+                  icon: '◉',
+                  heading: 'Ask Roger — AI Oracle',
+                  body: 'Tap the red "Ask Roger" button to query the TSLAquant AI engine. Ask anything about Tesla catalysts, model price, FSD progress, robotaxi timelines, or earnings outlook. Roger runs a 4-phase quant analysis: Current Reality → Raw Data → Quant Edge → The Trade. Each query uses one credit. Free users get 3 credits to start.',
+                },
+                {
                   icon: '📰',
                   heading: 'Breaking News Tab',
-                  body: 'Hover over the "Breaking News" tab on the left edge of the screen to see the latest Tesla developments. Each story is tagged with a color-coded category dot matching the neural network. The feed is automatically refreshed 3× daily (8am, 1pm, 6pm ET) from Tesla IR and Tesla\'s X account.',
+                  body: 'Tap the "Breaking News" tab on the left edge of the screen to see the latest Tesla developments. Each story is tagged with a color-coded category dot matching the neural network. The feed is automatically refreshed 3× daily (8am, 1pm, 6pm ET) from Tesla IR and Tesla\'s X account.',
                 },
               ].map(({ icon, heading, body }) => (
                 <div key={heading} style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
