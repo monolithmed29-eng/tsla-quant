@@ -67,7 +67,7 @@ export default function Panel({ node, onClose, isMobile = false }) {
         background: 'rgba(0,0,0,0.97)',
         borderLeft: isMobile ? 'none' : `1px solid ${statusColor}33`,
         borderTop: isMobile ? `1px solid ${statusColor}33` : 'none',
-        padding: isMobile ? '56px 16px 24px' : '24px 20px',
+        padding: isMobile ? '56px 16px 130px' : '24px 20px',
         zIndex: 1000,
         fontFamily: "'Space Grotesk', sans-serif",
         color: '#fff',
