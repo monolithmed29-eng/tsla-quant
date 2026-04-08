@@ -1,6 +1,14 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import * as d3 from 'd3';
 
+// Returns true if the node's updated date matches today (local time)
+function isUpdatedToday(updated) {
+  if (!updated) return false;
+  const d = new Date(updated);
+  const t = new Date();
+  return d.getFullYear() === t.getFullYear() && d.getMonth() === t.getMonth() && d.getDate() === t.getDate();
+}
+
 // ─── Constants ────────────────────────────────────────────────────────────────
 const MIN_R = 8;
 const MAX_R = 32;
@@ -297,6 +305,25 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
         // Bright center
         ctx.beginPath(); ctx.arc(node.x, node.y, r * 0.4, 0, Math.PI*2);
         ctx.fillStyle = 'rgba(255,255,255,0.92)'; ctx.fill();
+
+        // ── Red "updated today" pulse dot ──────────────────────────────────
+        if (isUpdatedToday(node.updated)) {
+          const dotX = node.x + r * 0.78;
+          const dotY = node.y - r * 0.78;
+          const dotR = Math.max(4, r * 0.22);
+          // Fast pulse: ~0.8s cycle, opacity 0.55 → 1.0
+          const dp = Math.sin(now * 0.009) * 0.225 + 0.775;
+          // Soft outer glow
+          const dg = ctx.createRadialGradient(dotX, dotY, 0, dotX, dotY, dotR * 3);
+          dg.addColorStop(0, `rgba(255,50,50,${(dp * 0.55).toFixed(2)})`);
+          dg.addColorStop(1, 'transparent');
+          ctx.beginPath(); ctx.arc(dotX, dotY, dotR * 3, 0, Math.PI * 2);
+          ctx.fillStyle = dg; ctx.fill();
+          // Solid red core
+          ctx.beginPath(); ctx.arc(dotX, dotY, dotR, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255,50,50,${dp.toFixed(2)})`;
+          ctx.fill();
+        }
 
         // ── SpaceX special: orbiting rocket ────────────────────────────────
         if (node.category === 'spacex' && !node.isMaster) {

@@ -181,16 +181,30 @@ export default function Panel({ node, onClose }) {
           </div>
           {Array.isArray(node.description) ? (
             <ul style={{ margin: 0, padding: 0, listStyle: 'none' }}>
-              {node.description.map((point, i) => (
-                <li key={i} style={{
-                  display: 'flex', gap: '8px',
-                  fontSize: '12px', color: '#aaa', lineHeight: 1.6,
-                  marginBottom: '5px', alignItems: 'flex-start',
-                }}>
-                  <span style={{ color: '#333', marginTop: '1px', flexShrink: 0 }}>·</span>
-                  <span>{point}</span>
-                </li>
-              ))}
+              {node.description.map((point, i) => {
+                const isNew = i === 0 && node.updated && (() => {
+                  const d = new Date(node.updated), t = new Date();
+                  return d.getFullYear() === t.getFullYear() && d.getMonth() === t.getMonth() && d.getDate() === t.getDate();
+                })();
+                return (
+                  <li key={i} style={{
+                    display: 'flex', gap: '8px',
+                    fontSize: '12px', lineHeight: 1.6,
+                    marginBottom: isNew ? '8px' : '5px',
+                    alignItems: 'flex-start',
+                    ...(isNew ? {
+                      background: 'rgba(255,50,50,0.07)',
+                      border: '1px solid rgba(255,50,50,0.18)',
+                      borderRadius: '3px',
+                      padding: '5px 8px',
+                      color: '#fff',
+                    } : { color: '#aaa' }),
+                  }}>
+                    <span style={{ color: isNew ? '#ff4444' : '#333', marginTop: '1px', flexShrink: 0 }}>{isNew ? '●' : '·'}</span>
+                    <span>{point}</span>
+                  </li>
+                );
+              })}
             </ul>
           ) : (
             <p style={{ fontSize: '13px', color: '#aaa', lineHeight: 1.6, margin: 0 }}>{node.description}</p>
