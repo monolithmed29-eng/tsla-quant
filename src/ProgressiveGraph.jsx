@@ -204,8 +204,8 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
       .force('charge',    d3.forceManyBody().strength(n => mob ? (n.isMaster ? -600 : -380) : (n.isMaster ? -1100 : -550)))
       .force('center',    d3.forceCenter(W / 2, H / 2).strength(0.06))
       .force('collision', d3.forceCollide(n => getR(n, mob) + (n.isMaster ? (mob ? 55 : 70) : (mob ? 44 : 48))))
-      .force('boundX',    d3.forceX(W / 2).strength(0.06))
-      .force('boundY',    d3.forceY(mob ? H / 2 : (H - 60) / 2).strength(0.08))
+      .force('boundX',    d3.forceX(mob ? (W + 42) / 2 : W / 2).strength(0.06))
+      .force('boundY',    d3.forceY(mob ? (H - 115) / 2 : (H - 60) / 2).strength(0.08))
       .alpha(0.4)
       .alphaDecay(0.001)
       .velocityDecay(0.88);
@@ -243,8 +243,13 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
       // Clamp — keep nodes within canvas bounds
       nodesRef.current.forEach(node => {
         const r = getR(node, isMobile), pad = r + (isMobile ? 36 : 50);
-        if (node.x !== undefined) node.x = Math.max(pad, Math.min(W - pad, node.x));
-        if (node.y !== undefined) node.y = Math.max(pad, Math.min(H - pad - (isMobile ? 80 : 60), node.y));
+        // Mobile: keep clear of Breaking News tab (left ~38px) and Ask Roger FAB + footer (bottom ~115px)
+        const xMin = isMobile ? r + 42 : pad;
+        const xMax = W - pad;
+        const yMin = pad;
+        const yMax = isMobile ? H - r - 115 : H - pad - 60;
+        if (node.x !== undefined) node.x = Math.max(xMin, Math.min(xMax, node.x));
+        if (node.y !== undefined) node.y = Math.max(yMin, Math.min(yMax, node.y));
       });
 
       // Links
@@ -477,9 +482,9 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
       ctx.scale(dpr, dpr);
       if (simRef.current) {
         simRef.current
-          .force('center', d3.forceCenter(cssW/2, cssH/2).strength(0.08))
-          .force('boundX', d3.forceX(cssW/2).strength(0.08))
-          .force('boundY', d3.forceY(isMobile ? cssH/2 : (cssH-60)/2).strength(0.08))
+          .force('center', d3.forceCenter(isMobile ? (cssW+42)/2 : cssW/2, isMobile ? (cssH-115)/2 : cssH/2).strength(0.08))
+          .force('boundX', d3.forceX(isMobile ? (cssW+42)/2 : cssW/2).strength(0.08))
+          .force('boundY', d3.forceY(isMobile ? (cssH-115)/2 : (cssH-60)/2).strength(0.08))
           .alpha(0.5).restart();
       }
     }
