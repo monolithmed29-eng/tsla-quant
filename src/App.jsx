@@ -356,13 +356,12 @@ export default function App() {
                 Mobile
               </span>
             </div>
-            <OracleCommandCenter />
           </header>
 
           {/* Row 2: price bar */}
           <div style={{
             position: 'fixed',
-            top: '36px', left: 0, right: 0,
+            top: '38px', left: 0, right: 0,
             zIndex: 99,
             background: 'rgba(0,0,0,0.88)',
             backdropFilter: 'blur(8px)',
