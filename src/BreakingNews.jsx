@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { breakingNews } from './newsData';
 
 const glowStyle = `
@@ -34,11 +34,25 @@ const CATEGORY_LABELS = {
 
 export default function BreakingNews({ isMobile = false }) {
   const [open, setOpen] = useState(false);
+  const ref = useRef(null);
 
-  // Desktop: hover. Mobile: tap toggle.
+  // Outside-click to close on mobile
+  useEffect(() => {
+    if (!isMobile || !open) return;
+    function handleOutside(e) {
+      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+    }
+    document.addEventListener('touchstart', handleOutside);
+    document.addEventListener('mousedown', handleOutside);
+    return () => {
+      document.removeEventListener('touchstart', handleOutside);
+      document.removeEventListener('mousedown', handleOutside);
+    };
+  }, [isMobile, open]);
+
   const hovered = open;
   const interactionProps = isMobile
-    ? { onClick: () => setOpen(o => !o) }
+    ? { onClick: (e) => { e.stopPropagation(); setOpen(o => !o); } }
     : { onMouseEnter: () => setOpen(true), onMouseLeave: () => setOpen(false) };
 
   return (
@@ -58,7 +72,7 @@ export default function BreakingNews({ isMobile = false }) {
     >
       <style>{glowStyle}</style>
       {/* Panel */}
-      <div style={{
+      <div ref={ref} style={{
         width: hovered ? '340px' : '0px',
         overflow: 'hidden',
         transition: 'width 0.3s ease',
@@ -85,6 +99,16 @@ export default function BreakingNews({ isMobile = false }) {
             <span style={{ fontSize: '10px', letterSpacing: '3px', color: '#fff', textTransform: 'uppercase', fontFamily: "'Space Grotesk', sans-serif" }}>
               Breaking News
             </span>
+            {isMobile && (
+              <button
+                onClick={(e) => { e.stopPropagation(); setOpen(false); }}
+                style={{
+                  marginLeft: 'auto', background: 'none', border: 'none',
+                  color: '#fff', fontSize: '18px', cursor: 'pointer',
+                  padding: '0 4px', lineHeight: 1, fontWeight: 300,
+                }}
+              >✕</button>
+            )}
           </div>
 
           {/* News items */}

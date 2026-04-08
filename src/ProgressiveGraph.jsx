@@ -15,9 +15,9 @@ const MAX_R = 32;
 const MASTER_R = 44;
 
 // Mobile-scaled radii (proportionally smaller for phone screens)
-const MIN_R_MOB = 5;
-const MAX_R_MOB = 20;
-const MASTER_R_MOB = 26;
+const MIN_R_MOB = 7;
+const MAX_R_MOB = 24;
+const MASTER_R_MOB = 30;
 
 const CATEGORY_LABELS = {
   autonomy:      'Autonomy',
@@ -155,8 +155,8 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
   const rebuild = useCallback((expandedSet, prevMap) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const W = canvas.width  || canvas.clientWidth  || 800;
-    const H = canvas.height || canvas.clientHeight || 600;
+    const W = canvas.clientWidth  || canvas.width  || 800;
+    const H = canvas.clientHeight || canvas.height || 600;
 
     const mobileExclusive = isMobile && expandedSet.size > 0 && expandedSet.size < ALL_CATEGORIES.length;
     const visNodes = buildVisibleNodes(expandedSet, catalysts, mobileExclusive);
@@ -235,7 +235,8 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
       pulseRef.current += 0.025;
       const now = Date.now();
       const pulse = pulseRef.current;
-      const W = canvas.width, H = canvas.height;
+      const W = canvas.clientWidth  || canvas.width;
+      const H = canvas.clientHeight || canvas.height;
 
       ctx.clearRect(0, 0, W, H);
 
@@ -430,15 +431,15 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
         const labelY = node.y + r + (node.isMaster ? (isMobile ? 7 : 13) : (isMobile ? 5 : 9));
 
         if (node.isMaster) {
-          ctx.font = `700 ${isMobile ? '10' : '13'}px 'Space Grotesk', sans-serif`;
+          ctx.font = `700 ${isMobile ? '12' : '13'}px 'Space Grotesk', sans-serif`;
           ctx.fillStyle = labelColor;
           ctx.fillText(node.label, node.x, labelY);
 
-          ctx.font = `500 ${isMobile ? '9' : '11'}px 'Space Grotesk', sans-serif`;
+          ctx.font = `500 ${isMobile ? '11' : '11'}px 'Space Grotesk', sans-serif`;
           ctx.fillStyle = isHovered ? 'rgba(180,210,255,1)' : `rgba(180,210,255,${labelAlpha})`;
-          ctx.fillText(`${Math.round(node.likelihood * 100)}%  ·  ${node.childCount}`, node.x, labelY + (isMobile ? 13 : 17));
+          ctx.fillText(`${Math.round(node.likelihood * 100)}%  ·  ${node.childCount}`, node.x, labelY + (isMobile ? 14 : 17));
         } else {
-          ctx.font = `600 ${isMobile ? '9' : '11'}px 'Space Grotesk', sans-serif`;
+          ctx.font = `600 ${isMobile ? '11' : '11'}px 'Space Grotesk', sans-serif`;
           ctx.fillStyle = labelColor;
           const lbl = node.label;
           if (lbl.length > 18) {
@@ -465,14 +466,20 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
     function onResize() {
       const canvas = canvasRef.current;
       if (!canvas) return;
-      canvas.width  = canvas.parentElement.clientWidth;
-      canvas.height = canvas.parentElement.clientHeight;
+      const dpr = window.devicePixelRatio || 1;
+      const cssW = canvas.parentElement.clientWidth;
+      const cssH = canvas.parentElement.clientHeight;
+      canvas.width  = cssW * dpr;
+      canvas.height = cssH * dpr;
+      canvas.style.width  = cssW + 'px';
+      canvas.style.height = cssH + 'px';
+      const ctx = canvas.getContext('2d');
+      ctx.scale(dpr, dpr);
       if (simRef.current) {
-        const W = canvas.width, H = canvas.height;
         simRef.current
-          .force('center', d3.forceCenter(W/2, H/2).strength(0.08))
-          .force('boundX', d3.forceX(W/2).strength(0.08))
-          .force('boundY', d3.forceY(H/2).strength(0.08))
+          .force('center', d3.forceCenter(cssW/2, cssH/2).strength(0.08))
+          .force('boundX', d3.forceX(cssW/2).strength(0.08))
+          .force('boundY', d3.forceY(cssH/2).strength(0.08))
           .alpha(0.5).restart();
       }
     }
