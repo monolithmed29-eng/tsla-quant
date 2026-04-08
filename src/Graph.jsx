@@ -25,6 +25,18 @@ function getLuminescence(likelihood) {
   }
 }
 
+// Returns true if the node's updated date is today (local time)
+function isUpdatedToday(updated) {
+  if (!updated) return false;
+  const nodeDate = new Date(updated);
+  const today = new Date();
+  return (
+    nodeDate.getFullYear() === today.getFullYear() &&
+    nodeDate.getMonth() === today.getMonth() &&
+    nodeDate.getDate() === today.getDate()
+  );
+}
+
 export default function Graph({ nodes, links, onNodeClick }) {
   const canvasRef = useRef(null);
   const simRef = useRef(null);
@@ -164,6 +176,28 @@ export default function Graph({ nodes, links, onNodeClick }) {
         ctx.arc(node.x, node.y, r * 0.4, 0, Math.PI * 2);
         ctx.fillStyle = 'rgba(255,255,255,0.9)';
         ctx.fill();
+
+        // Red "updated today" dot — pulsing, top-right of node
+        if (isUpdatedToday(node.updated)) {
+          const dotX = node.x + r * 0.75;
+          const dotY = node.y - r * 0.75;
+          const dotR = 4;
+          // Pulse: fast 0.8s cycle, opacity 0.5 → 1.0
+          const dotPulse = Math.sin(now * 0.008) * 0.25 + 0.75;
+          // Outer glow
+          const dotGrad = ctx.createRadialGradient(dotX, dotY, 0, dotX, dotY, dotR * 2.5);
+          dotGrad.addColorStop(0, `rgba(255,60,60,${(dotPulse * 0.5).toFixed(2)})`);
+          dotGrad.addColorStop(1, 'transparent');
+          ctx.beginPath();
+          ctx.arc(dotX, dotY, dotR * 2.5, 0, Math.PI * 2);
+          ctx.fillStyle = dotGrad;
+          ctx.fill();
+          // Solid core dot
+          ctx.beginPath();
+          ctx.arc(dotX, dotY, dotR, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255,60,60,${dotPulse.toFixed(2)})`;
+          ctx.fill();
+        }
 
         // Always-visible labels for ALL nodes
         ctx.save();
