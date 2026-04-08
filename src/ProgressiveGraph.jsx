@@ -499,16 +499,20 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
     if (node.isMaster) {
       const prevMap = new Map(nodesRef.current.map(n => [n.id, { ...n }]));
       if (isMobile) {
-        // Mobile: exclusive expand — only this category, all others collapse to hidden
-        expandedRef.current = new Set([node.category]);
+        if (expandedRef.current.has(node.category)) {
+          // Tap the expanded master again → collapse back to Level 1
+          expandedRef.current = new Set();
+          setAnyExpanded(false);
+        } else {
+          // Tap a master → exclusive expand
+          expandedRef.current = new Set([node.category]);
+          setAnyExpanded(true);
+        }
+        rebuild(expandedRef.current, prevMap);
       } else {
         expandedRef.current.add(node.category);
-      }
-      setAnyExpanded(true);
-      rebuild(expandedRef.current, prevMap);
-      if (!isMobile && expandedRef.current.size >= ALL_CATEGORIES.length) {
-        setAllExpanded(true);
-        onAllExpanded?.();
+        setAnyExpanded(true);
+        rebuild(expandedRef.current, prevMap);
       }
     } else {
       onNodeClick(node);
@@ -545,14 +549,14 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
         </div>
       )}
       {/* Mobile: back hint when expanded */}
-      {isMobile && anyExpanded && !allExpanded && (
+      {isMobile && anyExpanded && (
         <div style={{
           position: 'absolute', bottom: 16, left: '50%', transform: 'translateX(-50%)',
-          fontSize: '10px', color: 'rgba(255,255,255,0.5)',
+          fontSize: '10px', color: 'rgba(255,255,255,0.4)',
           letterSpacing: '2px', textTransform: 'uppercase',
           fontFamily: "'Space Grotesk', sans-serif", pointerEvents: 'none', whiteSpace: 'nowrap',
         }}>
-          Tap ⬡ Network to go back
+          Tap center orb to collapse
         </div>
       )}
 

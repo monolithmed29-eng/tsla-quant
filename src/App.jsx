@@ -80,9 +80,6 @@ export default function App() {
 
   const luminescenceLevels = [
     { label: 'Dim', color: 'rgba(80,100,140,0.55)', glow: 'rgba(70,90,130,0.4)' },
-    { label: 'Low', color: 'rgba(130,150,190,0.70)', glow: 'rgba(120,140,180,0.5)' },
-    { label: 'Medium', color: 'rgba(180,200,230,0.85)', glow: 'rgba(160,185,220,0.6)' },
-    { label: 'Bright', color: 'rgba(220,235,255,0.95)', glow: 'rgba(200,220,255,0.7)' },
     { label: 'Very Bright', color: 'rgba(255,255,255,1.0)', glow: 'rgba(255,255,255,0.8)' },
   ];
 
@@ -183,20 +180,6 @@ export default function App() {
             </div>
           </div>
           <div style={{ display: 'flex', gap: '32px', alignItems: 'center', fontSize: '13px' }}>
-            <button
-              onClick={() => { const next = !expandAll; setExpandAll(next); if (!next) setGraphKey(k => k + 1); }}
-              style={{
-                background: 'rgba(0,255,136,0.12)', border: '1px solid #00ff88', color: '#00ff88',
-                boxShadow: '0 0 10px rgba(0,255,136,0.45), 0 0 20px rgba(0,255,136,0.2)',
-                fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase',
-                padding: '5px 14px', cursor: 'pointer', fontFamily: "'Space Grotesk', sans-serif",
-                transition: 'all 0.3s ease', display: 'flex', alignItems: 'center', gap: '7px',
-              }}
-            >
-              <span style={{ fontSize: '12px' }}>{!expandAll ? '⬡' : '◉'}</span>
-              {!expandAll ? 'Full Network' : 'Overview'}
-            </button>
-            <div style={{ width: '1px', height: '32px', background: '#222' }} />
             <OracleCommandCenter />
             <div style={{ width: '1px', height: '32px', background: '#222' }} />
             <button onClick={() => setShowHowTo(true)} style={{ background: 'none', border: '1px solid #444', color: '#aaa', fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', padding: '5px 12px', cursor: 'pointer', fontFamily: "'Space Grotesk', sans-serif" }} onMouseEnter={e => { e.target.style.borderColor = '#888'; e.target.style.color = '#fff'; }} onMouseLeave={e => { e.target.style.borderColor = '#444'; e.target.style.color = '#aaa'; }}>How to Use</button>
@@ -259,19 +242,6 @@ export default function App() {
               <div style={{ color: marketOpen ? '#00aaff' : '#555', fontWeight: 700, fontSize: '13px' }}>{tslaPrice ? `$${tslaPrice.toFixed(0)}` : '—'}</div>
             </div>
           </div>
-
-          {/* Full Network toggle */}
-          <button
-            onClick={() => { const next = !expandAll; setExpandAll(next); if (!next) setGraphKey(k => k + 1); }}
-            style={{
-              background: 'rgba(0,255,136,0.1)', border: '1px solid #00ff8866', color: '#00ff88',
-              fontSize: '9px', letterSpacing: '1px', textTransform: 'uppercase',
-              padding: '5px 8px', cursor: 'pointer', fontFamily: "'Space Grotesk', sans-serif",
-              whiteSpace: 'nowrap', flexShrink: 0,
-            }}
-          >
-            {!expandAll ? '⬡ Network' : '◉ Overview'}
-          </button>
 
           {/* Oracle button */}
           <OracleCommandCenter />
@@ -622,55 +592,49 @@ export default function App() {
       )}
 
       {/* Bottom Legend */}
-      <footer style={{
-        position: 'fixed',
-        bottom: 0, left: 0, right: 0,
-        zIndex: 100,
-        padding: '10px 28px',
-        borderTop: '1px solid #111',
-        background: 'rgba(0,0,0,0.85)',
-        backdropFilter: 'blur(8px)',
-        display: 'flex',
-        gap: '32px',
-        alignItems: 'center',
-        transition: 'right 0.3s ease',
-      }}>
-        {/* Luminescence legend */}
-        <div style={{ display: 'flex', gap: '18px', alignItems: 'center' }}>
-          <span style={{ fontSize: '10px', color: '#888', letterSpacing: '2px', textTransform: 'uppercase' }}>Likelihood</span>
-          {luminescenceLevels.map(lv => (
-            <div key={lv.label} style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
-              <div style={{
-                width: '11px', height: '11px',
-                borderRadius: '50%',
-                background: lv.color,
-                boxShadow: `0 0 8px 2px ${lv.glow}, 0 0 16px 4px ${lv.glow}`,
-              }} />
-              <span style={{ fontSize: '11px', color: '#bbb', fontWeight: 500 }}>{lv.label}</span>
-            </div>
-          ))}
-          <span style={{ fontSize: '11px', color: '#888', marginLeft: '4px' }}>→ Bright (high likelihood)</span>
-        </div>
-
-        <div style={{ marginLeft: 'auto', display: 'flex', gap: '20px', alignItems: 'center' }}>
-          {[
-            { label: 'Disclaimer', fn: () => setShowDisclaimer(true) },
-            { label: 'Terms of Service', fn: () => setShowToS(true) },
-            { label: 'Refund Policy', fn: () => setShowRefund(true) },
-          ].map(({ label, fn }) => (
-            <button key={label} onClick={fn} style={{
-              background: 'none', border: 'none', padding: 0,
-              color: '#aaa', fontSize: '11px', letterSpacing: '1.5px',
-              textTransform: 'uppercase', cursor: 'pointer',
-              fontFamily: "'Space Grotesk', sans-serif",
-              textDecoration: 'underline', textUnderlineOffset: '3px',
-            }}
-              onMouseEnter={e => e.target.style.color = '#fff'}
-              onMouseLeave={e => e.target.style.color = '#aaa'}
-            >{label}</button>
-          ))}
-        </div>
-      </footer>
+      {!isMobile && (
+        <footer style={{
+          position: 'fixed',
+          bottom: 0, left: 0, right: 0,
+          zIndex: 100,
+          padding: '6px 20px',
+          borderTop: '1px solid #111',
+          background: 'rgba(0,0,0,0.85)',
+          backdropFilter: 'blur(8px)',
+          display: 'flex',
+          gap: '20px',
+          alignItems: 'center',
+        }}>
+          {/* Simplified legend: Dim → Very Bright */}
+          <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+            <span style={{ fontSize: '9px', color: '#555', letterSpacing: '2px', textTransform: 'uppercase' }}>Likelihood</span>
+            {luminescenceLevels.map((lv, i) => (
+              <div key={lv.label} style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                {i > 0 && <span style={{ fontSize: '9px', color: '#333' }}>→</span>}
+                <div style={{ width: '9px', height: '9px', borderRadius: '50%', background: lv.color, boxShadow: `0 0 6px 2px ${lv.glow}` }} />
+                <span style={{ fontSize: '9px', color: '#666' }}>{lv.label}</span>
+              </div>
+            ))}
+          </div>
+          <div style={{ marginLeft: 'auto', display: 'flex', gap: '16px', alignItems: 'center' }}>
+            {[
+              { label: 'Disclaimer', fn: () => setShowDisclaimer(true) },
+              { label: 'Terms', fn: () => setShowToS(true) },
+              { label: 'Refunds', fn: () => setShowRefund(true) },
+            ].map(({ label, fn }) => (
+              <button key={label} onClick={fn} style={{
+                background: 'none', border: 'none', padding: 0,
+                color: '#555', fontSize: '9px', letterSpacing: '1px',
+                textTransform: 'uppercase', cursor: 'pointer',
+                fontFamily: "'Space Grotesk', sans-serif",
+              }}
+                onMouseEnter={e => e.target.style.color = '#aaa'}
+                onMouseLeave={e => e.target.style.color = '#555'}
+              >{label}</button>
+            ))}
+          </div>
+        </footer>
+      )}
     </div>
   );
 }
