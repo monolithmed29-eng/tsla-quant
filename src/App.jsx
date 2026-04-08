@@ -3,6 +3,7 @@ import Panel from './Panel';
 import BreakingNews from './BreakingNews';
 import PriceModal from './PriceModal';
 import ProgressiveGraph from './ProgressiveGraph';
+import MobileGraph from './MobileGraph';
 import OracleSearch from './OracleSearch';
 import OracleCommandCenter from './OracleCommandCenter';
 import { catalysts, links } from './data';
@@ -59,6 +60,14 @@ function Starfield() {
 }
 
 export default function App() {
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const [selected, setSelected] = useState(null);
   const [showAbout, setShowAbout] = useState(false);
   const [showHowTo, setShowHowTo] = useState(false);
@@ -292,26 +301,39 @@ export default function App() {
         </div>
       </header>
 
-      {/* Progressive graph */}
-      <div style={{
-        position: 'absolute',
-        inset: 0,
-        paddingTop: '99px',
-        paddingBottom: '56px',
-        zIndex: 1,
-      }}>
-        <ProgressiveGraph
-          key={graphKey}
-          catalysts={catalysts}
-          links={links}
-          onNodeClick={setSelected}
-          expandAll={expandAll}
-          onAllExpanded={() => setExpandAll(true)}
-        />
-      </div>
+      {/* Graph — desktop uses ProgressiveGraph, mobile uses MobileGraph */}
+      {isMobile ? (
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          paddingTop: '99px',
+          zIndex: 1,
+          overflowY: 'auto',
+          WebkitOverflowScrolling: 'touch',
+        }}>
+          <MobileGraph />
+        </div>
+      ) : (
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          paddingTop: '99px',
+          paddingBottom: '56px',
+          zIndex: 1,
+        }}>
+          <ProgressiveGraph
+            key={graphKey}
+            catalysts={catalysts}
+            links={links}
+            onNodeClick={setSelected}
+            expandAll={expandAll}
+            onAllExpanded={() => setExpandAll(true)}
+          />
+        </div>
+      )}
 
-      {/* Detail Panel */}
-      <Panel node={selected} onClose={() => setSelected(null)} />
+      {/* Detail Panel — desktop only */}
+      {!isMobile && <Panel node={selected} onClose={() => setSelected(null)} />}
 
       {/* Breaking News Tab */}
       <BreakingNews />
