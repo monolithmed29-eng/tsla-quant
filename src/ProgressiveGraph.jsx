@@ -327,6 +327,21 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
         ctx.beginPath(); ctx.arc(node.x, node.y, r * 0.4, 0, Math.PI*2);
         ctx.fillStyle = 'rgba(255,255,255,0.92)'; ctx.fill();
 
+        // ── Mobile Level 2: green ring around the expanded master orb ─────
+        if (isMobile && node.isMaster && anyExpanded) {
+          const ringR = r + 10;
+          // Pulse the ring opacity
+          const ringPulse = Math.sin(now * 0.004) * 0.25 + 0.75;
+          ctx.beginPath();
+          ctx.arc(node.x, node.y, ringR, 0, Math.PI * 2);
+          ctx.strokeStyle = `rgba(0,255,136,${(ringPulse * 0.9).toFixed(2)})`;
+          ctx.lineWidth = 2;
+          ctx.shadowColor = 'rgba(0,255,136,0.8)';
+          ctx.shadowBlur = 12;
+          ctx.stroke();
+          ctx.shadowBlur = 0;
+        }
+
         // ── Red "updated today" heartbeat dot ─────────────────────────────
         const showDot = node.isMaster ? node.hasRecentUpdate : isUpdatedToday(node.updated);
         if (showDot) {
@@ -548,25 +563,7 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
           {isMobile ? 'Tap a node to explore' : 'Click any node to expand · Click Full Network to reveal all'}
         </div>
       )}
-      {/* Mobile Level 2: bright "tap to go back" hint */}
-      {isMobile && anyExpanded && (
-        <div style={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, 60px)',
-          fontSize: '10px',
-          color: 'rgba(255,255,255,0.9)',
-          letterSpacing: '2px',
-          textTransform: 'uppercase',
-          fontFamily: "'Space Grotesk', sans-serif",
-          pointerEvents: 'none',
-          whiteSpace: 'nowrap',
-          textShadow: '0 0 12px rgba(255,255,255,0.7), 0 0 24px rgba(255,255,255,0.3)',
-        }}>
-          ↑ Tap orb to go back
-        </div>
-      )}
+
 
       {/* Tooltip */}
       {tooltip && (
