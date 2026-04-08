@@ -8,9 +8,10 @@ export const catalysts = [
     status: "in_progress",
     expected: "Q2 2026",
     likelihood: 0.92,
-    updated: "Apr 7, 2026",
+    updated: "Apr 8, 2026",
     description: [
       "🚀 MASS PRODUCTION STARTED: Cybercab formally entered production at Giga Texas in April 2026 — first unit rolled off in February; now targeting several hundred units/week ramp",
+      "🆕 Apr 8, 2026 (PM): 60 Cybercabs spotted at Giga Texas (Teslarati) — concrete evidence of live production ramp; Musk confirmed initial output follows classic S-curve toward hundreds of units/week",
       "Model S and Model X production officially ended — Fremont factory space now freed for Optimus; Giga Texas pivoting Cybercab + Optimus focus",
       "Eliminates steering wheel and pedals — purpose-built for autonomy",
       "Manufacturing cost target: $40K–$45K/unit (vs Waymo's ~$200K)",

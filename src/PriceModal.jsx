@@ -124,8 +124,8 @@ export default function PriceModal({ breakdown, total, livePrice, quantChange, o
                   </span>
                   {' '}since last update —{' '}
                   {quantChange < 0
-                    ? `Apr 8, 2026 update: JPMorgan cuts Q1 EPS est to $0.30 and full-year 2026 to $1.80; TSLA down 23% YTD. Bearish earnings pressure trims Q1 beat probability. Model holds at $646.`
-                    : `Apr 8, 2026 update: JPMorgan cuts EPS estimates and reiterates $145 PT; TSLA down 23% YTD though premarket +5% bounce. Q1 earnings beat probability trimmed (0.37→0.35). No net model change.`
+                    ? `Apr 8, 2026 update: 60 Cybercabs spotted at Giga Texas confirming active production S-curve ramp; TSLA premarket +5% on bounce from 23% YTD decline. Model holds at $646.`
+                    : `Apr 8, 2026 update: 60 Cybercabs spotted at Giga Texas confirming active production S-curve ramp; TSLA premarket +5% on bounce from 23% YTD decline. Model holds at $646.`
                   }
                 </div>
               )}
