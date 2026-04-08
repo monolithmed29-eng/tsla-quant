@@ -209,12 +209,22 @@ export default function PriceModal({ breakdown, total, livePrice, quantChange, o
                       boxShadow: `0 0 8px ${color}66`,
                       transition: 'width 0.6s ease',
                     }} />
+                    {/* Current value diamond */}
+                    <div style={{
+                      position: 'absolute',
+                      left: `${barPct}%`,
+                      top: '50%',
+                      transform: 'translate(-50%, -50%) rotate(45deg)',
+                      width: '8px', height: '8px',
+                      background: color,
+                      boxShadow: `0 0 6px ${color}`,
+                    }} />
                   </div>
-                  {/* Labels — anchored to actual marker positions */}
-                  <div style={{ position: 'relative', height: '14px', fontSize: '9px', color: '#555', letterSpacing: '1px' }}>
-                    <span style={{ position: 'absolute', left: `${bearPct}%`, transform: 'translateX(-50%)', whiteSpace: 'nowrap' }}>Bear ${unit.bear}</span>
-                    <span style={{ position: 'absolute', left: `${basePct}%`, transform: 'translateX(-50%)', whiteSpace: 'nowrap', color: '#777' }}>Base ${unit.base}</span>
-                    <span style={{ position: 'absolute', left: `${bullPct}%`, transform: 'translateX(-50%)', whiteSpace: 'nowrap' }}>Bull ${unit.bull}</span>
+                  {/* Labels */}
+                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '9px', color: '#555', letterSpacing: '1px' }}>
+                    <span>Bear ${unit.bear}</span>
+                    <span style={{ color: '#666' }}>Base ${unit.base}</span>
+                    <span>Bull ${unit.bull}</span>
                   </div>
                 </div>
 
