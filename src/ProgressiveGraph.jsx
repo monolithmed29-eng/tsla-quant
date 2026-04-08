@@ -197,13 +197,13 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
           const s = typeof d.source === 'object' ? d.source : nodesCopy.find(n => n.id === d.source);
           const t = typeof d.target === 'object' ? d.target : nodesCopy.find(n => n.id === d.target);
           return mob
-            ? ((s?.isMaster || t?.isMaster) ? 110 : 75)
+            ? ((s?.isMaster || t?.isMaster) ? 130 : 100)
             : ((s?.isMaster || t?.isMaster) ? 220 : 155);
         })
         .strength(0.35))
-      .force('charge',    d3.forceManyBody().strength(n => mob ? (n.isMaster ? -400 : -200) : (n.isMaster ? -1100 : -550)))
+      .force('charge',    d3.forceManyBody().strength(n => mob ? (n.isMaster ? -600 : -380) : (n.isMaster ? -1100 : -550)))
       .force('center',    d3.forceCenter(W / 2, H / 2).strength(0.06))
-      .force('collision', d3.forceCollide(n => getR(n, mob) + (n.isMaster ? (mob ? 32 : 70) : (mob ? 24 : 48))))
+      .force('collision', d3.forceCollide(n => getR(n, mob) + (n.isMaster ? (mob ? 55 : 70) : (mob ? 44 : 48))))
       .force('boundX',    d3.forceX(W / 2).strength(0.06))
       .force('boundY',    d3.forceY((H - 60) / 2).strength(0.08))
       .alpha(0.4)
@@ -242,7 +242,7 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
 
       // Clamp — keep nodes within canvas bounds
       nodesRef.current.forEach(node => {
-        const r = getR(node, isMobile), pad = r + (isMobile ? 20 : 50);
+        const r = getR(node, isMobile), pad = r + (isMobile ? 36 : 50);
         if (node.x !== undefined) node.x = Math.max(pad, Math.min(W - pad, node.x));
         if (node.y !== undefined) node.y = Math.max(pad, Math.min(H - pad - (isMobile ? 30 : 60), node.y));
       });
@@ -428,7 +428,7 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
         ctx.shadowColor = 'rgba(0,0,0,0.95)';
         ctx.shadowBlur = isHovered ? 14 : 10;
 
-        const labelY = node.y + r + (node.isMaster ? (isMobile ? 7 : 13) : (isMobile ? 5 : 9));
+        const labelY = node.y + r + (node.isMaster ? (isMobile ? 8 : 13) : (isMobile ? 6 : 9));
 
         if (node.isMaster) {
           ctx.font = `700 ${isMobile ? '12' : '13'}px 'Space Grotesk', sans-serif`;

@@ -326,47 +326,92 @@ export default function App() {
         </header>
       )}
 
-      {/* ── Mobile Header ── compact single row */}
+      {/* ── Mobile Header ── two rows: brand + price bar */}
       {isMobile && (
-        <header style={{
-          position: 'fixed',
-          top: 0, left: 0, right: 0,
-          zIndex: 100,
-          padding: '8px 14px',
-          borderBottom: '1px solid #111',
-          background: 'rgba(0,0,0,0.9)',
-          backdropFilter: 'blur(8px)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: '8px',
-        }}>
-          {/* Brand */}
-          <div style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '1.5px', color: '#fff', whiteSpace: 'nowrap' }}>
-            TSLA_QUANT
-          </div>
-
-          {/* Prices */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flex: 1, justifyContent: 'center' }}>
-            <div onClick={() => setShowPriceModal(true)} style={{ cursor: 'pointer', textAlign: 'center' }}>
-              <div style={{ fontSize: '8px', color: '#666', letterSpacing: '1px', textTransform: 'uppercase' }}>Model</div>
-              <div style={{ color: '#00ff88', fontWeight: 700, fontSize: '13px' }}>${PREDICTED.toFixed(0)}</div>
+        <>
+          {/* Row 1: brand + oracle */}
+          <header style={{
+            position: 'fixed',
+            top: 0, left: 0, right: 0,
+            zIndex: 100,
+            padding: '7px 14px',
+            borderBottom: '1px solid #161616',
+            background: 'rgba(0,0,0,0.92)',
+            backdropFilter: 'blur(10px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          }}>
+            {/* Brand + badge */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{ fontSize: '14px', fontWeight: 700, letterSpacing: '2px', color: '#fff' }}>
+                TSLA_QUANT
+              </span>
+              <span style={{
+                fontSize: '7px', fontWeight: 600, letterSpacing: '2px',
+                color: '#00ff88', border: '1px solid #00ff8844',
+                padding: '2px 6px', textTransform: 'uppercase',
+                background: 'rgba(0,255,136,0.06)',
+              }}>
+                Mobile
+              </span>
             </div>
-            <div style={{ width: '1px', height: '24px', background: '#222' }} />
-            <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: '8px', color: '#666', letterSpacing: '1px', textTransform: 'uppercase' }}>TSLA</div>
-              <div style={{ color: marketOpen ? '#00aaff' : '#555', fontWeight: 700, fontSize: '13px' }}>{tslaPrice ? `$${tslaPrice.toFixed(0)}` : '—'}</div>
+            <OracleCommandCenter />
+          </header>
+
+          {/* Row 2: price bar */}
+          <div style={{
+            position: 'fixed',
+            top: '36px', left: 0, right: 0,
+            zIndex: 99,
+            background: 'rgba(0,0,0,0.88)',
+            backdropFilter: 'blur(8px)',
+            borderBottom: '1px solid #111',
+            display: 'flex',
+            alignItems: 'stretch',
+          }}>
+            {/* Quant Model */}
+            <div
+              onClick={() => setShowPriceModal(true)}
+              style={{
+                flex: 1, cursor: 'pointer',
+                padding: '8px 0 8px 16px',
+                borderRight: '1px solid #111',
+              }}
+            >
+              <div style={{ fontSize: '8px', color: '#666', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '2px' }}>Quant Model ↗</div>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px' }}>
+                <span style={{ fontSize: '22px', fontWeight: 700, color: '#00ff88', letterSpacing: '-0.5px' }}>${PREDICTED.toFixed(0)}</span>
+                {QUANT_CHANGE !== null && (
+                  <span style={{ fontSize: '11px', fontWeight: 600, color: QUANT_CHANGE >= 0 ? '#00ff88' : '#ff4444' }}>
+                    ({QUANT_CHANGE >= 0 ? '+' : ''}{QUANT_CHANGE.toFixed(0)})
+                  </span>
+                )}
+              </div>
+            </div>
+            {/* TSLA Live */}
+            <div style={{ flex: 1, padding: '8px 0 8px 16px' }}>
+              <div style={{ fontSize: '8px', color: '#666', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '2px' }}>
+                TSLA Live {marketOpen ? '' : '· Closed'}
+              </div>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px' }}>
+                <span style={{ fontSize: '22px', fontWeight: 700, color: marketOpen ? '#00aaff' : '#555', letterSpacing: '-0.5px' }}>
+                  {tslaPrice ? `$${tslaPrice.toFixed(2)}` : '—'}
+                </span>
+                {marketOpen && lastUpdated && (
+                  <span style={{ fontSize: '10px', color: '#444' }}>{formatTime(lastUpdated)}</span>
+                )}
+              </div>
             </div>
           </div>
-
-        </header>
+        </>
       )}
 
       {/* Graph — same ProgressiveGraph for both, different paddingTop */}
       <div style={{
         position: 'absolute',
         inset: 0,
-        paddingTop: isMobile ? '46px' : '99px',
+        paddingTop: isMobile ? '90px' : '99px',
         paddingBottom: isMobile ? '0' : '56px',
         zIndex: 1,
       }}>
