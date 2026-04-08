@@ -45,7 +45,7 @@ const blurAnim = `
   }
 `;
 
-export default function Panel({ node, onClose }) {
+export default function Panel({ node, onClose, isMobile = false }) {
   const [showUpgrade, setShowUpgrade] = useState(false);
 
   if (!node) return null;
@@ -62,27 +62,32 @@ export default function Panel({ node, onClose }) {
         position: 'fixed',
         top: 0,
         right: 0,
-        width: '340px',
+        width: isMobile ? '100vw' : '340px',
         height: '100vh',
-        background: 'rgba(0,0,0,0.95)',
-        borderLeft: `1px solid ${statusColor}33`,
-        padding: '24px 20px',
+        background: 'rgba(0,0,0,0.97)',
+        borderLeft: isMobile ? 'none' : `1px solid ${statusColor}33`,
+        borderTop: isMobile ? `1px solid ${statusColor}33` : 'none',
+        padding: isMobile ? '56px 16px 24px' : '24px 20px',
         zIndex: 1000,
         fontFamily: "'Space Grotesk', sans-serif",
         color: '#fff',
         overflowY: 'auto',
-        boxShadow: `-8px 0 40px ${statusColor}22`,
+        boxShadow: isMobile ? 'none' : `-8px 0 40px ${statusColor}22`,
       }}>
         {/* Close */}
         <button
           onClick={onClose}
           style={{
-            position: 'absolute', top: 16, right: 16,
-            background: 'none', border: 'none',
-            color: '#666', cursor: 'pointer', fontSize: '18px',
+            position: 'absolute', top: isMobile ? 12 : 16, right: 16,
+            background: isMobile ? 'rgba(255,255,255,0.08)' : 'none',
+            border: isMobile ? '1px solid #333' : 'none',
+            color: '#aaa', cursor: 'pointer',
+            fontSize: isMobile ? '14px' : '18px',
             fontFamily: "'Space Grotesk', sans-serif",
+            padding: isMobile ? '6px 12px' : '0',
+            display: 'flex', alignItems: 'center', gap: '4px',
           }}
-        >✕</button>
+        >{isMobile ? '✕ Close' : '✕'}</button>
 
         {/* Status badge */}
         <div style={{

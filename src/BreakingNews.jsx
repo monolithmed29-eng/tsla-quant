@@ -32,8 +32,14 @@ const CATEGORY_LABELS = {
   corporate:     'Corporate',
 };
 
-export default function BreakingNews() {
-  const [hovered, setHovered] = useState(false);
+export default function BreakingNews({ isMobile = false }) {
+  const [open, setOpen] = useState(false);
+
+  // Desktop: hover. Mobile: tap toggle.
+  const hovered = open;
+  const interactionProps = isMobile
+    ? { onClick: () => setOpen(o => !o) }
+    : { onMouseEnter: () => setOpen(true), onMouseLeave: () => setOpen(false) };
 
   return (
     <div
@@ -46,8 +52,7 @@ export default function BreakingNews() {
         display: 'flex',
         alignItems: 'stretch',
       }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      {...interactionProps}
     >
       <style>{glowStyle}</style>
       {/* Panel */}

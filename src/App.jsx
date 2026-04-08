@@ -3,7 +3,6 @@ import Panel from './Panel';
 import BreakingNews from './BreakingNews';
 import PriceModal from './PriceModal';
 import ProgressiveGraph from './ProgressiveGraph';
-import MobileGraph from './MobileGraph';
 import OracleSearch from './OracleSearch';
 import OracleCommandCenter from './OracleCommandCenter';
 import { catalysts, links } from './data';
@@ -128,215 +127,180 @@ export default function App() {
         }
       `}</style>
 
-      {/* Affiliation bar */}
-      <div style={{
-        position: 'fixed',
-        top: 0, left: 0, right: 0,
-        zIndex: 200,
-        background: '#0d0d0d',
-        borderBottom: '1px solid #1a1a1a',
-        padding: '5px 28px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: '16px',
-      }}>
-        <span style={{ fontSize: '10px', color: '#666', letterSpacing: '1.5px', textTransform: 'uppercase' }}>
-          Independent TSLA Analysis Platform — Not affiliated with Tesla, Inc.
-        </span>
-        <span style={{ color: '#444', fontSize: '10px' }}>·</span>
-        <button
-          onClick={() => setShowDisclaimer(true)}
-          style={{
-            background: 'none', border: 'none', padding: 0,
-            color: '#555', fontSize: '10px', letterSpacing: '1.5px',
-            textTransform: 'uppercase', cursor: 'pointer',
-            fontFamily: "'Space Grotesk', sans-serif",
-            textDecoration: 'underline', textUnderlineOffset: '3px',
-          }}
-          onMouseEnter={e => e.target.style.color = '#999'}
-          onMouseLeave={e => e.target.style.color = '#555'}
-        >Disclaimer</button>
-      </div>
-
-      {/* Header */}
-      <header style={{
-        position: 'fixed',
-        top: '27px', left: 0, right: 0,
-        zIndex: 100,
-        padding: '16px 28px',
-        borderBottom: '1px solid #111',
-        background: 'rgba(0,0,0,0.85)',
-        backdropFilter: 'blur(8px)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-      }}>
-        <div>
-          <div style={{ fontSize: '20px', fontWeight: 700, letterSpacing: '2px', color: '#fff' }}>
-            TSLA_QUANT
-          </div>
-          <div style={{ fontSize: '10px', letterSpacing: '3px', color: '#888', textTransform: 'uppercase', marginTop: '3px' }}>
-            v1.3
-          </div>
-        </div>
+      {/* Affiliation bar — desktop only */}
+      {!isMobile && (
         <div style={{
-          display: 'flex', gap: '32px', alignItems: 'center',
-          fontSize: '13px',
+          position: 'fixed',
+          top: 0, left: 0, right: 0,
+          zIndex: 200,
+          background: '#0d0d0d',
+          borderBottom: '1px solid #1a1a1a',
+          padding: '5px 28px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '16px',
         }}>
-          {/* View toggle */}
+          <span style={{ fontSize: '10px', color: '#666', letterSpacing: '1.5px', textTransform: 'uppercase' }}>
+            Independent TSLA Analysis Platform — Not affiliated with Tesla, Inc.
+          </span>
+          <span style={{ color: '#444', fontSize: '10px' }}>·</span>
           <button
-            onClick={() => {
-              const next = !expandAll;
-              setExpandAll(next);
-              if (!next) setGraphKey(k => k + 1); // reset to overview
-            }}
+            onClick={() => setShowDisclaimer(true)}
             style={{
-              background: 'rgba(0,255,136,0.12)',
-              border: '1px solid #00ff88',
-              color: '#00ff88',
-              boxShadow: '0 0 10px rgba(0,255,136,0.45), 0 0 20px rgba(0,255,136,0.2)',
-              fontSize: '10px',
-              letterSpacing: '2px',
-              textTransform: 'uppercase',
-              padding: '5px 14px',
-              cursor: 'pointer',
+              background: 'none', border: 'none', padding: 0,
+              color: '#555', fontSize: '10px', letterSpacing: '1.5px',
+              textTransform: 'uppercase', cursor: 'pointer',
               fontFamily: "'Space Grotesk', sans-serif",
-              transition: 'all 0.3s ease',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '7px',
+              textDecoration: 'underline', textUnderlineOffset: '3px',
             }}
-          >
-            <span style={{ fontSize: '12px' }}>{!expandAll ? '⬡' : '◉'}</span>
-            {!expandAll ? 'Full Network' : 'Overview'}
-          </button>
-          <div style={{ width: '1px', height: '32px', background: '#222' }} />
-          <OracleCommandCenter />
-          <div style={{ width: '1px', height: '32px', background: '#222' }} />
-          <button
-            onClick={() => setShowHowTo(true)}
-            style={{
-              background: 'none',
-              border: '1px solid #444',
-              color: '#aaa',
-              fontSize: '10px',
-              letterSpacing: '2px',
-              textTransform: 'uppercase',
-              padding: '5px 12px',
-              cursor: 'pointer',
-              fontFamily: "'Space Grotesk', sans-serif",
-              transition: 'border-color 0.2s, color 0.2s',
-            }}
-            onMouseEnter={e => { e.target.style.borderColor = '#888'; e.target.style.color = '#fff'; }}
-            onMouseLeave={e => { e.target.style.borderColor = '#444'; e.target.style.color = '#aaa'; }}
-          >How to Use</button>
-          <button
-            onClick={() => setShowAbout(true)}
-            style={{
-              background: 'none',
-              border: '1px solid #444',
-              color: '#aaa',
-              fontSize: '10px',
-              letterSpacing: '2px',
-              textTransform: 'uppercase',
-              padding: '5px 12px',
-              cursor: 'pointer',
-              fontFamily: "'Space Grotesk', sans-serif",
-              transition: 'border-color 0.2s, color 0.2s',
-            }}
-            onMouseEnter={e => { e.target.style.borderColor = '#888'; e.target.style.color = '#fff'; }}
-            onMouseLeave={e => { e.target.style.borderColor = '#444'; e.target.style.color = '#aaa'; }}
-          >About</button>
-          <div style={{ width: '1px', height: '32px', background: '#222' }} />
-          <div
-            style={{ textAlign: 'right', cursor: 'pointer' }}
-            onClick={() => setShowPriceModal(true)}
-            title="Click to see full SOTP breakdown"
-          >
-            <div style={{ color: '#999', fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '2px' }}>Quant Model ↗</div>
-            <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', justifyContent: 'flex-end' }}>
-              <div style={{
-                color: '#00ff88', fontWeight: 700, fontSize: '18px',
-                textDecoration: 'underline', textUnderlineOffset: '3px', textDecorationColor: '#00ff8844',
-              }}>${PREDICTED.toFixed(0)}</div>
-              {QUANT_CHANGE !== null && (
-                <div style={{
-                  fontSize: '11px', fontWeight: 600,
-                  color: QUANT_CHANGE >= 0 ? '#00ff88' : '#ff4444',
-                }}>
-                  ({QUANT_CHANGE >= 0 ? '+' : ''}{QUANT_CHANGE.toFixed(0)})
-                </div>
-              )}
-            </div>
-          </div>
-          <div style={{ width: '1px', height: '32px', background: '#222' }} />
-          <div style={{ textAlign: 'right' }}>
-            <div style={{ color: '#999', fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '2px' }}>TSLA Live</div>
-            <div style={{ color: marketOpen ? '#00aaff' : '#666', fontWeight: 700, fontSize: '18px' }}>
-              {tslaPrice ? `$${tslaPrice.toFixed(2)}` : '—'}
-            </div>
-            <div style={{ color: '#888', fontSize: '9px', marginTop: '2px' }}>
-              {marketOpen ? (lastUpdated ? formatTime(lastUpdated) : '—') : 'Market Closed'}
-            </div>
-          </div>
-          <div style={{ width: '1px', height: '32px', background: '#222' }} />
-          <div style={{ textAlign: 'right' }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '6px', marginBottom: '4px' }}>
-              <span style={{
-                width: '7px', height: '7px', borderRadius: '50%',
-                background: '#00ff88',
-                boxShadow: '0 0 8px 3px rgba(0,255,136,0.7), 0 0 16px 6px rgba(0,255,136,0.3)',
-                display: 'inline-block',
-                animation: 'greenPulse 2s ease-in-out infinite',
-              }} />
-              <span style={{ fontSize: '9px', color: '#00ff88', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: 600 }}>
-                AI Engine: Online
-              </span>
-            </div>
-            <div style={{ fontSize: '9px', color: '#666', letterSpacing: '1px', textAlign: 'right' }}>
-              Last Sync: {syncLabel}
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* Graph — desktop uses ProgressiveGraph, mobile uses MobileGraph */}
-      {isMobile ? (
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          paddingTop: '99px',
-          zIndex: 1,
-          overflowY: 'auto',
-          WebkitOverflowScrolling: 'touch',
-        }}>
-          <MobileGraph />
-        </div>
-      ) : (
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          paddingTop: '99px',
-          paddingBottom: '56px',
-          zIndex: 1,
-        }}>
-          <ProgressiveGraph
-            key={graphKey}
-            catalysts={catalysts}
-            links={links}
-            onNodeClick={setSelected}
-            expandAll={expandAll}
-            onAllExpanded={() => setExpandAll(true)}
-          />
+            onMouseEnter={e => e.target.style.color = '#999'}
+            onMouseLeave={e => e.target.style.color = '#555'}
+          >Disclaimer</button>
         </div>
       )}
 
-      {/* Detail Panel — desktop only */}
-      {!isMobile && <Panel node={selected} onClose={() => setSelected(null)} />}
+      {/* ── Desktop Header ── */}
+      {!isMobile && (
+        <header style={{
+          position: 'fixed',
+          top: '27px', left: 0, right: 0,
+          zIndex: 100,
+          padding: '16px 28px',
+          borderBottom: '1px solid #111',
+          background: 'rgba(0,0,0,0.85)',
+          backdropFilter: 'blur(8px)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}>
+          <div>
+            <div style={{ fontSize: '20px', fontWeight: 700, letterSpacing: '2px', color: '#fff' }}>
+              TSLA_QUANT
+            </div>
+            <div style={{ fontSize: '10px', letterSpacing: '3px', color: '#888', textTransform: 'uppercase', marginTop: '3px' }}>
+              v1.3
+            </div>
+          </div>
+          <div style={{ display: 'flex', gap: '32px', alignItems: 'center', fontSize: '13px' }}>
+            <button
+              onClick={() => { const next = !expandAll; setExpandAll(next); if (!next) setGraphKey(k => k + 1); }}
+              style={{
+                background: 'rgba(0,255,136,0.12)', border: '1px solid #00ff88', color: '#00ff88',
+                boxShadow: '0 0 10px rgba(0,255,136,0.45), 0 0 20px rgba(0,255,136,0.2)',
+                fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase',
+                padding: '5px 14px', cursor: 'pointer', fontFamily: "'Space Grotesk', sans-serif",
+                transition: 'all 0.3s ease', display: 'flex', alignItems: 'center', gap: '7px',
+              }}
+            >
+              <span style={{ fontSize: '12px' }}>{!expandAll ? '⬡' : '◉'}</span>
+              {!expandAll ? 'Full Network' : 'Overview'}
+            </button>
+            <div style={{ width: '1px', height: '32px', background: '#222' }} />
+            <OracleCommandCenter />
+            <div style={{ width: '1px', height: '32px', background: '#222' }} />
+            <button onClick={() => setShowHowTo(true)} style={{ background: 'none', border: '1px solid #444', color: '#aaa', fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', padding: '5px 12px', cursor: 'pointer', fontFamily: "'Space Grotesk', sans-serif" }} onMouseEnter={e => { e.target.style.borderColor = '#888'; e.target.style.color = '#fff'; }} onMouseLeave={e => { e.target.style.borderColor = '#444'; e.target.style.color = '#aaa'; }}>How to Use</button>
+            <button onClick={() => setShowAbout(true)} style={{ background: 'none', border: '1px solid #444', color: '#aaa', fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', padding: '5px 12px', cursor: 'pointer', fontFamily: "'Space Grotesk', sans-serif" }} onMouseEnter={e => { e.target.style.borderColor = '#888'; e.target.style.color = '#fff'; }} onMouseLeave={e => { e.target.style.borderColor = '#444'; e.target.style.color = '#aaa'; }}>About</button>
+            <div style={{ width: '1px', height: '32px', background: '#222' }} />
+            <div style={{ textAlign: 'right', cursor: 'pointer' }} onClick={() => setShowPriceModal(true)}>
+              <div style={{ color: '#999', fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '2px' }}>Quant Model ↗</div>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', justifyContent: 'flex-end' }}>
+                <div style={{ color: '#00ff88', fontWeight: 700, fontSize: '18px', textDecoration: 'underline', textUnderlineOffset: '3px', textDecorationColor: '#00ff8844' }}>${PREDICTED.toFixed(0)}</div>
+                {QUANT_CHANGE !== null && <div style={{ fontSize: '11px', fontWeight: 600, color: QUANT_CHANGE >= 0 ? '#00ff88' : '#ff4444' }}>({QUANT_CHANGE >= 0 ? '+' : ''}{QUANT_CHANGE.toFixed(0)})</div>}
+              </div>
+            </div>
+            <div style={{ width: '1px', height: '32px', background: '#222' }} />
+            <div style={{ textAlign: 'right' }}>
+              <div style={{ color: '#999', fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '2px' }}>TSLA Live</div>
+              <div style={{ color: marketOpen ? '#00aaff' : '#666', fontWeight: 700, fontSize: '18px' }}>{tslaPrice ? `$${tslaPrice.toFixed(2)}` : '—'}</div>
+              <div style={{ color: '#888', fontSize: '9px', marginTop: '2px' }}>{marketOpen ? (lastUpdated ? formatTime(lastUpdated) : '—') : 'Market Closed'}</div>
+            </div>
+            <div style={{ width: '1px', height: '32px', background: '#222' }} />
+            <div style={{ textAlign: 'right' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '6px', marginBottom: '4px' }}>
+                <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#00ff88', boxShadow: '0 0 8px 3px rgba(0,255,136,0.7)', display: 'inline-block', animation: 'greenPulse 2s ease-in-out infinite' }} />
+                <span style={{ fontSize: '9px', color: '#00ff88', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: 600 }}>AI Engine: Online</span>
+              </div>
+              <div style={{ fontSize: '9px', color: '#666', letterSpacing: '1px', textAlign: 'right' }}>Last Sync: {syncLabel}</div>
+            </div>
+          </div>
+        </header>
+      )}
 
-      {/* Breaking News Tab — desktop only */}
-      {!isMobile && <BreakingNews />}
+      {/* ── Mobile Header ── compact single row */}
+      {isMobile && (
+        <header style={{
+          position: 'fixed',
+          top: 0, left: 0, right: 0,
+          zIndex: 100,
+          padding: '8px 14px',
+          borderBottom: '1px solid #111',
+          background: 'rgba(0,0,0,0.9)',
+          backdropFilter: 'blur(8px)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '8px',
+        }}>
+          {/* Brand */}
+          <div style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '1.5px', color: '#fff', whiteSpace: 'nowrap' }}>
+            TSLA_QUANT
+          </div>
+
+          {/* Prices */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flex: 1, justifyContent: 'center' }}>
+            <div onClick={() => setShowPriceModal(true)} style={{ cursor: 'pointer', textAlign: 'center' }}>
+              <div style={{ fontSize: '8px', color: '#666', letterSpacing: '1px', textTransform: 'uppercase' }}>Model</div>
+              <div style={{ color: '#00ff88', fontWeight: 700, fontSize: '13px' }}>${PREDICTED.toFixed(0)}</div>
+            </div>
+            <div style={{ width: '1px', height: '24px', background: '#222' }} />
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: '8px', color: '#666', letterSpacing: '1px', textTransform: 'uppercase' }}>TSLA</div>
+              <div style={{ color: marketOpen ? '#00aaff' : '#555', fontWeight: 700, fontSize: '13px' }}>{tslaPrice ? `$${tslaPrice.toFixed(0)}` : '—'}</div>
+            </div>
+          </div>
+
+          {/* Full Network toggle */}
+          <button
+            onClick={() => { const next = !expandAll; setExpandAll(next); if (!next) setGraphKey(k => k + 1); }}
+            style={{
+              background: 'rgba(0,255,136,0.1)', border: '1px solid #00ff8866', color: '#00ff88',
+              fontSize: '9px', letterSpacing: '1px', textTransform: 'uppercase',
+              padding: '5px 8px', cursor: 'pointer', fontFamily: "'Space Grotesk', sans-serif",
+              whiteSpace: 'nowrap', flexShrink: 0,
+            }}
+          >
+            {!expandAll ? '⬡ Network' : '◉ Overview'}
+          </button>
+
+          {/* Oracle button */}
+          <OracleCommandCenter />
+        </header>
+      )}
+
+      {/* Graph — same ProgressiveGraph for both, different paddingTop */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        paddingTop: isMobile ? '46px' : '99px',
+        paddingBottom: isMobile ? '0' : '56px',
+        zIndex: 1,
+      }}>
+        <ProgressiveGraph
+          key={graphKey}
+          catalysts={catalysts}
+          links={links}
+          onNodeClick={setSelected}
+          expandAll={expandAll}
+          onAllExpanded={() => setExpandAll(true)}
+        />
+      </div>
+
+      {/* Detail Panel */}
+      <Panel node={selected} onClose={() => setSelected(null)} isMobile={isMobile} />
+
+      {/* Breaking News Tab */}
+      <BreakingNews isMobile={isMobile} />
 
 
 
