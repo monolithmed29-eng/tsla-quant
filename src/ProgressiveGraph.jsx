@@ -149,6 +149,7 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
   const [tooltip, setTooltip] = useState(null);
   const [allExpanded, setAllExpanded] = useState(false);
   const [anyExpanded, setAnyExpanded] = useState(false);
+  const anyExpandedRef = useRef(false);
 
   // ── Build + (re)start simulation ──────────────────────────────────────────
   const rebuild = useCallback((expandedSet, prevMap) => {
@@ -328,7 +329,7 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
         ctx.fillStyle = 'rgba(255,255,255,0.92)'; ctx.fill();
 
         // ── Mobile Level 2: green ring around the expanded master orb ─────
-        if (isMobile && node.isMaster && anyExpanded) {
+        if (isMobile && node.isMaster && anyExpandedRef.current) {
           const ringR = r + 10;
           // Pulse the ring opacity
           const ringPulse = Math.sin(now * 0.004) * 0.25 + 0.75;
@@ -517,16 +518,16 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
         if (expandedRef.current.has(node.category)) {
           // Tap the expanded master again → collapse back to Level 1
           expandedRef.current = new Set();
-          setAnyExpanded(false);
+          setAnyExpanded(false); anyExpandedRef.current = false;
         } else {
           // Tap a master → exclusive expand
           expandedRef.current = new Set([node.category]);
-          setAnyExpanded(true);
+          setAnyExpanded(true); anyExpandedRef.current = true;
         }
         rebuild(expandedRef.current, prevMap);
       } else {
         expandedRef.current.add(node.category);
-        setAnyExpanded(true);
+        setAnyExpanded(true); anyExpandedRef.current = true;
         rebuild(expandedRef.current, prevMap);
       }
     } else {
