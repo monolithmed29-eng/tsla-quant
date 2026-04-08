@@ -14,9 +14,9 @@ import { setProStatus } from './creditManager';
 //   https://tslaquant.com?upgrade=active_trader   (or institutional / single)
 // Then store those URLs as Netlify env vars:
 //   VITE_STRIPE_LINK_SINGLE, VITE_STRIPE_LINK_TRADER, VITE_STRIPE_LINK_INST
-const STRIPE_SINGLE      = import.meta.env.VITE_STRIPE_LINK_SINGLE      || 'https://buy.stripe.com/PLACEHOLDER_SINGLE';
-const STRIPE_TRADER      = import.meta.env.VITE_STRIPE_LINK_TRADER      || 'https://buy.stripe.com/PLACEHOLDER_TRADER';
-const STRIPE_INST        = import.meta.env.VITE_STRIPE_LINK_INST        || 'https://buy.stripe.com/PLACEHOLDER_INST';
+const STRIPE_SINGLE = import.meta.env.VITE_STRIPE_LINK_SINGLE || 'https://buy.stripe.com/PLACEHOLDER_SINGLE';
+const STRIPE_TRADER = import.meta.env.VITE_STRIPE_LINK_TRADER || 'https://buy.stripe.com/PLACEHOLDER_TRADER';
+const STRIPE_INST   = import.meta.env.VITE_STRIPE_LINK_INST   || 'https://buy.stripe.com/PLACEHOLDER_INST';
 
 const TIERS = [
   {

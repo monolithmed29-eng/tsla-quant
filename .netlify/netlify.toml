@@ -1,8 +1,8 @@
 functionsDirectory = "/Users/openclaw/.openclaw/workspace/tesla-catalyst-graph/netlify/functions"
 functionsDirectoryOrigin = "default"
+redirectsOrigin = "config"
 plugins = []
 headers = []
-redirects = []
 
 [build]
 publish = "/Users/openclaw/.openclaw/workspace/tesla-catalyst-graph/dist"
@@ -29,3 +29,51 @@ NODE_VERSION = "22"
 [functions]
 
 [functions."*"]
+
+[[redirects]]
+from = "/success/single"
+to = "/?upgrade=single"
+status = 302.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/success/trader"
+to = "/?upgrade=active_trader"
+status = 302.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/success/institutional"
+to = "/?upgrade=institutional"
+status = 302.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]

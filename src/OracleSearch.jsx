@@ -78,12 +78,32 @@ export default function OracleSearch() {
           body: JSON.stringify({ fp: fingerprint, action: 'set_pro', tier: upgradeParam }),
         }).catch(() => {});
       });
+    } else if (upgradeParam === 'single') {
+      // Single Query purchase — add 1 credit and sync to server
+      window.history.replaceState({}, '', window.location.pathname);
+      getFingerprint().then(fingerprint => {
+        fetch('/api/credits', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ fp: fingerprint, action: 'add_credits' }),
+        }).then(r => r.json()).then(data => {
+          if (typeof data.credits === 'number') {
+            setCredits(data.credits);
+            // also update localStorage so UI reflects immediately
+            addCredits(0); // re-sync; actual value comes from server
+            setCredits(data.credits);
+          }
+        }).catch(() => {
+          // fallback: add locally
+          const next = addCredits(1);
+          setCredits(next);
+        });
+      });
     } else if (tokenParam) {
       sessionStorage.setItem('oracle_token', tokenParam);
       const next = addCredits(1);
       setCredits(next);
       window.history.replaceState({}, '', window.location.pathname);
-      // Sync credit to server-side blob so oracle.js sees it
       getFingerprint().then(fingerprint => {
         fetch('/api/credits', {
           method: 'POST',

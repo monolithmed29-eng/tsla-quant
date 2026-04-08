@@ -4,3 +4,25 @@
 
 [build.environment]
   NODE_VERSION = "22"
+
+# Stripe success redirects — set these as success_url in Stripe Dashboard per Payment Link
+[[redirects]]
+  from = "/success/single"
+  to = "/?upgrade=single"
+  status = 302
+
+[[redirects]]
+  from = "/success/trader"
+  to = "/?upgrade=active_trader"
+  status = 302
+
+[[redirects]]
+  from = "/success/institutional"
+  to = "/?upgrade=institutional"
+  status = 302
+
+# SPA fallback
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
