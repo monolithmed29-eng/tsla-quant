@@ -293,6 +293,7 @@ export default function App() {
           onNodeClick={setSelected}
           expandAll={expandAll}
           onAllExpanded={() => setExpandAll(true)}
+          isMobile={isMobile}
         />
       </div>
 

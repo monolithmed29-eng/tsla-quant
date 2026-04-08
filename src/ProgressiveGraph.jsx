@@ -14,6 +14,11 @@ const MIN_R = 8;
 const MAX_R = 32;
 const MASTER_R = 44;
 
+// Mobile-scaled radii (proportionally smaller for phone screens)
+const MIN_R_MOB = 5;
+const MAX_R_MOB = 20;
+const MASTER_R_MOB = 26;
+
 const CATEGORY_LABELS = {
   autonomy:      'Autonomy',
   robotics:      'Robotics / AI',
@@ -28,7 +33,13 @@ const CATEGORY_LABELS = {
 const ALL_CATEGORIES = Object.keys(CATEGORY_LABELS);
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
-function getR(node) {
+function getR(node, mob = false) {
+  if (mob) {
+    if (node.isMaster) return MASTER_R_MOB;
+    const minW = 0.02, maxW = 0.15;
+    const t = Math.max(0, Math.min(1, (node.weight - minW) / (maxW - minW)));
+    return MIN_R_MOB + t * (MAX_R_MOB - MIN_R_MOB);
+  }
   if (node.isMaster) return MASTER_R;
   const minW = 0.02, maxW = 0.15;
   const t = Math.max(0, Math.min(1, (node.weight - minW) / (maxW - minW)));
@@ -62,14 +73,18 @@ function buildMasterNode(catId, catalysts) {
   };
 }
 
-function buildVisibleNodes(expandedSet, catalysts) {
+function buildVisibleNodes(expandedSet, catalysts, mobileExclusive = false) {
   const result = [];
   for (const cat of ALL_CATEGORIES) {
     if (expandedSet.has(cat)) {
+      // Show the master orb + its children in mobile exclusive mode
+      if (mobileExclusive) result.push(buildMasterNode(cat, catalysts));
       result.push(...catalysts.filter(c => c.category === cat));
-    } else {
+    } else if (!mobileExclusive) {
+      // Desktop: always show unexpanded categories as master orbs
       result.push(buildMasterNode(cat, catalysts));
     }
+    // Mobile exclusive: unexpanded categories are hidden entirely
   }
   return result;
 }
@@ -122,7 +137,7 @@ function buildVisibleLinks(expandedSet, catalysts, links) {
 }
 
 // ─── Component ────────────────────────────────────────────────────────────────
-export default function ProgressiveGraph({ catalysts, links, onNodeClick, expandAll, onAllExpanded }) {
+export default function ProgressiveGraph({ catalysts, links, onNodeClick, expandAll, onAllExpanded, isMobile = false }) {
   const canvasRef   = useRef(null);
   const simRef      = useRef(null);
   const rafRef      = useRef(null);
@@ -142,7 +157,8 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
     const W = canvas.width  || canvas.clientWidth  || 800;
     const H = canvas.height || canvas.clientHeight || 600;
 
-    const visNodes = buildVisibleNodes(expandedSet, catalysts);
+    const mobileExclusive = isMobile && expandedSet.size > 0 && expandedSet.size < ALL_CATEGORIES.length;
+    const visNodes = buildVisibleNodes(expandedSet, catalysts, mobileExclusive);
     const visLinks = buildVisibleLinks(expandedSet, catalysts, links);
 
     // Carry positions; new nodes born at their master's last position
@@ -173,17 +189,20 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
 
     if (simRef.current) simRef.current.stop();
 
+    const mob = isMobile;
     simRef.current = d3.forceSimulation(nodesCopy)
       .force('link', d3.forceLink(linksCopy).id(d => d.id)
         .distance(d => {
           const s = typeof d.source === 'object' ? d.source : nodesCopy.find(n => n.id === d.source);
           const t = typeof d.target === 'object' ? d.target : nodesCopy.find(n => n.id === d.target);
-          return (s?.isMaster || t?.isMaster) ? 220 : 155;
+          return mob
+            ? ((s?.isMaster || t?.isMaster) ? 110 : 75)
+            : ((s?.isMaster || t?.isMaster) ? 220 : 155);
         })
         .strength(0.35))
-      .force('charge',    d3.forceManyBody().strength(n => n.isMaster ? -1100 : -550))
+      .force('charge',    d3.forceManyBody().strength(n => mob ? (n.isMaster ? -400 : -200) : (n.isMaster ? -1100 : -550)))
       .force('center',    d3.forceCenter(W / 2, H / 2).strength(0.06))
-      .force('collision', d3.forceCollide(n => getR(n) + (n.isMaster ? 70 : 48)))
+      .force('collision', d3.forceCollide(n => getR(n, mob) + (n.isMaster ? (mob ? 32 : 70) : (mob ? 24 : 48))))
       .force('boundX',    d3.forceX(W / 2).strength(0.06))
       .force('boundY',    d3.forceY((H - 60) / 2).strength(0.08))
       .alpha(0.4)
@@ -219,11 +238,11 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
 
       ctx.clearRect(0, 0, W, H);
 
-      // Clamp — extra bottom padding to keep nodes above the hint text
+      // Clamp — keep nodes within canvas bounds
       nodesRef.current.forEach(node => {
-        const r = getR(node), pad = r + 50;
+        const r = getR(node, isMobile), pad = r + (isMobile ? 20 : 50);
         if (node.x !== undefined) node.x = Math.max(pad, Math.min(W - pad, node.x));
-        if (node.y !== undefined) node.y = Math.max(pad, Math.min(H - pad - 60, node.y));
+        if (node.y !== undefined) node.y = Math.max(pad, Math.min(H - pad - (isMobile ? 30 : 60), node.y));
       });
 
       // Links
@@ -261,7 +280,7 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
       const anyHovered = hoveredId !== null;
       nodesRef.current.forEach((node, ni) => {
         if (!node.x) return;
-        const r = getR(node);
+        const r = getR(node, isMobile);
         const isHovered = node.id === hoveredId;
         const scaleFactor = isHovered ? 1.08 : 1.0;
         const { core, outerGlow } = getLum(node.likelihood);
@@ -392,25 +411,25 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
         ctx.shadowColor = 'rgba(0,0,0,0.95)';
         ctx.shadowBlur = isHovered ? 14 : 10;
 
-        const labelY = node.y + r + (node.isMaster ? 13 : 9);
+        const labelY = node.y + r + (node.isMaster ? (isMobile ? 7 : 13) : (isMobile ? 5 : 9));
 
         if (node.isMaster) {
-          ctx.font = "700 13px 'Space Grotesk', sans-serif";
+          ctx.font = `700 ${isMobile ? '10' : '13'}px 'Space Grotesk', sans-serif`;
           ctx.fillStyle = labelColor;
           ctx.fillText(node.label, node.x, labelY);
 
-          ctx.font = "500 11px 'Space Grotesk', sans-serif";
+          ctx.font = `500 ${isMobile ? '9' : '11'}px 'Space Grotesk', sans-serif`;
           ctx.fillStyle = isHovered ? 'rgba(180,210,255,1)' : `rgba(180,210,255,${labelAlpha})`;
-          ctx.fillText(`${Math.round(node.likelihood * 100)}%  ·  ${node.childCount} catalysts`, node.x, labelY + 17);
+          ctx.fillText(`${Math.round(node.likelihood * 100)}%  ·  ${node.childCount}`, node.x, labelY + (isMobile ? 13 : 17));
         } else {
-          ctx.font = "600 11px 'Space Grotesk', sans-serif";
+          ctx.font = `600 ${isMobile ? '9' : '11'}px 'Space Grotesk', sans-serif`;
           ctx.fillStyle = labelColor;
           const lbl = node.label;
           if (lbl.length > 18) {
             const words = lbl.split(' ');
             const mid = Math.ceil(words.length / 2);
             ctx.fillText(words.slice(0, mid).join(' '), node.x, labelY);
-            ctx.fillText(words.slice(mid).join(' '),    node.x, labelY + 14);
+            ctx.fillText(words.slice(mid).join(' '),    node.x, labelY + (isMobile ? 11 : 14));
           } else {
             ctx.fillText(lbl, node.x, labelY);
           }
@@ -452,7 +471,7 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
     const rect = canvas.getBoundingClientRect();
     const mx = e.clientX - rect.left, my = e.clientY - rect.top;
     for (const node of nodesRef.current) {
-      const r = getR(node);
+      const r = getR(node, isMobile);
       const dx = (node.x||0) - mx, dy = (node.y||0) - my;
       if (Math.sqrt(dx*dx + dy*dy) < r + 8) return { node, mx: e.clientX, my: e.clientY };
     }
@@ -479,17 +498,28 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
 
     if (node.isMaster) {
       const prevMap = new Map(nodesRef.current.map(n => [n.id, { ...n }]));
-      expandedRef.current.add(node.category);
+      if (isMobile) {
+        // Mobile: exclusive expand — only this category, all others collapse to hidden
+        expandedRef.current = new Set([node.category]);
+      } else {
+        expandedRef.current.add(node.category);
+      }
       setAnyExpanded(true);
       rebuild(expandedRef.current, prevMap);
-      // If all categories are now expanded, notify parent
-      if (expandedRef.current.size >= ALL_CATEGORIES.length) {
+      if (!isMobile && expandedRef.current.size >= ALL_CATEGORIES.length) {
         setAllExpanded(true);
         onAllExpanded?.();
       }
     } else {
       onNodeClick(node);
     }
+  }
+
+  function handleTouchEnd(e) {
+    if (e.changedTouches.length !== 1) return;
+    const t = e.changedTouches[0];
+    handleClick({ clientX: t.clientX, clientY: t.clientY });
+    e.preventDefault();
   }
 
   return (
@@ -499,9 +529,10 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
         style={{ display: 'block', width: '100%', height: '100%', cursor: 'crosshair' }}
         onMouseMove={handleMouseMove}
         onClick={handleClick}
+        onTouchEnd={handleTouchEnd}
       />
 
-      {/* Hint — hidden once all nodes expanded */}
+      {/* Hint */}
       {!allExpanded && !expandAll && !anyExpanded && (
         <div style={{
           position: 'absolute', bottom: 20, left: '50%', transform: 'translateX(-50%)',
@@ -510,7 +541,18 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
           fontFamily: "'Space Grotesk', sans-serif", pointerEvents: 'none', whiteSpace: 'nowrap',
           textShadow: '0 0 12px rgba(255,255,255,0.8), 0 0 28px rgba(255,255,255,0.4)',
         }}>
-          Click any node to expand · Click Full Network to reveal all
+          {isMobile ? 'Tap a node to explore' : 'Click any node to expand · Click Full Network to reveal all'}
+        </div>
+      )}
+      {/* Mobile: back hint when expanded */}
+      {isMobile && anyExpanded && !allExpanded && (
+        <div style={{
+          position: 'absolute', bottom: 16, left: '50%', transform: 'translateX(-50%)',
+          fontSize: '10px', color: 'rgba(255,255,255,0.5)',
+          letterSpacing: '2px', textTransform: 'uppercase',
+          fontFamily: "'Space Grotesk', sans-serif", pointerEvents: 'none', whiteSpace: 'nowrap',
+        }}>
+          Tap ⬡ Network to go back
         </div>
       )}
 
