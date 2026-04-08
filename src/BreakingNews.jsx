@@ -46,11 +46,13 @@ export default function BreakingNews({ isMobile = false }) {
       style={{
         position: 'fixed',
         left: 0,
-        top: '50%',
-        transform: 'translateY(-50%)',
+        ...(isMobile
+          ? { bottom: '28px', top: 'auto', transform: 'none' }
+          : { top: '50%', transform: 'translateY(-50%)' }
+        ),
         zIndex: 300,
         display: 'flex',
-        alignItems: 'stretch',
+        alignItems: isMobile ? 'flex-end' : 'stretch',
       }}
       {...interactionProps}
     >

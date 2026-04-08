@@ -548,15 +548,23 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
           {isMobile ? 'Tap a node to explore' : 'Click any node to expand · Click Full Network to reveal all'}
         </div>
       )}
-      {/* Mobile: back hint when expanded */}
+      {/* Mobile Level 2: bright "tap to go back" hint */}
       {isMobile && anyExpanded && (
         <div style={{
-          position: 'absolute', bottom: 16, left: '50%', transform: 'translateX(-50%)',
-          fontSize: '10px', color: 'rgba(255,255,255,0.4)',
-          letterSpacing: '2px', textTransform: 'uppercase',
-          fontFamily: "'Space Grotesk', sans-serif", pointerEvents: 'none', whiteSpace: 'nowrap',
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, 60px)',
+          fontSize: '10px',
+          color: 'rgba(255,255,255,0.9)',
+          letterSpacing: '2px',
+          textTransform: 'uppercase',
+          fontFamily: "'Space Grotesk', sans-serif",
+          pointerEvents: 'none',
+          whiteSpace: 'nowrap',
+          textShadow: '0 0 12px rgba(255,255,255,0.7), 0 0 24px rgba(255,255,255,0.3)',
         }}>
-          Tap center orb to collapse
+          ↑ Tap orb to go back
         </div>
       )}
 

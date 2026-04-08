@@ -58,6 +58,105 @@ function Starfield() {
   );
 }
 
+function MobileOracleFAB({ onShowDisclaimer, onShowToS, onShowRefund }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      {/* Simplified mobile footer: just legend + legal */}
+      <div style={{
+        position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 100,
+        padding: '5px 14px',
+        borderTop: '1px solid #111',
+        background: 'rgba(0,0,0,0.92)',
+        backdropFilter: 'blur(8px)',
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+      }}>
+        {/* Dim → Very Bright */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'rgba(80,100,140,0.55)', boxShadow: '0 0 4px rgba(70,90,130,0.4)', flexShrink: 0 }} />
+          <span style={{ fontSize: '8px', color: '#444', letterSpacing: '1px' }}>DIM</span>
+          <span style={{ fontSize: '8px', color: '#333' }}>→</span>
+          <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'rgba(255,255,255,1.0)', boxShadow: '0 0 6px rgba(255,255,255,0.8)', flexShrink: 0 }} />
+          <span style={{ fontSize: '8px', color: '#aaa', letterSpacing: '1px' }}>BRIGHT</span>
+          <span style={{ fontSize: '8px', color: '#444', marginLeft: '4px' }}>= likelihood</span>
+        </div>
+        {/* Legal */}
+        <div style={{ display: 'flex', gap: '10px' }}>
+          {[['Disclaimer', onShowDisclaimer], ['Terms', onShowToS], ['Refunds', onShowRefund]].map(([label, fn]) => (
+            <button key={label} onClick={fn} style={{
+              background: 'none', border: 'none', padding: 0,
+              color: '#444', fontSize: '8px', letterSpacing: '1px',
+              textTransform: 'uppercase', cursor: 'pointer',
+              fontFamily: "'Space Grotesk', sans-serif",
+              textDecoration: 'underline', textUnderlineOffset: '2px',
+            }}>{label}</button>
+          ))}
+        </div>
+      </div>
+
+      {/* Oracle FAB — centered above footer */}
+      <button
+        onClick={() => setOpen(true)}
+        style={{
+          position: 'fixed', bottom: '32px', left: '50%', transform: 'translateX(-50%)',
+          zIndex: 200,
+          background: 'rgba(229,57,53,0.12)',
+          border: '1px solid rgba(229,57,53,0.7)',
+          color: '#ff3333',
+          padding: '9px 20px',
+          borderRadius: '24px',
+          fontSize: '10px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase',
+          cursor: 'pointer',
+          fontFamily: "'Space Grotesk', sans-serif",
+          display: 'flex', alignItems: 'center', gap: '8px',
+          boxShadow: '0 0 20px rgba(229,57,53,0.25)',
+          backdropFilter: 'blur(8px)',
+          whiteSpace: 'nowrap',
+        }}
+      >
+        <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#ff1a1a', display: 'inline-block', boxShadow: '0 0 8px 3px rgba(229,57,53,0.8)' }} />
+        Ask Roger
+      </button>
+
+      {/* Oracle bottom sheet */}
+      {open && (
+        <div
+          style={{ position: 'fixed', inset: 0, zIndex: 9000, background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(4px)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}
+          onClick={() => setOpen(false)}
+        >
+          <div
+            onClick={e => e.stopPropagation()}
+            style={{
+              background: '#060606',
+              border: '1px solid #1e1e1e',
+              borderRadius: '16px 16px 0 0',
+              borderTop: '2px solid #e53935',
+              maxHeight: '85vh', overflowY: 'auto',
+              WebkitOverflowScrolling: 'touch',
+              padding: '0 0 32px',
+            }}
+          >
+            {/* Handle + header */}
+            <div style={{ display: 'flex', justifyContent: 'center', padding: '12px 0 4px' }}>
+              <div style={{ width: '36px', height: '4px', borderRadius: '2px', background: '#222' }} />
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '4px 16px 12px', borderBottom: '1px solid #111' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#ff1a1a', display: 'inline-block', boxShadow: '0 0 8px 3px rgba(229,57,53,0.8)' }} />
+                <span style={{ fontSize: '10px', letterSpacing: '2px', color: '#ff3333', textTransform: 'uppercase', fontWeight: 700 }}>Ask Roger</span>
+              </div>
+              <button onClick={() => setOpen(false)} style={{ background: 'none', border: 'none', color: '#666', fontSize: '18px', cursor: 'pointer', padding: '4px 8px' }}>✕</button>
+            </div>
+            <div style={{ padding: '16px 12px 0' }}>
+              <OracleSearch />
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
+
 export default function App() {
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
 
@@ -260,8 +359,6 @@ export default function App() {
             </div>
           </div>
 
-          {/* Oracle button */}
-          <OracleCommandCenter />
         </header>
       )}
 
@@ -289,6 +386,9 @@ export default function App() {
 
       {/* Breaking News Tab */}
       <BreakingNews isMobile={isMobile} />
+
+      {/* Mobile: Oracle FAB (centered bottom) */}
+      {isMobile && !selected && <MobileOracleFAB onShowDisclaimer={() => setShowDisclaimer(true)} onShowToS={() => setShowToS(true)} onShowRefund={() => setShowRefund(true)} />}
 
 
 
