@@ -124,8 +124,8 @@ export default function PriceModal({ breakdown, total, livePrice, quantChange, o
                   </span>
                   {' '}since last update —{' '}
                   {quantChange < 0
-                    ? `Apr 7, 2026 update: FSD v14.3 officially released — ground-up rewrite with new RL training, new vision system, and new compiler (0.82→0.85). Intel joined Terafab chip fab project, reducing execution risk (0.55→0.65). Tesla Germany registrations quadrupled YoY to 9,252 units — best March ever, broad EU recovery confirmed across Norway, Sweden, Denmark, UK (brand recovery 0.55→0.60). Net effect: autonomy and platform catalysts strengthened.`
-                    : `Apr 7, 2026 update: FSD v14.3 released (new RL model, new vision, new compiler). Intel joins Terafab. Tesla Germany +315% YoY — EU brand recovery confirmed. Autonomy and platform catalysts all strengthened.`
+                    ? `Apr 8, 2026 update: ~60 Teslas staged in Phoenix signal imminent robotaxi expansion (multi-city +0.63). NHTSA opened FSD investigation (red lights/illegal turns) — regulatory headwind (federal approval 0.47→0.45). JPMorgan cuts Q1 EPS est. to $0.30 and full-year to $1.80. Net: expansion positive offset by new FSD probe, model holds at $646.`
+                    : `Apr 8, 2026 update: Phoenix robotaxi staging (~60 vehicles) accelerates multi-city timeline. NHTSA closes Smart Summon probe but opens FSD red-light investigation. JPMorgan cuts estimates. Net change: $0 — catalysts balanced.`
                   }
                 </div>
               )}

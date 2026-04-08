@@ -16,7 +16,7 @@ const BREAKDOWN = calcPriceBreakdown(catalysts);
 // PREV_PREDICTED = the model price before today's data updates.
 // Update this manually whenever a meaningful data change is deployed.
 // This ensures ALL visitors see the delta, not just returning ones.
-const PREV_PREDICTED = 646; // model price before Apr 7, 2026 catalyst updates
+const PREV_PREDICTED = 646; // model price before Apr 8, 2026 catalyst updates
 const QUANT_CHANGE = PREDICTED !== PREV_PREDICTED ? PREDICTED - PREV_PREDICTED : null;
 
 // Starfield
