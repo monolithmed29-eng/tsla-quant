@@ -90,19 +90,6 @@ export default async (req, context) => {
     return new Response(JSON.stringify({ error: 'Query required' }), { status: 400 });
   }
 
-  // Build Claude message content — text only, or text + document/image (institutional only)
-  const isInstitutional = serverRecord?.pro === 'institutional' || (hasToken && UNLOCK_TOKENS.includes('institutional'));
-  const hasAttachment = Array.isArray(content) && content.some(c => c.type === 'document' || c.type === 'image');
-  if (hasAttachment && !isInstitutional && !hasToken) {
-    return new Response(JSON.stringify({ error: 'Document upload requires Institutional tier.' }), {
-      status: 403,
-      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
-    });
-  }
-  const userContent = Array.isArray(content) && content.length > 0
-    ? content
-    : [{ type: 'text', text: query }];
-
   // ── Access check ──────────────────────────────────────────────────────────
   const hasToken = token && validTokens.has(token);
 
@@ -132,6 +119,19 @@ export default async (req, context) => {
       headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
     });
   }
+
+  // Build Claude message content — text only, or text + document/image (institutional only)
+  const isInstitutional = serverRecord?.pro === 'institutional' || hasToken;
+  const hasAttachment = Array.isArray(content) && content.some(c => c.type === 'document' || c.type === 'image');
+  if (hasAttachment && !isInstitutional) {
+    return new Response(JSON.stringify({ error: 'Document upload requires Institutional tier.' }), {
+      status: 403,
+      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+    });
+  }
+  const userContent = Array.isArray(content) && content.length > 0
+    ? content
+    : [{ type: 'text', text: query }];
 
   // Call Claude
   if (!ANTHROPIC_API_KEY) {

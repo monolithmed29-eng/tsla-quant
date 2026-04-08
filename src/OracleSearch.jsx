@@ -83,6 +83,16 @@ export default function OracleSearch() {
       const next = addCredits(1);
       setCredits(next);
       window.history.replaceState({}, '', window.location.pathname);
+      // Sync credit to server-side blob so oracle.js sees it
+      getFingerprint().then(fingerprint => {
+        fetch('/api/credits', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ fp: fingerprint, action: 'add_credits' }),
+        }).then(r => r.json()).then(data => {
+          if (typeof data.credits === 'number') setCredits(data.credits);
+        }).catch(() => {});
+      });
       const pending = sessionStorage.getItem('oracle_pending_query');
       if (pending) {
         setQuery(pending);
