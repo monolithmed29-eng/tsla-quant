@@ -480,7 +480,48 @@ export default function App() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
 
-              {[
+              {(isMobile ? [
+                {
+                  icon: '⚪',
+                  heading: 'Orb Brightness — Likelihood',
+                  body: 'Each orb\'s brightness reflects the probability of that catalyst occurring. Bright white = high confidence (90%+). Dim = uncertain or unlikely.',
+                },
+                {
+                  icon: '🔴',
+                  heading: 'Red Pulsing Dot — Updated Today',
+                  body: 'A heartbeat red dot on an orb means new data arrived today. On the main view it means at least one sub-catalyst in that category was updated.',
+                },
+                {
+                  icon: '👆',
+                  heading: 'Tap a Category Orb',
+                  body: 'Tap any of the 8 main orbs to burst it into its sub-catalysts. A green ring appears around it. Tap the same orb again to collapse back to the main view.',
+                },
+                {
+                  icon: '📋',
+                  heading: 'Tap a Sub-Node',
+                  body: 'Tap any sub-node to open its full analysis — likelihood score, timestamped bullets, and price contribution. Tap ✕ Close to dismiss.',
+                },
+                {
+                  icon: '🔗',
+                  heading: 'Connections',
+                  body: 'Lines between orbs show causal dependencies. Animated particles show how one catalyst accelerates another.',
+                },
+                {
+                  icon: '💲',
+                  heading: 'Quant Model Price',
+                  body: 'The green price target is a sum-of-parts model across 34 catalysts and 6 business units. Tap it to see the full breakdown. Updated daily at 10am ET.',
+                },
+                {
+                  icon: '◉',
+                  heading: 'Ask Roger — AI Oracle',
+                  body: 'Tap the red "Ask Roger" button at the bottom. Ask anything about Tesla catalysts, FSD, robotaxi, or earnings. Roger delivers a 4-phase quant analysis. 3 free queries to start — each uses 1 credit.',
+                },
+                {
+                  icon: '📰',
+                  heading: 'Breaking News',
+                  body: 'Tap the red tab on the left edge to open the breaking news feed. Tap ✕ or anywhere outside to close. Refreshed 3× daily.',
+                },
+              ] : [
                 {
                   icon: '⚪',
                   heading: 'Orb Brightness — Likelihood',
@@ -490,11 +531,6 @@ export default function App() {
                   icon: '🔵',
                   heading: 'Orb Size — Impact Score',
                   body: 'Larger orbs carry more weight in the quant price model. Size represents how much that catalyst contributes to Tesla\'s valuation if achieved. A large orb that\'s dim means high potential but low confidence — a key risk to watch.',
-                },
-                {
-                  icon: '🔴',
-                  heading: 'Red Pulsing Dot — Updated Today',
-                  body: 'A small red dot pulsing at the top-right of an orb means that catalyst was updated today with new data. The beat follows a heartbeat rhythm — two quick pulses, then silence. On the main view, a red dot on a category orb means at least one sub-catalyst inside it received a fresh update.',
                 },
                 {
                   icon: '🖱️',
@@ -512,16 +548,11 @@ export default function App() {
                   body: 'The green price target in the header is a sum-of-parts valuation model. It is recalculated dynamically from the current likelihood scores of all 34 catalysts across 6 business units: Auto, Energy, Robotaxi, Optimus, FSD Software, and AI Infrastructure. Updated daily at 10am ET.',
                 },
                 {
-                  icon: '◉',
-                  heading: 'Ask Roger — AI Oracle',
-                  body: 'Tap the red "Ask Roger" button to query the TSLAquant AI engine. Ask anything about Tesla catalysts, model price, FSD progress, robotaxi timelines, or earnings outlook. Roger runs a 4-phase quant analysis: Current Reality → Raw Data → Quant Edge → The Trade. Each query uses one credit. Free users get 3 credits to start.',
-                },
-                {
                   icon: '📰',
                   heading: 'Breaking News Tab',
-                  body: 'Tap the "Breaking News" tab on the left edge of the screen to see the latest Tesla developments. Each story is tagged with a color-coded category dot matching the neural network. The feed is automatically refreshed 3× daily (8am, 1pm, 6pm ET) from Tesla IR and Tesla\'s X account.',
+                  body: 'Hover over the "Breaking News" tab on the left edge of the screen to see the latest Tesla developments. Each story is tagged with a color-coded category dot matching the neural network. The feed is automatically refreshed 3× daily (8am, 1pm, 6pm ET) from Tesla IR and Tesla\'s X account.',
                 },
-              ].map(({ icon, heading, body }) => (
+              ]).map(({ icon, heading, body }) => (
                 <div key={heading} style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
                   <div style={{ fontSize: '18px', flexShrink: 0, marginTop: '1px' }}>{icon}</div>
                   <div>
