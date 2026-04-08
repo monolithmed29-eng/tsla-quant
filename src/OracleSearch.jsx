@@ -254,7 +254,7 @@ export default function OracleSearch() {
   useEffect(() => () => stopLoading(), []);
 
   const pro = isPro();
-  const creditsLeft = getCredits();
+  const creditsLeft = credits;
   const depleted = !pro && creditsLeft <= 0 && !sessionStorage.getItem('oracle_token');
 
   return (
