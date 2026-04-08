@@ -48,6 +48,7 @@ function buildMasterNode(catId, catalysts) {
   const avg = children.length
     ? children.reduce((s, c) => s + c.likelihood, 0) / children.length
     : 0.5;
+  const hasRecentUpdate = children.some(c => isUpdatedToday(c.updated));
   return {
     id: `__master_${catId}`,
     label: CATEGORY_LABELS[catId] || catId,
@@ -56,6 +57,7 @@ function buildMasterNode(catId, catalysts) {
     likelihood: avg,
     weight: 0.15,
     childCount: children.length,
+    hasRecentUpdate,
     description: [`${children.length} catalysts · ${Math.round(avg * 100)}% avg confidence`, 'Click to expand →'],
   };
 }
@@ -306,22 +308,31 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
         ctx.beginPath(); ctx.arc(node.x, node.y, r * 0.4, 0, Math.PI*2);
         ctx.fillStyle = 'rgba(255,255,255,0.92)'; ctx.fill();
 
-        // ── Red "updated today" pulse dot ──────────────────────────────────
-        if (isUpdatedToday(node.updated)) {
+        // ── Red "updated today" heartbeat dot ─────────────────────────────
+        const showDot = node.isMaster ? node.hasRecentUpdate : isUpdatedToday(node.updated);
+        if (showDot) {
           const dotX = node.x + r * 0.78;
           const dotY = node.y - r * 0.78;
           const dotR = Math.max(4, r * 0.22);
-          // Fast pulse: ~0.8s cycle, opacity 0.55 → 1.0
-          const dp = Math.sin(now * 0.009) * 0.225 + 0.775;
-          // Soft outer glow
+          // Heartbeat: 2-beat thump then ~1s pause. Period = 1600ms.
+          // Beat1: 0–120ms, pause: 120–280ms, Beat2: 280–400ms, rest: 400–1600ms
+          const period = 1600;
+          const t = now % period;
+          let dp;
+          if (t < 120)        dp = Math.sin((t / 120) * Math.PI);       // beat 1 up+down
+          else if (t < 280)   dp = 0;                                    // pause
+          else if (t < 400)   dp = Math.sin(((t - 280) / 120) * Math.PI) * 0.75; // beat 2 (softer)
+          else                dp = 0;                                    // rest
+          const alpha = 0.4 + dp * 0.6;
+          // Glow ring
           const dg = ctx.createRadialGradient(dotX, dotY, 0, dotX, dotY, dotR * 3);
-          dg.addColorStop(0, `rgba(255,50,50,${(dp * 0.55).toFixed(2)})`);
+          dg.addColorStop(0, `rgba(255,50,50,${(alpha * 0.5).toFixed(2)})`);
           dg.addColorStop(1, 'transparent');
           ctx.beginPath(); ctx.arc(dotX, dotY, dotR * 3, 0, Math.PI * 2);
           ctx.fillStyle = dg; ctx.fill();
-          // Solid red core
+          // Solid core
           ctx.beginPath(); ctx.arc(dotX, dotY, dotR, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(255,50,50,${dp.toFixed(2)})`;
+          ctx.fillStyle = `rgba(255,50,50,${alpha.toFixed(2)})`;
           ctx.fill();
         }
 
