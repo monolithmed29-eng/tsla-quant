@@ -533,9 +533,19 @@ export default function App() {
                   body: 'Larger orbs carry more weight in the quant price model. Size represents how much that catalyst contributes to Tesla\'s valuation if achieved. A large orb that\'s dim means high potential but low confidence — a key risk to watch.',
                 },
                 {
+                  icon: '🔴',
+                  heading: 'Red Pulsing Dot — Updated Today',
+                  body: 'A small red dot heartbeating at the top-right of an orb means that catalyst received new data today. Two quick pulses, then silence — like a heartbeat. On the main overview, a red dot on a category orb means at least one sub-catalyst inside it was updated.',
+                },
+                {
                   icon: '🖱️',
                   heading: 'Click Any Orb',
                   body: 'Click on any orb to open its detail panel. You\'ll see a full analysis with timestamped bullet points, likelihood score, expected timeline, and its estimated contribution to the model price target. Click a different orb at any time to switch — no need to close first.',
+                },
+                {
+                  icon: '⬡',
+                  heading: 'Full Network',
+                  body: 'Click "Full Network" in the header to reveal all 34 catalyst nodes simultaneously across all 6 business units. Every connection and dependency becomes visible at once — a complete map of Tesla\'s milestone ecosystem. Click "Overview" to return to the clustered master-node view.',
                 },
                 {
                   icon: '🔗',
@@ -546,6 +556,11 @@ export default function App() {
                   icon: '💲',
                   heading: 'Quant Model Price',
                   body: 'The green price target in the header is a sum-of-parts valuation model. It is recalculated dynamically from the current likelihood scores of all 34 catalysts across 6 business units: Auto, Energy, Robotaxi, Optimus, FSD Software, and AI Infrastructure. Updated daily at 10am ET.',
+                },
+                {
+                  icon: '◉',
+                  heading: 'Command Center — Ask Roger',
+                  body: 'Click "Command Center" in the header to query Roger, the TSLAquant AI expert. Ask anything — catalyst progress, model price drivers, FSD timelines, robotaxi expansion, earnings outlook. Roger delivers a 4-phase quant analysis: Current Reality → Raw Data → Quant Edge → The Trade. Free users get 3 queries.',
                 },
                 {
                   icon: '📰',
