@@ -335,8 +335,8 @@ export default function App() {
       {/* Detail Panel — desktop only */}
       {!isMobile && <Panel node={selected} onClose={() => setSelected(null)} />}
 
-      {/* Breaking News Tab */}
-      <BreakingNews />
+      {/* Breaking News Tab — desktop only */}
+      {!isMobile && <BreakingNews />}
 
 
 
