@@ -124,8 +124,8 @@ export default function PriceModal({ breakdown, total, livePrice, quantChange, o
                   </span>
                   {' '}since last update —{' '}
                   {quantChange < 0
-                    ? `Apr 8, 2026 update: 60 Cybercabs spotted at Giga Texas confirming active production S-curve ramp; TSLA premarket +5% on bounce from 23% YTD decline. Model holds at $646.`
-                    : `Apr 8, 2026 update: 60 Cybercabs spotted at Giga Texas confirming active production S-curve ramp; TSLA premarket +5% on bounce from 23% YTD decline. Model holds at $646.`
+                    ? `Apr 9, 2026 update: FSD v14.3 (2026.2.9.6) wider rollout confirmed with MLIR compiler rewrite; Netherlands RDW European approval imminent (April 10). Likelihood +2pts.`
+                    : `Apr 9, 2026 update: FSD v14.3 (2026.2.9.6) wider rollout confirmed with MLIR compiler rewrite; Netherlands RDW European approval imminent (April 10). Likelihood +2pts.`
                   }
                 </div>
               )}
