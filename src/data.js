@@ -119,21 +119,22 @@ export const catalysts = [
     ]
   },
   {
-    id: "fsd_v13",
-    label: "FSD v13 Release",
+    id: "fsd_v15",
+    label: "FSD v15 — Full Autonomy",
     category: "autonomy",
-    weight: 0.05,
-    status: "achieved",
-    expected: "Q1 2026",
-    likelihood: 0.95,
-    updated: "Mar 22, 2026",
+    weight: 0.08,
+    status: "upcoming",
+    expected: "Q3–Q4 2026",
+    likelihood: 0.62,
+    updated: "Apr 9, 2026",
     description: [
-      "FSD v13 released — major capability leap over v12",
-      "End-to-end neural network architecture fully matured",
-      "Dramatically reduced intervention rates vs prior versions",
-      "Foundation for v14 (current) and unsupervised operation",
-      "Enabled unsupervised pilot program in Austin to begin",
-      "MotorTrend 2026 Driver Assistance System of the Year awarded to FSD v14 (successor)",
+      "🆕 Apr 9, 2026: FSD v14.3 (ground-up rewrite) now in wider rollout — v15 is the next major architectural milestone targeting zero-intervention unsupervised operation",
+      "v15 expected to cross the 'no human needed' threshold — the regulatory and commercial unlock for mass robotaxi deployment",
+      "Netherlands RDW European approval expected Apr 10, 2026 — first regulatory greenlight outside US, sets precedent for v15 global rollout",
+      "v14.3 MLIR compiler rewrite (Apr 2026) dramatically reduced inference latency — v15 builds on this foundation with larger model and expanded RL training data",
+      "Direct dependency for Cybercab production viability — Cybercab ships with no steering wheel, requires v15-class autonomy",
+      "FSD licensing deals with third-party OEMs contingent on v15 reliability benchmarks",
+      "Each major version has shipped ~2 quarters apart — v15 timeline aligns with Q3 2026 if cadence holds",
     ]
   },
   {
@@ -799,7 +800,7 @@ export const catalysts = [
 
 export const links = [
   // Autonomy chain
-  { source: "fsd_v13", target: "fsd_unsupervised" },
+  { source: "fsd_v15", target: "fsd_unsupervised" },
   { source: "dojo_v2", target: "fsd_unsupervised" },
   { source: "fsd_unsupervised", target: "robotaxi_austin" },
   { source: "fsd_unsupervised", target: "cybercab_production" },
