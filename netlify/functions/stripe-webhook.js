@@ -1,124 +1,177 @@
 // ─── Stripe Webhook Handler ───────────────────────────────────────────────────
 // POST /api/stripe-webhook
 //
-// Listens for Stripe checkout.session.completed events.
-// On successful Single Query purchase → returns a signed oracle_token.
-// On successful Active Trader / Institutional → returns tier flag.
+// Events handled:
+//   checkout.session.completed  → record customer, grant tier/credit
+//   invoice.paid                → renew monthly subscription
+//   customer.subscription.deleted → revoke pro access
+//   invoice.payment_failed      → mark as lapsed
 //
-// The frontend reads the `?upgrade=` or `?oracle_token=` param on the
-// Stripe success_url redirect instead of relying on this webhook directly.
+// Customer records stored in Netlify Blobs store: 'customers'
+//   key: email (lowercase)
+//   value: { stripe_customer_id, email, tier, status, subscription_id, created, updated }
 //
-// This webhook is used as a secondary verification path (optional but recommended).
+// Tier discrimination by amount_total (cents):
+//   99    → single_query  (one-time)
+//   2900  → active_trader (subscription)
+//   12900 → institutional (subscription)
 //
 // Required Netlify env vars:
-//   STRIPE_WEBHOOK_SECRET  — from Stripe Dashboard > Webhooks > Signing secret
-//   ORACLE_UNLOCK_TOKENS   — comma-sep pre-approved tokens (for Single Query)
-//
-// Stripe success_url should be set per price:
-//   Single Query:    https://tslaquant.com?upgrade=single&oracle_token=TOKEN
-//   Active Trader:   https://tslaquant.com?upgrade=active_trader
-//   Institutional:   https://tslaquant.com?upgrade=institutional
-//
-// For Single Query, generate a token and embed in the success_url via Stripe metadata
-// OR use this webhook to POST back to a serverless function that updates token store.
+//   STRIPE_WEBHOOK_SECRET
+
+import { getStore } from '@netlify/blobs';
 
 const STRIPE_WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET;
 
-// Simple token generator (use a UUID library in production)
-function generateToken() {
-  return Array.from({ length: 32 }, () =>
-    Math.random().toString(36)[2] || '0'
-  ).join('');
+const CORS = {
+  'Content-Type': 'application/json',
+  'Access-Control-Allow-Origin': '*',
+};
+
+function json(data, status = 200) {
+  return new Response(JSON.stringify(data), { status, headers: CORS });
 }
 
-// Stripe signature verification (manual — no npm stripe package needed)
+function tierFromAmount(amountCents, mode) {
+  if (mode === 'payment' && amountCents === 99)    return 'single_query';
+  if (amountCents === 2900)  return 'active_trader';
+  if (amountCents === 12900) return 'institutional';
+  return null;
+}
+
 async function verifyStripeSignature(payload, sigHeader, secret) {
   const parts = sigHeader.split(',').reduce((acc, part) => {
     const [k, v] = part.split('=');
     acc[k] = v;
     return acc;
   }, {});
-
   const timestamp = parts.t;
-  const signatures = sigHeader.split(',')
-    .filter(p => p.startsWith('v1='))
-    .map(p => p.slice(3));
-
+  const signatures = sigHeader.split(',').filter(p => p.startsWith('v1=')).map(p => p.slice(3));
   const signedPayload = `${timestamp}.${payload}`;
-
   const encoder = new TextEncoder();
-  const keyData = encoder.encode(secret);
-  const msgData = encoder.encode(signedPayload);
-
-  const key = await crypto.subtle.importKey(
-    'raw', keyData, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']
-  );
-  const sig = await crypto.subtle.sign('HMAC', key, msgData);
-  const expected = Array.from(new Uint8Array(sig))
-    .map(b => b.toString(16).padStart(2, '0')).join('');
-
+  const key = await crypto.subtle.importKey('raw', encoder.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+  const sig = await crypto.subtle.sign('HMAC', key, encoder.encode(signedPayload));
+  const expected = Array.from(new Uint8Array(sig)).map(b => b.toString(16).padStart(2, '0')).join('');
   const valid = signatures.some(s => s === expected);
-  // 5-minute tolerance
   const age = Math.floor(Date.now() / 1000) - parseInt(timestamp, 10);
   return valid && age < 300;
 }
 
 export default async (req) => {
-  if (req.method !== 'POST') {
-    return new Response(JSON.stringify({ error: 'Method not allowed' }), { status: 405 });
-  }
+  if (req.method !== 'POST') return json({ error: 'Method not allowed' }, 405);
 
   const sigHeader = req.headers.get('stripe-signature');
   if (!sigHeader || !STRIPE_WEBHOOK_SECRET) {
-    return new Response(JSON.stringify({ error: 'Missing signature or secret' }), { status: 400 });
+    return json({ error: 'Missing signature or secret' }, 400);
   }
 
   const body = await req.text();
-
   let verified = false;
-  try {
-    verified = await verifyStripeSignature(body, sigHeader, STRIPE_WEBHOOK_SECRET);
-  } catch {
-    return new Response(JSON.stringify({ error: 'Signature verification failed' }), { status: 400 });
-  }
-
-  if (!verified) {
-    return new Response(JSON.stringify({ error: 'Invalid signature' }), { status: 401 });
-  }
+  try { verified = await verifyStripeSignature(body, sigHeader, STRIPE_WEBHOOK_SECRET); }
+  catch { return json({ error: 'Signature verification error' }, 400); }
+  if (!verified) return json({ error: 'Invalid signature' }, 401);
 
   let event;
-  try {
-    event = JSON.parse(body);
-  } catch {
-    return new Response(JSON.stringify({ error: 'Invalid JSON' }), { status: 400 });
+  try { event = JSON.parse(body); }
+  catch { return json({ error: 'Invalid JSON' }, 400); }
+
+  const store = getStore('customers');
+  const now = Date.now();
+
+  // ── checkout.session.completed ────────────────────────────────────────────
+  if (event.type === 'checkout.session.completed') {
+    const session = event.data.object;
+    const email = (session.customer_details?.email || session.customer_email || '').toLowerCase().trim();
+    const customerId = session.customer;
+    const amountCents = session.amount_total;
+    const mode = session.mode; // 'payment' | 'subscription'
+    const tier = tierFromAmount(amountCents, mode);
+    const subscriptionId = session.subscription || null;
+
+    if (email && tier) {
+      let record = await store.get(email, { type: 'json' }).catch(() => null);
+      if (!record) {
+        record = { email, stripe_customer_id: customerId, tier: null, status: 'active', subscription_id: null, single_credits: 0, created: now, updated: now };
+      }
+      record.stripe_customer_id = customerId;
+      record.updated = now;
+
+      if (tier === 'single_query') {
+        record.single_credits = (record.single_credits || 0) + 1;
+        record.status = 'active';
+        // Don't overwrite a subscription tier with 'single_query'
+        if (!record.tier || record.tier === 'single_query') record.tier = 'single_query';
+      } else {
+        record.tier = tier;
+        record.status = 'active';
+        record.subscription_id = subscriptionId;
+      }
+
+      await store.setJSON(email, record);
+      // Also index by stripe_customer_id for webhook lookups
+      if (customerId) await store.setJSON(`cid_${customerId}`, { email });
+    }
+    return json({ received: true, tier, email });
   }
 
-  if (event.type !== 'checkout.session.completed') {
-    // Acknowledge but ignore other event types
-    return new Response(JSON.stringify({ received: true }), { status: 200 });
+  // ── invoice.paid → renew subscription ────────────────────────────────────
+  if (event.type === 'invoice.paid') {
+    const invoice = event.data.object;
+    const customerId = invoice.customer;
+    if (!customerId) return json({ received: true });
+
+    const idx = await store.get(`cid_${customerId}`, { type: 'json' }).catch(() => null);
+    if (!idx?.email) return json({ received: true });
+
+    const record = await store.get(idx.email, { type: 'json' }).catch(() => null);
+    if (!record) return json({ received: true });
+
+    record.status = 'active';
+    record.updated = now;
+    await store.setJSON(idx.email, record);
+    return json({ received: true, renewed: idx.email });
   }
 
-  const session = event.data?.object;
-  const productType = session?.metadata?.product_type; // set in Stripe price metadata
+  // ── customer.subscription.deleted → revoke ────────────────────────────────
+  if (event.type === 'customer.subscription.deleted') {
+    const sub = event.data.object;
+    const customerId = sub.customer;
+    if (!customerId) return json({ received: true });
 
-  const response = { received: true, product_type: productType };
+    const idx = await store.get(`cid_${customerId}`, { type: 'json' }).catch(() => null);
+    if (!idx?.email) return json({ received: true });
 
-  if (productType === 'single_query') {
-    // Generate a fresh single-use token and include in response
-    // (For production: store in a DB and send via email or custom redirect)
-    const token = generateToken();
-    response.oracle_token = token;
-    // Note: In production, you'd store this token server-side and
-    // embed it in the Stripe success_url via a pre-generated URL
+    const record = await store.get(idx.email, { type: 'json' }).catch(() => null);
+    if (!record) return json({ received: true });
+
+    record.tier = null;
+    record.status = 'cancelled';
+    record.subscription_id = null;
+    record.updated = now;
+    await store.setJSON(idx.email, record);
+    return json({ received: true, cancelled: idx.email });
   }
 
-  return new Response(JSON.stringify(response), {
-    status: 200,
-    headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-    },
-  });
+  // ── invoice.payment_failed → lapse ───────────────────────────────────────
+  if (event.type === 'invoice.payment_failed') {
+    const invoice = event.data.object;
+    const customerId = invoice.customer;
+    if (!customerId) return json({ received: true });
+
+    const idx = await store.get(`cid_${customerId}`, { type: 'json' }).catch(() => null);
+    if (!idx?.email) return json({ received: true });
+
+    const record = await store.get(idx.email, { type: 'json' }).catch(() => null);
+    if (!record) return json({ received: true });
+
+    record.status = 'lapsed';
+    record.updated = now;
+    await store.setJSON(idx.email, record);
+    return json({ received: true, lapsed: idx.email });
+  }
+
+  // Acknowledge all other events
+  return json({ received: true });
 };
 
 export const config = { path: '/api/stripe-webhook' };

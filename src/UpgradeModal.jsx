@@ -3,7 +3,9 @@
 // `reason` prop: 'no_credits' | 'price_contribution' | 'pdf_upload'
 
 import { createPortal } from 'react-dom';
+import { useState } from 'react';
 import { setProStatus } from './creditManager';
+import RestoreAccess from './RestoreAccess';
 
 // ── Stripe Price IDs (set via Netlify env vars) ───────────────────────────────
 // VITE_STRIPE_KEY_SINGLE_QUERY   → Stripe Payment Link for $0.99 one-shot
@@ -81,7 +83,12 @@ const glowAnim = `
 `;
 
 export default function UpgradeModal({ reason = 'no_credits', onClose }) {
+  const [showRestore, setShowRestore] = useState(false);
   const copy = REASON_COPY[reason] || REASON_COPY.no_credits;
+
+  if (showRestore) {
+    return <RestoreAccess onClose={onClose} onRestored={() => { setTimeout(onClose, 1800); }} />;
+  }
 
   return createPortal(
     <div
@@ -228,9 +235,19 @@ export default function UpgradeModal({ reason = 'no_credits', onClose }) {
           ))}
         </div>
 
-        {/* Fine print */}
+        {/* Fine print + restore */}
         <div style={{ marginTop: '20px', textAlign: 'center', fontSize: '10px', color: '#333', letterSpacing: '0.5px' }}>
           Payments secured by Stripe · Cancel monthly plans anytime
+        </div>
+        <div style={{ marginTop: '10px', textAlign: 'center' }}>
+          <button
+            onClick={() => setShowRestore(true)}
+            style={{ background: 'none', border: 'none', color: '#444', fontSize: '11px', cursor: 'pointer', textDecoration: 'underline', textUnderlineOffset: '3px', fontFamily: "'Space Grotesk', sans-serif" }}
+            onMouseEnter={e => e.target.style.color = '#888'}
+            onMouseLeave={e => e.target.style.color = '#444'}
+          >
+            Already a subscriber? Restore access →
+          </button>
         </div>
       </div>
     </div>,
