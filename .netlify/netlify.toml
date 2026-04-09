@@ -33,7 +33,7 @@ NODE_VERSION = "22"
 [[redirects]]
 from = "/success/single"
 to = "/?upgrade=single"
-status = 302.0
+status = 301.0
 force = false
 
 [redirects.query]
@@ -45,7 +45,7 @@ force = false
 [[redirects]]
 from = "/success/trader"
 to = "/?upgrade=active_trader"
-status = 302.0
+status = 301.0
 force = false
 
 [redirects.query]
@@ -57,7 +57,7 @@ force = false
 [[redirects]]
 from = "/success/institutional"
 to = "/?upgrade=institutional"
-status = 302.0
+status = 301.0
 force = false
 
 [redirects.query]
