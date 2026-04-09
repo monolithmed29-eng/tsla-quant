@@ -9,17 +9,17 @@
 [[redirects]]
   from = "/success/single"
   to = "/?upgrade=single"
-  status = 302
+  status = 301
 
 [[redirects]]
   from = "/success/trader"
   to = "/?upgrade=active_trader"
-  status = 302
+  status = 301
 
 [[redirects]]
   from = "/success/institutional"
   to = "/?upgrade=institutional"
-  status = 302
+  status = 301
 
 # SPA fallback
 [[redirects]]

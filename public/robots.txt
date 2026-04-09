@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /success/
 
 Sitemap: https://tslaquant.com/sitemap.xml
