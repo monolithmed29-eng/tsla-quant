@@ -124,8 +124,8 @@ export default function PriceModal({ breakdown, total, livePrice, quantChange, o
                   </span>
                   {' '}since last update —{' '}
                   {quantChange < 0
-                    ? `Apr 9, 2026 update: FSD v14.3 (2026.2.9.6) wider rollout confirmed with MLIR compiler rewrite; Netherlands RDW European approval imminent (April 10). Likelihood +2pts.`
-                    : `Apr 9, 2026 update: FSD v14.3 (2026.2.9.6) wider rollout confirmed with MLIR compiler rewrite; Netherlands RDW European approval imminent (April 10). Likelihood +2pts.`
+                    ? `Apr 9, 2026 update: FSD v14.3 wider rollout confirmed with full MLIR compiler rewrite; ~60 Cybercabs staged in Phoenix signal imminent multi-city robotaxi expansion.`
+                    : `Apr 9, 2026 update: FSD v14.3 wider rollout confirmed with full MLIR compiler rewrite; ~60 Cybercabs staged in Phoenix signal imminent multi-city robotaxi expansion.`
                   }
                 </div>
               )}
