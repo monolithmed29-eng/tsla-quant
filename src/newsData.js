@@ -1,5 +1,5 @@
 // Auto-updated 3x daily by cron — do not edit manually
-// Last updated: Apr 9, 2026 13:00 ET
+// Last updated: Apr 9, 2026 18:02 ET
 
 export const breakingNews = [
   {
@@ -59,17 +59,17 @@ export const breakingNews = [
     url: "https://www.forbes.com/sites/bradtempleton/2026/04/08/does-tesla-really-have-a-robotaxi-they-dont-make-it-easy-to-find-out/",
   },
   {
-    headline: "Tesla Germany registrations quadrupled in March YoY — KBA data confirms sharp European rebound; counters broader narrative of demand collapse",
+    headline: "Musk: Model S and Model X down to 'only a few hundred' units left — new production ended; buyers urged to act now as Tesla clears last premium ICE-era inventory",
     category: "product",
-    source: "Reuters",
-    timestamp: "Apr 7, 2026",
-    url: "https://www.reuters.com/markets/companies/TSLA.O/",
+    source: "USA Today / Musk on X",
+    timestamp: "Apr 9, 2026",
+    url: "https://eu.usatoday.com/story/cars/shopping/2026/04/09/tesla-elon-musk-buyers-model-s-x/89532596007/",
   },
   {
-    headline: "Intel joins Tesla/SpaceX/xAI $25B 'Terafab' chip project — Intel foundry to manufacture AI5/AI6 chips for FSD & Optimus; AI5 claims 50x improvement over AI4",
-    category: "manufacturing",
-    source: "Reuters / Business Insider",
-    timestamp: "Apr 7, 2026",
-    url: "https://www.reuters.com/business/autos-transportation/intel-join-musks-terafab-mega-ai-chip-project-2026-04-07/",
+    headline: "FSD v14.3 'Mad Max Mode' tamed — new max-speed adjustment profile lets FSD drive aggressively up to a user-set speed cap; first impressions from early adopters positive",
+    category: "autonomy",
+    source: "Tesla Oracle",
+    timestamp: "Apr 9, 2026",
+    url: "https://www.teslaoracle.com/2026/04/09/tesla-tames-down-mad-max-mode-in-fsd-v14-3-videos/",
   },
 ];
