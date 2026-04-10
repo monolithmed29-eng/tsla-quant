@@ -124,8 +124,8 @@ export default function PriceModal({ breakdown, total, livePrice, quantChange, o
                   </span>
                   {' '}since last update —{' '}
                   {quantChange < 0
-                    ? `Apr 9, 2026 update: FSD v14.3 wider rollout confirmed with full MLIR compiler rewrite; ~60 Cybercabs staged in Phoenix signal imminent multi-city robotaxi expansion.`
-                    : `Apr 9, 2026 update: FSD v14.3 wider rollout confirmed with full MLIR compiler rewrite; ~60 Cybercabs staged in Phoenix signal imminent multi-city robotaxi expansion.`
+                    ? `Apr 10, 2026 update: Netherlands RDW granted FSD Supervised approval — first EU regulatory greenlight; Reuters confirmed Tesla developing new smaller cheaper EV with production starting soon.`
+                    : `Apr 10, 2026 update: Netherlands RDW granted FSD Supervised approval — first EU regulatory greenlight; Reuters confirmed Tesla developing new smaller cheaper EV with production starting soon.`
                   }
                 </div>
               )}
