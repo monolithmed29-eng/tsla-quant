@@ -236,15 +236,15 @@ export default function UpgradeModal({ reason = 'no_credits', onClose }) {
         </div>
 
         {/* Fine print + restore */}
-        <div style={{ marginTop: '20px', textAlign: 'center', fontSize: '10px', color: '#333', letterSpacing: '0.5px' }}>
+        <div style={{ marginTop: '20px', textAlign: 'center', fontSize: '10px', color: '#fff', letterSpacing: '0.5px' }}>
           Payments secured by Stripe · Cancel monthly plans anytime
         </div>
         <div style={{ marginTop: '10px', textAlign: 'center' }}>
           <button
             onClick={() => setShowRestore(true)}
-            style={{ background: 'none', border: 'none', color: '#444', fontSize: '11px', cursor: 'pointer', textDecoration: 'underline', textUnderlineOffset: '3px', fontFamily: "'Space Grotesk', sans-serif" }}
-            onMouseEnter={e => e.target.style.color = '#888'}
-            onMouseLeave={e => e.target.style.color = '#444'}
+            style={{ background: 'none', border: 'none', color: '#fff', fontSize: '11px', cursor: 'pointer', textDecoration: 'underline', textUnderlineOffset: '3px', fontFamily: "'Space Grotesk', sans-serif" }}
+            onMouseEnter={e => e.target.style.color = '#ccc'}
+            onMouseLeave={e => e.target.style.color = '#fff'}
           >
             Already a subscriber? Restore access →
           </button>
