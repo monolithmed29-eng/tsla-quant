@@ -164,10 +164,11 @@ export const catalysts = [
     weight: 0.08,
     status: "upcoming",
     expected: "Q3 2026",
-    likelihood: 0.45,
-    updated: "Apr 8, 2026",
+    likelihood: 0.42,
+    updated: "Apr 10, 2026",
     description: [
       "🆕 Apr 8, 2026: NHTSA closed Smart Summon investigation — fewer than 1% of uses resulted in incidents, zero injuries (Benzinga). Win, but narrow.",
+      "⚠️ Apr 10, 2026: California DMV continues to withhold 'unsupervised' AV permits following a string of high-profile FSD-related accidents in early 2026 — TSLA 8th consecutive weekly loss correlates with this regulatory overhang; CA remains the largest blocked market.",
       "⚠️ Apr 8, 2026: NHTSA opened separate FSD investigation — reports of FSD-equipped vehicles running red lights, making illegal turns, entering oncoming traffic. New headwind.",
       "NHTSA federal framework needed for commercial autonomous operation at scale",
       "Currently Tesla operates under state-level exemptions (TX, CA)",

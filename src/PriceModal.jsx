@@ -124,8 +124,8 @@ export default function PriceModal({ breakdown, total, livePrice, quantChange, o
                   </span>
                   {' '}since last update —{' '}
                   {quantChange < 0
-                    ? `Apr 10, 2026 update: Netherlands RDW granted FSD Supervised approval — first EU regulatory greenlight; Reuters confirmed Tesla developing new smaller cheaper EV with production starting soon.`
-                    : `Apr 10, 2026 update: Netherlands RDW granted FSD Supervised approval — first EU regulatory greenlight; Reuters confirmed Tesla developing new smaller cheaper EV with production starting soon.`
+                    ? `Apr 10, 2026 update: California DMV withheld unsupervised AV permits following FSD-related accidents, adding federal/state regulatory headwind as TSLA logs its 8th consecutive weekly loss.`
+                    : `Apr 10, 2026 update: California DMV withheld unsupervised AV permits following FSD-related accidents, adding federal/state regulatory headwind as TSLA logs its 8th consecutive weekly loss.`
                   }
                 </div>
               )}
