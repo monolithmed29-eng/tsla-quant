@@ -124,8 +124,8 @@ export default function PriceModal({ breakdown, total, livePrice, quantChange, o
                   </span>
                   {' '}since last update —{' '}
                   {quantChange < 0
-                    ? `Apr 10, 2026 update: California DMV withheld unsupervised AV permits following FSD-related accidents, adding federal/state regulatory headwind as TSLA logs its 8th consecutive weekly loss.`
-                    : `Apr 10, 2026 update: California DMV withheld unsupervised AV permits following FSD-related accidents, adding federal/state regulatory headwind as TSLA logs its 8th consecutive weekly loss.`
+                    ? `Apr 11, 2026 update: BofA and Morgan Stanley both named robotaxi scaling as Tesla's #1 catalyst; CA DMV regulatory overhang persists as TSLA extends 8-week losing streak.`
+                    : `Apr 11, 2026 update: BofA and Morgan Stanley both named robotaxi scaling as Tesla's #1 catalyst; CA DMV regulatory overhang persists as TSLA extends 8-week losing streak.`
                   }
                 </div>
               )}

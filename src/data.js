@@ -32,8 +32,9 @@ export const catalysts = [
     status: "achieved",
     expected: "Q2 2025",
     likelihood: 0.95,
-    updated: "Apr 7, 2026",
+    updated: "Apr 11, 2026",
     description: [
+      "🆕 Apr 11, 2026: BofA (Alexander Perry) calls Tesla the 'clear leader in autonomous driving' — vision-only approach more cost-effective and scalable than lidar competitors. Morgan Stanley (Andrew Percoco) reiterates robotaxi flywheel thesis: fleet scaling → FSD improvement → re-accelerates core auto demand. Both analysts naming robotaxi as THE key 2026 catalyst for TSLA.",
       "Morgan Stanley (Apr 5, 2026): 'Scaling the unsupervised robotaxi fleet is the most important catalyst for $TSLA this year' — each incremental mile accelerates FSD learning → higher attach rates → re-accelerates auto demand → improves FCF. Stock expected to trade in close correlation to robotaxi fleet scaling + 7-city expansion by end of June.",
       "⚠️ JPMorgan (Apr 6, 2026): Analyst Ryan Brinkman reiterates Underweight / $145 PT — 60% downside from current levels; record unsold inventory (50K+ Q1 build) cited as primary bear case; Dec 2026 target date",
       "Musk (Apr 7 context): Confirming robotaxi expansion to 9 cities in 2026; Cybercab production officially started; Megapack 3 announced",
