@@ -11,8 +11,9 @@ const FREE_CREDITS = 3;
 const validTokens = new Set(UNLOCK_TOKENS.split(',').map(t => t.trim()).filter(Boolean));
 
 function compositeKey(fp, ip) {
-  const coarseIp = (ip || '').split('.').slice(0, 2).join('.');
-  return `${fp}__${coarseIp}`;
+  // Use fingerprint only — coarse IP mixing caused mobile cellular rotation
+  // to create new blob records on every request, resetting credits to 3.
+  return fp;
 }
 
 const SYSTEM_PROMPT = `You are the TSLAquant Proprietary Research Agent — a high-conviction quantitative analyst covering Tesla Inc. ($TSLA) for paid institutional and retail clients.
@@ -159,15 +160,18 @@ export default async (req, context) => {
 
     if (!result) throw new Error('Empty response from Oracle');
 
-    // Decrement server-side credits (skip for pro only — token holders still burn credits)
+    // Decrement server-side credits (skip for pro — token holders still burn credits)
     let creditsRemaining = serverRecord?.credits ?? 0;
     if (!isPro && serverRecord && blobKey) {
       try {
         const store = getStore('oracle-credits');
         serverRecord.credits = Math.max(0, serverRecord.credits - 1);
         await store.setJSON(blobKey, serverRecord);
-        creditsRemaining = serverRecord.credits;
-      } catch { /* non-fatal */ }
+        creditsRemaining = serverRecord.credits; // updated count post-decrement
+      } catch {
+        // blob write failed — still decrement in-memory so response reflects real state
+        creditsRemaining = Math.max(0, creditsRemaining - 1);
+      }
     }
 
     return new Response(JSON.stringify({ unlocked: true, result, credits: creditsRemaining }), {

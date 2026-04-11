@@ -22,8 +22,9 @@ function json(data, status = 200) {
 
 // Mix fingerprint + coarse IP (first 2 octets only — survives NAT/mobile shifts)
 function compositeKey(fp, ip) {
-  const coarseIp = (ip || '').split('.').slice(0, 2).join('.');
-  return `${fp}__${coarseIp}`;
+  // Use fingerprint only — coarse IP mixing caused mobile cellular rotation
+  // to create new blob records on every request, resetting credits to 3.
+  return fp;
 }
 
 export default async (req) => {
