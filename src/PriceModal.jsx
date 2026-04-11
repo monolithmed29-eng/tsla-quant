@@ -124,8 +124,8 @@ export default function PriceModal({ breakdown, total, livePrice, quantChange, o
                   </span>
                   {' '}since last update —{' '}
                   {quantChange < 0
-                    ? `Apr 11, 2026 update: BofA and Morgan Stanley both named robotaxi scaling as Tesla's #1 catalyst; CA DMV regulatory overhang persists as TSLA extends 8-week losing streak.`
-                    : `Apr 11, 2026 update: BofA and Morgan Stanley both named robotaxi scaling as Tesla's #1 catalyst; CA DMV regulatory overhang persists as TSLA extends 8-week losing streak.`
+                    ? `Apr 11, 2026 update: Tesla opens FSD outright purchase in Europe (Netherlands RDW first EU greenlight); early Cybercab production units spotted with steering wheel — autonomy design rollback risk noted.`
+                    : `Apr 11, 2026 update: Tesla opens FSD outright purchase in Europe (Netherlands RDW first EU greenlight); early Cybercab production units spotted with steering wheel — autonomy design rollback risk noted.`
                   }
                 </div>
               )}
