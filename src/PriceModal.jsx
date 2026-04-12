@@ -124,8 +124,8 @@ export default function PriceModal({ breakdown, total, livePrice, quantChange, o
                   </span>
                   {' '}since last update —{' '}
                   {quantChange < 0
-                    ? `Apr 11, 2026 update: Tesla opens FSD outright purchase in Europe (Netherlands RDW first EU greenlight); early Cybercab production units spotted with steering wheel — autonomy design rollback risk noted.`
-                    : `Apr 11, 2026 update: Tesla opens FSD outright purchase in Europe (Netherlands RDW first EU greenlight); early Cybercab production units spotted with steering wheel — autonomy design rollback risk noted.`
+                    ? `Apr 12, 2026 update: Morgan Stanley calls robotaxi pickup/dropoff challenges 'solvable' and projects more unsupervised miles in 2026; Tesla Robotaxi app receives major update, signaling imminent multi-city expansion.`
+                    : `Apr 12, 2026 update: Morgan Stanley calls robotaxi pickup/dropoff challenges 'solvable' and projects more unsupervised miles in 2026; Tesla Robotaxi app receives major update, signaling imminent multi-city expansion.`
                   }
                 </div>
               )}

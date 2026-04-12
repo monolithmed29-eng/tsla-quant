@@ -111,7 +111,7 @@ export const catalysts = [
     status: "upcoming",
     expected: "Q3 2026",
     likelihood: 0.55,
-    updated: "Mar 22, 2026",
+    updated: "Apr 12, 2026",
     description: [
       "Consumer-facing Tesla Robotaxi app for public ride booking",
       "Currently ride access is invite-only / limited beta in Austin",
@@ -119,6 +119,7 @@ export const catalysts = [
       "Key unlock for network effects — more rides = more training data = better FSD",
       "Likely tied to multi-city expansion timeline in 1H–2H 2026",
       "Uber/Lyft competitive threat if Tesla opens app broadly — or potential partnership",
+      "🆕 Apr 12, 2026: Tesla Robotaxi app received a major update (TeslaNorth) — new features and UI improvements, strengthening app readiness ahead of multi-city expansion",
       "📱 App v26.3.0 (Apr 3, 2026): Apple Pay + Google Pay support added — Android app assets suggest broad platform launch imminent; map UI redesign underway",
     ]
   },
@@ -130,8 +131,9 @@ export const catalysts = [
     status: "upcoming",
     expected: "Q3–Q4 2026",
     likelihood: 0.62,
-    updated: "Apr 9, 2026",
+    updated: "Apr 12, 2026",
     description: [
+      "🆕 Apr 12, 2026: Morgan Stanley (Forbes) — specifically calls robotaxi pickup/dropoff challenges 'actually quite solvable' and projects 'more unsupervised vehicles on road throughout 2026'; reiterates confidence in v15 timeline as the flywheel accelerator for core auto demand",
       "🆕 Apr 9, 2026: FSD v14.3 (ground-up rewrite) now in wider rollout — v15 is the next major architectural milestone targeting zero-intervention unsupervised operation",
       "v15 expected to cross the 'no human needed' threshold — the regulatory and commercial unlock for mass robotaxi deployment",
       "Netherlands RDW European approval expected Apr 10, 2026 — first regulatory greenlight outside US, sets precedent for v15 global rollout",
