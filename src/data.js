@@ -35,6 +35,7 @@ export const catalysts = [
     likelihood: 0.95,
     updated: "Apr 11, 2026",
     description: [
+      "🆕 Apr 14, 2026: Cybercab testing officially confirmed in Florida — first out-of-Texas state deployment; Miami, Orlando, Tampa all on 1H 2026 roadmap; Florida presence signals active pre-launch ops",
       "🆕 Apr 11, 2026: BofA (Alexander Perry) calls Tesla the 'clear leader in autonomous driving' — vision-only approach more cost-effective and scalable than lidar competitors. Morgan Stanley (Andrew Percoco) reiterates robotaxi flywheel thesis: fleet scaling → FSD improvement → re-accelerates core auto demand. Both analysts naming robotaxi as THE key 2026 catalyst for TSLA.",
       "Morgan Stanley (Apr 5, 2026): 'Scaling the unsupervised robotaxi fleet is the most important catalyst for $TSLA this year' — each incremental mile accelerates FSD learning → higher attach rates → re-accelerates auto demand → improves FCF. Stock expected to trade in close correlation to robotaxi fleet scaling + 7-city expansion by end of June.",
       "⚠️ JPMorgan (Apr 6, 2026): Analyst Ryan Brinkman reiterates Underweight / $145 PT — 60% downside from current levels; record unsold inventory (50K+ Q1 build) cited as primary bear case; Dec 2026 target date",
@@ -87,9 +88,10 @@ export const catalysts = [
     weight: 0.08,
     status: "upcoming",
     expected: "1H 2026",
-    likelihood: 0.63,
-    updated: "Apr 8, 2026",
+    likelihood: 0.68,
+    updated: "Apr 14, 2026",
     description: [
+      "🆕 Apr 14, 2026: Cybercab testing has officially begun in Florida — first confirmed presence in a key expansion state; Miami, Orlando, and Tampa all on the 1H 2026 roadmap; this is the first concrete signal that FL launch is imminent",
       "🆕 Apr 8, 2026: ~60 Tesla Model Y vehicles spotted staged in Phoenix parking lot — active staging ground for imminent robotaxi launch (notateslaapp.com); fleet features rear camera washers confirming robotaxi hardware spec",
       "Las Vegas, Dallas, Houston, Miami, Orlando, Phoenix, Tampa all listed as '1H 2026' on robotaxitracker.com city map (confirmed Apr 3)",
       "Bay Area (CA): 449 vehicles active — human-driver only, 1,094 sq mi coverage",
