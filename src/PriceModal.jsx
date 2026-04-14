@@ -124,8 +124,8 @@ export default function PriceModal({ breakdown, total, livePrice, quantChange, o
                   </span>
                   {' '}since last update —{' '}
                   {quantChange < 0
-                    ? `Apr 14, 2026 update: FSD approaching 10B cumulative miles and Netherlands approval set to enable EU-wide rollout per Ashok Elluswamy; Morgan Stanley cautious, saying investors need more proof of real autonomy.`
-                    : `Apr 14, 2026 update: FSD approaching 10B cumulative miles and Netherlands approval set to enable EU-wide rollout per Ashok Elluswamy; Morgan Stanley cautious, saying investors need more proof of real autonomy.`
+                    ? `Apr 14, 2026 PM update: UBS upgraded TSLA from Sell to Neutral ($352 PT), removing the last major Sell rating from a bulge-bracket bank; FSD nearing 10B cumulative miles as Morgan Stanley calls for more proof of real autonomy before a re-rating.`
+                    : `Apr 14, 2026 PM update: UBS upgraded TSLA from Sell to Neutral ($352 PT), removing the last major Sell rating from a bulge-bracket bank; FSD nearing 10B cumulative miles as Morgan Stanley calls for more proof of real autonomy before a re-rating.`
                   }
                 </div>
               )}
