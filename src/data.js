@@ -686,9 +686,10 @@ export const catalysts = [
     weight: 0.04,
     status: "upcoming",
     expected: "Q3 2026",
-    likelihood: 0.60,
-    updated: "Apr 7, 2026",
+    likelihood: 0.63,
+    updated: "Apr 14, 2026",
     description: [
+      "🆕 Apr 14, 2026: Model 3 + Model Y were the #1 and #2 bestselling used EVs in Australia in March 2026 (AADA data) — used EV sales +138% MoM to 7,557 units; supply tightened 38% to just 28.6 days (vs 60–90 day avg); cost-conscious Australians shifting from petrol/diesel; signals strong residual value + global demand recovery beyond EU",
       "🆕 Apr 7, 2026: Germany registrations QUADRUPLE to 9,252 units in March — best March ever, +315% YoY, +307% MoM",
       "Germany Q1 2026 now highest quarterly sales in 2 years; March alone = 72% of Q1 total (surge pattern)",
       "UK +20% YoY in March (8,599 units); Norway +178%, Sweden +144%, Denmark +96% — broad EU recovery confirmed",
