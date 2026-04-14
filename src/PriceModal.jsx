@@ -124,8 +124,8 @@ export default function PriceModal({ breakdown, total, livePrice, quantChange, o
                   </span>
                   {' '}since last update —{' '}
                   {quantChange < 0
-                    ? `Apr 12, 2026 update: Morgan Stanley calls robotaxi pickup/dropoff challenges 'solvable' and projects more unsupervised miles in 2026; Tesla Robotaxi app receives major update, signaling imminent multi-city expansion.`
-                    : `Apr 12, 2026 update: Morgan Stanley calls robotaxi pickup/dropoff challenges 'solvable' and projects more unsupervised miles in 2026; Tesla Robotaxi app receives major update, signaling imminent multi-city expansion.`
+                    ? `Apr 14, 2026 update: FSD approaching 10B cumulative miles and Netherlands approval set to enable EU-wide rollout per Ashok Elluswamy; Morgan Stanley cautious, saying investors need more proof of real autonomy.`
+                    : `Apr 14, 2026 update: FSD approaching 10B cumulative miles and Netherlands approval set to enable EU-wide rollout per Ashok Elluswamy; Morgan Stanley cautious, saying investors need more proof of real autonomy.`
                   }
                 </div>
               )}
