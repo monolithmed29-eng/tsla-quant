@@ -1,15 +1,31 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { darkPoolData } from './darkPoolData';
 
 export default function DarkPoolGauge({ mobile = false }) {
   const [showTooltip, setShowTooltip] = useState(false);
   const [tick, setTick] = useState(0);
+  const containerRef = useRef(null);
 
   useEffect(() => {
     if (darkPoolData.needle_status === 'Static') return;
     const interval = setInterval(() => setTick(t => t + 1), 180);
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    if (!showTooltip) return;
+    const handler = (e) => {
+      if (containerRef.current && !containerRef.current.contains(e.target)) {
+        setShowTooltip(false);
+      }
+    };
+    document.addEventListener('mousedown', handler);
+    document.addEventListener('touchstart', handler);
+    return () => {
+      document.removeEventListener('mousedown', handler);
+      document.removeEventListener('touchstart', handler);
+    };
+  }, [showTooltip]);
 
   const { gauge_value, needle_status, roger_insight, updated, calls, puts } = darkPoolData;
   const pct = Math.max(0, Math.min(100, gauge_value));
@@ -43,7 +59,7 @@ export default function DarkPoolGauge({ mobile = false }) {
   }[needle_status] || { color: '#888', label: 'STATIC' };
 
   if (mobile) return (
-    <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', gap: '4px', width: '100%' }}>
+    <div ref={containerRef} style={{ position: 'relative', display: 'flex', flexDirection: 'column', gap: '4px', width: '100%' }}>
       {/* Label row */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <span style={{ fontSize: '8px', color: 'rgba(255,255,255,0.55)', letterSpacing: '1.5px', textTransform: 'uppercase' }}>BEAR</span>
@@ -128,7 +144,7 @@ export default function DarkPoolGauge({ mobile = false }) {
   );
 
   return (
-    <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3px', minWidth: '120px' }}>
+    <div ref={containerRef} style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3px', minWidth: '120px' }}>
       {/* Label row */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
         <span style={{ fontSize: '8px', color: 'rgba(255,255,255,0.55)', letterSpacing: '1.5px', textTransform: 'uppercase' }}>BEAR</span>
