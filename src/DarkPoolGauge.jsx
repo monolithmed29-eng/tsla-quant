@@ -14,6 +14,13 @@ export default function DarkPoolGauge({ mobile = false }) {
   const { gauge_value, needle_status, roger_insight, updated, calls, puts } = darkPoolData;
   const pct = Math.max(0, Math.min(100, gauge_value));
 
+  // Roger tone mode — drives tooltip label + color
+  const toneMode = (pct > 60 && needle_status !== 'Static')
+    ? { label: 'OPTIMISTIC · CAUTIOUS', color: '#f59e0b' }
+    : pct < 40
+    ? { label: 'DEFENSIVE', color: '#ff6666' }
+    : { label: 'NEUTRAL', color: '#888' };
+
   let jitter = 0;
   if (needle_status === 'Vibrating') {
     jitter = (tick % 2 === 0 ? 1 : -1) * 1.5;
@@ -108,7 +115,12 @@ export default function DarkPoolGauge({ mobile = false }) {
               <div style={{ fontSize: '9px', color: statusDot.color, fontWeight: 600 }}>{needle_status}</div>
             </div>
           </div>
-          <div style={{ fontSize: '10px', color: '#ccc', lineHeight: 1.6, borderTop: '1px solid #1a1a1a', paddingTop: '8px' }}>{roger_insight}</div>
+          <div style={{ borderTop: '1px solid #1a1a1a', paddingTop: '8px' }}>
+            <div style={{ fontSize: '7px', color: toneMode.color, letterSpacing: '2px', fontWeight: 700, marginBottom: '4px', textTransform: 'uppercase' }}>
+              Roger · {toneMode.label}
+            </div>
+            <div style={{ fontSize: '10px', color: '#ccc', lineHeight: 1.6 }}>{roger_insight}</div>
+          </div>
           <div style={{ fontSize: '8px', color: '#555', marginTop: '6px', textAlign: 'right' }}>Updated: {updated}</div>
         </div>
       )}
@@ -218,8 +230,11 @@ export default function DarkPoolGauge({ mobile = false }) {
               <div style={{ fontSize: '9px', color: statusDot.color, letterSpacing: '1px', fontWeight: 600 }}>{needle_status}</div>
             </div>
           </div>
-          <div style={{ fontSize: '10px', color: '#ccc', lineHeight: 1.6, borderTop: '1px solid #1a1a1a', paddingTop: '8px' }}>
-            {roger_insight}
+          <div style={{ borderTop: '1px solid #1a1a1a', paddingTop: '8px' }}>
+            <div style={{ fontSize: '7px', color: toneMode.color, letterSpacing: '2px', fontWeight: 700, marginBottom: '4px', textTransform: 'uppercase' }}>
+              Roger · {toneMode.label}
+            </div>
+            <div style={{ fontSize: '10px', color: '#ccc', lineHeight: 1.6 }}>{roger_insight}</div>
           </div>
           <div style={{ fontSize: '8px', color: '#666', marginTop: '6px', textAlign: 'right' }}>
             Updated: {updated}
