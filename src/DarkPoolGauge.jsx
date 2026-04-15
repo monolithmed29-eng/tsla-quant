@@ -5,7 +5,6 @@ export default function DarkPoolGauge() {
   const [showTooltip, setShowTooltip] = useState(false);
   const [tick, setTick] = useState(0);
 
-  // Vibrating / Aggressive animation tick
   useEffect(() => {
     if (darkPoolData.needle_status === 'Static') return;
     const interval = setInterval(() => setTick(t => t + 1), 180);
@@ -15,7 +14,6 @@ export default function DarkPoolGauge() {
   const { gauge_value, needle_status, roger_insight, updated, calls, puts } = darkPoolData;
   const pct = Math.max(0, Math.min(100, gauge_value));
 
-  // Needle jitter offset
   let jitter = 0;
   if (needle_status === 'Vibrating') {
     jitter = (tick % 2 === 0 ? 1 : -1) * 1.5;
@@ -25,24 +23,23 @@ export default function DarkPoolGauge() {
 
   const needlePct = Math.max(1, Math.min(99, pct + jitter));
 
-  // Color interpolation: red (0) → grey (50) → green (100)
   const barColor = pct >= 50
     ? `rgba(0, ${Math.round(180 * ((pct - 50) / 50) + 75)}, ${Math.round(100 * ((pct - 50) / 50))}, 0.9)`
     : `rgba(${Math.round(220 * ((50 - pct) / 50) + 35)}, ${Math.round(60 * (pct / 50))}, 60, 0.9)`;
 
-  const needleColor = pct >= 55 ? '#00ff88' : pct <= 45 ? '#ff4444' : '#aaaaaa';
+  const needleColor = pct >= 55 ? '#00ff88' : pct <= 45 ? '#ff4444' : '#cccccc';
 
   const statusDot = {
-    Static:     { color: '#666',    label: 'STATIC' },
+    Static:     { color: '#888',    label: 'STATIC' },
     Vibrating:  { color: '#f59e0b', label: 'ACTIVE' },
     Aggressive: { color: '#ff4444', label: 'WHALE' },
-  }[needle_status] || { color: '#666', label: 'STATIC' };
+  }[needle_status] || { color: '#888', label: 'STATIC' };
 
   return (
     <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3px', minWidth: '120px' }}>
       {/* Label row */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
-        <span style={{ fontSize: '8px', color: '#555', letterSpacing: '1.5px', textTransform: 'uppercase' }}>BEAR</span>
+        <span style={{ fontSize: '8px', color: '#888', letterSpacing: '1.5px', textTransform: 'uppercase' }}>BEAR</span>
         <div
           style={{ display: 'flex', alignItems: 'center', gap: '4px', cursor: 'pointer' }}
           onClick={() => setShowTooltip(v => !v)}
@@ -56,11 +53,11 @@ export default function DarkPoolGauge() {
               display: 'inline-block',
             }}
           />
-          <span style={{ fontSize: '8px', color: statusDot.color, letterSpacing: '2px', fontWeight: 600 }}>
+          <span style={{ fontSize: '8px', color: statusDot.color, letterSpacing: '2px', fontWeight: 700 }}>
             {statusDot.label}
           </span>
         </div>
-        <span style={{ fontSize: '8px', color: '#555', letterSpacing: '1.5px', textTransform: 'uppercase' }}>BULL</span>
+        <span style={{ fontSize: '8px', color: '#888', letterSpacing: '1.5px', textTransform: 'uppercase' }}>BULL</span>
       </div>
 
       {/* Track */}
@@ -69,12 +66,11 @@ export default function DarkPoolGauge() {
           position: 'relative', width: '120px', height: '6px',
           background: 'linear-gradient(to right, #4a0a0a, #1a1a1a 50%, #0a2e1a)',
           borderRadius: '3px',
-          border: '1px solid #222',
+          border: '1px solid #333',
           cursor: 'pointer',
         }}
         onClick={() => setShowTooltip(v => !v)}
       >
-        {/* Fill */}
         <div style={{
           position: 'absolute', top: 0, bottom: 0, borderRadius: '3px',
           left: pct >= 50 ? '50%' : `${needlePct}%`,
@@ -82,15 +78,11 @@ export default function DarkPoolGauge() {
           background: barColor,
           transition: 'width 0.4s ease',
         }} />
-
-        {/* Center mark */}
         <div style={{
           position: 'absolute', top: '-1px', bottom: '-1px',
           left: '50%', transform: 'translateX(-50%)',
-          width: '1px', background: '#333',
+          width: '1px', background: '#444',
         }} />
-
-        {/* Needle */}
         <div style={{
           position: 'absolute',
           left: `${needlePct}%`,
@@ -106,11 +98,11 @@ export default function DarkPoolGauge() {
 
       {/* Value + updated */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
-        <span style={{ fontSize: '7px', color: '#444', letterSpacing: '1px' }}>DARK POOL</span>
+        <span style={{ fontSize: '7px', color: '#777', letterSpacing: '1px', textTransform: 'uppercase' }}>Whale Scale</span>
         <span style={{ fontSize: '8px', color: needleColor, fontWeight: 700, letterSpacing: '1px' }}>
           {pct}
         </span>
-        <span style={{ fontSize: '7px', color: '#444', letterSpacing: '1px' }}>{updated}</span>
+        <span style={{ fontSize: '7px', color: '#777', letterSpacing: '1px' }}>{updated}</span>
       </div>
 
       {/* Tooltip */}
@@ -127,32 +119,31 @@ export default function DarkPoolGauge() {
           zIndex: 500,
           boxShadow: '0 8px 32px rgba(0,0,0,0.8)',
         }}>
-          <div style={{ fontSize: '9px', color: '#555', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '8px' }}>
-            Dark Pool / Whale Flow
+          <div style={{ fontSize: '9px', color: '#aaa', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '8px' }}>
+            🐳 Whale Scale — Dark Pool Flow
           </div>
           <div style={{ display: 'flex', gap: '16px', marginBottom: '10px', alignItems: 'center' }}>
-            {/* Call/Put lean indicator — directional only, no raw numbers */}
             {calls && puts && (
               <>
                 <div style={{ textAlign: 'center' }}>
-                  <div style={{ fontSize: '8px', color: '#aaa', letterSpacing: '1px', marginBottom: '4px' }}>FLOW LEAN</div>
+                  <div style={{ fontSize: '8px', color: '#bbb', letterSpacing: '1px', marginBottom: '4px' }}>FLOW LEAN</div>
                   <div style={{ fontSize: '13px', fontWeight: 700, color: calls.count > puts.count ? '#00ff88' : '#ff4444' }}>
                     {calls.count > puts.count ? '▲ CALL HEAVY' : calls.count < puts.count ? '▼ PUT HEAVY' : '— NEUTRAL'}
                   </div>
                 </div>
-                <div style={{ width: '1px', background: '#1a1a1a', alignSelf: 'stretch' }} />
+                <div style={{ width: '1px', background: '#2a2a2a', alignSelf: 'stretch' }} />
               </>
             )}
             <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: '8px', color: '#aaa', letterSpacing: '1px', marginBottom: '4px' }}>SCORE</div>
+              <div style={{ fontSize: '8px', color: '#bbb', letterSpacing: '1px', marginBottom: '4px' }}>SCORE</div>
               <div style={{ fontSize: '20px', fontWeight: 700, color: needleColor, letterSpacing: '-0.5px' }}>{pct}</div>
-              <div style={{ fontSize: '9px', color: statusDot.color, letterSpacing: '1px' }}>{needle_status}</div>
+              <div style={{ fontSize: '9px', color: statusDot.color, letterSpacing: '1px', fontWeight: 600 }}>{needle_status}</div>
             </div>
           </div>
-          <div style={{ fontSize: '10px', color: '#888', lineHeight: 1.6, borderTop: '1px solid #1a1a1a', paddingTop: '8px' }}>
+          <div style={{ fontSize: '10px', color: '#ccc', lineHeight: 1.6, borderTop: '1px solid #1a1a1a', paddingTop: '8px' }}>
             {roger_insight}
           </div>
-          <div style={{ fontSize: '8px', color: '#333', marginTop: '6px', textAlign: 'right' }}>
+          <div style={{ fontSize: '8px', color: '#666', marginTop: '6px', textAlign: 'right' }}>
             Updated: {updated}
           </div>
         </div>
