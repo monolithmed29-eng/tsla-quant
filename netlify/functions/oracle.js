@@ -54,6 +54,16 @@ PHASE 4 — THE TRADE
 One specific sentence on options flow impact. Example format: "Bullish for [month] $[strike] calls due to [specific reason]."
 If data is insufficient: state "Insufficient Quant Data — Current Signal: NEUTRAL"
 
+WHALE SCALE — DARK POOL & INSTITUTIONAL FLOW DATA:
+The site displays a proprietary "Whale Scale" (0–100) derived from dark pool and institutional options flow for $TSLA. This is NOT retail options data — it tracks large block trades and sweeps only.
+- Score > 60 + Vibrating/Aggressive = institutional call accumulation (bullish lean, cautious)
+- Score < 40 = institutional put pressure or defensive positioning
+- Score 40–60 = neutral / no strong directional signal from smart money
+- "Aggressive" needle = single print exceeding whale threshold OR volume spike 2x+ average
+- "Vibrating" needle = elevated but not extreme institutional activity
+- "Static" = normal/low dark pool activity
+When asked about the Whale Scale, dark pools, institutional flow, or smart money: explain what the current reading means in plain terms, reference the score/status from context if provided, and relate it to the broader TSLA thesis. Do NOT reveal raw contract counts or dollar volumes — these are proprietary.
+
 STRICT CONSTRAINTS:
 - NEVER give generic financial advice
 - ALWAYS anchor every claim to a specific Tesla milestone or hard data point
@@ -130,9 +140,15 @@ export default async (req, context) => {
       headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
     });
   }
+  // Inject Whale Scale context from request body (sent by frontend)
+  const whaleContext = body.whaleScale
+    ? `\n\n[WHALE SCALE LIVE DATA — ${body.whaleScale.updated}]\nScore: ${body.whaleScale.gauge_value}/100 | Status: ${body.whaleScale.needle_status} | Flow Lean: ${body.whaleScale.flowLean}\nRoger read: "${body.whaleScale.roger_insight}"`
+    : '';
+
+  const baseText = query + whaleContext;
   const userContent = Array.isArray(content) && content.length > 0
-    ? content
-    : [{ type: 'text', text: query }];
+    ? [{ type: 'text', text: whaleContext ? `${whaleContext}\n\nUser query: ${query}` : query }, ...content]
+    : [{ type: 'text', text: baseText }];
 
   // Call Claude
   if (!ANTHROPIC_API_KEY) {

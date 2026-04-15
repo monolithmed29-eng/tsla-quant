@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { getCredits, decrementCredit, addCredits, isPro, getCreditSig, setProStatus, isInstitutional } from './creditManager';
 import { getFingerprint } from './fingerprint';
 import UpgradeModal from './UpgradeModal';
+import { darkPoolData } from './darkPoolData';
 
 const QUICK_QUERIES = [
   'FSD v14 Impact',
@@ -225,7 +226,21 @@ export default function OracleSearch() {
       const res = await fetch('/api/oracle', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query: finalQuery, fp: fingerprint, token, content: userContent }),
+        body: JSON.stringify({
+          query: finalQuery,
+          fp: fingerprint,
+          token,
+          content: userContent,
+          whaleScale: {
+            gauge_value: darkPoolData.gauge_value,
+            needle_status: darkPoolData.needle_status,
+            roger_insight: darkPoolData.roger_insight,
+            updated: darkPoolData.updated,
+            flowLean: darkPoolData.calls && darkPoolData.puts
+              ? darkPoolData.calls.count > darkPoolData.puts.count ? 'CALL HEAVY' : darkPoolData.calls.count < darkPoolData.puts.count ? 'PUT HEAVY' : 'NEUTRAL'
+              : 'UNKNOWN',
+          },
+        }),
       });
       stopLoading();
 
