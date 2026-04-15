@@ -123,7 +123,7 @@ export default function PriceModal({ breakdown, total, livePrice, quantChange, o
                     {quantChange >= 0 ? '+' : ''}{quantChange} pts
                   </span>
                   {' '}since last update —{' '}
-                  {`Apr 15, 2026: Elon Musk confirmed AI5 chip officially taped out (5.1M views on X), AI6 chip in development, and Dojo3 in the pipeline — Tesla's full-stack silicon roadmap now spans two more chip generations. Terafab likelihood raised 0.65 → 0.72 (status: in_progress), Dojo v2 raised 0.70 → 0.75.`}
+                  {`Apr 15, 2026: Musk clarified AI5 is NOT going into vehicles — Cybercab ships on AI4, in-vehicle chip upgrade pushed to 2027+. HW5 likelihood trimmed 0.45 → 0.38. TSLA surged ~8% today on AI chip reveal (range $362–$394).`}
                 </div>
               )}
             </div>
