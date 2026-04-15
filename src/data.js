@@ -8,8 +8,9 @@ export const catalysts = [
     status: "in_progress",
     expected: "Q2 2026",
     likelihood: 0.90,
-    updated: "Apr 11, 2026",
+    updated: "Apr 15, 2026",
     description: [
+      "🆕 Apr 15, 2026: Drone footage (Teslarati) reveals 50+ Tesla Cybercab units undergoing crash testing at Giga Texas — confirms active production ramp proceeding on schedule; late 2026 commercial robotaxi launch in Austin reaffirmed as target",
       "🚀 MASS PRODUCTION STARTED: Cybercab formally entered production at Giga Texas in April 2026 — first unit rolled off in February; now targeting several hundred units/week ramp",
       "⚠️ Apr 11, 2026: Reports emerge that early production Cybercabs include a steering wheel — departure from the original 'no steering wheel, no pedals' design promise; likely a regulatory concession for near-term deployment; complicates the pure-autonomy narrative and may signal CA/NHTSA pressure to retain manual override capability",
       "🆕 Apr 8, 2026 (PM): 60 Cybercabs spotted at Giga Texas (Teslarati) — concrete evidence of live production ramp; Musk confirmed initial output follows classic S-curve toward hundreds of units/week",
@@ -113,9 +114,10 @@ export const catalysts = [
     weight: 0.06,
     status: "upcoming",
     expected: "Q3 2026",
-    likelihood: 0.55,
-    updated: "Apr 12, 2026",
+    likelihood: 0.58,
+    updated: "Apr 15, 2026",
     description: [
+      "🆕 Apr 15, 2026: Tesla Spring 2026 software update introduces a standalone Self-Driving subscription app and 'Hey Grok' xAI voice assistant — significant step toward a consumer-facing autonomous ride ecosystem; reduces friction to FSD adoption",
       "Consumer-facing Tesla Robotaxi app for public ride booking",
       "Currently ride access is invite-only / limited beta in Austin",
       "App launch would signal readiness for mass-market commercial operation",

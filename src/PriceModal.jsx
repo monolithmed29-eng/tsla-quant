@@ -124,8 +124,8 @@ export default function PriceModal({ breakdown, total, livePrice, quantChange, o
                   </span>
                   {' '}since last update —{' '}
                   {quantChange < 0
-                    ? `Apr 14, 2026 PM update: UBS upgraded TSLA from Sell to Neutral ($352 PT), removing the last major Sell rating from a bulge-bracket bank; FSD nearing 10B cumulative miles as Morgan Stanley calls for more proof of real autonomy before a re-rating.`
-                    : `Apr 14, 2026 PM update: UBS upgraded TSLA from Sell to Neutral ($352 PT), removing the last major Sell rating from a bulge-bracket bank; FSD nearing 10B cumulative miles as Morgan Stanley calls for more proof of real autonomy before a re-rating.`
+                    ? `Apr 15, 2026 update: Drone footage confirms 50+ Cybercabs in active crash testing at Giga Texas, validating the production ramp; Tesla's Spring 2026 update launches a standalone Self-Driving subscription app and 'Hey Grok' AI voice, accelerating the consumer robotaxi ecosystem.`
+                    : `Apr 15, 2026 update: Drone footage confirms 50+ Cybercabs in active crash testing at Giga Texas, validating the production ramp; Tesla's Spring 2026 update launches a standalone Self-Driving subscription app and 'Hey Grok' AI voice, accelerating the consumer robotaxi ecosystem.`
                   }
                 </div>
               )}
