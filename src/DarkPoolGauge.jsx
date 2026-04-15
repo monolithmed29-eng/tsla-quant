@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { darkPoolData } from './darkPoolData';
 
-export default function DarkPoolGauge() {
+export default function DarkPoolGauge({ mobile = false }) {
   const [showTooltip, setShowTooltip] = useState(false);
   const [tick, setTick] = useState(0);
 
@@ -34,6 +34,86 @@ export default function DarkPoolGauge() {
     Vibrating:  { color: '#f59e0b', label: 'ACTIVE' },
     Aggressive: { color: '#ff4444', label: 'WHALE' },
   }[needle_status] || { color: '#888', label: 'STATIC' };
+
+  if (mobile) return (
+    <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', gap: '4px', width: '100%' }}>
+      {/* Label row */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <span style={{ fontSize: '8px', color: 'rgba(255,255,255,0.55)', letterSpacing: '1.5px', textTransform: 'uppercase' }}>BEAR</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '4px', cursor: 'pointer' }} onClick={() => setShowTooltip(v => !v)}>
+          <span style={{
+            width: '5px', height: '5px', borderRadius: '50%',
+            background: statusDot.color,
+            boxShadow: needle_status !== 'Static' ? `0 0 5px 2px ${statusDot.color}88` : 'none',
+            display: 'inline-block',
+          }} />
+          <span style={{ fontSize: '7px', color: statusDot.color, letterSpacing: '2px', fontWeight: 700 }}>{statusDot.label}</span>
+        </div>
+        <span style={{ fontSize: '8px', color: 'rgba(255,255,255,0.55)', letterSpacing: '1.5px', textTransform: 'uppercase' }}>BULL</span>
+      </div>
+      {/* Track */}
+      <div
+        style={{
+          position: 'relative', width: '100%', height: '5px',
+          background: 'linear-gradient(to right, #4a0a0a, #1a1a1a 50%, #0a2e1a)',
+          borderRadius: '3px', border: '1px solid #333', cursor: 'pointer',
+        }}
+        onClick={() => setShowTooltip(v => !v)}
+      >
+        <div style={{
+          position: 'absolute', top: 0, bottom: 0, borderRadius: '3px',
+          left: pct >= 50 ? '50%' : `${needlePct}%`,
+          width: pct >= 50 ? `${(pct - 50) / 50 * 50}%` : `${(50 - needlePct)}%`,
+          background: barColor,
+        }} />
+        <div style={{ position: 'absolute', top: '-1px', bottom: '-1px', left: '50%', transform: 'translateX(-50%)', width: '1px', background: '#444' }} />
+        <div style={{
+          position: 'absolute', left: `${needlePct}%`,
+          top: '-3px', bottom: '-3px', width: '2px',
+          background: needleColor, borderRadius: '1px',
+          transform: 'translateX(-50%)',
+          boxShadow: `0 0 4px 1px ${needleColor}88`,
+          transition: needle_status === 'Static' ? 'left 0.4s ease' : 'left 0.05s ease',
+        }} />
+      </div>
+      {/* Score */}
+      <div style={{ textAlign: 'center' }}>
+        <span style={{ fontSize: '9px', color: needleColor, fontWeight: 700, letterSpacing: '1px' }}>{pct}</span>
+      </div>
+      {/* Tooltip — anchored below, full width */}
+      {showTooltip && (
+        <div style={{
+          position: 'absolute', top: '100%', left: 0, right: 0,
+          marginTop: '6px',
+          background: '#0a0a0a', border: '1px solid #2a2a2a',
+          borderRadius: '6px', padding: '10px 12px',
+          zIndex: 500, boxShadow: '0 8px 32px rgba(0,0,0,0.9)',
+        }}>
+          <div style={{ fontSize: '9px', color: '#aaa', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '8px' }}>🐳 Whale Scale</div>
+          <div style={{ display: 'flex', gap: '12px', marginBottom: '8px', alignItems: 'center' }}>
+            {calls && puts && (
+              <>
+                <div style={{ textAlign: 'center' }}>
+                  <div style={{ fontSize: '8px', color: '#bbb', letterSpacing: '1px', marginBottom: '3px' }}>FLOW LEAN</div>
+                  <div style={{ fontSize: '12px', fontWeight: 700, color: calls.count > puts.count ? '#00ff88' : '#ff4444' }}>
+                    {calls.count > puts.count ? '▲ CALL HEAVY' : calls.count < puts.count ? '▼ PUT HEAVY' : '— NEUTRAL'}
+                  </div>
+                </div>
+                <div style={{ width: '1px', background: '#2a2a2a', alignSelf: 'stretch' }} />
+              </>
+            )}
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: '8px', color: '#bbb', letterSpacing: '1px', marginBottom: '3px' }}>SCORE</div>
+              <div style={{ fontSize: '18px', fontWeight: 700, color: needleColor }}>{pct}</div>
+              <div style={{ fontSize: '9px', color: statusDot.color, fontWeight: 600 }}>{needle_status}</div>
+            </div>
+          </div>
+          <div style={{ fontSize: '10px', color: '#ccc', lineHeight: 1.6, borderTop: '1px solid #1a1a1a', paddingTop: '8px' }}>{roger_insight}</div>
+          <div style={{ fontSize: '8px', color: '#555', marginTop: '6px', textAlign: 'right' }}>Updated: {updated}</div>
+        </div>
+      )}
+    </div>
+  );
 
   return (
     <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3px', minWidth: '120px' }}>

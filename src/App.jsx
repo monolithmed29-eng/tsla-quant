@@ -406,7 +406,7 @@ export default function App() {
               </div>
             </div>
             {/* TSLA Live */}
-            <div style={{ flex: 1, padding: '8px 0 8px 16px' }}>
+            <div style={{ flex: 1, padding: '8px 0 8px 16px', borderRight: '1px solid #111' }}>
               <div style={{ fontSize: '8px', color: '#666', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '2px' }}>
                 TSLA Live {marketOpen ? '' : '· Closed'}
               </div>
@@ -418,6 +418,10 @@ export default function App() {
                   <span style={{ fontSize: '10px', color: '#444' }}>{formatTime(lastUpdated)}</span>
                 )}
               </div>
+            </div>
+            {/* Whale Scale */}
+            <div style={{ flex: 1, padding: '8px 0 8px 14px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <DarkPoolGauge mobile />
             </div>
           </div>
         </>
