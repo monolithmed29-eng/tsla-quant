@@ -5,6 +5,7 @@ import PriceModal from './PriceModal';
 import ProgressiveGraph from './ProgressiveGraph';
 import OracleSearch from './OracleSearch';
 import OracleCommandCenter from './OracleCommandCenter';
+import DarkPoolGauge from './DarkPoolGauge';
 import { catalysts, links } from './data';
 import { calcPredictedPrice, calcPriceBreakdown } from './priceModel';
 import { useTSLAPrice } from './useTSLAPrice';
@@ -314,6 +315,8 @@ export default function App() {
               <div style={{ color: marketOpen ? '#00aaff' : '#666', fontWeight: 700, fontSize: '18px' }}>{tslaPrice ? `$${tslaPrice.toFixed(2)}` : '—'}</div>
               <div style={{ color: '#888', fontSize: '9px', marginTop: '2px' }}>{marketOpen ? (lastUpdated ? formatTime(lastUpdated) : '—') : 'Market Closed'}</div>
             </div>
+            <div style={{ width: '1px', height: '32px', background: '#222' }} />
+            <DarkPoolGauge />
             <div style={{ width: '1px', height: '32px', background: '#222' }} />
             <div style={{ textAlign: 'right' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '6px', marginBottom: '4px' }}>
