@@ -1,7 +1,21 @@
 // Auto-updated 3x daily by cron — do not edit manually
-// Last updated: Apr 14, 2026 18:02 ET
+// Last updated: Apr 15, 2026 08:00 ET
 
 export const breakingNews = [
+  {
+    headline: "FSD v14.3.1 (2026.2.9.7) released — hotfix patch rolling out with Blind Spot Warning While Parked and Autopilot name changes; follows v14.3 rollout earlier this week; FSD v15 with 10x larger model still on horizon",
+    category: "autonomy",
+    source: "NotATeslaApp",
+    timestamp: "Apr 15, 2026",
+    url: "https://www.notateslaapp.com/software-updates/version/2026.2.9.7/release-notes",
+  },
+  {
+    headline: "Software 2026.8.6.1 OTA pushing — latest minor update adds dashcam recent-video shortcut to top of Dashcam Viewer; part of ongoing Spring 2026 software cadence",
+    category: "product",
+    source: "NotATeslaApp",
+    timestamp: "Apr 15, 2026",
+    url: "https://www.notateslaapp.com/software-updates/version/2026.8.6.1/release-notes",
+  },
   {
     headline: "UBS upgrades TSLA from Sell to Neutral — stock surges ~3.8% on Tuesday; analysts cite improving FSD monetization outlook and Cybercab production ramp as key drivers for rating shift",
     category: "financials",
@@ -21,10 +35,10 @@ export const breakingNews = [
     category: "robotics",
     source: "ABC News / 247WallSt / BNN Bloomberg",
     timestamp: "Apr 14, 2026",
-    url: "https://abcnews.com/International/wireStory/tesla-leader-believes-shanghai-factory-operations-play-role-132022468",
+    url: "https://247wallst.com/investing/2026/04/14/elon-musks-tesla-exec-shanghai-factory-is-the-key-to-unlocking-robot-mass-production/",
   },
   {
-    headline: "Cybercab mass production at Giga Texas — 50+ units spotted + crash test vehicles; first production unit rolled off Feb 17; volume production ramp now underway in April 2026",
+    headline: "Cybercab volume production ramp live at Giga Texas — 60+ units spotted by drone; crash test units confirm active safety validation; first production unit rolled off Feb 17; April is official production start month",
     category: "product",
     source: "Teslarati / Austin Today",
     timestamp: "Apr 14, 2026",
@@ -38,11 +52,11 @@ export const breakingNews = [
     url: "https://electrek.co/2026/04/13/tesla-spring-update-2026-hey-grok-self-driving-app-pet-mode/",
   },
   {
-    headline: "FSD approved in Netherlands — FSD v14 launches in Europe (software 2026.3.6); video shows FSD navigating Amsterdam streets and Dutch turbo roundabouts; broader EU rollout expected by year-end",
+    headline: "FSD approved in Netherlands — first-ever European regulatory clearance (Apr 10); FSD v14 navigating Amsterdam streets and Dutch turbo roundabouts; broader EU rollout expected by year-end pending May committee vote",
     category: "autonomy",
-    source: "Yahoo Finance / Tesla Oracle",
+    source: "Autoweek / GuruFocus / Planetizen",
     timestamp: "Apr 13-14, 2026",
-    url: "https://www.teslaoracle.com/2026/04/14/tesla-fsd-conquers-amsterdam-streets-and-turbo-roundabouts-fsd-v14-europe-version-info-2026-3-6-release-notes/",
+    url: "https://www.autoweek.com/news/a71005966/netherlands-clears-teslas-fsd/",
   },
   {
     headline: "Reuters confirms Tesla developing all-new smaller cheaper EV — ~4.28m compact SUV under $30K; Shanghai production first, then US/Europe; four sources confirm; dubbed 'Project Redwood' / Model 2 successor",
@@ -52,24 +66,10 @@ export const breakingNews = [
     url: "https://www.reuters.com/business/autos-transportation/tesla-is-developing-new-smaller-cheaper-ev-sources-say-2026-04-09/",
   },
   {
-    headline: "Model S & X production ended — Fremont factory converting to Optimus robot manufacturing; Musk: 'only a few hundred units left'; Model S/X given 'honorable discharge' after 13+ years",
+    headline: "Model S & X production ended — Fremont factory converting to Optimus robot manufacturing; Musk: 'only a few hundred units left'; Model S/X given 'honorable discharge' after 13+ years; Q1 earnings call Apr 22",
     category: "manufacturing",
     source: "Business Insider / Musk on X",
     timestamp: "Apr 8, 2026",
     url: "https://www.businessinsider.com/elon-musk-tesla-model-s-x-sold-out-2026-4",
-  },
-  {
-    headline: "Q1 2026 deliveries 358,023 — missed analyst consensus by ~7,600 units; Q1 earnings call set for Apr 22; Tesla holds 54% U.S. EV market share; FY2026 EPS consensus at $1.43 (+31.2% YoY)",
-    category: "financials",
-    source: "Electrek / Drive Tesla",
-    timestamp: "Apr 2, 2026",
-    url: null,
-  },
-  {
-    headline: "FSD v14.3 wider rollout: 20% faster reaction time via ground-up MLIR AI compiler rewrite; HW3 owners await 'FSD Lite' mid-2026; Musk teases FSD v15 with 10x larger AI model",
-    category: "autonomy",
-    source: "Tesla Oracle / TeslaNorth",
-    timestamp: "Apr 8-10, 2026",
-    url: "https://www.teslaoracle.com/2026/04/08/tesla-rolls-out-fsd-v14-3-2026-2-9-6-better-reaction-time-rewritten-ai-compiler-mlir-release-notes-status/",
   },
 ];
