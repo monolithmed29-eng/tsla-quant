@@ -39,7 +39,7 @@ export default function DarkPoolGauge() {
     <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3px', minWidth: '120px' }}>
       {/* Label row */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
-        <span style={{ fontSize: '8px', color: '#888', letterSpacing: '1.5px', textTransform: 'uppercase' }}>BEAR</span>
+        <span style={{ fontSize: '8px', color: 'rgba(255,255,255,0.55)', letterSpacing: '1.5px', textTransform: 'uppercase' }}>BEAR</span>
         <div
           style={{ display: 'flex', alignItems: 'center', gap: '4px', cursor: 'pointer' }}
           onClick={() => setShowTooltip(v => !v)}
@@ -57,7 +57,7 @@ export default function DarkPoolGauge() {
             {statusDot.label}
           </span>
         </div>
-        <span style={{ fontSize: '8px', color: '#888', letterSpacing: '1.5px', textTransform: 'uppercase' }}>BULL</span>
+        <span style={{ fontSize: '8px', color: 'rgba(255,255,255,0.55)', letterSpacing: '1.5px', textTransform: 'uppercase' }}>BULL</span>
       </div>
 
       {/* Track */}
@@ -96,13 +96,11 @@ export default function DarkPoolGauge() {
         }} />
       </div>
 
-      {/* Value + updated */}
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
-        <span style={{ fontSize: '7px', color: '#777', letterSpacing: '1px', textTransform: 'uppercase' }}>Whale Scale</span>
-        <span style={{ fontSize: '8px', color: needleColor, fontWeight: 700, letterSpacing: '1px' }}>
+      {/* Score only */}
+      <div style={{ textAlign: 'center' }}>
+        <span style={{ fontSize: '9px', color: needleColor, fontWeight: 700, letterSpacing: '1px' }}>
           {pct}
         </span>
-        <span style={{ fontSize: '7px', color: '#777', letterSpacing: '1px' }}>{updated}</span>
       </div>
 
       {/* Tooltip */}
