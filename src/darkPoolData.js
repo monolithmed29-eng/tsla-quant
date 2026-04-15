@@ -8,5 +8,5 @@ export const darkPoolData = {
   roger_insight: "Dark pool call flow of $231.28M (11.6% of daily benchmark) with TSLA +$27.83 confirms modest institutional accumulation — whales are buying the move, not fading it.",
   updated: "Apr 15 · 3pm ET",
   calls: { count: 3521, value: 231280000 },
-  puts:  { count: 3447, value: null },
+  puts:  { count: 1980, value: null },
 };

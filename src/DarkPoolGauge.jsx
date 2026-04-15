@@ -38,8 +38,6 @@ export default function DarkPoolGauge() {
     Aggressive: { color: '#ff4444', label: 'WHALE' },
   }[needle_status] || { color: '#666', label: 'STATIC' };
 
-  const formatVal = (v) => v != null ? `$${(v / 1e6).toFixed(0)}M` : '—';
-
   return (
     <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3px', minWidth: '120px' }}>
       {/* Label row */}
@@ -132,23 +130,23 @@ export default function DarkPoolGauge() {
           <div style={{ fontSize: '9px', color: '#555', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '8px' }}>
             Dark Pool / Whale Flow
           </div>
-          <div style={{ display: 'flex', gap: '16px', marginBottom: '10px' }}>
+          <div style={{ display: 'flex', gap: '16px', marginBottom: '10px', alignItems: 'center' }}>
+            {/* Call/Put lean indicator — directional only, no raw numbers */}
+            {calls && puts && (
+              <>
+                <div style={{ textAlign: 'center' }}>
+                  <div style={{ fontSize: '8px', color: '#aaa', letterSpacing: '1px', marginBottom: '4px' }}>FLOW LEAN</div>
+                  <div style={{ fontSize: '13px', fontWeight: 700, color: calls.count > puts.count ? '#00ff88' : '#ff4444' }}>
+                    {calls.count > puts.count ? '▲ CALL HEAVY' : calls.count < puts.count ? '▼ PUT HEAVY' : '— NEUTRAL'}
+                  </div>
+                </div>
+                <div style={{ width: '1px', background: '#1a1a1a', alignSelf: 'stretch' }} />
+              </>
+            )}
             <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: '8px', color: '#00ff88', letterSpacing: '1px', marginBottom: '2px' }}>CALLS</div>
-              <div style={{ fontSize: '14px', fontWeight: 700, color: '#00ff88' }}>{calls?.count?.toLocaleString() ?? '—'}</div>
-              <div style={{ fontSize: '9px', color: '#666' }}>{formatVal(calls?.value)}</div>
-            </div>
-            <div style={{ width: '1px', background: '#1a1a1a' }} />
-            <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: '8px', color: '#ff4444', letterSpacing: '1px', marginBottom: '2px' }}>PUTS</div>
-              <div style={{ fontSize: '14px', fontWeight: 700, color: '#ff4444' }}>{puts?.count?.toLocaleString() ?? '—'}</div>
-              <div style={{ fontSize: '9px', color: '#666' }}>{formatVal(puts?.value)}</div>
-            </div>
-            <div style={{ width: '1px', background: '#1a1a1a' }} />
-            <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: '8px', color: '#aaa', letterSpacing: '1px', marginBottom: '2px' }}>SCORE</div>
-              <div style={{ fontSize: '14px', fontWeight: 700, color: needleColor }}>{pct}</div>
-              <div style={{ fontSize: '9px', color: statusDot.color }}>{needle_status}</div>
+              <div style={{ fontSize: '8px', color: '#aaa', letterSpacing: '1px', marginBottom: '4px' }}>SCORE</div>
+              <div style={{ fontSize: '20px', fontWeight: 700, color: needleColor, letterSpacing: '-0.5px' }}>{pct}</div>
+              <div style={{ fontSize: '9px', color: statusDot.color, letterSpacing: '1px' }}>{needle_status}</div>
             </div>
           </div>
           <div style={{ fontSize: '10px', color: '#888', lineHeight: 1.6, borderTop: '1px solid #1a1a1a', paddingTop: '8px' }}>
