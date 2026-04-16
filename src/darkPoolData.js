@@ -3,10 +3,10 @@
 // Benchmark: $2B full day, $1B midday snapshot
 
 export const darkPoolData = {
-  gauge_value: 57,
+  gauge_value: 38,
   needle_status: "Vibrating",       // "Static" | "Vibrating" | "Aggressive"
-  roger_insight: "Dark pool flow is heavily call-skewed with TSLA up strong — institutional participation is tilted bullish, though total whale volume remains below a full conviction signal.",
-  updated: "Apr 15 · 3pm ET",
-  calls: { count: 3521, value: 231280000 },
-  puts:  { count: 1980, value: null },
+  roger_insight: "Unusual options flow flagged: 152 puts ($11.93M) vs 55 calls ($4.53M) — put/call ratio 2.76x. Institutions are loading downside protection ahead of Apr 22 earnings. Not noise; this is directional conviction from smart money.",
+  updated: "Apr 16 · 10am ET",
+  calls: { count: 55,  value: 4530000 },
+  puts:  { count: 152, value: 11930000 },
 };
