@@ -318,9 +318,10 @@ export const catalysts = [
     weight: 0.08,
     status: "upcoming",
     expected: "Q2 2026",
-    likelihood: 0.35,
-    updated: "Apr 8, 2026",
+    likelihood: 0.30,
+    updated: "Apr 16, 2026",
     description: [
+      "🐋 Apr 16, 2026: Whale options flow — 152 puts ($11.93M) vs 55 calls ($4.53M); put/call ratio 2.76x by count, 2.63x by value; institutions loading downside protection ahead of Apr 22 earnings; not noise — this is directional conviction from smart money",
       "🚨 OFFICIAL Q1 2026 DELIVERY RESULTS (Apr 2, 2026): 358,023 delivered — MISSED consensus of 365,600 by ~7,600 (~2%)",
       "Production: 408,386 total — 50,363 more produced than delivered; largest single-quarter inventory build on record",
       "Model 3/Y: 394,611 produced / 341,893 delivered (gap of ~53K units into inventory)",
