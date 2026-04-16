@@ -510,9 +510,10 @@ export const catalysts = [
     weight: 0.03,
     status: "upcoming",
     expected: "Q2 2026",
-    likelihood: 0.50,
-    updated: "Mar 22, 2026",
+    likelihood: 0.45,
+    updated: "Apr 16, 2026",
     description: [
+      "🆕 Apr 16, 2026: Electrek reveals SpaceX purchased 1,279 Cybertruck units — inflating reported sales figures; raises serious questions about organic retail demand; if SpaceX is propping up Cybertruck numbers, underlying civilian demand may be materially weaker than reported; bear case strengthened",
       "Cybertruck production ramping at Giga Texas — initial units unprofitable",
       "Complex stainless steel body and new 48V architecture drove early cost overruns",
       "Q4 2025: Tesla indicated Cybertruck approaching positive gross margin",
