@@ -3,7 +3,7 @@
 
 export const breakingNews = [
   {
-    headline: "🐋 Whale alert: 2,061 TSLA call contracts ($116.97M) vs 775 puts ($38.07M) — 3:1 call/put ratio by value; institutional money leaning heavily bullish into Apr 22 Q1 earnings",
+    headline: "🐋 Whale alert: TSLA options flow showing ~3:1 call/put ratio by value — institutional money leaning heavily bullish into Apr 22 Q1 earnings",
     category: "financials",
     source: "Options Flow",
     timestamp: "Apr 17, 2026",
