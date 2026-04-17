@@ -34,7 +34,7 @@ export const catalysts = [
     status: "achieved",
     expected: "Q2 2025",
     likelihood: 0.95,
-    updated: "Apr 11, 2026",
+    updated: "Apr 17, 2026",
     description: [
       "🆕 Apr 14, 2026: Cybercab testing officially confirmed in Florida — first out-of-Texas state deployment; Miami, Orlando, Tampa all on 1H 2026 roadmap; Florida presence signals active pre-launch ops",
       "🆕 Apr 11, 2026: BofA (Alexander Perry) calls Tesla the 'clear leader in autonomous driving' — vision-only approach more cost-effective and scalable than lidar competitors. Morgan Stanley (Andrew Percoco) reiterates robotaxi flywheel thesis: fleet scaling → FSD improvement → re-accelerates core auto demand. Both analysts naming robotaxi as THE key 2026 catalyst for TSLA.",
@@ -42,6 +42,7 @@ export const catalysts = [
       "⚠️ JPMorgan (Apr 6, 2026): Analyst Ryan Brinkman reiterates Underweight / $145 PT — 60% downside from current levels; record unsold inventory (50K+ Q1 build) cited as primary bear case; Dec 2026 target date",
       "Musk (Apr 7 context): Confirming robotaxi expansion to 9 cities in 2026; Cybercab production officially started; Megapack 3 announced",
       "LIVE — Austin fleet operational as of mid-2025",
+      "🆕 Apr 17, 2026: Austin unsupervised robotaxi fleet reaches 13 vehicles — up from 12 yesterday, 9 last week; slow but steady expansion continues; service area now 12x original launch size after 4 geofence expansions since mid-2025 — source: NextBigFuture / robotaxitracker.com",
       "🆕 Apr 16, 2026: Tesla added another unsupervised Model Y robotaxi to Austin fleet — total unsupervised vehicles now 12 (up from 9); fleet continues to expand ahead of commercial launch — source: robotaxitracker.com/unsupervised",
       "43 vehicles active (30d) | 9 unsupervised active | 28 Cybercabs test fleet | 51 inactive (30d unseen) | 94 total ever — source: robotaxitracker.com (Apr 7, 2026)",
       "Bay Area: 462 total (+5 this week, +7 this week, 68 in 30d) — supervised only; 3 Cybercabs test fleet",
@@ -201,8 +202,9 @@ export const catalysts = [
     status: "in_progress",
     expected: "Q3 2026",
     likelihood: 0.67,
-    updated: "Apr 16, 2026",
+    updated: "Apr 17, 2026",
     description: [
+      "🆕 Apr 17, 2026: TD Cowen lowered Tesla PT to $490 ahead of Q1 earnings — notes heating competition in robotics/autonomy (Unitree, BYD ramping global push); FSD near-miss headlines cited as persistent regulatory/legal risk; still a bull but trimming expectations",
       "🆕 Apr 16, 2026 (PM): Multiple reports confirm Optimus Gen 3 has entered mass production phase — powered by FSD AI; concurrent ramp at Giga Texas and GigaShanghai; first production units targeting internal factory deployment before external sales begin",
       "🆕 Apr 16, 2026: Tesla China president Wang Hao confirmed GigaShanghai is the 'golden key' to Optimus mass production — targeting Gen 3 volume production before end of 2026 with an ambitious 1M units/year long-term capacity target; Shanghai factory space now being prepared alongside Texas ramp",
       "Musk shared major Optimus Gen 3 production update — scaling confirmed beyond first line",
@@ -321,8 +323,9 @@ export const catalysts = [
     status: "upcoming",
     expected: "Q2 2026",
     likelihood: 0.35,
-    updated: "Apr 16, 2026",
+    updated: "Apr 17, 2026",
     description: [
+      "🆕 Apr 17, 2026: TSLA premarket ~$365 (Fri open); analysts divided ahead of Apr 22 Q1 call — TipRanks Smart Score 3/10 (Underperform); 30 analysts: 13 Buy / 11 Hold / 6 Sell; Motley Fool: 'More likely outcome is a share price boom' on FSD 10B miles + Cybercab ramp; TD Cowen PT cut to $490 on competition risk",
       "🆕 Apr 16, 2026: TSLA trading $381–$397 (+7.6%) on AI5 tape-out enthusiasm + pre-earnings positioning; Q1 earnings call in 6 days (Apr 22, 5:30 PM ET); consensus $0.39 EPS, $22.82B revenue; prediction markets 53% odds of miss",
       "🚨 OFFICIAL Q1 2026 DELIVERY RESULTS (Apr 2, 2026): 358,023 delivered — MISSED consensus of 365,600 by ~7,600 (~2%)",
       "Production: 408,386 total — 50,363 more produced than delivered; largest single-quarter inventory build on record",

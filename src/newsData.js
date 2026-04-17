@@ -1,7 +1,21 @@
 // Auto-updated 3x daily by cron — do not edit manually
-// Last updated: Apr 16, 2026 18:00 ET
+// Last updated: Apr 17, 2026 09:00 ET
 
 export const breakingNews = [
+  {
+    headline: "Austin unsupervised robotaxi fleet reaches 13 — up from 12 yesterday, 9 last week; service area now 12x original launch size after 4 geofence expansions; slow but accelerating pre-commercial ramp",
+    category: "autonomy",
+    source: "NextBigFuture / RobotaxiTracker",
+    timestamp: "Apr 17, 2026",
+    url: "https://www.nextbigfuture.com/2026/04/tesla-continues-slow-increase-of-unsupervised-robotaxi-in-austin-now-13-unsupervised.html",
+  },
+  {
+    headline: "Analysts divided ahead of Apr 22 Q1 earnings — TipRanks Smart Score 3/10; 13 Buy / 11 Hold / 6 Sell; TD Cowen cuts PT to $490 citing robotics competition (Unitree, BYD); Motley Fool bullish on FSD 10B-mile milestone + Cybercab ramp",
+    category: "financials",
+    source: "IG / TD Cowen / Motley Fool",
+    timestamp: "Apr 17, 2026",
+    url: "https://www.ig.com/ae/news-and-trade-ideas/tesla-q1-2026-earnings-preview-car-company-or-ai-infrastructure-play-260416",
+  },
   {
     headline: "TSLA fell Thursday Apr 16 despite strong week — closes near $389 after $381–$397 range; stock still up ~8% from Tuesday lows; pre-Q1 earnings vol elevated; Apr 22 call is next major catalyst",
     category: "financials",
@@ -38,11 +52,11 @@ export const breakingNews = [
     url: "https://electrek.co/2026/04/15/tesla-ai5-chip-taped-out-musk-ai6-dojo3/",
   },
   {
-    headline: "Motley Fool: 2 reasons to buy TSLA before April 22 — European demand rebound + affordable mass-market SUV in development; analysts watching for guidance on both at earnings call",
+    headline: "Q1 2026 earnings Apr 22, 5:30 PM ET — consensus $0.39 EPS, $22.82B revenue; prediction markets 53% odds of miss; investors focused on robotaxi rollout dates, FSD take-rate, Optimus unit economics",
     category: "financials",
-    source: "Motley Fool",
-    timestamp: "Apr 16, 2026",
-    url: "https://www.fool.com/investing/2026/04/16/2-reasons-to-buy-tesla-before-april-22/",
+    source: "Drive Tesla Canada / MarketBeat",
+    timestamp: "Apr 17, 2026",
+    url: "https://driveteslacanada.ca/news/tesla-opens-q1-2026-earnings-call-qa-portal/",
   },
   {
     headline: "TSLA +7.57% Wednesday close $391.95 — AI5 tape-out + UBS upgrade to Neutral; last major Sell from bulge-bracket banks removed; stock tracking best day in 7 months ahead of Q1 report",
@@ -57,19 +71,5 @@ export const breakingNews = [
     source: "Teslarati / TechCrunch / notateslaapp.com",
     timestamp: "Apr 14, 2026",
     url: "https://techcrunch.com/2026/04/14/tesla-adds-streaks-and-other-stats-to-track-how-often-drivers-use-full-self-driving-software/",
-  },
-  {
-    headline: "Cybercab crash testing confirmed at Giga Texas — drone footage shows 50+ units; late-2026 commercial robotaxi Austin launch reaffirmed; mass production ramp now underway",
-    category: "autonomy",
-    source: "Teslarati",
-    timestamp: "Apr 14, 2026",
-    url: "https://www.teslarati.com/tesla-cybercab-crash-testing-giga-texas/",
-  },
-  {
-    headline: "Q1 2026 earnings Apr 22, 5:30 PM ET — consensus $0.39 EPS, $22.82B revenue; prediction markets 53% odds of miss; 50K+ inventory build + energy segment miss (8.8 vs 14.4 GWh) key bear concerns",
-    category: "financials",
-    source: "247 Wall St. / Intellectia.ai / MarketBeat",
-    timestamp: "Apr 15, 2026",
-    url: "https://247wallst.com/investing/2026/04/15/tesla-gets-360-price-target-as-traders-ask-how-much-will-terafab-really-cost/",
   },
 ];
