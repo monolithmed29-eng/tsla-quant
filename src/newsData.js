@@ -1,7 +1,14 @@
 // Auto-updated 3x daily by cron — do not edit manually
-// Last updated: Apr 17, 2026 09:00 ET
+// Last updated: Apr 17, 2026 13:00 ET
 
 export const breakingNews = [
+  {
+    headline: "🐋 Whale alert: 2,061 TSLA call contracts ($116.97M) vs 775 puts ($38.07M) — 3:1 call/put ratio by value; institutional money leaning heavily bullish into Apr 22 Q1 earnings",
+    category: "financials",
+    source: "Options Flow",
+    timestamp: "Apr 17, 2026",
+    url: "https://finance.yahoo.com/quote/TSLA/",
+  },
   {
     headline: "Austin unsupervised robotaxi fleet reaches 13 — up from 12 yesterday, 9 last week; service area now 12x original launch size after 4 geofence expansions; slow but accelerating pre-commercial ramp",
     category: "autonomy",
