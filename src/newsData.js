@@ -1,7 +1,21 @@
 // Auto-updated 3x daily by cron — do not edit manually
-// Last updated: Apr 17, 2026 13:00 ET
+// Last updated: Apr 17, 2026 18:00 ET
 
 export const breakingNews = [
+  {
+    headline: "Teslarati: Tesla's 'Cybercab robotaxi golden era is officially underway' — volume production live at Giga Texas, 7 new U.S. city expansions confirmed, late-2026 Austin commercial launch reaffirmed",
+    category: "autonomy",
+    source: "Teslarati",
+    timestamp: "Apr 17, 2026",
+    url: "https://www.teslarati.com/tesla-cybercab-robotaxi-golden-era/",
+  },
+  {
+    headline: "FSD v14.3.1 (build 2026.2.9.7) now rolling out fleet-wide — incremental refinement on v14.3 ground-up rewrite; EU staggered rollout begins Netherlands → Germany/France/Spain/Italy by summer 2026",
+    category: "autonomy",
+    source: "notateslaapp.com / Tesla Oracle",
+    timestamp: "Apr 17, 2026",
+    url: "https://www.teslaoracle.com/2026/04/14/tesla-fsd-conquers-amsterdam-streets-and-turbo-roundabouts-fsd-v14-europe-version-info-2026-3-6-release-notes/",
+  },
   {
     headline: "AI6 tapeout targeted December 2026 — Musk unveils AI5→AI6→AI7 chip roadmap; AI5 delivers ~5x AI4 compute for Optimus + supercomputers; chip cadence accelerating dramatically",
     category: "robotics",
@@ -17,58 +31,44 @@ export const breakingNews = [
     url: "https://eletric-vehicles.com/tesla/tesla-files-patents-revealing-optimus-gen-3-mechanical-blueprint/",
   },
   {
-    headline: "Motley Fool Apr 17: 'More likely outcome is a share price boom' — FSD approaching 10B cumulative miles, Cybercab ramp live, Optimus mass production starting; bull case strengthening into Q1 call",
+    headline: "🐋 TSLA whale alert: ~3:1 call/put ratio by value ahead of Apr 22 Q1 earnings; stock opened $396 Fri; IG/Refinitiv Smart Estimate $0.30 EPS / $21.52B revenue — predicted –20.6% earnings surprise",
     category: "financials",
-    source: "Motley Fool",
+    source: "Options Flow / IG / Refinitiv",
     timestamp: "Apr 17, 2026",
-    url: "https://www.fool.com/investing/2026/04/17/tesla-in-3-years-boom-bust-or-quietly-crushing-it/",
+    url: "https://www.ig.com/ae/news-and-trade-ideas/tesla-q1-2026-earnings-preview-car-company-or-ai-infrastructure-play-260416",
   },
   {
-    headline: "🐋 Whale alert: TSLA options flow showing ~3:1 call/put ratio by value — institutional money leaning heavily bullish into Apr 22 Q1 earnings",
-    category: "financials",
-    source: "Options Flow",
-    timestamp: "Apr 17, 2026",
-    url: "https://finance.yahoo.com/quote/TSLA/",
-  },
-  {
-    headline: "Austin unsupervised robotaxi fleet reaches 13 — up from 12 yesterday, 9 last week; service area now 12x original launch size after 4 geofence expansions; slow but accelerating pre-commercial ramp",
+    headline: "Austin unsupervised robotaxi fleet reaches 13 vehicles — up from 9 last week; service area 12x original size after 4 geofence expansions; slow but steady pre-commercial ramp",
     category: "autonomy",
     source: "NextBigFuture / RobotaxiTracker",
     timestamp: "Apr 17, 2026",
     url: "https://www.nextbigfuture.com/2026/04/tesla-continues-slow-increase-of-unsupervised-robotaxi-in-austin-now-13-unsupervised.html",
   },
   {
-    headline: "Analysts divided ahead of Apr 22 Q1 earnings — TipRanks Smart Score 3/10; 13 Buy / 11 Hold / 6 Sell; TD Cowen cuts PT to $490 citing robotics competition; Motley Fool bullish on FSD milestone + Cybercab ramp",
-    category: "financials",
-    source: "TD Cowen / TipRanks / Motley Fool",
-    timestamp: "Apr 17, 2026",
-    url: "https://www.ig.com/ae/news-and-trade-ideas/tesla-q1-2026-earnings-preview-car-company-or-ai-infrastructure-play-260416",
-  },
-  {
-    headline: "Molotov cocktail hurled at Tesla New Orleans sales office — latest anti-Tesla incident amid Musk/DOGE backlash; ATF + NOPD investigating; no arrests; brand risk escalating",
+    headline: "Molotov cocktail hurled at Tesla New Orleans sales office — latest anti-Tesla incident; ATF + NOPD investigating; no arrests; brand risk escalating amid Musk/DOGE backlash",
     category: "corporate",
     source: "USA Today",
     timestamp: "Apr 16, 2026",
     url: "https://eu.usatoday.com/story/news/crime/2026/04/16/tesla-office-molotov-cocktail-attack/89639151007/",
   },
   {
-    headline: "SpaceX purchased 1,279 Cybertruck units — Electrek reveals inflated retail sales figures; raises serious organic demand concerns; Cybertruck profitability timeline now in question",
+    headline: "SpaceX purchased 1,279 Cybertruck units — Electrek reveals inflated retail figures; raises organic demand concerns; Cybertruck profitability timeline in question",
     category: "product",
     source: "Electrek",
     timestamp: "Apr 16, 2026",
     url: "https://electrek.co/",
   },
   {
-    headline: "Optimus Gen 3 enters mass production era — dual-factory ramp at Giga Texas + GigaShanghai confirmed; Tesla China president: 1M units/year long-term capacity target; 2026 volume ramp underway",
+    headline: "Optimus Gen 3 mass production era confirmed — dual-factory ramp at Giga Texas + GigaShanghai; Tesla China president Wang Hao calls Shanghai 'golden key'; 1M units/year long-term capacity target",
     category: "robotics",
-    source: "AIFOD / MoneyCheck / 247 Wall St.",
+    source: "247 Wall St. / The Next Web / CoinCentral",
     timestamp: "Apr 16, 2026",
-    url: "https://af.net/realtime/teslas-humanoid-robot-optimus-enters-mass-production-era-with-gen-3-factory-deployment/",
+    url: "https://247wallst.com/investing/2026/04/14/elon-musks-tesla-exec-shanghai-factory-is-the-key-to-unlocking-robot-mass-production/",
   },
   {
-    headline: "AI5 chip taped out Apr 15 — Musk: 'radical simplicity'; 5x AI4 compute; engineering samples at Samsung Korea; targets Optimus + supercomputer clusters NOT vehicles; AI6 + Dojo3 also confirmed",
+    headline: "AI5 chip taped out Apr 15 — Musk: 'radical simplicity'; 5x AI4 compute; Samsung Korea engineering samples; targets Optimus + supercomputers NOT vehicles; AI6 + Dojo3 also confirmed in pipeline",
     category: "robotics",
-    source: "Electrek / Musk on X / CNBC",
+    source: "Electrek / Musk on X",
     timestamp: "Apr 15, 2026",
     url: "https://electrek.co/2026/04/15/tesla-ai5-chip-taped-out-musk-ai6-dojo3/",
   },
