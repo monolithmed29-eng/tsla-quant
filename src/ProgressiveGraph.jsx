@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState, useCallback, useImperativeHandle, forwardRef } from 'react';
 import * as d3 from 'd3';
 
 // Returns true if the node's updated date matches today (local time)
@@ -137,7 +137,7 @@ function buildVisibleLinks(expandedSet, catalysts, links) {
 }
 
 // ─── Component ────────────────────────────────────────────────────────────────
-export default function ProgressiveGraph({ catalysts, links, onNodeClick, expandAll, onAllExpanded, isMobile = false, highlightedIds = null, highlightedCategories = null, smartMode = false, smartBadge = null, smartExpandCats = null, smartExpandTrigger = 0, onExitSmart = null }) {
+const ProgressiveGraph = forwardRef(function ProgressiveGraph({ catalysts, links, onNodeClick, expandAll, onAllExpanded, isMobile = false, highlightedIds = null, highlightedCategories = null, smartMode = false, smartBadge = null, onExitSmart = null }, ref) {
   const canvasRef   = useRef(null);
   const simRef      = useRef(null);
   const rafRef      = useRef(null);
@@ -213,23 +213,24 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
       .velocityDecay(0.88);
   }, [catalysts, links]);
 
+  // ── Imperative API — called directly by App for Smart Mode expansion ───────
+  useImperativeHandle(ref, () => ({
+    expandCategories(cats) {
+      if (!cats || cats.length === 0) return;
+      const prevMap = new Map(nodesRef.current.map(n => [n.id, n]));
+      expandedRef.current = new Set(cats);
+      rebuild(expandedRef.current, prevMap);
+      setAnyExpanded(true);
+      anyExpandedRef.current = true;
+      setAllExpanded(false);
+    },
+  }), [rebuild]);
+
   // ── Sync highlight props into refs (safe for draw loop) ───────────────────
   useEffect(() => { highlightedIdsRef.current = highlightedIds ? new Set(highlightedIds) : null; }, [highlightedIds]);
   useEffect(() => { highlightedCatsRef.current = highlightedCategories ? new Set(highlightedCategories) : null; }, [highlightedCategories]);
 
-  // ── Smart Mode expansion ──────────────────────────────────────────────────
-  // smartExpandCats is the authoritative list — set once per Oracle result.
-  // smartExpandTrigger (counter) guarantees the effect fires even if cats are same.
-  // Both are in deps so the closure always has fresh values.
-  useEffect(() => {
-    if (!smartExpandTrigger) return;
-    if (!smartExpandCats || smartExpandCats.length === 0) return;
-    const prevMap = new Map(nodesRef.current.map(n => [n.id, n]));
-    expandedRef.current = new Set(smartExpandCats);
-    rebuild(expandedRef.current, prevMap);
-    setAnyExpanded(true); anyExpandedRef.current = true;
-    setAllExpanded(false);
-  }, [smartExpandTrigger, smartExpandCats, rebuild]);
+  // Smart Mode expansion is now handled imperatively via ref.expandCategories()
 
   // ── Initial mount ─────────────────────────────────────────────────────────
   useEffect(() => {
@@ -731,4 +732,6 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
       )}
     </div>
   );
-}
+});
+
+export default ProgressiveGraph;
