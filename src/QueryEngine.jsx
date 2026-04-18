@@ -106,7 +106,7 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
   const [isDeep, setIsDeep] = useState(false);
   const [matchedNodes, setMatchedNodes] = useState([]);
   const [credits, setCredits] = useState(getCredits);
-  const [proTier, setProTier] = useState(() => isPro()); // reactive — driven by state not bare isPro() call
+  const [proTier, setProTier] = useState(() => { const t = isPro(); proTierRef.current = t; return t; });
   const [fp, setFp] = useState(null);
   const [showUpgrade, setShowUpgrade] = useState(false);
   const [upgradeReason, setUpgradeReason] = useState('no_credits');
@@ -118,6 +118,9 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
   const fileInputRef = useRef(null);
   const loadingIntervalRef = useRef(null);
   const searchTimeoutRef = useRef(null);
+  // Refs that mirror state for safe reading inside async closures
+  const matchedNodesRef = useRef([]);
+  const proTierRef = useRef(null);
 
   // ── Init fingerprint + server credits ───────────────────────────────────────
   useEffect(() => {
@@ -127,7 +130,7 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
         const res = await fetch(`/api/credits?fp=${encodeURIComponent(fingerprint)}`);
         const data = await res.json();
         if (typeof data.credits === 'number') setCredits(data.credits);
-        if (data.pro) { setProStatus(data.pro); setProTier(data.pro); }
+        if (data.pro) { setProStatus(data.pro); setProTier(data.pro); proTierRef.current = data.pro; }
       } catch { /* localStorage fallback */ }
     });
   }, []);
@@ -140,7 +143,7 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
     const pendingQ = params.get('q');
 
     if (upgradeParam === 'active_trader' || upgradeParam === 'institutional') {
-      setProStatus(upgradeParam); setProTier(upgradeParam);
+      setProStatus(upgradeParam); setProTier(upgradeParam); proTierRef.current = upgradeParam;
       window.history.replaceState({}, '', window.location.pathname);
       getFingerprint().then(fingerprint => {
         fetch('/api/credits', {
@@ -173,6 +176,10 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
       window.history.replaceState({}, '', window.location.pathname);
     }
   }, []);
+
+  // Keep refs in sync with state for safe async closure reads
+  useEffect(() => { matchedNodesRef.current = matchedNodes; }, [matchedNodes]);
+  useEffect(() => { proTierRef.current = proTier; }, [proTier]);
 
   // ── Real-time fuzzy search preview (debounced 120ms) ─────────────────────
   useEffect(() => {
@@ -245,7 +252,7 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
     const finalQuery = (q || query).trim();
     if (!finalQuery) return;
 
-    const pro = !!proTier;
+    const pro = !!proTierRef.current;
     const currentCredits = getCredits();
 
     if (!pro && currentCredits <= 0 && !sessionStorage.getItem('oracle_token')) {
@@ -254,7 +261,8 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
       return;
     }
 
-    const deepMode = forceDeep || (pro && matchedNodes.length > 0);
+    const liveMatchedNodes = matchedNodesRef.current;
+    const deepMode = forceDeep || (pro && liveMatchedNodes.length > 0);
     setIsDeep(deepMode);
     setLastQuery(finalQuery);
     setPhase('loading');
@@ -262,9 +270,9 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
     cycleLoading(deepMode);
 
     // On Deep Mode: explode the matched nodes on the graph
-    if (deepMode && matchedNodes.length > 0) {
-      const cats = getMatchedCategories(matchedNodes);
-      onGraphSearch?.(matchedNodes.map(n => n.id), cats);
+    if (deepMode && liveMatchedNodes.length > 0) {
+      const cats = getMatchedCategories(liveMatchedNodes);
+      onGraphSearch?.(liveMatchedNodes.map(n => n.id), cats);
     }
 
     try {
@@ -275,7 +283,7 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
       try { liveWhale = await fetchRemoteData('darkpool.json'); } catch (_) {}
 
       // Build node context for Deep Mode (RAG injection)
-      const nodeCtx = deepMode ? buildNodeContext(matchedNodes) : '';
+      const nodeCtx = deepMode ? buildNodeContext(liveMatchedNodes) : '';
       const queryText = nodeCtx ? `${nodeCtx} ${finalQuery}` : finalQuery;
 
       // Build content array — text + optional attachment (Institutional)
@@ -332,17 +340,17 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
         setAttachment(null);
 
         // ── Smart Mode: fire after Pro Oracle result ──────────────────────
-        if (proTier && matchedNodes.length > 0 && onSmartResult) {
+        if (pro && liveMatchedNodes.length > 0 && onSmartResult) {
           const cap = isMobile ? 1 : 3;
-          const smartNodes = smartRank(matchedNodes, finalQuery, cap);
+          const smartNodes = smartRank(liveMatchedNodes, finalQuery, cap);
           const smartCats = getMatchedCategories(smartNodes);
           const badge = buildSmartBadge(smartNodes);
           onSmartResult(smartNodes.map(n => n.id), smartCats, badge);
         }
 
         // After result: show deep upsell if free + good matches
-        if (!pro && shouldUpsellDeep(matchedNodes)) {
-          setUpsellNodes(matchedNodes.slice(0, 3));
+        if (!pro && shouldUpsellDeep(liveMatchedNodes)) {
+          setUpsellNodes(liveMatchedNodes.slice(0, 3));
           setShowDeepUpsell(true);
         }
       } else {
