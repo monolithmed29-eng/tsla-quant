@@ -217,17 +217,19 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
   useEffect(() => { highlightedIdsRef.current = highlightedIds ? new Set(highlightedIds) : null; }, [highlightedIds]);
   useEffect(() => { highlightedCatsRef.current = highlightedCategories ? new Set(highlightedCategories) : null; }, [highlightedCategories]);
 
-  // ── Auto-expand matched categories when QueryEngine fires a search ─────────
+  // ── Auto-expand matched categories — ONLY in Smart Mode (pro post-Oracle) ──
+  // Regular search highlighting (blue rings + dim) works for all users,
+  // but category expansion is gated to Smart Mode only.
   useEffect(() => {
+    if (!smartMode) return;
     if (!highlightedCategories || highlightedCategories.length === 0) return;
     const prevMap = new Map(nodesRef.current.map(n => [n.id, n]));
-    // Only expand cats that aren't already expanded
     let changed = false;
     for (const cat of highlightedCategories) {
       if (!expandedRef.current.has(cat)) { expandedRef.current.add(cat); changed = true; }
     }
     if (changed) rebuild(expandedRef.current, prevMap);
-  }, [highlightedCategories, rebuild]);
+  }, [highlightedCategories, smartMode, rebuild]);
 
   // ── Initial mount ─────────────────────────────────────────────────────────
   useEffect(() => {
