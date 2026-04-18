@@ -137,7 +137,7 @@ function buildVisibleLinks(expandedSet, catalysts, links) {
 }
 
 // ─── Component ────────────────────────────────────────────────────────────────
-export default function ProgressiveGraph({ catalysts, links, onNodeClick, expandAll, onAllExpanded, isMobile = false, highlightedIds = null, highlightedCategories = null, smartMode = false, smartBadge = null, onExitSmart = null }) {
+export default function ProgressiveGraph({ catalysts, links, onNodeClick, expandAll, onAllExpanded, isMobile = false, highlightedIds = null, highlightedCategories = null, smartMode = false, smartBadge = null, smartExpandTrigger = 0, onExitSmart = null }) {
   const canvasRef   = useRef(null);
   const simRef      = useRef(null);
   const rafRef      = useRef(null);
@@ -217,19 +217,22 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
   useEffect(() => { highlightedIdsRef.current = highlightedIds ? new Set(highlightedIds) : null; }, [highlightedIds]);
   useEffect(() => { highlightedCatsRef.current = highlightedCategories ? new Set(highlightedCategories) : null; }, [highlightedCategories]);
 
-  // ── Auto-expand matched categories — ONLY in Smart Mode (pro post-Oracle) ──
-  // Regular search highlighting (blue rings + dim) works for all users,
-  // but category expansion is gated to Smart Mode only.
+  // ── Smart Mode expansion — fires on explicit trigger increment from parent ──
+  // Using smartExpandTrigger (a counter) as the dep guarantees the effect always
+  // re-runs when a new Oracle result fires, even if the category list is identical.
   useEffect(() => {
-    if (!smartMode) return;
+    if (!smartExpandTrigger) return; // skip on initial mount (value = 0)
     if (!highlightedCategories || highlightedCategories.length === 0) return;
     const prevMap = new Map(nodesRef.current.map(n => [n.id, n]));
-    let changed = false;
+    // Collapse everything first, then expand only the smart categories
+    expandedRef.current = new Set();
     for (const cat of highlightedCategories) {
-      if (!expandedRef.current.has(cat)) { expandedRef.current.add(cat); changed = true; }
+      expandedRef.current.add(cat);
     }
-    if (changed) rebuild(expandedRef.current, prevMap);
-  }, [highlightedCategories, smartMode, rebuild]);
+    rebuild(expandedRef.current, prevMap);
+    setAnyExpanded(true); anyExpandedRef.current = true;
+    setAllExpanded(false);
+  }, [smartExpandTrigger, rebuild]); // intentionally omit highlightedCategories — trigger carries the intent
 
   // ── Initial mount ─────────────────────────────────────────────────────────
   useEffect(() => {

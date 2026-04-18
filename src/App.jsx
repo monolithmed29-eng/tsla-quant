@@ -274,17 +274,17 @@ export default function App() {
   const [searchHighlightCats, setSearchHighlightCats] = useState(null);
   const [smartMode, setSmartMode] = useState(false);
   const [smartBadge, setSmartBadge] = useState(null);
-  const [prevWasFullNetwork, setPrevWasFullNetwork] = useState(false);
+  // Explicit expand trigger — increment to force ProgressiveGraph to re-run expansion
+  // regardless of whether highlightedCategories reference changed
+  const [smartExpandTrigger, setSmartExpandTrigger] = useState(0);
 
   function handleSmartResult(ids, cats, badge) {
-    // If already in Full Network, note that so we can offer to switch
-    setPrevWasFullNetwork(expandAll);
-    // Exit Full Network — smart mode uses selective expand
     setExpandAll(false);
     setSearchHighlightIds(ids);
     setSearchHighlightCats(cats);
     setSmartMode(true);
     setSmartBadge(badge);
+    setSmartExpandTrigger(t => t + 1); // guaranteed new value → effect always fires
   }
 
   function exitSmartMode(goFull = false) {
@@ -599,6 +599,7 @@ export default function App() {
           highlightedCategories={searchHighlightCats}
           smartMode={smartMode}
           smartBadge={smartBadge}
+          smartExpandTrigger={smartExpandTrigger}
           onExitSmart={() => exitSmartMode(true)}
         />
       </div>
