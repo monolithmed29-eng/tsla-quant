@@ -2,7 +2,8 @@ import { useState, useRef, useEffect } from 'react';
 import { getCredits, decrementCredit, addCredits, isPro, getCreditSig, setProStatus, isInstitutional } from './creditManager';
 import { getFingerprint } from './fingerprint';
 import UpgradeModal from './UpgradeModal';
-import { darkPoolData } from './darkPoolData';
+import { darkPoolData as fallbackDarkPool } from './darkPoolData';
+import { fetchRemoteData } from './useRemoteData';
 
 const QUICK_QUERIES = [
   'FSD v14 Impact',
@@ -223,6 +224,10 @@ export default function OracleSearch() {
       }
       userContent.push({ type: 'text', text: finalQuery });
 
+      // Fetch latest darkpool data (falls back to bundled if unavailable)
+      let liveWhale = fallbackDarkPool;
+      try { liveWhale = await fetchRemoteData('darkpool.json'); } catch (_) {}
+
       const res = await fetch('/api/oracle', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -232,12 +237,12 @@ export default function OracleSearch() {
           token,
           content: userContent,
           whaleScale: {
-            gauge_value: darkPoolData.gauge_value,
-            needle_status: darkPoolData.needle_status,
-            roger_insight: darkPoolData.roger_insight,
-            updated: darkPoolData.updated,
-            flowLean: darkPoolData.calls && darkPoolData.puts
-              ? darkPoolData.calls.count > darkPoolData.puts.count ? 'CALL HEAVY' : darkPoolData.calls.count < darkPoolData.puts.count ? 'PUT HEAVY' : 'NEUTRAL'
+            gauge_value: liveWhale.gauge_value,
+            needle_status: liveWhale.needle_status,
+            roger_insight: liveWhale.roger_insight,
+            updated: liveWhale.updated,
+            flowLean: liveWhale.calls && liveWhale.puts
+              ? liveWhale.calls.count > liveWhale.puts.count ? 'CALL HEAVY' : liveWhale.calls.count < liveWhale.puts.count ? 'PUT HEAVY' : 'NEUTRAL'
               : 'UNKNOWN',
           },
         }),

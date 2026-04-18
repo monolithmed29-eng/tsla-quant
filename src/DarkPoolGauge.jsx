@@ -1,16 +1,18 @@
 import { useState, useEffect, useRef } from 'react';
-import { darkPoolData } from './darkPoolData';
+import { darkPoolData as fallbackDarkPool } from './darkPoolData';
+import { useRemoteData } from './useRemoteData';
 
 export default function DarkPoolGauge({ mobile = false }) {
   const [showTooltip, setShowTooltip] = useState(false);
   const [tick, setTick] = useState(0);
   const containerRef = useRef(null);
+  const { data: darkPoolData } = useRemoteData('darkpool.json', fallbackDarkPool);
 
   useEffect(() => {
     if (darkPoolData.needle_status === 'Static') return;
     const interval = setInterval(() => setTick(t => t + 1), 180);
     return () => clearInterval(interval);
-  }, []);
+  }, [darkPoolData.needle_status]);
 
   useEffect(() => {
     if (!showTooltip) return;

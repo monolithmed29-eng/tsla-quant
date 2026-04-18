@@ -1,0 +1,8 @@
+{
+  "gauge_value": 78,
+  "needle_status": "Aggressive",
+  "roger_insight": "Institutional flow running ~3:1 calls over puts by dollar value — a strongly skewed bullish print heading into Q1 earnings Apr 22. Smart money is leaning hard toward upside.",
+  "updated": "Apr 17 · 1pm ET",
+  "calls": { "count": 3, "value": 3 },
+  "puts":  { "count": 1, "value": 1 }
+}

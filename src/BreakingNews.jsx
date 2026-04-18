@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
-import { breakingNews } from './newsData';
+import { useRemoteData } from './useRemoteData';
+import { breakingNews as fallbackNews } from './newsData';
 
 const glowStyle = `
   @keyframes redPulse {
@@ -35,6 +36,7 @@ const CATEGORY_LABELS = {
 export default function BreakingNews({ isMobile = false }) {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
+  const { data: breakingNews } = useRemoteData('news.json', fallbackNews);
 
   // Outside-click to close on mobile
   useEffect(() => {

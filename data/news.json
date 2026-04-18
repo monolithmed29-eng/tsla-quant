@@ -1,0 +1,72 @@
+[
+  {
+    "headline": "Teslarati: Tesla's 'Cybercab robotaxi golden era is officially underway' — volume production live at Giga Texas, 7 new U.S. city expansions confirmed, late-2026 Austin commercial launch reaffirmed",
+    "category": "autonomy",
+    "source": "Teslarati",
+    "timestamp": "Apr 17, 2026",
+    "url": "https://www.teslarati.com/tesla-cybercab-robotaxi-golden-era/"
+  },
+  {
+    "headline": "FSD v14.3.1 (build 2026.2.9.7) now rolling out fleet-wide — incremental refinement on v14.3 ground-up rewrite; EU staggered rollout begins Netherlands → Germany/France/Spain/Italy by summer 2026",
+    "category": "autonomy",
+    "source": "notateslaapp.com / Tesla Oracle",
+    "timestamp": "Apr 17, 2026",
+    "url": "https://www.teslaoracle.com/2026/04/14/tesla-fsd-conquers-amsterdam-streets-and-turbo-roundabouts-fsd-v14-europe-version-info-2026-3-6-release-notes/"
+  },
+  {
+    "headline": "AI6 tapeout targeted December 2026 — Musk unveils AI5→AI6→AI7 chip roadmap; AI5 delivers ~5x AI4 compute for Optimus + supercomputers; chip cadence accelerating dramatically",
+    "category": "robotics",
+    "source": "Electrek / EV News / Musk on X",
+    "timestamp": "Apr 17, 2026",
+    "url": "https://eletric-vehicles.com/tesla/tesla-tapes-out-ai5-chip-for-next-generation-self-driving-and-robotics/"
+  },
+  {
+    "headline": "Tesla files Optimus Gen 3 mechanical blueprint patents — locked-in production design with new joint and actuator architecture; signals Gen 3 no longer in prototype phase",
+    "category": "robotics",
+    "source": "EV News / Electric Vehicles",
+    "timestamp": "Apr 17, 2026",
+    "url": "https://eletric-vehicles.com/tesla/tesla-files-patents-revealing-optimus-gen-3-mechanical-blueprint/"
+  },
+  {
+    "headline": "TSLA whale alert: ~3:1 call/put ratio by value ahead of Apr 22 Q1 earnings; stock opened $396 Fri; IG/Refinitiv Smart Estimate $0.30 EPS / $21.52B revenue — predicted –20.6% earnings surprise",
+    "category": "financials",
+    "source": "Options Flow / IG / Refinitiv",
+    "timestamp": "Apr 17, 2026",
+    "url": "https://www.ig.com/ae/news-and-trade-ideas/tesla-q1-2026-earnings-preview-car-company-or-ai-infrastructure-play-260416"
+  },
+  {
+    "headline": "Austin unsupervised robotaxi fleet reaches 13 vehicles — up from 9 last week; service area 12x original size after 4 geofence expansions; slow but steady pre-commercial ramp",
+    "category": "autonomy",
+    "source": "NextBigFuture / RobotaxiTracker",
+    "timestamp": "Apr 17, 2026",
+    "url": "https://www.nextbigfuture.com/2026/04/tesla-continues-slow-increase-of-unsupervised-robotaxi-in-austin-now-13-unsupervised.html"
+  },
+  {
+    "headline": "Molotov cocktail hurled at Tesla New Orleans sales office — latest anti-Tesla incident; ATF + NOPD investigating; no arrests; brand risk escalating amid Musk/DOGE backlash",
+    "category": "corporate",
+    "source": "USA Today",
+    "timestamp": "Apr 16, 2026",
+    "url": "https://eu.usatoday.com/story/news/crime/2026/04/16/tesla-office-molotov-cocktail-attack/89639151007/"
+  },
+  {
+    "headline": "SpaceX purchased 1,279 Cybertruck units — Electrek reveals inflated retail figures; raises organic demand concerns; Cybertruck profitability timeline in question",
+    "category": "product",
+    "source": "Electrek",
+    "timestamp": "Apr 16, 2026",
+    "url": "https://electrek.co/"
+  },
+  {
+    "headline": "Optimus Gen 3 mass production era confirmed — dual-factory ramp at Giga Texas + GigaShanghai; Tesla China president Wang Hao calls Shanghai 'golden key'; 1M units/year long-term capacity target",
+    "category": "robotics",
+    "source": "247 Wall St. / The Next Web / CoinCentral",
+    "timestamp": "Apr 16, 2026",
+    "url": "https://247wallst.com/investing/2026/04/14/elon-musks-tesla-exec-shanghai-factory-is-the-key-to-unlocking-robot-mass-production/"
+  },
+  {
+    "headline": "AI5 chip taped out Apr 15 — Musk: 'radical simplicity'; 5x AI4 compute; Samsung Korea engineering samples; targets Optimus + supercomputers NOT vehicles; AI6 + Dojo3 also confirmed in pipeline",
+    "category": "robotics",
+    "source": "Electrek / Musk on X",
+    "timestamp": "Apr 15, 2026",
+    "url": "https://electrek.co/2026/04/15/tesla-ai5-chip-taped-out-musk-ai6-dojo3/"
+  }
+]
