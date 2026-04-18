@@ -3,6 +3,7 @@ import Panel from './Panel';
 import BreakingNews from './BreakingNews';
 import PriceModal from './PriceModal';
 import ProgressiveGraph from './ProgressiveGraph';
+import { logNodeClick } from './queryLogger';
 import QueryEngine from './QueryEngine';
 import DarkPoolGauge from './DarkPoolGauge';
 import { catalysts, links } from './data';
@@ -288,13 +289,15 @@ export default function App() {
   const [smartBadge, setSmartBadge] = useState(null);
   const graphRef = useRef(null);
   const [queryPanelOpen, setQueryPanelOpen] = useState(false);
+  const activeQueryRef = useRef(''); // tracks last submitted query for click logging
 
-  function handleSmartResult(ids, cats, badge) {
+  function handleSmartResult(ids, cats, badge, query) {
     setExpandAll(false);
     setSearchHighlightIds(ids);
     setSearchHighlightCats(cats);
     setSmartMode(true);
     setSmartBadge(badge);
+    if (query) activeQueryRef.current = query;
     // Imperative call — bypasses all React effect timing issues
     setTimeout(() => graphRef.current?.expandCategories(cats), 0);
   }
@@ -622,7 +625,12 @@ export default function App() {
           key={graphKey}
           catalysts={catalysts}
           links={links}
-          onNodeClick={setSelected}
+          onNodeClick={(node) => {
+            setSelected(node);
+            if (node && activeQueryRef.current) {
+              logNodeClick({ query: activeQueryRef.current, clickedId: node.id });
+            }
+          }}
           expandAll={expandAll}
           onAllExpanded={() => setExpandAll(true)}
           isMobile={isMobile}

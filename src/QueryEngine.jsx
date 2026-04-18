@@ -14,6 +14,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { searchCatalysts, getMatchedCategories, buildNodeContext, smartRank, buildSmartBadge } from './useNodeSearch';
 import { getCredits, decrementCredit, isPro, isInstitutional, addCredits, setProStatus, getCreditSig } from './creditManager';
+import { logQuery } from './queryLogger';
 import { getFingerprint } from './fingerprint';
 import UpgradeModal from './UpgradeModal';
 import { darkPoolData as fallbackDarkPool } from './darkPoolData';
@@ -263,6 +264,9 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
 
     const liveMatchedNodes = matchedNodesRef.current;
     const deepMode = forceDeep || (pro && liveMatchedNodes.length > 0);
+
+    // Fire-and-forget: log query for future smartRank tuning
+    logQuery({ query: finalQuery, matchedIds: liveMatchedNodes.map(n => n.id), deepMode, pro });
     setIsDeep(deepMode);
     setLastQuery(finalQuery);
     setPhase('loading');
@@ -345,7 +349,7 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
           const smartNodes = smartRank(liveMatchedNodes, finalQuery, cap);
           const smartCats = getMatchedCategories(smartNodes);
           const badge = buildSmartBadge(smartNodes);
-          onSmartResult(smartNodes.map(n => n.id), smartCats, badge);
+          onSmartResult(smartNodes.map(n => n.id), smartCats, badge, finalQuery);
         }
 
         // After result: show deep upsell if free + good matches
