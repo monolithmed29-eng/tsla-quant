@@ -663,10 +663,11 @@ const ProgressiveGraph = forwardRef(function ProgressiveGraph({ catalysts, links
         </div>
       )}
 
-      {/* Hint */}
+      {/* Hint — centered in canvas using left:0/right:0/textAlign so panel open doesn't shift it */}
       {!allExpanded && !expandAll && !anyExpanded && (
         <div style={{
-          position: 'absolute', bottom: 20, left: '50%', transform: 'translateX(-50%)',
+          position: 'absolute', bottom: 20, left: 0, right: 0,
+          textAlign: 'center',
           fontSize: '11px', color: '#ff4444',
           letterSpacing: '2.5px', textTransform: 'uppercase',
           fontFamily: "'Space Grotesk', sans-serif", pointerEvents: 'none', whiteSpace: 'nowrap',
@@ -678,7 +679,8 @@ const ProgressiveGraph = forwardRef(function ProgressiveGraph({ catalysts, links
       )}
       {!allExpanded && !expandAll && anyExpanded && (
         <div style={{
-          position: 'absolute', bottom: 20, left: '50%', transform: 'translateX(-50%)',
+          position: 'absolute', bottom: 20, left: 0, right: 0,
+          textAlign: 'center',
           fontSize: '11px', color: '#ff4444',
           letterSpacing: '2.5px', textTransform: 'uppercase',
           fontFamily: "'Space Grotesk', sans-serif", pointerEvents: 'none', whiteSpace: 'nowrap',

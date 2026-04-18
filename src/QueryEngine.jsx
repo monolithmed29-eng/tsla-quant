@@ -56,6 +56,12 @@ const LOADING_MESSAGES_DEEP = [
 // ── Animations ────────────────────────────────────────────────────────────────
 
 const CSS_ANIMATIONS = `
+  textarea::-webkit-resizer {
+    background: linear-gradient(135deg, transparent 50%, #fff 50%);
+    border: none;
+    opacity: 0.7;
+  }
+  textarea { scrollbar-width: thin; scrollbar-color: #333 transparent; }
   @keyframes qeCursor {
     0%, 100% { opacity: 1; }
     50%       { opacity: 0; }
@@ -542,7 +548,7 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
             fontFamily: 'monospace',
             letterSpacing: '0.3px',
             cursor: depleted ? 'not-allowed' : 'text',
-            resize: 'none',
+            resize: isMobile ? 'none' : 'vertical',
             minHeight: isMobile ? '70px' : '90px',
             lineHeight: 1.6,
             boxSizing: 'border-box',
