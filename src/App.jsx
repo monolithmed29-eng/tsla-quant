@@ -230,13 +230,12 @@ function QueryEngineHeader({ catalysts, onGraphSearch, onClearSearch, onSmartRes
           maxWidth: '90vw',
           maxHeight: 'calc(100vh - 120px)',
           overflowY: 'auto',
-          background: 'rgba(2,5,10,1.0)',
+          background: 'rgb(2,5,10)',
           border: '1px solid #1e2a3a',
           borderTop: `2px solid #00aaff`,
           padding: '24px 28px 20px',
-          zIndex: 500,
-          backdropFilter: 'blur(16px)',
-          boxShadow: '0 20px 60px rgba(0,0,0,0.85), 0 0 40px rgba(0,170,255,0.06)',
+          zIndex: 9999,
+          boxShadow: '0 20px 60px rgba(0,0,0,0.95), 0 0 40px rgba(0,170,255,0.06)',
           animation: 'fadeInDown 0.2s ease',
         }}>
           <style>{`@keyframes fadeInDown { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }`}</style>

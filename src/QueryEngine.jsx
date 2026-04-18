@@ -106,7 +106,7 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
   const [isDeep, setIsDeep] = useState(false);
   const [matchedNodes, setMatchedNodes] = useState([]);
   const [credits, setCredits] = useState(getCredits);
-  const [proTier, setProTier] = useState(() => { const t = isPro(); proTierRef.current = t; return t; });
+  const [proTier, setProTier] = useState(() => isPro() || null);
   const [fp, setFp] = useState(null);
   const [showUpgrade, setShowUpgrade] = useState(false);
   const [upgradeReason, setUpgradeReason] = useState('no_credits');
@@ -120,7 +120,7 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
   const searchTimeoutRef = useRef(null);
   // Refs that mirror state for safe reading inside async closures
   const matchedNodesRef = useRef([]);
-  const proTierRef = useRef(null);
+  const proTierRef = useRef(isPro() || null);
 
   // ── Init fingerprint + server credits ───────────────────────────────────────
   useEffect(() => {

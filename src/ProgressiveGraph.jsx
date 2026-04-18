@@ -623,14 +623,13 @@ const ProgressiveGraph = forwardRef(function ProgressiveGraph({ catalysts, links
           display: 'flex',
           alignItems: 'center',
           gap: '8px',
-          background: 'rgba(0,170,255,0.10)',
+          background: 'rgba(2,8,18,0.92)',
           border: '1px solid rgba(0,170,255,0.4)',
           padding: '5px 14px',
           fontFamily: "'Space Grotesk', sans-serif",
           pointerEvents: 'auto',
           whiteSpace: 'nowrap',
           zIndex: 10,
-          backdropFilter: 'blur(6px)',
           animation: 'smartBadgeFadeIn 0.4s ease',
         }}>
           <style>{`
