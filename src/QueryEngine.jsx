@@ -106,6 +106,7 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
   const [isDeep, setIsDeep] = useState(false);
   const [matchedNodes, setMatchedNodes] = useState([]);
   const [credits, setCredits] = useState(getCredits);
+  const [proTier, setProTier] = useState(() => isPro()); // reactive — driven by state not bare isPro() call
   const [fp, setFp] = useState(null);
   const [showUpgrade, setShowUpgrade] = useState(false);
   const [upgradeReason, setUpgradeReason] = useState('no_credits');
@@ -126,7 +127,7 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
         const res = await fetch(`/api/credits?fp=${encodeURIComponent(fingerprint)}`);
         const data = await res.json();
         if (typeof data.credits === 'number') setCredits(data.credits);
-        if (data.pro) setProStatus(data.pro);
+        if (data.pro) { setProStatus(data.pro); setProTier(data.pro); }
       } catch { /* localStorage fallback */ }
     });
   }, []);
@@ -139,7 +140,7 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
     const pendingQ = params.get('q');
 
     if (upgradeParam === 'active_trader' || upgradeParam === 'institutional') {
-      setProStatus(upgradeParam);
+      setProStatus(upgradeParam); setProTier(upgradeParam);
       window.history.replaceState({}, '', window.location.pathname);
       getFingerprint().then(fingerprint => {
         fetch('/api/credits', {
@@ -235,7 +236,7 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
   // ── Deep Mode upsell detection ─────────────────────────────────────────────
   // Fire upsell if: free user, matches 2+ nodes that could benefit from deep analysis
   function shouldUpsellDeep(matches) {
-    if (isPro()) return false;
+    if (proTier) return false;
     return matches.length >= 2;
   }
 
@@ -244,7 +245,7 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
     const finalQuery = (q || query).trim();
     if (!finalQuery) return;
 
-    const pro = isPro();
+    const pro = !!proTier;
     const currentCredits = getCredits();
 
     if (!pro && currentCredits <= 0 && !sessionStorage.getItem('oracle_token')) {
@@ -331,7 +332,7 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
         setAttachment(null);
 
         // ── Smart Mode: fire after Pro Oracle result ──────────────────────
-        if (pro && matchedNodes.length > 0 && onSmartResult) {
+        if (proTier && matchedNodes.length > 0 && onSmartResult) {
           const cap = isMobile ? 1 : 3;
           const smartNodes = smartRank(matchedNodes, finalQuery, cap);
           const smartCats = getMatchedCategories(smartNodes);
@@ -368,7 +369,7 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
     setTimeout(() => inputRef.current?.focus(), 50);
   }
 
-  const pro = isPro();
+  const pro = !!proTier; // reactive — updates immediately when server/Stripe sets tier
   const depleted = !pro && credits <= 0 && !sessionStorage.getItem('oracle_token');
   const accentColor = '#00aaff'; // Tesla blue for QueryEngine
   const deepAvailable = pro && matchedNodes.length > 0;
@@ -547,7 +548,7 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
         }}>
           {/* Paperclip — Institutional only */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0 }}>
-            {isInstitutional() ? (
+            {proTier === 'institutional' ? (
               <>
                 <button
                   title="Attach PDF or image"
