@@ -111,7 +111,10 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, i
   const [upgradeReason, setUpgradeReason] = useState('no_credits');
   const [upsellNodes, setUpsellNodes] = useState([]);
   const [showDeepUpsell, setShowDeepUpsell] = useState(false);
+  const [attachment, setAttachment] = useState(null);
+  const [attachError, setAttachError] = useState('');
   const inputRef = useRef(null);
+  const fileInputRef = useRef(null);
   const loadingIntervalRef = useRef(null);
   const searchTimeoutRef = useRef(null);
 
@@ -212,6 +215,23 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, i
 
   useEffect(() => () => stopLoading(), []);
 
+  // ── File attachment (Institutional only) ──────────────────────────────────
+  function handleFileChange(e) {
+    setAttachError('');
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const allowed = ['application/pdf', 'image/png', 'image/jpeg', 'image/gif', 'image/webp'];
+    if (!allowed.includes(file.type)) { setAttachError('Only PDF, PNG, JPG, GIF, WEBP supported.'); return; }
+    if (file.size > 10 * 1024 * 1024) { setAttachError('File must be under 10MB.'); return; }
+    const reader = new FileReader();
+    reader.onload = () => {
+      const base64 = reader.result.split(',')[1];
+      setAttachment({ name: file.name, base64, mediaType: file.type });
+    };
+    reader.readAsDataURL(file);
+    e.target.value = '';
+  }
+
   // ── Deep Mode upsell detection ─────────────────────────────────────────────
   // Fire upsell if: free user, matches 2+ nodes that could benefit from deep analysis
   function shouldUpsellDeep(matches) {
@@ -255,15 +275,27 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, i
 
       // Build node context for Deep Mode (RAG injection)
       const nodeCtx = deepMode ? buildNodeContext(matchedNodes) : '';
+      const queryText = nodeCtx ? `${nodeCtx} ${finalQuery}` : finalQuery;
+
+      // Build content array — text + optional attachment (Institutional)
+      const userContent = [];
+      if (attachment) {
+        if (attachment.mediaType === 'application/pdf') {
+          userContent.push({ type: 'document', source: { type: 'base64', media_type: 'application/pdf', data: attachment.base64 } });
+        } else {
+          userContent.push({ type: 'image', source: { type: 'base64', media_type: attachment.mediaType, data: attachment.base64 } });
+        }
+      }
+      userContent.push({ type: 'text', text: queryText });
 
       const res = await fetch('/api/oracle', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          query: nodeCtx ? `${nodeCtx} ${finalQuery}` : finalQuery,
+          query: queryText,
           fp: fingerprint,
           token,
-          content: [{ type: 'text', text: nodeCtx ? `${nodeCtx} ${finalQuery}` : finalQuery }],
+          content: userContent,
           whaleScale: {
             gauge_value: liveWhale.gauge_value,
             needle_status: liveWhale.needle_status,
@@ -275,6 +307,7 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, i
               : 'UNKNOWN',
           },
           deepMode,
+          freeTier: !pro,
         }),
       });
 
@@ -295,6 +328,7 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, i
         else { const next = decrementCredit(); setCredits(next); }
         setResult(data.result);
         setPhase('result');
+        setAttachment(null);
 
         // After result: show deep upsell if free + good matches
         if (!pro && shouldUpsellDeep(matchedNodes)) {
@@ -380,7 +414,7 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, i
             onClick={() => depleted && (setUpgradeReason('no_credits'), setShowUpgrade(true))}
             style={{
               fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase',
-              color: depleted ? '#e53935' : '#888',
+              color: depleted ? '#e53935' : '#ccc',
               padding: '2px 10px',
               border: `1px solid ${depleted ? '#e5393566' : '#2a2a2a'}`,
               background: depleted ? '#e5393511' : 'transparent',
@@ -449,7 +483,7 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, i
 
           {/* Right side: help icon */}
           <div style={{ marginLeft: 'auto', padding: '0 12px', flexShrink: 0 }}>
-            <span style={{ fontSize: '10px', color: '#333', letterSpacing: '1px' }}>
+            <span style={{ fontSize: '10px', color: pro ? accentColor : '#888', letterSpacing: '1px', fontWeight: 600 }}>
               {pro ? '⚡ Deep' : '△ Free'}
             </span>
           </div>
@@ -502,6 +536,56 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, i
           padding: '8px 12px',
           gap: '10px',
         }}>
+          {/* Paperclip — Institutional only */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0 }}>
+            {isInstitutional() ? (
+              <>
+                <button
+                  title="Attach PDF or image"
+                  onClick={() => fileInputRef.current?.click()}
+                  disabled={phase === 'loading'}
+                  style={{
+                    background: 'none', border: `1px solid ${attachment ? '#00ff8844' : '#1e2a3a'}`,
+                    color: attachment ? '#00ff88' : '#445', padding: '4px 10px', cursor: 'pointer',
+                    fontSize: '13px', display: 'flex', alignItems: 'center', gap: '5px',
+                    transition: 'border-color 0.2s, color 0.2s',
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = accentColor; e.currentTarget.style.color = accentColor; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = attachment ? '#00ff8844' : '#1e2a3a'; e.currentTarget.style.color = attachment ? '#00ff88' : '#445'; }}
+                >
+                  📎
+                  <span style={{ fontSize: '8px', letterSpacing: '1px', textTransform: 'uppercase', fontFamily: "'Space Grotesk', sans-serif", color: 'inherit' }}>
+                    {attachment ? 'Attached' : 'Attach'}
+                  </span>
+                </button>
+                <input ref={fileInputRef} type="file" accept=".pdf,image/png,image/jpeg,image/gif,image/webp" onChange={handleFileChange} style={{ display: 'none' }} />
+                {attachment && (
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    <span style={{ fontSize: '9px', color: '#00ff88', maxWidth: '120px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{attachment.name}</span>
+                    <button onClick={() => setAttachment(null)} style={{ background: 'none', border: 'none', color: '#555', cursor: 'pointer', fontSize: '11px', padding: '0 2px' }}>✕</button>
+                  </div>
+                )}
+                {attachError && <span style={{ fontSize: '9px', color: '#e53935' }}>{attachError}</span>}
+              </>
+            ) : (
+              <button
+                title="Document upload — Institutional tier only"
+                onClick={() => { setUpgradeReason('pdf_upload'); setShowUpgrade(true); }}
+                style={{
+                  background: 'none', border: '1px solid #111820',
+                  color: '#2a2a2a', padding: '4px 10px', cursor: 'pointer',
+                  fontSize: '13px', display: 'flex', alignItems: 'center', gap: '5px',
+                  transition: 'border-color 0.2s, color 0.2s',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = '#e5393544'; e.currentTarget.style.color = '#444'; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = '#111820'; e.currentTarget.style.color = '#2a2a2a'; }}
+              >
+                📎
+                <span style={{ fontSize: '8px', letterSpacing: '1px', textTransform: 'uppercase', fontFamily: "'Space Grotesk', sans-serif", color: 'inherit' }}>Inst.</span>
+              </button>
+            )}
+          </div>
+
           {/* Deep Mode indicator */}
           <div style={{ flex: 1, display: 'flex', alignItems: 'center', gap: '8px' }}>
             {deepAvailable && (
@@ -519,7 +603,7 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, i
               </div>
             )}
             {!deepAvailable && !depleted && (
-              <span style={{ fontSize: '9px', color: '#333', letterSpacing: '1px' }}>
+              <span style={{ fontSize: '9px', color: '#666', letterSpacing: '1px' }}>
                 {pro ? 'Type to search nodes...' : 'AI analysis · Powered by Roger'}
               </span>
             )}
@@ -575,16 +659,16 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, i
               onClick={() => setChip(c.id)}
               style={{
                 background: active ? (c.id === 'bull' ? '#00ff8818' : c.id === 'bear' ? '#e5393518' : `${accentColor}18`) : 'transparent',
-                border: `1px solid ${active ? (c.id === 'bull' ? '#00ff8866' : c.id === 'bear' ? '#e5393566' : `${accentColor}88`) : '#1e2a3a'}`,
-                color: active ? (c.id === 'bull' ? '#00ff88' : c.id === 'bear' ? '#e53935' : accentColor) : '#556',
+                border: `1px solid ${active ? (c.id === 'bull' ? '#00ff8866' : c.id === 'bear' ? '#e5393566' : `${accentColor}88`) : '#2a3545'}`,
+                color: active ? (c.id === 'bull' ? '#00ff88' : c.id === 'bear' ? '#e53935' : accentColor) : '#aab',
                 fontSize: '9px', letterSpacing: '1.5px', textTransform: 'uppercase',
                 padding: '4px 12px', cursor: 'pointer',
                 fontFamily: "'Space Grotesk', sans-serif",
                 transition: 'all 0.18s ease',
                 fontWeight: active ? 700 : 400,
               }}
-              onMouseEnter={e => { if (!active) { e.currentTarget.style.borderColor = `${accentColor}44`; e.currentTarget.style.color = '#aab'; }}}
-              onMouseLeave={e => { if (!active) { e.currentTarget.style.borderColor = '#1e2a3a'; e.currentTarget.style.color = '#556'; }}}
+              onMouseEnter={e => { if (!active) { e.currentTarget.style.borderColor = `${accentColor}88`; e.currentTarget.style.color = '#fff'; }}}
+              onMouseLeave={e => { if (!active) { e.currentTarget.style.borderColor = '#1e2a3a'; e.currentTarget.style.color = '#aab'; }}}
             >
               {c.label}
             </button>

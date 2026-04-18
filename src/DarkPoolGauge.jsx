@@ -5,20 +5,23 @@ import { useRemoteData } from './useRemoteData';
 const PREV_KEY = 'whale_prev_score';
 
 const CSS = `
-  /* Smooth sinusoidal vibration — CSS handles the oscillation, no React re-renders */
+  /* Smooth sinusoidal vibration — only translateX, never touches 'left' */
   @keyframes whaleVibrate {
-    0%   { transform: translateX(-50%) translateX(0px);    }
-    25%  { transform: translateX(-50%) translateX(-1.8px); }
-    50%  { transform: translateX(-50%) translateX(0px);    }
-    75%  { transform: translateX(-50%) translateX(1.8px);  }
-    100% { transform: translateX(-50%) translateX(0px);    }
+    0%   { transform: translateX(calc(-50% + 0px));    }
+    25%  { transform: translateX(calc(-50% - 1.6px)); }
+    50%  { transform: translateX(calc(-50% + 0px));    }
+    75%  { transform: translateX(calc(-50% + 1.6px));  }
+    100% { transform: translateX(calc(-50% + 0px));    }
   }
   @keyframes whaleAggressive {
-    0%   { transform: translateX(-50%) translateX(0px);   }
-    20%  { transform: translateX(-50%) translateX(-4px);  }
-    50%  { transform: translateX(-50%) translateX(4.5px); }
-    80%  { transform: translateX(-50%) translateX(-3px);  }
-    100% { transform: translateX(-50%) translateX(0px);   }
+    0%   { transform: translateX(calc(-50% + 0px));   }
+    20%  { transform: translateX(calc(-50% - 3.5px)); }
+    50%  { transform: translateX(calc(-50% + 4px));   }
+    80%  { transform: translateX(calc(-50% - 2.5px)); }
+    100% { transform: translateX(calc(-50% + 0px));   }
+  }
+  @keyframes needleCenter {
+    to { transform: translateX(-50%); }
   }
   @keyframes whaleFadeIn {
     from { opacity: 0; } to { opacity: 1; }
@@ -173,7 +176,8 @@ export default function DarkPoolGauge({ mobile = false }) {
           }} />
         )}
 
-        {/* Live needle — slides from prev to current, then oscillates */}
+        {/* Live needle — slides from prev to current via left transition,
+            then oscillates via translateX animation (separate properties = no conflict) */}
         <div style={{
           position: 'absolute',
           left: `${displayPct}%`,
@@ -181,10 +185,11 @@ export default function DarkPoolGauge({ mobile = false }) {
           width: '2px',
           background: needleColor,
           borderRadius: '1px',
-          transform: 'translateX(-50%)',
+          // translateX(-50%) centering is baked into the animation keyframes
           boxShadow: `0 0 5px 1px ${needleColor}99`,
           transition: animating ? 'left 1.4s cubic-bezier(0.22,1,0.36,1)' : 'none',
-          animation: needleAnim,
+          animation: needleAnim || 'needleCenter 0s linear forwards',
+          willChange: 'transform',
         }} />
       </div>
     );
@@ -265,15 +270,17 @@ function TooltipPanel({ calls, puts, pct, delta, showGhost, prevPct, needleColor
       transform: mobile ? 'none' : 'translateX(-50%)',
       right: mobile ? '0' : 'auto',
       marginTop: '8px',
-      background: '#080808',
-      border: '1px solid #202020',
+      background: '#0c0c0c',
+      border: '1px solid #2a2a2a',
       padding: '12px 14px',
+      backdropFilter: 'none',
+      WebkitBackdropFilter: 'none',
       width: mobile ? 'auto' : '265px',
       zIndex: 500,
       boxShadow: '0 8px 32px rgba(0,0,0,0.9)',
       animation: 'whaleFadeIn 0.18s ease',
     }}>
-      <div style={{ fontSize: '9px', color: '#666', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '10px' }}>
+      <div style={{ fontSize: '9px', color: '#aaa', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '10px' }}>
         🐳 Whale Scale — Dark Pool Flow
       </div>
 
@@ -281,7 +288,7 @@ function TooltipPanel({ calls, puts, pct, delta, showGhost, prevPct, needleColor
         {calls && puts && (
           <>
             <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: '8px', color: '#888', letterSpacing: '1px', marginBottom: '4px' }}>FLOW LEAN</div>
+              <div style={{ fontSize: '8px', color: '#aaa', letterSpacing: '1px', marginBottom: '4px' }}>FLOW LEAN</div>
               <div style={{ fontSize: '13px', fontWeight: 700, color: calls.count > puts.count ? '#00ff88' : '#ff4444' }}>
                 {calls.count > puts.count ? '▲ CALL HEAVY' : calls.count < puts.count ? '▼ PUT HEAVY' : '— NEUTRAL'}
               </div>
@@ -290,7 +297,7 @@ function TooltipPanel({ calls, puts, pct, delta, showGhost, prevPct, needleColor
           </>
         )}
         <div style={{ textAlign: 'center' }}>
-          <div style={{ fontSize: '8px', color: '#888', letterSpacing: '1px', marginBottom: '4px' }}>SCORE</div>
+          <div style={{ fontSize: '8px', color: '#aaa', letterSpacing: '1px', marginBottom: '4px' }}>SCORE</div>
           <div style={{ fontSize: '20px', fontWeight: 700, color: needleColor, letterSpacing: '-0.5px', lineHeight: 1 }}>{pct}</div>
           {showGhost && (
             <div style={{ fontSize: '9px', color: delta > 0 ? '#00ff88' : '#ff4444', fontWeight: 600, marginTop: '2px' }}>
@@ -305,7 +312,7 @@ function TooltipPanel({ calls, puts, pct, delta, showGhost, prevPct, needleColor
         <div style={{ fontSize: '7px', color: toneMode.color, letterSpacing: '2px', fontWeight: 700, marginBottom: '4px', textTransform: 'uppercase' }}>
           Roger · {toneMode.label}
         </div>
-        <div style={{ fontSize: '10px', color: '#bbb', lineHeight: 1.65 }}>{roger_insight}</div>
+        <div style={{ fontSize: '10px', color: '#ffffff', lineHeight: 1.65, textShadow: 'none', fontWeight: 400 }}>{roger_insight}</div>
       </div>
       <div style={{ fontSize: '8px', color: '#444', marginTop: '6px', textAlign: 'right' }}>Updated: {updated}</div>
     </div>

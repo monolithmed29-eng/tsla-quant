@@ -160,6 +160,12 @@ export default async (req, context) => {
     return new Response(JSON.stringify({ error: 'Oracle offline — API key not configured' }), { status: 503 });
   }
 
+  // Free tier gets truncated 2-phase response (no Quant Edge, no Trade)
+  const freeTier = body.freeTier && !isPro;
+  const activeSystem = freeTier
+    ? SYSTEM_PROMPT + `\n\nFREE TIER MODE: Respond with PHASE 1 and PHASE 2 only. Stop after Phase 2. Do not include Phase 3 (Quant Edge) or Phase 4 (The Trade). End with: "— Upgrade to Active Trader for full 4-phase analysis + Oracle Deep →"`
+    : SYSTEM_PROMPT;
+
   try {
     const res = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
@@ -170,8 +176,8 @@ export default async (req, context) => {
       },
       body: JSON.stringify({
         model: 'claude-sonnet-4-6',
-        max_tokens: 1200,
-        system: SYSTEM_PROMPT,
+        max_tokens: freeTier ? 600 : 1200,
+        system: activeSystem,
         messages: [{ role: 'user', content: userContent }],
       }),
     });
