@@ -82,11 +82,24 @@ export function getMatchedCategories(matchedNodes) {
  *
  * cap: max nodes to return (default 3 desktop, 1 mobile)
  */
+// High-signal investment keywords — broad thesis queries
+const BROAD_QUERY_SIGNALS = [
+  'invest', 'bull', 'bear', 'buy', 'sell', 'thesis', 'valuation', 'upside',
+  'potential', 'outlook', 'opinion', 'think', 'like', 'worth', 'future',
+  'long', 'short', 'bet', 'case', 'view', 'growth', 'target', 'price',
+  'overall', 'general', 'big picture', 'conviction',
+];
+
 export function smartRank(matchedNodes, rawQuery, cap = 3) {
-  const words = rawQuery.toLowerCase().trim().split(/\s+/).filter(w => w.length > 1);
+  const q = rawQuery.toLowerCase().trim();
+  const words = q.split(/\s+/).filter(w => w.length > 1);
+
+  // Detect broad/thesis queries — many words but no specific catalyst keywords
+  const isBroadQuery = words.length >= 4 &&
+    BROAD_QUERY_SIGNALS.some(sig => q.includes(sig));
 
   const scored = matchedNodes.map(node => {
-    // Match strength
+    // Match strength — how well query words hit node corpus
     const corpus = [node.label, node.id.replace(/_/g, ' '), node.category,
       ...(CATEGORY_KEYWORDS[node.category] || [])].join(' ').toLowerCase();
     const matchStrength = words.length
@@ -94,7 +107,7 @@ export function smartRank(matchedNodes, rawQuery, cap = 3) {
       : 0.5;
 
     // Price weight (already 0–1)
-    const priceWeight = Math.min(1, (node.weight || 0) * 3); // scale: 0.15 weight → 0.45
+    const priceWeight = Math.min(1, (node.weight || 0) * 3);
 
     // Recency score
     let recencyScore = 0.1;
@@ -103,10 +116,17 @@ export function smartRank(matchedNodes, rawQuery, cap = 3) {
       recencyScore = days <= 1 ? 1.0 : days <= 7 ? 0.8 : days <= 30 ? 0.5 : days <= 90 ? 0.2 : 0.05;
     }
 
-    // Likelihood bonus — higher likelihood = more investable
+    // Likelihood bonus
     const likelihoodBonus = (node.likelihood || 0.5) * 0.1;
 
-    const total = matchStrength * 0.45 + priceWeight * 0.3 + recencyScore * 0.15 + likelihoodBonus;
+    // Conviction score — pure thesis signal (likelihood × price impact)
+    const convictionScore = (node.likelihood || 0.5) * Math.min(1, (node.weight || 0) * 4);
+
+    // Broad query → conviction dominates; specific query → match strength dominates
+    const total = isBroadQuery
+      ? convictionScore * 0.55 + priceWeight * 0.25 + recencyScore * 0.15 + matchStrength * 0.05
+      : matchStrength * 0.45 + priceWeight * 0.30 + recencyScore * 0.15 + likelihoodBonus;
+
     return { node, score: total };
   });
 
