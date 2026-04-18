@@ -274,8 +274,9 @@ export default function App() {
   const [searchHighlightCats, setSearchHighlightCats] = useState(null);
   const [smartMode, setSmartMode] = useState(false);
   const [smartBadge, setSmartBadge] = useState(null);
-  // Explicit expand trigger — increment to force ProgressiveGraph to re-run expansion
-  // regardless of whether highlightedCategories reference changed
+  // smartExpandCats is ONLY set here — never touched by typing/search
+  // so ProgressiveGraph always gets a fresh reference when smart mode fires
+  const [smartExpandCats, setSmartExpandCats] = useState(null);
   const [smartExpandTrigger, setSmartExpandTrigger] = useState(0);
 
   function handleSmartResult(ids, cats, badge) {
@@ -284,7 +285,8 @@ export default function App() {
     setSearchHighlightCats(cats);
     setSmartMode(true);
     setSmartBadge(badge);
-    setSmartExpandTrigger(t => t + 1); // guaranteed new value → effect always fires
+    setSmartExpandCats(cats);                  // dedicated — never stale
+    setSmartExpandTrigger(t => t + 1);
   }
 
   function exitSmartMode(goFull = false) {
@@ -599,6 +601,7 @@ export default function App() {
           highlightedCategories={searchHighlightCats}
           smartMode={smartMode}
           smartBadge={smartBadge}
+          smartExpandCats={smartExpandCats}
           smartExpandTrigger={smartExpandTrigger}
           onExitSmart={() => exitSmartMode(true)}
         />
