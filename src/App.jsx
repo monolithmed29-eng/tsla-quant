@@ -162,26 +162,14 @@ function MobileOracleFAB({ onShowDisclaimer, onShowToS, onShowRefund }) {
   );
 }
 
-// ── QueryEngineHeader: Desktop dropdown shell wrapping QueryEngine ────────────
-function QueryEngineHeader({ catalysts, onGraphSearch, onClearSearch, onSmartResult }) {
-  const [open, setOpen] = useState(false);
-  const ref = useRef(null);
+const PANEL_WIDTH = 420;
 
-  useEffect(() => {
-    if (!open) return;
-    function handleClick(e) {
-      if (e.target.closest('[data-upgrade-modal]')) return;
-      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
-    }
-    document.addEventListener('mousedown', handleClick);
-    return () => document.removeEventListener('mousedown', handleClick);
-  }, [open]);
-
+// ── QueryEngineHeader: header button only — panel lives at root level ─────────
+function QueryEngineHeader({ open, onToggle }) {
   return (
-    <div ref={ref} style={{ position: 'relative', fontFamily: "'Space Grotesk', sans-serif", display: 'flex', alignItems: 'center', gap: 0 }}>
-      {/* Header button */}
+    <div style={{ display: 'flex', alignItems: 'center', gap: 0, fontFamily: "'Space Grotesk', sans-serif" }}>
       <button
-        onClick={() => setOpen(o => !o)}
+        onClick={onToggle}
         style={{
           background: open ? 'rgba(0,170,255,0.10)' : 'transparent',
           border: `1px solid ${open ? '#00aaff' : '#1e2a3a'}`,
@@ -201,44 +189,69 @@ function QueryEngineHeader({ catalysts, onGraphSearch, onClearSearch, onSmartRes
         <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#00aaff', display: 'inline-block', flexShrink: 0, boxShadow: '0 0 8px 3px rgba(0,170,255,0.6)' }} />
         Query Engine
       </button>
-
-      {/* Stub search bar */}
       <div
-        onClick={() => setOpen(true)}
+        onClick={onToggle}
         style={{
           display: 'flex', alignItems: 'center', gap: '6px',
           background: '#060a10',
           border: `1px solid ${open ? '#00aaff' : '#1e2a3a'}`,
           padding: '5px 12px', cursor: 'text',
           transition: 'border-color 0.2s',
-          minWidth: '200px',
+          minWidth: '180px',
         }}
         onMouseEnter={e => { e.currentTarget.style.borderColor = '#00aaff'; }}
         onMouseLeave={e => { if (!open) e.currentTarget.style.borderColor = '#1e2a3a'; }}
       >
         <span style={{ color: '#00aaff', fontSize: '10px', letterSpacing: '1px', userSelect: 'none', whiteSpace: 'nowrap' }}>ROGER@TSLAQUANT:~$</span>
-        <span style={{ color: '#334', fontSize: '11px', userSelect: 'none' }}>Search catalysts or ask Roger...</span>
+        <span style={{ color: '#334', fontSize: '11px', userSelect: 'none' }}>{open ? 'panel open →' : 'ask Roger...'}</span>
       </div>
+    </div>
+  );
+}
 
-      {/* Dropdown */}
-      {open && (
+// ── QueryEnginePanel: full-height right-side slide-in panel ───────────────────
+function QueryEnginePanel({ open, onClose, catalysts, onGraphSearch, onClearSearch, onSmartResult }) {
+  return (
+    <>
+      <style>{`
+        @keyframes slideInRight { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+        @keyframes slideOutRight { from { transform: translateX(0); opacity: 1; } to { transform: translateX(100%); opacity: 0; } }
+      `}</style>
+      <div style={{
+        position: 'fixed',
+        top: 0, right: 0, bottom: 0,
+        width: `${PANEL_WIDTH}px`,
+        zIndex: 9999,
+        background: 'rgb(2,5,10)',
+        borderLeft: `1px solid ${open ? '#00aaff44' : '#1e2a3a'}`,
+        display: 'flex',
+        flexDirection: 'column',
+        transform: open ? 'translateX(0)' : `translateX(100%)`,
+        transition: 'transform 0.28s cubic-bezier(0.4,0,0.2,1), border-color 0.2s',
+        boxShadow: open ? '-8px 0 40px rgba(0,170,255,0.08), -2px 0 12px rgba(0,0,0,0.6)' : 'none',
+        pointerEvents: open ? 'all' : 'none',
+      }}>
+        {/* Panel header */}
         <div style={{
-          position: 'absolute',
-          top: 'calc(100% + 8px)',
-          left: 0,
-          width: '860px',
-          maxWidth: '90vw',
-          maxHeight: 'calc(100vh - 120px)',
-          overflowY: 'auto',
-          background: 'rgb(2,5,10)',
-          border: '1px solid #1e2a3a',
-          borderTop: `2px solid #00aaff`,
-          padding: '24px 28px 20px',
-          zIndex: 9999,
-          boxShadow: '0 20px 60px rgba(0,0,0,0.95), 0 0 40px rgba(0,170,255,0.06)',
-          animation: 'fadeInDown 0.2s ease',
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          padding: '12px 16px',
+          borderBottom: '1px solid #111',
+          background: 'rgba(0,170,255,0.04)',
+          flexShrink: 0,
         }}>
-          <style>{`@keyframes fadeInDown { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }`}</style>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#00aaff', display: 'inline-block', boxShadow: '0 0 8px 3px rgba(0,170,255,0.6)' }} />
+            <span style={{ fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', color: '#00aaff', fontWeight: 700, fontFamily: "'Space Grotesk', sans-serif" }}>Query Engine</span>
+          </div>
+          <button
+            onClick={onClose}
+            style={{ background: 'none', border: '1px solid #1e2a3a', color: '#555', fontSize: '14px', cursor: 'pointer', padding: '2px 8px', lineHeight: 1.4, transition: 'all 0.15s' }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = '#555'; e.currentTarget.style.color = '#aaa'; }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = '#1e2a3a'; e.currentTarget.style.color = '#555'; }}
+          >✕</button>
+        </div>
+        {/* QueryEngine fills remaining height */}
+        <div style={{ flex: 1, overflowY: 'auto', padding: '20px 16px 24px' }}>
           <QueryEngine
             catalysts={catalysts}
             onGraphSearch={onGraphSearch}
@@ -246,8 +259,8 @@ function QueryEngineHeader({ catalysts, onGraphSearch, onClearSearch, onSmartRes
             onSmartResult={onSmartResult}
           />
         </div>
-      )}
-    </div>
+      </div>
+    </>
   );
 }
 
@@ -274,6 +287,7 @@ export default function App() {
   const [smartMode, setSmartMode] = useState(false);
   const [smartBadge, setSmartBadge] = useState(null);
   const graphRef = useRef(null);
+  const [queryPanelOpen, setQueryPanelOpen] = useState(false);
 
   function handleSmartResult(ids, cats, badge) {
     setExpandAll(false);
@@ -373,6 +387,24 @@ export default function App() {
             onMouseEnter={e => e.target.style.color = '#999'}
             onMouseLeave={e => e.target.style.color = '#555'}
           >Disclaimer</button>
+          <span style={{ color: '#444', fontSize: '10px' }}>·</span>
+          <a
+            href="https://x.com/RogerTSLAquant"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'flex', alignItems: 'center', gap: '5px',
+              color: '#555', fontSize: '10px', letterSpacing: '1.5px',
+              textTransform: 'uppercase', textDecoration: 'none',
+              transition: 'color 0.15s',
+              fontFamily: "'Space Grotesk', sans-serif",
+            }}
+            onMouseEnter={e => e.currentTarget.style.color = '#1d9bf0'}
+            onMouseLeave={e => e.currentTarget.style.color = '#555'}
+          >
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.261 5.636 5.902-5.636zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            @RogerTSLAquant
+          </a>
         </div>
       )}
 
@@ -444,10 +476,8 @@ export default function App() {
             </div>
             <div style={{ width: '1px', height: '32px', background: '#222' }} />
             <QueryEngineHeader
-              catalysts={catalysts}
-              onGraphSearch={(ids, cats) => { setSearchHighlightIds(ids); setSearchHighlightCats(cats); }}
-              onClearSearch={() => { setSearchHighlightIds(null); setSearchHighlightCats(null); setSmartMode(false); setSmartBadge(null); }}
-              onSmartResult={handleSmartResult}
+              open={queryPanelOpen}
+              onToggle={() => setQueryPanelOpen(o => !o)}
             />
             <div style={{ width: '1px', height: '32px', background: '#222' }} />
             <button onClick={() => setShowHowTo(true)} style={{ background: 'none', border: '1px solid #555', color: '#ccc', fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', padding: '5px 14px', cursor: 'pointer', fontFamily: "'Space Grotesk', sans-serif", transition: 'all 0.2s ease' }} onMouseEnter={e => { e.currentTarget.style.borderColor = '#aaa'; e.currentTarget.style.color = '#fff'; }} onMouseLeave={e => { e.currentTarget.style.borderColor = '#555'; e.currentTarget.style.color = '#ccc'; }}>ⓘ Info</button>
@@ -583,6 +613,8 @@ export default function App() {
         inset: 0,
         paddingTop: isMobile ? '90px' : '99px',
         paddingBottom: isMobile ? '0' : '56px',
+        paddingRight: (!isMobile && queryPanelOpen) ? `${PANEL_WIDTH}px` : '0',
+        transition: 'padding-right 0.28s cubic-bezier(0.4,0,0.2,1)',
         zIndex: 1,
       }}>
         <ProgressiveGraph
@@ -610,6 +642,18 @@ export default function App() {
 
       {/* Mobile: Oracle FAB (centered bottom) */}
       {isMobile && !selected && <MobileOracleFAB onShowDisclaimer={() => setShowDisclaimer(true)} onShowToS={() => setShowToS(true)} onShowRefund={() => setShowRefund(true)} />}
+
+      {/* Desktop: Query Engine right-side panel */}
+      {!isMobile && (
+        <QueryEnginePanel
+          open={queryPanelOpen}
+          onClose={() => setQueryPanelOpen(false)}
+          catalysts={catalysts}
+          onGraphSearch={(ids, cats) => { setSearchHighlightIds(ids); setSearchHighlightCats(cats); }}
+          onClearSearch={() => { setSearchHighlightIds(null); setSearchHighlightCats(null); setSmartMode(false); setSmartBadge(null); }}
+          onSmartResult={handleSmartResult}
+        />
+      )}
 
 
 
