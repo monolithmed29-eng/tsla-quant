@@ -72,6 +72,66 @@ export function getMatchedCategories(matchedNodes) {
 }
 
 /**
+ * smartRank — scores each matched node on 3 axes and returns top N.
+ *
+ * Score = (matchStrength × 0.5) + (priceWeight × 0.3) + (recencyScore × 0.2)
+ *
+ * matchStrength: passed in from searchCatalysts (0–1, fraction of words matched)
+ * priceWeight:   node.weight (already 0–1 range, represents model price contribution)
+ * recencyScore:  1.0 if updated in last 7d, decays to 0 over 90d
+ *
+ * cap: max nodes to return (default 3 desktop, 1 mobile)
+ */
+export function smartRank(matchedNodes, rawQuery, cap = 3) {
+  const words = rawQuery.toLowerCase().trim().split(/\s+/).filter(w => w.length > 1);
+
+  const scored = matchedNodes.map(node => {
+    // Match strength
+    const corpus = [node.label, node.id.replace(/_/g, ' '), node.category,
+      ...(CATEGORY_KEYWORDS[node.category] || [])].join(' ').toLowerCase();
+    const matchStrength = words.length
+      ? words.reduce((acc, w) => acc + (corpus.includes(w) ? 1 : 0), 0) / words.length
+      : 0.5;
+
+    // Price weight (already 0–1)
+    const priceWeight = Math.min(1, (node.weight || 0) * 3); // scale: 0.15 weight → 0.45
+
+    // Recency score
+    let recencyScore = 0.1;
+    if (node.updated) {
+      const days = (Date.now() - new Date(node.updated).getTime()) / 86400000;
+      recencyScore = days <= 1 ? 1.0 : days <= 7 ? 0.8 : days <= 30 ? 0.5 : days <= 90 ? 0.2 : 0.05;
+    }
+
+    // Likelihood bonus — higher likelihood = more investable
+    const likelihoodBonus = (node.likelihood || 0.5) * 0.1;
+
+    const total = matchStrength * 0.45 + priceWeight * 0.3 + recencyScore * 0.15 + likelihoodBonus;
+    return { node, score: total };
+  });
+
+  return scored
+    .sort((a, b) => b.score - a.score)
+    .slice(0, cap)
+    .map(s => s.node);
+}
+
+/**
+ * Build a human-readable smart mode badge description.
+ * e.g. "3 catalysts · Autonomy + Robotics"
+ */
+export function buildSmartBadge(smartNodes) {
+  const cats = [...new Set(smartNodes.map(n => n.category))];
+  const catLabels = {
+    autonomy: 'Autonomy', robotics: 'Robotics / AI', financials: 'Financials',
+    product: 'Product', manufacturing: 'Manufacturing', energy: 'Energy',
+    corporate: 'Corporate', spacex: 'SpaceX',
+  };
+  const catStr = cats.slice(0, 3).map(c => catLabels[c] || c).join(' + ');
+  return `${smartNodes.length} catalyst${smartNodes.length !== 1 ? 's' : ''} · ${catStr}`;
+}
+
+/**
  * Builds a compact structured context block for Oracle Deep (RAG injection).
  * Fed into the oracle prompt as additional grounded context.
  */

@@ -137,7 +137,7 @@ function buildVisibleLinks(expandedSet, catalysts, links) {
 }
 
 // ─── Component ────────────────────────────────────────────────────────────────
-export default function ProgressiveGraph({ catalysts, links, onNodeClick, expandAll, onAllExpanded, isMobile = false, highlightedIds = null, highlightedCategories = null }) {
+export default function ProgressiveGraph({ catalysts, links, onNodeClick, expandAll, onAllExpanded, isMobile = false, highlightedIds = null, highlightedCategories = null, smartMode = false, smartBadge = null, onExitSmart = null }) {
   const canvasRef   = useRef(null);
   const simRef      = useRef(null);
   const rafRef      = useRef(null);
@@ -609,6 +609,57 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
         onClick={handleClick}
         onTouchEnd={handleTouchEnd}
       />
+
+      {/* Smart Mode Badge */}
+      {smartMode && smartBadge && (
+        <div style={{
+          position: 'absolute',
+          top: isMobile ? 8 : 12,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '8px',
+          background: 'rgba(0,170,255,0.10)',
+          border: '1px solid rgba(0,170,255,0.4)',
+          padding: '5px 14px',
+          fontFamily: "'Space Grotesk', sans-serif",
+          pointerEvents: 'auto',
+          whiteSpace: 'nowrap',
+          zIndex: 10,
+          backdropFilter: 'blur(6px)',
+          animation: 'smartBadgeFadeIn 0.4s ease',
+        }}>
+          <style>{`
+            @keyframes smartBadgeFadeIn {
+              from { opacity: 0; transform: translateX(-50%) translateY(-6px); }
+              to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+            }
+            @keyframes smartDot {
+              0%,100% { opacity: 1; } 50% { opacity: 0.4; }
+            }
+          `}</style>
+          <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#00aaff', display: 'inline-block', animation: 'smartDot 1.8s ease-in-out infinite', boxShadow: '0 0 6px 2px rgba(0,170,255,0.7)' }} />
+          <span style={{ fontSize: '9px', color: '#00aaff', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: 700 }}>
+            ⚡ Smart Mode · {smartBadge}
+          </span>
+          {onExitSmart && (
+            <button
+              onClick={onExitSmart}
+              style={{
+                background: 'none', border: '1px solid rgba(0,170,255,0.3)', color: 'rgba(0,170,255,0.7)',
+                fontSize: '8px', letterSpacing: '1.5px', textTransform: 'uppercase',
+                padding: '2px 8px', cursor: 'pointer', fontFamily: "'Space Grotesk', sans-serif",
+                marginLeft: '4px', transition: 'border-color 0.2s, color 0.2s',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = '#00aaff'; e.currentTarget.style.color = '#00aaff'; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(0,170,255,0.3)'; e.currentTarget.style.color = 'rgba(0,170,255,0.7)'; }}
+            >
+              Full Network ↗
+            </button>
+          )}
+        </div>
+      )}
 
       {/* Hint */}
       {!allExpanded && !expandAll && !anyExpanded && (

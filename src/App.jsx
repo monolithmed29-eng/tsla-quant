@@ -163,7 +163,7 @@ function MobileOracleFAB({ onShowDisclaimer, onShowToS, onShowRefund }) {
 }
 
 // ── QueryEngineHeader: Desktop dropdown shell wrapping QueryEngine ────────────
-function QueryEngineHeader({ catalysts, onGraphSearch, onClearSearch }) {
+function QueryEngineHeader({ catalysts, onGraphSearch, onClearSearch, onSmartResult }) {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
 
@@ -244,6 +244,7 @@ function QueryEngineHeader({ catalysts, onGraphSearch, onClearSearch }) {
             catalysts={catalysts}
             onGraphSearch={onGraphSearch}
             onClearSearch={onClearSearch}
+            onSmartResult={onSmartResult}
           />
         </div>
       )}
@@ -271,6 +272,28 @@ export default function App() {
   const [graphKey, setGraphKey] = useState(0);
   const [searchHighlightIds, setSearchHighlightIds] = useState(null);
   const [searchHighlightCats, setSearchHighlightCats] = useState(null);
+  const [smartMode, setSmartMode] = useState(false);
+  const [smartBadge, setSmartBadge] = useState(null);
+  const [prevWasFullNetwork, setPrevWasFullNetwork] = useState(false);
+
+  function handleSmartResult(ids, cats, badge) {
+    // If already in Full Network, note that so we can offer to switch
+    setPrevWasFullNetwork(expandAll);
+    // Exit Full Network — smart mode uses selective expand
+    setExpandAll(false);
+    setSearchHighlightIds(ids);
+    setSearchHighlightCats(cats);
+    setSmartMode(true);
+    setSmartBadge(badge);
+  }
+
+  function exitSmartMode(goFull = false) {
+    setSmartMode(false);
+    setSmartBadge(null);
+    setSearchHighlightIds(null);
+    setSearchHighlightCats(null);
+    if (goFull) setExpandAll(true);
+  }
   const { price: tslaPrice, lastUpdated, marketOpen } = useTSLAPrice();
 
   const luminescenceLevels = [
@@ -385,15 +408,15 @@ export default function App() {
             }}>
               {/* Overview segment */}
               <button
-                onClick={() => { if (expandAll) { setExpandAll(false); setGraphKey(k => k + 1); } }}
+                onClick={() => { if (expandAll) { setExpandAll(false); setGraphKey(k => k + 1); } exitSmartMode(false); }}
                 style={{
-                  background: !expandAll ? 'rgba(0,255,136,0.15)' : 'transparent',
+                  background: (!expandAll && !smartMode) ? 'rgba(0,255,136,0.15)' : 'transparent',
                   border: 'none',
                   borderRight: '1px solid #333',
-                  color: !expandAll ? '#00ff88' : '#555',
-                  boxShadow: !expandAll ? 'inset 0 0 12px rgba(0,255,136,0.15)' : 'none',
+                  color: (!expandAll && !smartMode) ? '#00ff88' : smartMode ? '#334' : '#555',
+                  boxShadow: (!expandAll && !smartMode) ? 'inset 0 0 12px rgba(0,255,136,0.15)' : 'none',
                   fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase',
-                  padding: '5px 14px', cursor: expandAll ? 'pointer' : 'default',
+                  padding: '5px 14px', cursor: (expandAll || smartMode) ? 'pointer' : 'default',
                   fontFamily: "'Space Grotesk', sans-serif",
                   display: 'flex', alignItems: 'center', gap: '6px',
                   transition: 'all 0.25s ease',
@@ -404,14 +427,14 @@ export default function App() {
               </button>
               {/* Full Network segment */}
               <button
-                onClick={() => { if (!expandAll) { setExpandAll(true); } }}
+                onClick={() => { if (!expandAll) { setExpandAll(true); } exitSmartMode(false); }}
                 style={{
-                  background: expandAll ? 'rgba(0,255,136,0.15)' : 'transparent',
+                  background: (expandAll && !smartMode) ? 'rgba(0,255,136,0.15)' : 'transparent',
                   border: 'none',
-                  color: expandAll ? '#00ff88' : '#555',
-                  boxShadow: expandAll ? 'inset 0 0 12px rgba(0,255,136,0.15)' : 'none',
+                  color: (expandAll && !smartMode) ? '#00ff88' : smartMode ? '#334' : '#555',
+                  boxShadow: (expandAll && !smartMode) ? 'inset 0 0 12px rgba(0,255,136,0.15)' : 'none',
                   fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase',
-                  padding: '5px 14px', cursor: !expandAll ? 'pointer' : 'default',
+                  padding: '5px 14px', cursor: (!expandAll || smartMode) ? 'pointer' : 'default',
                   fontFamily: "'Space Grotesk', sans-serif",
                   display: 'flex', alignItems: 'center', gap: '6px',
                   transition: 'all 0.25s ease',
@@ -425,7 +448,8 @@ export default function App() {
             <QueryEngineHeader
               catalysts={catalysts}
               onGraphSearch={(ids, cats) => { setSearchHighlightIds(ids); setSearchHighlightCats(cats); }}
-              onClearSearch={() => { setSearchHighlightIds(null); setSearchHighlightCats(null); }}
+              onClearSearch={() => { setSearchHighlightIds(null); setSearchHighlightCats(null); setSmartMode(false); setSmartBadge(null); }}
+              onSmartResult={handleSmartResult}
             />
             <div style={{ width: '1px', height: '32px', background: '#222' }} />
             <button onClick={() => setShowHowTo(true)} style={{ background: 'none', border: '1px solid #555', color: '#ccc', fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', padding: '5px 14px', cursor: 'pointer', fontFamily: "'Space Grotesk', sans-serif", transition: 'all 0.2s ease' }} onMouseEnter={e => { e.currentTarget.style.borderColor = '#aaa'; e.currentTarget.style.color = '#fff'; }} onMouseLeave={e => { e.currentTarget.style.borderColor = '#555'; e.currentTarget.style.color = '#ccc'; }}>ⓘ Info</button>
@@ -573,6 +597,9 @@ export default function App() {
           isMobile={isMobile}
           highlightedIds={searchHighlightIds}
           highlightedCategories={searchHighlightCats}
+          smartMode={smartMode}
+          smartBadge={smartBadge}
+          onExitSmart={() => exitSmartMode(true)}
         />
       </div>
 

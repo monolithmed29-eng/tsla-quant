@@ -12,7 +12,7 @@
  */
 
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { searchCatalysts, getMatchedCategories, buildNodeContext } from './useNodeSearch';
+import { searchCatalysts, getMatchedCategories, buildNodeContext, smartRank, buildSmartBadge } from './useNodeSearch';
 import { getCredits, decrementCredit, isPro, isInstitutional, addCredits, setProStatus, getCreditSig } from './creditManager';
 import { getFingerprint } from './fingerprint';
 import UpgradeModal from './UpgradeModal';
@@ -96,7 +96,7 @@ const CSS_ANIMATIONS = `
 
 // ── Main Component ────────────────────────────────────────────────────────────
 
-export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, isMobile = false }) {
+export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, onSmartResult, isMobile = false }) {
   const [query, setQuery] = useState('');
   const [chip, setChip] = useState('all');
   const [phase, setPhase] = useState('idle'); // idle | searching | loading | result
@@ -329,6 +329,15 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, i
         setResult(data.result);
         setPhase('result');
         setAttachment(null);
+
+        // ── Smart Mode: fire after Pro Oracle result ──────────────────────
+        if (pro && matchedNodes.length > 0 && onSmartResult) {
+          const cap = isMobile ? 1 : 3;
+          const smartNodes = smartRank(matchedNodes, finalQuery, cap);
+          const smartCats = getMatchedCategories(smartNodes);
+          const badge = buildSmartBadge(smartNodes);
+          onSmartResult(smartNodes.map(n => n.id), smartCats, badge);
+        }
 
         // After result: show deep upsell if free + good matches
         if (!pro && shouldUpsellDeep(matchedNodes)) {
