@@ -3,8 +3,7 @@ import Panel from './Panel';
 import BreakingNews from './BreakingNews';
 import PriceModal from './PriceModal';
 import ProgressiveGraph from './ProgressiveGraph';
-import OracleSearch from './OracleSearch';
-import OracleCommandCenter from './OracleCommandCenter';
+import QueryEngine from './QueryEngine';
 import DarkPoolGauge from './DarkPoolGauge';
 import { catalysts, links } from './data';
 import { calcPredictedPrice, calcPriceBreakdown } from './priceModel';
@@ -149,12 +148,106 @@ function MobileOracleFAB({ onShowDisclaimer, onShowToS, onShowRefund }) {
               <button onClick={() => setOpen(false)} style={{ background: 'none', border: 'none', color: '#666', fontSize: '18px', cursor: 'pointer', padding: '4px 8px' }}>✕</button>
             </div>
             <div style={{ padding: '16px 12px 0' }}>
-              <OracleSearch />
+              <QueryEngine
+                catalysts={catalysts}
+                onGraphSearch={() => {}}
+                onClearSearch={() => {}}
+                isMobile={true}
+              />
             </div>
           </div>
         </div>
       )}
     </>
+  );
+}
+
+// ── QueryEngineHeader: Desktop dropdown shell wrapping QueryEngine ────────────
+function QueryEngineHeader({ catalysts, onGraphSearch, onClearSearch }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    if (!open) return;
+    function handleClick(e) {
+      if (e.target.closest('[data-upgrade-modal]')) return;
+      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+    }
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, [open]);
+
+  return (
+    <div ref={ref} style={{ position: 'relative', fontFamily: "'Space Grotesk', sans-serif", display: 'flex', alignItems: 'center', gap: 0 }}>
+      {/* Header button */}
+      <button
+        onClick={() => setOpen(o => !o)}
+        style={{
+          background: open ? 'rgba(0,170,255,0.10)' : 'transparent',
+          border: `1px solid ${open ? '#00aaff' : '#1e2a3a'}`,
+          borderRight: 'none',
+          color: '#00aaff',
+          fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase',
+          padding: '5px 14px', cursor: 'pointer',
+          fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700,
+          display: 'flex', alignItems: 'center', gap: '8px',
+          transition: 'all 0.2s ease',
+          boxShadow: open ? '0 0 12px rgba(0,170,255,0.25)' : 'none',
+          whiteSpace: 'nowrap',
+        }}
+        onMouseEnter={e => { e.currentTarget.style.borderColor = '#00aaff'; e.currentTarget.style.background = 'rgba(0,170,255,0.08)'; }}
+        onMouseLeave={e => { if (!open) { e.currentTarget.style.borderColor = '#1e2a3a'; e.currentTarget.style.background = 'transparent'; } }}
+      >
+        <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#00aaff', display: 'inline-block', flexShrink: 0, boxShadow: '0 0 8px 3px rgba(0,170,255,0.6)' }} />
+        Query Engine
+      </button>
+
+      {/* Stub search bar */}
+      <div
+        onClick={() => setOpen(true)}
+        style={{
+          display: 'flex', alignItems: 'center', gap: '6px',
+          background: '#060a10',
+          border: `1px solid ${open ? '#00aaff' : '#1e2a3a'}`,
+          padding: '5px 12px', cursor: 'text',
+          transition: 'border-color 0.2s',
+          minWidth: '200px',
+        }}
+        onMouseEnter={e => { e.currentTarget.style.borderColor = '#00aaff'; }}
+        onMouseLeave={e => { if (!open) e.currentTarget.style.borderColor = '#1e2a3a'; }}
+      >
+        <span style={{ color: '#00aaff', fontSize: '10px', letterSpacing: '1px', userSelect: 'none', whiteSpace: 'nowrap' }}>ROGER@TSLAQUANT:~$</span>
+        <span style={{ color: '#334', fontSize: '11px', userSelect: 'none' }}>Search catalysts or ask Roger...</span>
+      </div>
+
+      {/* Dropdown */}
+      {open && (
+        <div style={{
+          position: 'absolute',
+          top: 'calc(100% + 8px)',
+          left: 0,
+          width: '860px',
+          maxWidth: '90vw',
+          maxHeight: 'calc(100vh - 120px)',
+          overflowY: 'auto',
+          background: 'rgba(2,5,10,1.0)',
+          border: '1px solid #1e2a3a',
+          borderTop: `2px solid #00aaff`,
+          padding: '24px 28px 20px',
+          zIndex: 500,
+          backdropFilter: 'blur(16px)',
+          boxShadow: '0 20px 60px rgba(0,0,0,0.85), 0 0 40px rgba(0,170,255,0.06)',
+          animation: 'fadeInDown 0.2s ease',
+        }}>
+          <style>{`@keyframes fadeInDown { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }`}</style>
+          <QueryEngine
+            catalysts={catalysts}
+            onGraphSearch={onGraphSearch}
+            onClearSearch={onClearSearch}
+          />
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -176,6 +269,8 @@ export default function App() {
   const [showRefund, setShowRefund] = useState(false);
   const [expandAll, setExpandAll] = useState(false);
   const [graphKey, setGraphKey] = useState(0);
+  const [searchHighlightIds, setSearchHighlightIds] = useState(null);
+  const [searchHighlightCats, setSearchHighlightCats] = useState(null);
   const { price: tslaPrice, lastUpdated, marketOpen } = useTSLAPrice();
 
   const luminescenceLevels = [
@@ -283,27 +378,60 @@ export default function App() {
             </div>
           </div>
           <div style={{ display: 'flex', gap: '32px', alignItems: 'center', fontSize: '13px' }}>
-            <button
-              onClick={() => { const next = !expandAll; setExpandAll(next); if (!next) setGraphKey(k => k + 1); }}
-              style={{
-                background: 'rgba(0,255,136,0.12)', border: '1px solid #00ff88', color: '#00ff88',
-                boxShadow: '0 0 10px rgba(0,255,136,0.45), 0 0 20px rgba(0,255,136,0.2)',
-                fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase',
-                padding: '5px 14px', cursor: 'pointer', fontFamily: "'Space Grotesk', sans-serif",
-                transition: 'all 0.3s ease', display: 'flex', alignItems: 'center', gap: '7px',
-              }}
-            >
-              <span style={{ fontSize: '12px' }}>{!expandAll ? '⬡' : '◉'}</span>
-              {!expandAll ? 'Full Network' : 'Overview'}
-            </button>
+            <div style={{
+              display: 'flex', alignItems: 'center',
+              border: '1px solid #333', borderRadius: '4px',
+              overflow: 'hidden', fontFamily: "'Space Grotesk', sans-serif",
+            }}>
+              {/* Overview segment */}
+              <button
+                onClick={() => { if (expandAll) { setExpandAll(false); setGraphKey(k => k + 1); } }}
+                style={{
+                  background: !expandAll ? 'rgba(0,255,136,0.15)' : 'transparent',
+                  border: 'none',
+                  borderRight: '1px solid #333',
+                  color: !expandAll ? '#00ff88' : '#555',
+                  boxShadow: !expandAll ? 'inset 0 0 12px rgba(0,255,136,0.15)' : 'none',
+                  fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase',
+                  padding: '5px 14px', cursor: expandAll ? 'pointer' : 'default',
+                  fontFamily: "'Space Grotesk', sans-serif",
+                  display: 'flex', alignItems: 'center', gap: '6px',
+                  transition: 'all 0.25s ease',
+                }}
+              >
+                <span style={{ fontSize: '12px' }}>◉</span>
+                Overview
+              </button>
+              {/* Full Network segment */}
+              <button
+                onClick={() => { if (!expandAll) { setExpandAll(true); } }}
+                style={{
+                  background: expandAll ? 'rgba(0,255,136,0.15)' : 'transparent',
+                  border: 'none',
+                  color: expandAll ? '#00ff88' : '#555',
+                  boxShadow: expandAll ? 'inset 0 0 12px rgba(0,255,136,0.15)' : 'none',
+                  fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase',
+                  padding: '5px 14px', cursor: !expandAll ? 'pointer' : 'default',
+                  fontFamily: "'Space Grotesk', sans-serif",
+                  display: 'flex', alignItems: 'center', gap: '6px',
+                  transition: 'all 0.25s ease',
+                }}
+              >
+                <span style={{ fontSize: '12px' }}>⬡</span>
+                Full Network
+              </button>
+            </div>
             <div style={{ width: '1px', height: '32px', background: '#222' }} />
-            <OracleCommandCenter />
+            <QueryEngineHeader
+              catalysts={catalysts}
+              onGraphSearch={(ids, cats) => { setSearchHighlightIds(ids); setSearchHighlightCats(cats); }}
+              onClearSearch={() => { setSearchHighlightIds(null); setSearchHighlightCats(null); }}
+            />
             <div style={{ width: '1px', height: '32px', background: '#222' }} />
-            <button onClick={() => setShowHowTo(true)} style={{ background: 'none', border: '1px solid #444', color: '#aaa', fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', padding: '5px 12px', cursor: 'pointer', fontFamily: "'Space Grotesk', sans-serif" }} onMouseEnter={e => { e.target.style.borderColor = '#888'; e.target.style.color = '#fff'; }} onMouseLeave={e => { e.target.style.borderColor = '#444'; e.target.style.color = '#aaa'; }}>How to Use</button>
-            <button onClick={() => setShowAbout(true)} style={{ background: 'none', border: '1px solid #444', color: '#aaa', fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', padding: '5px 12px', cursor: 'pointer', fontFamily: "'Space Grotesk', sans-serif" }} onMouseEnter={e => { e.target.style.borderColor = '#888'; e.target.style.color = '#fff'; }} onMouseLeave={e => { e.target.style.borderColor = '#444'; e.target.style.color = '#aaa'; }}>About</button>
+            <button onClick={() => setShowHowTo(true)} style={{ background: 'none', border: '1px solid #555', color: '#ccc', fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', padding: '5px 14px', cursor: 'pointer', fontFamily: "'Space Grotesk', sans-serif", transition: 'all 0.2s ease' }} onMouseEnter={e => { e.currentTarget.style.borderColor = '#aaa'; e.currentTarget.style.color = '#fff'; }} onMouseLeave={e => { e.currentTarget.style.borderColor = '#555'; e.currentTarget.style.color = '#ccc'; }}>ⓘ Info</button>
             <div style={{ width: '1px', height: '32px', background: '#222' }} />
             <div style={{ textAlign: 'right', cursor: 'pointer' }} onClick={() => setShowPriceModal(true)}>
-              <div style={{ color: '#999', fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '2px' }}>Quant Model ↗</div>
+              <div style={{ color: '#bbb', fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '2px' }}>Quant Model ↗</div>
               <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', justifyContent: 'flex-end' }}>
                 <div style={{ color: '#00ff88', fontWeight: 700, fontSize: '18px', textDecoration: 'underline', textUnderlineOffset: '3px', textDecorationColor: '#00ff8844' }}>${PREDICTED.toFixed(0)}</div>
                 {QUANT_CHANGE !== null && <div style={{ fontSize: '11px', fontWeight: 600, color: QUANT_CHANGE >= 0 ? '#00ff88' : '#ff4444' }}>({QUANT_CHANGE >= 0 ? '+' : ''}{QUANT_CHANGE.toFixed(0)})</div>}
@@ -311,9 +439,9 @@ export default function App() {
             </div>
             <div style={{ width: '1px', height: '32px', background: '#222' }} />
             <div style={{ textAlign: 'right' }}>
-              <div style={{ color: '#999', fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '2px' }}>TSLA Live</div>
-              <div style={{ color: marketOpen ? '#00aaff' : '#666', fontWeight: 700, fontSize: '18px' }}>{tslaPrice ? `$${tslaPrice.toFixed(2)}` : '—'}</div>
-              <div style={{ color: '#888', fontSize: '9px', marginTop: '2px' }}>{marketOpen ? (lastUpdated ? formatTime(lastUpdated) : '—') : 'Market Closed'}</div>
+              <div style={{ color: '#bbb', fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '2px' }}>TSLA Live</div>
+              <div style={{ color: marketOpen ? '#00aaff' : '#888', fontWeight: 700, fontSize: '18px' }}>{tslaPrice ? `$${tslaPrice.toFixed(2)}` : '—'}</div>
+              <div style={{ color: '#aaa', fontSize: '9px', marginTop: '2px' }}>{marketOpen ? (lastUpdated ? formatTime(lastUpdated) : '—') : 'Market Closed'}</div>
             </div>
             <div style={{ width: '1px', height: '32px', background: '#222' }} />
             <DarkPoolGauge />
@@ -323,7 +451,7 @@ export default function App() {
                 <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#00ff88', boxShadow: '0 0 8px 3px rgba(0,255,136,0.7)', display: 'inline-block', animation: 'greenPulse 2s ease-in-out infinite' }} />
                 <span style={{ fontSize: '9px', color: '#00ff88', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: 600 }}>AI Engine: Online</span>
               </div>
-              <div style={{ fontSize: '9px', color: '#666', letterSpacing: '1px', textAlign: 'right' }}>Last Sync: {syncLabel}</div>
+              <div style={{ fontSize: '9px', color: '#999', letterSpacing: '1px', textAlign: 'right' }}>Last Sync: {syncLabel}</div>
             </div>
           </div>
         </header>
@@ -443,6 +571,8 @@ export default function App() {
           expandAll={expandAll}
           onAllExpanded={() => setExpandAll(true)}
           isMobile={isMobile}
+          highlightedIds={searchHighlightIds}
+          highlightedCategories={searchHighlightCats}
         />
       </div>
 
@@ -480,10 +610,15 @@ export default function App() {
               overflowY: 'auto',
             }}
           >
-            <div style={{ fontSize: '9px', letterSpacing: '4px', color: '#333', textTransform: 'uppercase', marginBottom: '16px' }}>Guide</div>
-            <div style={{ fontSize: '18px', fontWeight: 600, color: '#fff', marginBottom: '28px', letterSpacing: '-0.3px' }}>
-              How to Use TSLA_QUANT
+            <div style={{ fontSize: '9px', letterSpacing: '4px', color: '#555', textTransform: 'uppercase', marginBottom: '16px' }}>ⓘ Info</div>
+            <div style={{ fontSize: '18px', fontWeight: 600, color: '#fff', marginBottom: '6px', letterSpacing: '-0.3px' }}>
+              TSLA_QUANT
             </div>
+            <p style={{ fontSize: '13px', color: '#888', lineHeight: 1.65, marginBottom: '28px' }}>
+              A real-time catalyst tracking terminal powered by an agentic AI framework. While traditional analysts rely on quarterly reports, TSLAquant synthesizes live intelligence into a dynamic map of Tesla's milestone ecosystem — updated daily.
+            </p>
+            <div style={{ height: '1px', background: '#1e1e1e', marginBottom: '24px' }} />
+            <div style={{ fontSize: '9px', letterSpacing: '3px', color: '#555', textTransform: 'uppercase', marginBottom: '20px' }}>How to Use</div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
 
@@ -551,8 +686,8 @@ export default function App() {
                 },
                 {
                   icon: '⬡',
-                  heading: 'Full Network',
-                  body: 'Click "Full Network" in the header to reveal all 34 catalyst nodes simultaneously across all 6 business units. Every connection and dependency becomes visible at once — a complete map of Tesla\'s milestone ecosystem. Click "Overview" to return to the clustered master-node view.',
+                  heading: 'Overview / Full Network',
+                  body: 'Use the segmented control in the header to switch views. Overview shows 8 master orbs — click any to bloom into its sub-catalysts. Full Network reveals all 34 nodes simultaneously across 6 business units — every connection and dependency at once.',
                 },
                 {
                   icon: '🔗',

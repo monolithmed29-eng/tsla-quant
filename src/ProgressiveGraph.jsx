@@ -137,7 +137,7 @@ function buildVisibleLinks(expandedSet, catalysts, links) {
 }
 
 // ─── Component ────────────────────────────────────────────────────────────────
-export default function ProgressiveGraph({ catalysts, links, onNodeClick, expandAll, onAllExpanded, isMobile = false }) {
+export default function ProgressiveGraph({ catalysts, links, onNodeClick, expandAll, onAllExpanded, isMobile = false, highlightedIds = null, highlightedCategories = null }) {
   const canvasRef   = useRef(null);
   const simRef      = useRef(null);
   const rafRef      = useRef(null);
@@ -146,6 +146,8 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
   const pulseRef    = useRef(0);
   const expandedRef = useRef(new Set());
   const hoveredNodeRef = useRef(null);
+  const highlightedIdsRef = useRef(null);
+  const highlightedCatsRef = useRef(null);
   const [tooltip, setTooltip] = useState(null);
   const [allExpanded, setAllExpanded] = useState(false);
   const [anyExpanded, setAnyExpanded] = useState(false);
@@ -210,6 +212,22 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
       .alphaDecay(0.001)
       .velocityDecay(0.88);
   }, [catalysts, links]);
+
+  // ── Sync highlight props into refs (safe for draw loop) ───────────────────
+  useEffect(() => { highlightedIdsRef.current = highlightedIds ? new Set(highlightedIds) : null; }, [highlightedIds]);
+  useEffect(() => { highlightedCatsRef.current = highlightedCategories ? new Set(highlightedCategories) : null; }, [highlightedCategories]);
+
+  // ── Auto-expand matched categories when QueryEngine fires a search ─────────
+  useEffect(() => {
+    if (!highlightedCategories || highlightedCategories.length === 0) return;
+    const prevMap = new Map(nodesRef.current.map(n => [n.id, n]));
+    // Only expand cats that aren't already expanded
+    let changed = false;
+    for (const cat of highlightedCategories) {
+      if (!expandedRef.current.has(cat)) { expandedRef.current.add(cat); changed = true; }
+    }
+    if (changed) rebuild(expandedRef.current, prevMap);
+  }, [highlightedCategories, rebuild]);
 
   // ── Initial mount ─────────────────────────────────────────────────────────
   useEffect(() => {
@@ -289,12 +307,23 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
         if (!node.x) return;
         const r = getR(node, isMobile);
         const isHovered = node.id === hoveredId;
-        const scaleFactor = isHovered ? 1.08 : 1.0;
+
+        // ── QueryEngine highlight state ────────────────────────────────────
+        const hlIds = highlightedIdsRef.current;
+        const hlCats = highlightedCatsRef.current;
+        const hasHL = hlIds !== null && hlIds.size > 0;
+        const isHL = hasHL && (hlIds.has(node.id) || (node.isMaster && hlCats?.has(node.category)));
+        const isDimmed = hasHL && !isHL;
+
+        const scaleFactor = isHL ? 1.12 : isHovered ? 1.08 : 1.0;
         const { core, outerGlow } = getLum(node.likelihood);
         const firePulse = Math.sin(now * 0.002 + ni * 0.7) * 0.3 + 0.7;
         const masterMult = node.isMaster ? 1.4 : 1.0;
 
-        // Apply scale transform for hovered node
+        // Dim unmatched nodes
+        if (isDimmed) ctx.globalAlpha = 0.22;
+
+        // Apply scale transform for hovered/highlighted node
         if (scaleFactor !== 1.0) {
           ctx.save();
           ctx.translate(node.x, node.y);
@@ -333,6 +362,23 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
         // Bright center
         ctx.beginPath(); ctx.arc(node.x, node.y, r * 0.4, 0, Math.PI*2);
         ctx.fillStyle = 'rgba(255,255,255,0.92)'; ctx.fill();
+
+        // ── QueryEngine: Tesla-blue search ring on matched nodes ───────────
+        if (isHL) {
+          const searchPulse = Math.sin(now * 0.005 + ni) * 0.3 + 0.7;
+          const ringR = r + 7 + searchPulse * 4;
+          ctx.beginPath();
+          ctx.arc(node.x, node.y, ringR, 0, Math.PI * 2);
+          ctx.strokeStyle = `rgba(0,170,255,${(searchPulse * 0.9).toFixed(2)})`;
+          ctx.lineWidth = 2.5;
+          ctx.shadowColor = 'rgba(0,170,255,0.95)';
+          ctx.shadowBlur = 18;
+          ctx.stroke();
+          ctx.shadowBlur = 0;
+        }
+
+        // Restore globalAlpha after dim
+        if (isDimmed) ctx.globalAlpha = 1.0;
 
         // ── Mobile Level 2: green ring around the expanded master orb ─────
         if (isMobile && node.isMaster && anyExpandedRef.current) {
@@ -423,8 +469,8 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
         }
 
         // ── Label ──────────────────────────────────────────────────────────
-        // Label brightness: pure white on hovered, dimmed on others when something is hovered
-        const labelAlpha = isHovered ? 1.0 : anyHovered ? 0.35 : 1.0;
+        // Label brightness: pure white on hovered/matched, dimmed on unmatched
+        const labelAlpha = isHovered ? 1.0 : isDimmed ? 0.18 : anyHovered ? 0.35 : 1.0;
         const labelColor = `rgba(255,255,255,${labelAlpha})`;
 
         ctx.save();
@@ -568,12 +614,25 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
       {!allExpanded && !expandAll && !anyExpanded && (
         <div style={{
           position: 'absolute', bottom: 20, left: '50%', transform: 'translateX(-50%)',
-          fontSize: '10px', color: 'rgba(255,255,255,0.9)',
+          fontSize: '11px', color: '#ff4444',
           letterSpacing: '2.5px', textTransform: 'uppercase',
           fontFamily: "'Space Grotesk', sans-serif", pointerEvents: 'none', whiteSpace: 'nowrap',
-          textShadow: '0 0 12px rgba(255,255,255,0.8), 0 0 28px rgba(255,255,255,0.4)',
+          textShadow: '0 0 12px rgba(255,68,68,0.9), 0 0 28px rgba(255,68,68,0.5)',
+          fontWeight: 600,
         }}>
-          {isMobile ? 'Tap a node to explore' : 'Click any node to expand · Click Full Network to reveal all'}
+          {isMobile ? '↑ Tap any node to explore' : '↑ Click any node to expand'}
+        </div>
+      )}
+      {!allExpanded && !expandAll && anyExpanded && (
+        <div style={{
+          position: 'absolute', bottom: 20, left: '50%', transform: 'translateX(-50%)',
+          fontSize: '11px', color: '#ff4444',
+          letterSpacing: '2.5px', textTransform: 'uppercase',
+          fontFamily: "'Space Grotesk', sans-serif", pointerEvents: 'none', whiteSpace: 'nowrap',
+          textShadow: '0 0 12px rgba(255,68,68,0.9), 0 0 28px rgba(255,68,68,0.5)',
+          fontWeight: 600,
+        }}>
+          {isMobile ? '↑ Tap any subnode for detailed analysis' : '↑ Click any subnode for detailed analysis'}
         </div>
       )}
 
@@ -601,7 +660,7 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
               <div style={{ fontSize: '11px', color: 'rgba(180,210,255,0.8)', marginBottom: '4px' }}>
                 {tooltip.node.childCount} catalysts · {Math.round(tooltip.node.likelihood * 100)}% avg confidence
               </div>
-              <div style={{ fontSize: '10px', color: '#555', letterSpacing: '1px' }}>
+              <div style={{ fontSize: '10px', color: '#ff4444', letterSpacing: '1px', fontWeight: 600, textShadow: '0 0 8px rgba(255,68,68,0.7)' }}>
                 CLICK TO EXPAND →
               </div>
             </>
@@ -610,7 +669,7 @@ export default function ProgressiveGraph({ catalysts, links, onNodeClick, expand
               <div style={{ fontSize: '11px', color: 'rgba(200,220,255,0.8)', marginBottom: '3px' }}>
                 {Math.round(tooltip.node.likelihood * 100)}% likelihood
               </div>
-              <div style={{ fontSize: '10px', color: '#555', letterSpacing: '1px' }}>
+              <div style={{ fontSize: '10px', color: '#ff4444', letterSpacing: '1px', fontWeight: 600, textShadow: '0 0 8px rgba(255,68,68,0.7)' }}>
                 CLICK FOR ANALYSIS →
               </div>
             </>

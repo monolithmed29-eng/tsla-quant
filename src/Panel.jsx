@@ -141,7 +141,7 @@ export default function Panel({ node, onClose, isMobile = false }) {
         {/* Expected */}
         <div style={{ marginBottom: '16px' }}>
           <div style={{ fontSize: '10px', color: '#666', letterSpacing: '1.5px', marginBottom: '4px', textTransform: 'uppercase' }}>Expected</div>
-          <div style={{ fontSize: '14px', color: '#ccc' }}>{node.expected}</div>
+          <div style={{ fontSize: '14px', color: 'rgba(220,230,245,0.95)' }}>{node.expected}</div>
         </div>
 
         {/* Likelihood */}
@@ -173,7 +173,7 @@ export default function Panel({ node, onClose, isMobile = false }) {
         {/* Avg Weight */}
         <div style={{ marginBottom: '16px' }}>
           <div style={{ fontSize: '10px', color: '#666', letterSpacing: '1.5px', marginBottom: '4px', textTransform: 'uppercase' }}>Avg Weight</div>
-          <div style={{ fontSize: '14px', color: '#aaa' }}>{(node.weight * 100).toFixed(0)}% toward model price</div>
+          <div style={{ fontSize: '14px', color: 'rgba(210,220,235,0.92)' }}>{(node.weight * 100).toFixed(0)}% toward model price</div>
         </div>
 
         {/* Description */}
@@ -203,16 +203,16 @@ export default function Panel({ node, onClose, isMobile = false }) {
                       borderRadius: '3px',
                       padding: '5px 8px',
                       color: '#fff',
-                    } : { color: '#aaa' }),
+                    } : { color: 'rgba(210,220,235,0.92)' }),
                   }}>
-                    <span style={{ color: isNew ? '#ff4444' : '#333', marginTop: '1px', flexShrink: 0 }}>{isNew ? '●' : '·'}</span>
+                    <span style={{ color: isNew ? '#ff4444' : '#555', marginTop: '1px', flexShrink: 0 }}>{isNew ? '●' : '·'}</span>
                     <span>{point}</span>
                   </li>
                 );
               })}
             </ul>
           ) : (
-            <p style={{ fontSize: '13px', color: '#aaa', lineHeight: 1.6, margin: 0 }}>{node.description}</p>
+            <p style={{ fontSize: '13px', color: 'rgba(210,220,235,0.92)', lineHeight: 1.6, margin: 0 }}>{node.description}</p>
           )}
         </div>
 
