@@ -165,47 +165,32 @@ function MobileOracleFAB({ onShowDisclaimer, onShowToS, onShowRefund }) {
 
 const PANEL_WIDTH = 420;
 
-// ── QueryEngineHeader: header button only — panel lives at root level ─────────
+// ── QueryEngineHeader: single merged rounded box ──────────────────────────────
 function QueryEngineHeader({ open, onToggle }) {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 0, fontFamily: "'Space Grotesk', sans-serif" }}>
-      <button
-        onClick={onToggle}
-        style={{
-          background: open ? 'rgba(0,170,255,0.10)' : 'transparent',
-          border: `1px solid ${open ? '#00aaff' : '#1e2a3a'}`,
-          borderRight: 'none',
-          color: '#00aaff',
-          fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase',
-          padding: '5px 14px', cursor: 'pointer',
-          fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700,
-          display: 'flex', alignItems: 'center', gap: '8px',
-          transition: 'all 0.2s ease',
-          boxShadow: open ? '0 0 12px rgba(0,170,255,0.25)' : 'none',
-          whiteSpace: 'nowrap',
-        }}
-        onMouseEnter={e => { e.currentTarget.style.borderColor = '#00aaff'; e.currentTarget.style.background = 'rgba(0,170,255,0.08)'; }}
-        onMouseLeave={e => { if (!open) { e.currentTarget.style.borderColor = '#1e2a3a'; e.currentTarget.style.background = 'transparent'; } }}
-      >
-        <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#00aaff', display: 'inline-block', flexShrink: 0, boxShadow: '0 0 8px 3px rgba(0,170,255,0.6)' }} />
-        Query Engine
-      </button>
-      <div
-        onClick={onToggle}
-        style={{
-          display: 'flex', alignItems: 'center', gap: '6px',
-          background: '#060a10',
-          border: `1px solid ${open ? '#00aaff' : '#1e2a3a'}`,
-          padding: '5px 12px', cursor: 'text',
-          transition: 'border-color 0.2s',
-          minWidth: '180px',
-        }}
-        onMouseEnter={e => { e.currentTarget.style.borderColor = '#00aaff'; }}
-        onMouseLeave={e => { if (!open) e.currentTarget.style.borderColor = '#1e2a3a'; }}
-      >
-        <span style={{ color: '#00aaff', fontSize: '10px', letterSpacing: '1px', userSelect: 'none', whiteSpace: 'nowrap' }}>ROGER@TSLAQUANT:~$</span>
-        <span style={{ color: '#334', fontSize: '11px', userSelect: 'none' }}>{open ? 'panel open →' : 'ask Roger...'}</span>
-      </div>
+    <div
+      onClick={onToggle}
+      style={{
+        display: 'flex', alignItems: 'center', gap: '10px',
+        border: `1px solid ${open ? '#00aaff' : '#fff'}`,
+        borderRadius: '20px',
+        padding: '5px 16px',
+        cursor: 'pointer',
+        background: open ? 'rgba(0,170,255,0.10)' : 'transparent',
+        transition: 'all 0.2s ease',
+        boxShadow: open ? '0 0 12px rgba(0,170,255,0.2)' : 'none',
+        fontFamily: "'Space Grotesk', sans-serif",
+        flexShrink: 0,
+        whiteSpace: 'nowrap',
+      }}
+      onMouseEnter={e => { e.currentTarget.style.borderColor = '#00aaff'; e.currentTarget.style.background = 'rgba(0,170,255,0.08)'; }}
+      onMouseLeave={e => { if (!open) { e.currentTarget.style.borderColor = '#fff'; e.currentTarget.style.background = 'transparent'; } }}
+    >
+      <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#00aaff', display: 'inline-block', flexShrink: 0, boxShadow: '0 0 8px 3px rgba(0,170,255,0.6)' }} />
+      <span style={{ color: '#00aaff', fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: 700 }}>Query Engine</span>
+      <span style={{ color: '#555', fontSize: '10px', letterSpacing: '1px', margin: '0 2px' }}>·</span>
+      <span style={{ color: '#00aaff', fontSize: '10px', letterSpacing: '1px', fontWeight: 600 }}>ROGER@TSLAQUANT:~$</span>
+      <span style={{ color: '#fff', fontSize: '11px' }}>{open ? 'panel open →' : 'ask Roger...'}</span>
     </div>
   );
 }
@@ -397,13 +382,13 @@ export default function App() {
             rel="noopener noreferrer"
             style={{
               display: 'flex', alignItems: 'center', gap: '5px',
-              color: '#555', fontSize: '10px', letterSpacing: '1.5px',
+              color: '#fff', fontSize: '10px', letterSpacing: '1.5px',
               textTransform: 'uppercase', textDecoration: 'none',
               transition: 'color 0.15s',
               fontFamily: "'Space Grotesk', sans-serif",
             }}
             onMouseEnter={e => e.currentTarget.style.color = '#1d9bf0'}
-            onMouseLeave={e => e.currentTarget.style.color = '#555'}
+            onMouseLeave={e => e.currentTarget.style.color = '#fff'}
           >
             <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.261 5.636 5.902-5.636zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             @RogerTSLAquant
@@ -417,72 +402,75 @@ export default function App() {
           position: 'fixed',
           top: '27px', left: 0, right: 0,
           zIndex: 100,
-          padding: '16px 28px',
+          padding: '10px 28px',
           borderBottom: '1px solid #111',
           background: 'rgba(0,0,0,0.85)',
-          backdropFilter: 'blur(8px)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
+          minWidth: 0,
+          whiteSpace: 'nowrap',
         }}>
-          <div>
-            <div style={{ fontSize: '20px', fontWeight: 700, letterSpacing: '2px', color: '#fff' }}>
-              TSLA_QUANT
-            </div>
-            <div style={{ fontSize: '10px', letterSpacing: '3px', color: '#888', textTransform: 'uppercase', marginTop: '3px' }}>
-              v1.3
-            </div>
+          {/* Brand — fixed width, never shrinks */}
+          <div style={{ flexShrink: 0, marginRight: '20px' }}>
+            <div style={{ fontSize: '20px', fontWeight: 700, letterSpacing: '2px', color: '#fff' }}>TSLA_QUANT</div>
+            <div style={{ fontSize: '10px', letterSpacing: '3px', color: '#888', textTransform: 'uppercase', marginTop: '2px' }}>v1.3</div>
           </div>
-          <div style={{ display: 'flex', gap: '32px', alignItems: 'center', fontSize: '13px' }}>
+
+          {/* Controls row — scrollable if window too narrow, never wraps */}
+          <div style={{ display: 'flex', gap: '16px', alignItems: 'center', fontSize: '13px', flexShrink: 0 }}>
+
+            {/* Overview / Full Network toggle — rounded, bright white */}
             <div style={{
               display: 'flex', alignItems: 'center',
-              border: '1px solid #333', borderRadius: '4px',
+              border: '1px solid #fff', borderRadius: '20px',
               overflow: 'hidden', fontFamily: "'Space Grotesk', sans-serif",
+              flexShrink: 0,
             }}>
-              {/* Overview segment */}
               <button
                 onClick={() => { if (expandAll) { setExpandAll(false); setGraphKey(k => k + 1); } exitSmartMode(false); }}
                 style={{
-                  background: (!expandAll && !smartMode) ? 'rgba(0,255,136,0.15)' : 'transparent',
+                  background: (!expandAll && !smartMode) ? 'rgba(0,255,136,0.18)' : 'transparent',
                   border: 'none',
-                  borderRight: '1px solid #333',
-                  color: (!expandAll && !smartMode) ? '#00ff88' : smartMode ? '#334' : '#555',
-                  boxShadow: (!expandAll && !smartMode) ? 'inset 0 0 12px rgba(0,255,136,0.15)' : 'none',
+                  borderRight: '1px solid #fff',
+                  color: (!expandAll && !smartMode) ? '#00ff88' : '#fff',
                   fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase',
                   padding: '5px 14px', cursor: (expandAll || smartMode) ? 'pointer' : 'default',
                   fontFamily: "'Space Grotesk', sans-serif",
                   display: 'flex', alignItems: 'center', gap: '6px',
-                  transition: 'all 0.25s ease',
+                  transition: 'all 0.2s ease',
                 }}
               >
                 <span style={{ fontSize: '12px' }}>◉</span>
                 Overview
               </button>
-              {/* Full Network segment */}
               <button
                 onClick={() => { if (!expandAll) { setExpandAll(true); } exitSmartMode(false); }}
                 style={{
-                  background: (expandAll && !smartMode) ? 'rgba(0,255,136,0.15)' : 'transparent',
+                  background: (expandAll && !smartMode) ? 'rgba(0,255,136,0.18)' : 'transparent',
                   border: 'none',
-                  color: (expandAll && !smartMode) ? '#00ff88' : smartMode ? '#334' : '#555',
-                  boxShadow: (expandAll && !smartMode) ? 'inset 0 0 12px rgba(0,255,136,0.15)' : 'none',
+                  color: (expandAll && !smartMode) ? '#00ff88' : '#fff',
                   fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase',
                   padding: '5px 14px', cursor: (!expandAll || smartMode) ? 'pointer' : 'default',
                   fontFamily: "'Space Grotesk', sans-serif",
                   display: 'flex', alignItems: 'center', gap: '6px',
-                  transition: 'all 0.25s ease',
+                  transition: 'all 0.2s ease',
                 }}
               >
                 <span style={{ fontSize: '12px' }}>⬡</span>
                 Full Network
               </button>
             </div>
-            <div style={{ width: '1px', height: '32px', background: '#222' }} />
+
+            <div style={{ width: '1px', height: '28px', background: '#333', flexShrink: 0 }} />
+
+            {/* Query Engine — single merged rounded box */}
             <QueryEngineHeader
               open={queryPanelOpen}
               onToggle={() => setQueryPanelOpen(o => !o)}
             />
-            <div style={{ width: '1px', height: '32px', background: '#222' }} />
+
+            <div style={{ width: '1px', height: '28px', background: '#333', flexShrink: 0 }} />
             <button onClick={() => setShowHowTo(true)} style={{ background: 'none', border: '1px solid #555', color: '#ccc', fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', padding: '5px 14px', cursor: 'pointer', fontFamily: "'Space Grotesk', sans-serif", transition: 'all 0.2s ease' }} onMouseEnter={e => { e.currentTarget.style.borderColor = '#aaa'; e.currentTarget.style.color = '#fff'; }} onMouseLeave={e => { e.currentTarget.style.borderColor = '#555'; e.currentTarget.style.color = '#ccc'; }}>ⓘ Info</button>
             <div style={{ width: '1px', height: '32px', background: '#222' }} />
             <div style={{ textAlign: 'right', cursor: 'pointer' }} onClick={() => setShowPriceModal(true)}>
