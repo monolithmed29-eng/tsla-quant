@@ -924,8 +924,10 @@ export default function App() {
       {showMedia && (
         <div style={{
           position: 'fixed', inset: 0, zIndex: 9400,
-          background: 'rgba(0,0,0,0.92)',
+          background: '#030608',
           display: 'flex', flexDirection: 'column',
+          whiteSpace: 'normal',
+          fontFamily: "'Space Grotesk', sans-serif",
         }}>
           {/* Header bar */}
           <div style={{
@@ -947,11 +949,10 @@ export default function App() {
             >✕</button>
           </div>
           {/* Scrollable content */}
-          <div style={{ flex: 1, overflowY: 'auto', display: 'grid', gridTemplateColumns: 'minmax(0,1fr)' }}>
+          <div style={{ flex: 1, overflowY: 'auto', minHeight: 0, whiteSpace: 'normal' }}>
             <TSLAMedia onAskRogerVideo={(video) => {
               setShowMedia(false);
               setQueryPanelOpen(true);
-              // Pre-fill is handled by QueryEngine receiving the video context
             }} />
           </div>
         </div>
