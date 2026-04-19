@@ -514,12 +514,7 @@ export default function App() {
               <div style={{ color: marketOpen ? '#00aaff' : '#888', fontWeight: 700, fontSize: '17px' }}>{tslaPrice ? `$${tslaPrice.toFixed(2)}` : '—'}</div>
             </div>
             <div style={{ width: '1px', height: '28px', background: '#333' }} />
-            {/* AI pulse — compact */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#00ff88', boxShadow: '0 0 6px 2px rgba(0,255,136,0.7)', display: 'inline-block', animation: 'greenPulse 2s ease-in-out infinite' }} />
-              <span style={{ fontSize: '9px', color: '#00ff88', letterSpacing: '1.5px', textTransform: 'uppercase', fontWeight: 600 }}>Live · {syncLabel}</span>
-            </div>
-            <div style={{ width: '1px', height: '24px', background: '#333' }} />
+
             <BetaMetaTab tslaPrice={tslaPrice} marketOpen={marketOpen} lastUpdated={lastUpdated} predicted={PREDICTED} quantChange={QUANT_CHANGE} onShowPriceModal={() => setShowPriceModal(true)} />
           </div>
 
@@ -1082,6 +1077,12 @@ export default function App() {
             <span style={{ fontSize: '11px', color: '#888', marginLeft: '4px' }}>→ Bright (high likelihood)</span>
           </div>
           <div style={{ marginLeft: 'auto', display: 'flex', gap: '20px', alignItems: 'center' }}>
+            {/* AI Engine status */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', paddingRight: '16px', borderRight: '1px solid #222' }}>
+              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#00ff88', boxShadow: '0 0 6px 2px rgba(0,255,136,0.7)', display: 'inline-block', animation: 'greenPulse 2s ease-in-out infinite' }} />
+              <span style={{ fontSize: '10px', color: '#00ff88', letterSpacing: '1.5px', textTransform: 'uppercase', fontWeight: 600 }}>AI Engine: Online</span>
+              <span style={{ fontSize: '10px', color: '#555', letterSpacing: '1px' }}>· Last Sync: {syncLabel}</span>
+            </div>
             {[
               { label: 'Disclaimer', fn: () => setShowDisclaimer(true) },
               { label: 'Terms of Service', fn: () => setShowToS(true) },

@@ -261,15 +261,15 @@ export default function BetaDashboard({ isMobile = false }) {
           <div ref={infoRef} style={{ position: 'relative', marginLeft: '4px' }}>
             <button
               onClick={() => setShowInfo(s => !s)}
-              style={{ background: showInfo ? 'rgba(0,170,255,0.15)' : 'transparent', border: `1px solid ${showInfo ? '#00aaff' : '#444'}`, borderRadius: '50%', color: showInfo ? '#00aaff' : '#888', width: '18px', height: '18px', fontSize: '10px', cursor: 'pointer', fontFamily: FONT, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, transition: 'all 0.15s' }}
-            >ⓘ</button>
+              style={{ background: showInfo ? 'rgba(0,170,255,0.15)' : 'transparent', border: `1px solid ${showInfo ? '#00aaff' : '#aaa'}`, borderRadius: '50%', color: showInfo ? '#00aaff' : '#fff', width: '20px', height: '20px', fontSize: '11px', cursor: 'pointer', fontFamily: FONT, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, transition: 'all 0.15s', fontWeight: 700 }}
+            >i</button>
             {showInfo && (
-              <div style={{ position: 'absolute', top: '24px', left: '0', width: '320px', background: '#0a0d12', border: '1px solid #2a2a2a', padding: '12px 14px', zIndex: 19000, boxShadow: '0 8px 32px rgba(0,0,0,0.9)', fontSize: '12px', color: '#ddd', lineHeight: 1.7, WebkitFontSmoothing: 'antialiased' }}>
-                <div style={{ fontWeight: 700, color: '#fff', marginBottom: '6px', letterSpacing: '1px', textTransform: 'uppercase', fontSize: '10px' }}>What is Beta?</div>
-                Beta (β) measures how much TSLA moves relative to the broader market. A β of 2.3 vs S&P 500 means: if SPY rises +1%, TSLA is expected to rise +2.3%.<br /><br />
-                <span style={{ color: '#00ff88' }}>Outperforming</span> = TSLA beats its expected β move → stock-specific catalyst driving the action.<br />
-                <span style={{ color: '#ff4444' }}>Underperforming</span> = TSLA lags despite market tailwind → stock-specific headwind.<br />
-                <span style={{ color: '#aaa' }}>Tracking</span> = TSLA moving in line with beta → no special signal.
+              <div style={{ position: 'absolute', top: '26px', left: '0', width: '380px', background: '#0a0d12', border: '1px solid #2a2a2a', padding: '14px 16px', zIndex: 19000, boxShadow: '0 8px 32px rgba(0,0,0,0.95)', fontSize: '12px', color: '#ddd', lineHeight: 1.8, WebkitFontSmoothing: 'antialiased', wordBreak: 'normal', whiteSpace: 'normal', overflowWrap: 'break-word' }}>
+                <div style={{ fontWeight: 700, color: '#fff', marginBottom: '8px', letterSpacing: '1px', textTransform: 'uppercase', fontSize: '11px' }}>What is Beta?</div>
+                <div style={{ marginBottom: '10px' }}>Beta (β) measures how much TSLA moves relative to the broader market. A β of 2.3 vs S&P 500 means: if SPY rises +1%, TSLA is expected to rise +2.3%.</div>
+                <div><span style={{ color: '#00ff88', fontWeight: 600 }}>Outperforming</span> — TSLA beats its expected β move. Stock-specific catalyst driving action.</div>
+                <div style={{ marginTop: '4px' }}><span style={{ color: '#ff4444', fontWeight: 600 }}>Underperforming</span> — TSLA lags despite market tailwind. Stock-specific headwind.</div>
+                <div style={{ marginTop: '4px' }}><span style={{ color: '#ccc', fontWeight: 600 }}>Tracking</span> — TSLA moving in line with beta. No special signal.</div>
               </div>
             )}
           </div>
@@ -296,7 +296,7 @@ export default function BetaDashboard({ isMobile = false }) {
           <thead>
             <tr style={{ color: '#bbb', letterSpacing: '1px', textTransform: 'uppercase', fontSize: '11px' }}>
               <td style={{ padding: '8px 10px 6px 0', width: '130px' }}>Index</td>
-              <td style={{ padding: '8px 10px 6px', textAlign: 'center', width: '80px' }}>β Actual</td>
+              <td style={{ padding: '8px 10px 6px', textAlign: 'center', width: '80px' }}>Δ Actual</td>
               <td style={{ padding: '8px 10px 6px', textAlign: 'center', width: '110px' }}>TSLA Expected</td>
               <td style={{ padding: '8px 10px 6px', textAlign: 'center', width: '100px' }}>TSLA Actual</td>
               <td style={{ padding: '8px 10px 6px', textAlign: 'left' }}>Signal</td>
