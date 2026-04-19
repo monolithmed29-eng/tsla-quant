@@ -4,6 +4,7 @@ import BreakingNews from './BreakingNews';
 import PriceModal from './PriceModal';
 import ProgressiveGraph from './ProgressiveGraph';
 import { logNodeClick } from './queryLogger';
+import BetaDashboard from './BetaDashboard';
 import QueryEngine from './QueryEngine';
 import DarkPoolGauge from './DarkPoolGauge';
 import { catalysts, links } from './data';
@@ -402,15 +403,18 @@ export default function App() {
           position: 'fixed',
           top: '27px', left: 0, right: 0,
           zIndex: 100,
-          padding: '10px 28px',
-          borderBottom: '1px solid #111',
-          background: 'rgba(0,0,0,0.85)',
+          background: 'rgba(0,0,0,0.95)',
           display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
+          flexDirection: 'column',
           minWidth: 0,
-          whiteSpace: 'nowrap',
         }}>
+          {/* Top row: brand + controls */}
+          <div style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            padding: '10px 28px',
+            borderBottom: '1px solid #111',
+            whiteSpace: 'nowrap',
+          }}>
           {/* Brand — fixed width, never shrinks */}
           <div style={{ flexShrink: 0, marginRight: '20px' }}>
             <div style={{ fontSize: '20px', fontWeight: 700, letterSpacing: '2px', color: '#fff' }}>TSLA_QUANT</div>
@@ -497,6 +501,9 @@ export default function App() {
               <div style={{ fontSize: '9px', color: '#999', letterSpacing: '1px', textAlign: 'right' }}>Last Sync: {syncLabel}</div>
             </div>
           </div>
+          </div>{/* end top controls row */}
+          {/* ── Beta Dashboard — Roger's Trading Corner ── */}
+          <BetaDashboard isMobile={false} />
         </header>
       )}
 
@@ -602,7 +609,7 @@ export default function App() {
       <div style={{
         position: 'absolute',
         inset: 0,
-        paddingTop: isMobile ? '90px' : '99px',
+        paddingTop: isMobile ? '90px' : '175px',
         paddingBottom: isMobile ? '0' : '56px',
         paddingRight: (!isMobile && queryPanelOpen) ? `${PANEL_WIDTH}px` : '0',
         transition: 'padding-right 0.28s cubic-bezier(0.4,0,0.2,1)',

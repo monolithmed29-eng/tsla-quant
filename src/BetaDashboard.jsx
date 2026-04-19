@@ -1,0 +1,362 @@
+import { useState, useEffect, useRef } from 'react';
+import { betaHistory, BETA_SPY, BETA_QQQ } from './betaData';
+
+const FONT = "'Space Grotesk', sans-serif";
+
+function isMarketOpen() {
+  const et = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }));
+  const day = et.getDay();
+  if (day === 0 || day === 6) return false;
+  const mins = et.getHours() * 60 + et.getMinutes();
+  return mins >= 570 && mins < 960;
+}
+
+function getDivergenceSignal(actual, expected, label) {
+  const diff = actual - expected;
+  if (diff > 0.5)  return { label: `β Outperforming  ▲ +${diff.toFixed(1)}%`, color: '#00ff88', icon: '▲' };
+  if (diff < -0.5) return { label: `β Underperforming ▼ ${diff.toFixed(1)}%`, color: '#ff4444', icon: '▼' };
+  return { label: `β Tracking Market  ≈ ${diff >= 0 ? '+' : ''}${diff.toFixed(1)}%`, color: '#aaa', icon: '≈' };
+}
+
+function fmt(n, sign = true) {
+  if (n === null || n === undefined) return '—';
+  const s = Math.abs(n).toFixed(2) + '%';
+  if (!sign) return s;
+  return (n >= 0 ? '+' : '-') + s;
+}
+
+// ── Scatter Plot ──────────────────────────────────────────────────────────────
+function ScatterPlot({ mode, livePoint }) {
+  const canvasRef = useRef(null);
+  const beta = mode === 'spy' ? BETA_SPY : BETA_QQQ;
+  const key = mode; // 'spy' | 'qqq'
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const dpr = window.devicePixelRatio || 1;
+    const W = canvas.clientWidth;
+    const H = canvas.clientHeight;
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    const ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
+
+    // Collect all points
+    const pts = betaHistory
+      .map(d => ({ x: d[key], y: d.tsla, date: d.date, live: false }))
+      .filter(p => p.x != null && p.y != null);
+    if (livePoint?.[key] != null && livePoint?.tsla != null) {
+      pts.push({ x: livePoint[key], y: livePoint.tsla, date: 'Today', live: true });
+    }
+
+    // Axis range — pad to nearest 2%
+    const allX = pts.map(p => p.x);
+    const allY = pts.map(p => p.y);
+    const xMin = Math.min(-3, ...allX) - 0.5;
+    const xMax = Math.max(3, ...allX) + 0.5;
+    const yMin = Math.min(-6, ...allY) - 0.5;
+    const yMax = Math.max(6, ...allY) + 0.5;
+
+    const PAD = { l: 42, r: 16, t: 16, b: 36 };
+    const plotW = W - PAD.l - PAD.r;
+    const plotH = H - PAD.t - PAD.b;
+
+    const toX = v => PAD.l + ((v - xMin) / (xMax - xMin)) * plotW;
+    const toY = v => PAD.t + ((yMax - v) / (yMax - yMin)) * plotH;
+
+    // Background
+    ctx.fillStyle = '#020508';
+    ctx.fillRect(0, 0, W, H);
+
+    // Grid
+    ctx.strokeStyle = '#111';
+    ctx.lineWidth = 1;
+    for (let v = Math.ceil(xMin); v <= Math.floor(xMax); v++) {
+      ctx.beginPath(); ctx.moveTo(toX(v), PAD.t); ctx.lineTo(toX(v), H - PAD.b); ctx.stroke();
+    }
+    for (let v = Math.ceil(yMin); v <= Math.floor(yMax); v++) {
+      ctx.beginPath(); ctx.moveTo(PAD.l, toY(v)); ctx.lineTo(W - PAD.r, toY(v)); ctx.stroke();
+    }
+
+    // Zero axes
+    ctx.strokeStyle = '#333';
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(toX(0), PAD.t); ctx.lineTo(toX(0), H - PAD.b); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(PAD.l, toY(0)); ctx.lineTo(W - PAD.r, toY(0)); ctx.stroke();
+
+    // Beta line
+    const bLineX1 = xMin, bLineY1 = xMin * beta;
+    const bLineX2 = xMax, bLineY2 = xMax * beta;
+    ctx.strokeStyle = '#00aaff44';
+    ctx.lineWidth = 1.5;
+    ctx.setLineDash([6, 4]);
+    ctx.beginPath();
+    ctx.moveTo(toX(bLineX1), toY(bLineY1));
+    ctx.lineTo(toX(bLineX2), toY(bLineY2));
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Beta line label
+    ctx.fillStyle = '#00aaff66';
+    ctx.font = `10px ${FONT}`;
+    ctx.textAlign = 'left';
+    const lblX = toX(xMax * 0.55);
+    const lblY = toY(xMax * 0.55 * beta) - 6;
+    ctx.fillText(`β=${beta}`, lblX, lblY);
+
+    // Alpha/Laggard zone labels
+    ctx.font = `9px ${FONT}`;
+    ctx.fillStyle = '#00ff8822';
+    ctx.fillText('α ALPHA DAYS', PAD.l + 4, PAD.t + 14);
+    ctx.fillStyle = '#ff444422';
+    ctx.fillText('LAGGARD DAYS', PAD.l + 4, H - PAD.b - 6);
+
+    // Dots
+    pts.forEach(p => {
+      const expected = p.x * beta;
+      const isAlpha = p.y > expected;
+      const cx = toX(p.x), cy = toY(p.y);
+      const r = p.live ? 5 : 3.5;
+
+      if (p.live) {
+        // Glow for live point
+        const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, 12);
+        grd.addColorStop(0, 'rgba(255,220,0,0.4)');
+        grd.addColorStop(1, 'rgba(255,220,0,0)');
+        ctx.fillStyle = grd;
+        ctx.beginPath(); ctx.arc(cx, cy, 12, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = '#ffdc00';
+        ctx.strokeStyle = '#fff';
+        ctx.lineWidth = 1.5;
+      } else {
+        ctx.fillStyle = isAlpha ? 'rgba(0,255,136,0.7)' : 'rgba(255,68,68,0.6)';
+        ctx.strokeStyle = isAlpha ? '#00ff8844' : '#ff444444';
+        ctx.lineWidth = 0.5;
+      }
+      ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+    });
+
+    // Axis labels
+    ctx.fillStyle = '#555';
+    ctx.font = `9px ${FONT}`;
+    ctx.textAlign = 'center';
+    for (let v = Math.ceil(xMin); v <= Math.floor(xMax); v += 1) {
+      if (v === 0) continue;
+      ctx.fillText(`${v > 0 ? '+' : ''}${v}%`, toX(v), H - PAD.b + 14);
+    }
+    ctx.textAlign = 'right';
+    for (let v = Math.ceil(yMin); v <= Math.floor(yMax); v += 2) {
+      if (v === 0) continue;
+      ctx.fillText(`${v > 0 ? '+' : ''}${v}%`, PAD.l - 4, toY(v) + 3);
+    }
+
+    // Axis titles
+    ctx.fillStyle = '#444';
+    ctx.font = `9px ${FONT}`;
+    ctx.textAlign = 'center';
+    ctx.fillText(mode === 'spy' ? 'SPY daily %' : 'QQQ daily %', PAD.l + plotW / 2, H - 4);
+    ctx.save();
+    ctx.translate(10, PAD.t + plotH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillText('TSLA daily %', 0, 0);
+    ctx.restore();
+
+  }, [mode, livePoint, beta, key]);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      style={{ width: '100%', height: '220px', display: 'block' }}
+    />
+  );
+}
+
+// ── Main Component ────────────────────────────────────────────────────────────
+export default function BetaDashboard({ isMobile = false }) {
+  const [live, setLive] = useState(null);       // { tsla, spy, qqq } % changes
+  const [scatterMode, setScatterMode] = useState('spy'); // 'spy' | 'qqq'
+  const [showScatter, setShowScatter] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+    async function fetchLive() {
+      try {
+        const res = await fetch('/api/beta-prices');
+        const data = await res.json();
+        if (!cancelled) {
+          setLive({
+            tsla: data.tsla?.changePercent ?? null,
+            spy:  data.spy?.changePercent  ?? null,
+            qqq:  data.qqq?.changePercent  ?? null,
+            marketOpen: data.marketOpen,
+          });
+          setLoading(false);
+        }
+      } catch { if (!cancelled) setLoading(false); }
+    }
+    fetchLive();
+    const iv = setInterval(fetchLive, 5 * 60 * 1000);
+    return () => { cancelled = true; clearInterval(iv); };
+  }, []);
+
+  const marketOpen = live?.marketOpen ?? isMarketOpen();
+
+  // Expected moves
+  const expSpy = live?.spy != null ? live.spy * BETA_SPY : null;
+  const expQqq = live?.qqq != null ? live.qqq * BETA_QQQ : null;
+  const sigSpy = live?.tsla != null && expSpy != null ? getDivergenceSignal(live.tsla, expSpy, 'SPY') : null;
+  const sigQqq = live?.tsla != null && expQqq != null ? getDivergenceSignal(live.tsla, expQqq, 'QQQ') : null;
+
+  const rows = [
+    {
+      index: 'S&P 500', ticker: 'SPY', beta: BETA_SPY, symbol: 'β',
+      actual: live?.spy, expected: expSpy, tsla: live?.tsla, signal: sigSpy,
+      key: 'spy',
+    },
+    {
+      index: 'Nasdaq-100', ticker: 'QQQ', beta: BETA_QQQ, symbol: 'β',
+      actual: live?.qqq, expected: expQqq, tsla: live?.tsla, signal: sigQqq,
+      key: 'qqq',
+    },
+  ];
+
+  return (
+    <div style={{
+      fontFamily: FONT,
+      borderBottom: '1px solid #111',
+      background: '#030608',
+    }}>
+      {/* Header row */}
+      <div style={{
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        padding: isMobile ? '6px 14px' : '6px 28px',
+        borderBottom: '1px solid #0d1117',
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '2px', color: '#fff', textTransform: 'uppercase' }}>
+            β Beta Dashboard
+          </span>
+          <span style={{ fontSize: '9px', color: '#444', letterSpacing: '1px', textTransform: 'uppercase' }}>
+            Roger's Trading Corner
+          </span>
+          <span style={{
+            fontSize: '8px', color: '#555', letterSpacing: '1px',
+            borderLeft: '1px solid #1a1a1a', paddingLeft: '10px',
+          }}>
+            {marketOpen ? '● Live' : '○ Last Close'}
+          </span>
+        </div>
+        <button
+          onClick={() => setShowScatter(s => !s)}
+          style={{
+            background: showScatter ? 'rgba(0,170,255,0.1)' : 'transparent',
+            border: `1px solid ${showScatter ? '#00aaff' : '#222'}`,
+            borderRadius: '12px',
+            color: showScatter ? '#00aaff' : '#555',
+            fontSize: '9px', letterSpacing: '1.5px', textTransform: 'uppercase',
+            padding: '3px 10px', cursor: 'pointer', fontFamily: FONT,
+            transition: 'all 0.2s',
+          }}
+        >
+          {showScatter ? '▲ Hide Chart' : '▼ Scatter Plot'}
+        </button>
+      </div>
+
+      {/* Table */}
+      <div style={{ padding: isMobile ? '0 14px 6px' : '0 28px 8px', overflowX: 'auto' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '11px', minWidth: '520px' }}>
+          <thead>
+            <tr style={{ color: '#444', letterSpacing: '1px', textTransform: 'uppercase', fontSize: '9px' }}>
+              <td style={{ padding: '6px 8px 4px 0', width: '110px' }}>Index</td>
+              <td style={{ padding: '6px 8px 4px', textAlign: 'center', width: '60px' }}>β Actual</td>
+              <td style={{ padding: '6px 8px 4px', textAlign: 'center', width: '70px' }}>TSLA Expected</td>
+              <td style={{ padding: '6px 8px 4px', textAlign: 'center', width: '70px' }}>TSLA Actual</td>
+              <td style={{ padding: '6px 8px 4px', textAlign: 'left' }}>Signal</td>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map(row => (
+              <tr key={row.key} style={{ borderTop: '1px solid #0d1117' }}>
+                <td style={{ padding: '7px 8px 7px 0' }}>
+                  <div style={{ color: '#ccc', fontWeight: 600 }}>{row.index}</div>
+                  <div style={{ color: '#444', fontSize: '9px', marginTop: '1px' }}>{row.ticker} · {row.symbol}={row.beta}</div>
+                </td>
+                <td style={{ padding: '7px 8px', textAlign: 'center' }}>
+                  <span style={{ color: row.actual == null ? '#333' : row.actual >= 0 ? '#00ff88' : '#ff4444', fontWeight: 600 }}>
+                    {loading ? '…' : fmt(row.actual)}
+                  </span>
+                </td>
+                <td style={{ padding: '7px 8px', textAlign: 'center' }}>
+                  <span style={{ color: '#00aaff', fontWeight: 600 }}>
+                    {loading ? '…' : fmt(row.expected)}
+                  </span>
+                </td>
+                <td style={{ padding: '7px 8px', textAlign: 'center' }}>
+                  <span style={{ color: row.tsla == null ? '#333' : row.tsla >= 0 ? '#00ff88' : '#ff4444', fontWeight: 700, fontSize: '12px' }}>
+                    {loading ? '…' : fmt(row.tsla)}
+                  </span>
+                </td>
+                <td style={{ padding: '7px 8px' }}>
+                  {row.signal ? (
+                    <span style={{ color: row.signal.color, fontSize: '10px', letterSpacing: '0.5px', fontWeight: 600 }}>
+                      {row.signal.label}
+                    </span>
+                  ) : (
+                    <span style={{ color: '#333', fontSize: '10px' }}>{loading ? '…' : 'Awaiting data'}</span>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        {/* Beta explainer */}
+        <div style={{
+          fontSize: '9px', color: '#333', letterSpacing: '0.5px',
+          padding: '4px 0 2px',
+          borderTop: '1px solid #0a0e14',
+          marginTop: '2px',
+        }}>
+          β (beta) measures TSLA's expected move relative to the market. β=2.3 vs S&P means a +1% SPY day implies +2.3% TSLA.
+          Divergence above that line = stock-specific alpha. Below = underperformance despite tailwind.
+        </div>
+      </div>
+
+      {/* Scatter Plot */}
+      {showScatter && (
+        <div style={{ padding: isMobile ? '0 14px 14px' : '0 28px 16px' }}>
+          {/* Mode toggle */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
+            <span style={{ fontSize: '9px', color: '#444', letterSpacing: '1px', textTransform: 'uppercase' }}>vs.</span>
+            {['spy', 'qqq'].map(m => (
+              <button
+                key={m}
+                onClick={() => setScatterMode(m)}
+                style={{
+                  background: scatterMode === m ? 'rgba(0,170,255,0.12)' : 'transparent',
+                  border: `1px solid ${scatterMode === m ? '#00aaff' : '#1e2a3a'}`,
+                  borderRadius: '10px',
+                  color: scatterMode === m ? '#00aaff' : '#555',
+                  fontSize: '9px', letterSpacing: '1.5px', textTransform: 'uppercase',
+                  padding: '3px 10px', cursor: 'pointer', fontFamily: FONT,
+                  transition: 'all 0.15s',
+                }}
+              >
+                {m === 'spy' ? `SPY  β=${BETA_SPY}` : `QQQ  β=${BETA_QQQ}`}
+              </button>
+            ))}
+            <span style={{ marginLeft: 'auto', fontSize: '9px', color: '#333' }}>
+              {betaHistory.length} days · <span style={{ color: '#00ff8866' }}>● alpha</span>  <span style={{ color: '#ff444466' }}>● laggard</span>  <span style={{ color: '#ffdc00' }}>● today</span>
+            </span>
+          </div>
+
+          <div style={{ border: '1px solid #0d1117', borderRadius: '4px', overflow: 'hidden' }}>
+            <ScatterPlot mode={scatterMode} livePoint={live} />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
