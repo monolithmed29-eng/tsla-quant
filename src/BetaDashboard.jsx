@@ -265,7 +265,13 @@ export default function BetaDashboard({ isMobile = false }) {
               ref={infoBtnRef}
               onClick={() => {
                 const rect = infoBtnRef.current?.getBoundingClientRect();
-                if (rect) setInfoPos({ top: rect.bottom + 8, left: Math.min(rect.left, window.innerWidth - 340) });
+                if (rect) {
+                  const popH = 220;
+                  const top = rect.bottom + popH > window.innerHeight
+                    ? rect.top - popH - 8
+                    : rect.bottom + 8;
+                  setInfoPos({ top, left: Math.min(rect.left, window.innerWidth - 340) });
+                }
                 setShowInfo(s => !s);
               }}
               style={{ background: showInfo ? 'rgba(0,170,255,0.15)' : 'transparent', border: `1px solid ${showInfo ? '#00aaff' : '#aaa'}`, borderRadius: '50%', color: showInfo ? '#00aaff' : '#fff', width: '20px', height: '20px', fontSize: '11px', cursor: 'pointer', fontFamily: FONT, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, transition: 'all 0.15s', fontWeight: 700 }}

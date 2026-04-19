@@ -274,11 +274,16 @@ function BetaMetaTab({ tslaPrice, marketOpen, lastUpdated, predicted, quantChang
           <div>
 
             {/* Header */}
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px 24px', borderBottom: '1px solid #0d1117' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <span style={{ fontSize: '13px', letterSpacing: '2px', textTransform: 'uppercase', color: '#fff', fontWeight: 700 }}>Roger's Trading Corner</span>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 24px', borderBottom: '2px solid #00aaff22', background: 'linear-gradient(135deg, #040c18 0%, #060d1a 100%)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                {/* Logo mark */}
+                <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'linear-gradient(135deg, #00aaff22, #00ff8822)', border: '1px solid #00aaff44', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px' }}>📈</div>
+                <div>
+                  <div style={{ fontSize: '14px', letterSpacing: '2.5px', textTransform: 'uppercase', color: '#fff', fontWeight: 800, lineHeight: 1 }}>Roger's Trading Corner</div>
+                  <div style={{ fontSize: '9px', letterSpacing: '2px', color: '#00aaff', textTransform: 'uppercase', marginTop: '4px', fontWeight: 600 }}>Live Analysis · TSLA</div>
+                </div>
               </div>
-              <button onClick={() => setOpen(false)} style={{ background: 'none', border: '1px solid #333', color: '#888', fontSize: '14px', cursor: 'pointer', padding: '2px 8px', transition: 'all 0.15s' }}
+              <button onClick={() => setOpen(false)} style={{ background: 'none', border: '1px solid #333', color: '#888', fontSize: '14px', cursor: 'pointer', padding: '2px 8px', transition: 'all 0.15s', borderRadius: '4px' }}
                 onMouseEnter={e => { e.currentTarget.style.color='#fff'; e.currentTarget.style.borderColor='#666'; }}
                 onMouseLeave={e => { e.currentTarget.style.color='#888'; e.currentTarget.style.borderColor='#333'; }}>✕</button>
             </div>
@@ -292,7 +297,7 @@ function BetaMetaTab({ tslaPrice, marketOpen, lastUpdated, predicted, quantChang
                 <div style={{ fontSize: '10px', color: '#666', marginTop: '4px' }}>{marketOpen ? (lastUpdated ? `Updated ${lastUpdated.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}` : 'Live') : 'Market Closed'}</div>
               </div>
               {/* Quant Model */}
-              <div style={{ padding: '18px 24px', borderRight: '1px solid #0d1117', cursor: 'pointer' }} onClick={() => { setOpen(false); onShowPriceModal(); }}>
+              <div style={{ padding: '18px 24px', borderRight: '1px solid #0d1117', cursor: 'pointer' }} onClick={() => { onShowPriceModal(); }}>
                 <div style={{ fontSize: '9px', color: '#aaa', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '6px' }}>Quant Model ↗</div>
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
                   <div style={{ fontSize: '30px', fontWeight: 700, color: '#00ff88', textDecoration: 'underline', textUnderlineOffset: '3px', textDecorationColor: '#00ff8833' }}>${predicted.toFixed(0)}</div>
@@ -307,12 +312,18 @@ function BetaMetaTab({ tslaPrice, marketOpen, lastUpdated, predicted, quantChang
               </div>
             </div>
 
-{/* Chart Analysis — Roger's TA (shown before Beta Dashboard) */}
+{/* ── Section divider: Tickers → Chart Analysis ── */}
+            <div style={{ height: '3px', background: 'linear-gradient(to right, #00aaff33, #00ff8833, #00aaff33)', margin: '0' }} />
+
+{/* Chart Analysis — Roger's TA */}
             <div style={{ display: 'block', width: '100%', maxWidth: '100%', overflow: 'hidden' }}>
               <ChartAnalysis />
             </div>
 
-{/* Beta section heading lives inside BetaDashboard */}
+{/* ── Section divider: Chart Analysis → Beta Dashboard ── */}
+            <div style={{ height: '3px', background: 'linear-gradient(to right, #00aaff33, #00ff8833, #00aaff33)', margin: '0' }} />
+
+{/* Beta Dashboard */}
             <BetaDashboard isMobile={false} inModal />
           </div>
           </div>
