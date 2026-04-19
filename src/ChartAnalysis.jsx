@@ -50,11 +50,14 @@ function TargetCard({ label, price, description, primary }) {
   return (
     <div style={{
       flex: '1 1 180px',
+      minWidth: 0,
+      overflow: 'hidden',
       background: primary ? 'rgba(0,255,136,0.04)' : 'rgba(255,170,0,0.04)',
       border: `1px solid ${primary ? '#00ff8833' : '#ffaa0033'}`,
       borderTop: `2px solid ${primary ? '#00ff88' : '#ffaa00'}`,
       padding: '18px 20px',
       borderRadius: '2px',
+      boxSizing: 'border-box',
     }}>
       <div style={{ fontSize: '11px', letterSpacing: '2px', color: primary ? '#00ff88' : '#ffaa00', textTransform: 'uppercase', marginBottom: '8px', fontWeight: 700 }}>
         {label}
@@ -62,7 +65,7 @@ function TargetCard({ label, price, description, primary }) {
       <div style={{ fontSize: '30px', fontWeight: 700, color: '#fff', letterSpacing: '-1px', marginBottom: '10px' }}>
         ${price}
       </div>
-      <div style={{ fontSize: '13px', color: '#ccc', lineHeight: 1.75 }}>{description}</div>
+      <div style={{ fontSize: '13px', color: '#ccc', lineHeight: 1.75, wordBreak: 'break-word', overflowWrap: 'break-word' }}>{description}</div>
     </div>
   );
 }
@@ -241,7 +244,7 @@ function CommentsSection() {
 
       {/* Disclaimer */}
       <div style={{ marginTop: '24px', padding: '16px 18px', background: '#06080c', border: '1px solid #222', borderLeft: '3px solid #444', borderRadius: '3px' }}>
-        <p style={{ fontSize: '12px', color: '#aaa', lineHeight: 1.8, margin: 0 }}>
+        <p style={{ fontSize: '12px', color: '#aaa', lineHeight: 1.8, margin: 0, wordBreak: 'break-word', overflowWrap: 'break-word' }}>
           <strong style={{ color: '#fff' }}>⚠ NOT FINANCIAL ADVICE.</strong>{' '}
           All analysis is for informational and educational purposes only. Roger's commentary reflects personal technical analysis and does not constitute investment advice, a solicitation, or a recommendation to buy or sell any security. Past signal accuracy is not a guarantee of future results. Always do your own research and consult a licensed financial professional before making investment decisions.{' '}
           Chart courtesy of <a href="https://www.tradingview.com" target="_blank" rel="noopener noreferrer" style={{ color: '#aaa', textDecoration: 'underline' }}>TradingView</a>.
@@ -258,7 +261,7 @@ export default function ChartAnalysis() {
   const [lightbox, setLightbox] = useState(false);
 
   return (
-    <div style={{ fontFamily: FONT, background: '#030608', WebkitFontSmoothing: 'antialiased' }}>
+    <div style={{ fontFamily: FONT, background: '#030608', WebkitFontSmoothing: 'antialiased', overflow: 'hidden', width: '100%', boxSizing: 'border-box' }}>
 
       {/* Lightbox */}
       {lightbox && a.chartImage && <ChartLightbox src={a.chartImage} onClose={() => setLightbox(false)} />}
@@ -344,7 +347,7 @@ export default function ChartAnalysis() {
       {/* Price targets */}
       <div style={{ padding: '20px 24px 0' }}>
         <SectionTitle>Price Targets</SectionTitle>
-        <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', minWidth: 0, overflow: 'hidden' }}>
           {a.targets.map((t, i) => (
             <TargetCard key={i} {...t} primary={i === 0} />
           ))}
@@ -360,6 +363,8 @@ export default function ChartAnalysis() {
           borderLeft: `3px solid ${overallColor}`,
           padding: '20px 22px',
           borderRadius: '2px',
+          overflow: 'hidden',
+          minWidth: 0,
         }}>
           {a.commentary.split('\n\n').map((para, i, arr) => (
             <p key={i} style={{
@@ -368,6 +373,8 @@ export default function ChartAnalysis() {
               lineHeight: 1.85,
               margin: 0,
               marginBottom: i < arr.length - 1 ? '16px' : 0,
+              wordBreak: 'break-word',
+              overflowWrap: 'break-word',
             }}>
               {para}
             </p>
