@@ -13,7 +13,7 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { searchCatalysts, getMatchedCategories, buildNodeContext, smartRank, buildSmartBadge } from './useNodeSearch';
-import { getCredits, decrementCredit, isPro, isInstitutional, addCredits, setProStatus, getCreditSig } from './creditManager';
+import { getCredits, decrementCredit, isPro, isInstitutional, addCredits, setProStatus, getCreditSig, syncCredits } from './creditManager';
 import { logQuery } from './queryLogger';
 import { getFingerprint } from './fingerprint';
 import UpgradeModal from './UpgradeModal';
@@ -136,7 +136,7 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
       try {
         const res = await fetch(`/api/credits?fp=${encodeURIComponent(fingerprint)}`);
         const data = await res.json();
-        if (typeof data.credits === 'number') setCredits(data.credits);
+        if (typeof data.credits === 'number') { setCredits(data.credits); syncCredits(data.credits); }
         if (data.pro) { setProStatus(data.pro); setProTier(data.pro); proTierRef.current = data.pro; }
       } catch { /* localStorage fallback */ }
     });
@@ -173,7 +173,7 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ fp: fingerprint, action: 'add_credits' }),
         }).then(r => r.json()).then(data => {
-          if (typeof data.credits === 'number') setCredits(data.credits);
+          if (typeof data.credits === 'number') { setCredits(data.credits); syncCredits(data.credits); }
         }).catch(() => { setCredits(c => c + 1); });
       });
     } else if (tokenParam) {
@@ -343,7 +343,7 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
       if (data.unlocked && data.result) {
         sessionStorage.removeItem('oracle_token');
         sessionStorage.removeItem('oracle_pending_query');
-        if (typeof data.credits === 'number') setCredits(data.credits);
+        if (typeof data.credits === 'number') { setCredits(data.credits); syncCredits(data.credits); }
         else { const next = decrementCredit(); setCredits(next); }
         setResult(data.result);
         setPhase('result');

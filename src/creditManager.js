@@ -42,6 +42,11 @@ export function decrementCredit() {
   return next;
 }
 
+/** Sync server-authoritative credit count into localStorage (called after server responds). */
+export function syncCredits(n) {
+  if (typeof n === 'number' && n >= 0) _setCredits(n);
+}
+
 /** Add credits (e.g. after Single Query purchase). Returns new count. */
 export function addCredits(amount = 1) {
   const n = getCredits();
