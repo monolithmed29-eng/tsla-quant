@@ -272,7 +272,6 @@ export default function ChartAnalysis() {
 
   return (
     <div className="ca-root" style={{ fontFamily: FONT, background: '#030608', WebkitFontSmoothing: 'antialiased' }}>
-      <style>{CA_STYLE}</style>
 
       {/* Lightbox */}
       {lightbox && a.chartImage && <ChartLightbox src={a.chartImage} onClose={() => setLightbox(false)} />}

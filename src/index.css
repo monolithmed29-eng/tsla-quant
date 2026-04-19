@@ -25,6 +25,24 @@ html, body, #root {
   background: #222;
 }
 
+/* Chart Analysis — hard containment */
+.ca-root {
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+.ca-root * {
+  max-width: 100%;
+  box-sizing: border-box;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.ca-root img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* Node orb interaction */
 .node-orb {
   transition: transform 0.2s ease-in-out;
