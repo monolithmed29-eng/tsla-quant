@@ -277,7 +277,7 @@ function Sidebar({ filter, setFilter }) {
           ⚡ Moved the Model
         </div>
         <div style={{ fontSize: '10px', color: '#555', marginBottom: '12px' }}>Videos that updated our quant price</div>
-        {MEDIA_DIGEST.videos.filter(v => MODEL_MOVERS.includes(v.videoId)).map((v, i) => (
+        {PLACEHOLDER.videos.filter(v => MODEL_MOVERS.includes(v.videoId)).map((v, i) => (
           <a key={i} href={v.videoUrl} target="_blank" rel="noopener noreferrer" style={{ display: 'block', marginBottom: '10px', textDecoration: 'none' }}>
             <div style={{ fontSize: '11px', color: '#ccc', lineHeight: 1.4, marginBottom: '2px' }}>{v.title.slice(0, 55)}{v.title.length > 55 ? '…' : ''}</div>
             <div style={{ fontSize: '10px', color: '#555' }}>{v.channelTitle}</div>
