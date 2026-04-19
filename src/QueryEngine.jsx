@@ -112,7 +112,7 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
   const [lastQuery, setLastQuery] = useState('');
   const [isDeep, setIsDeep] = useState(false);
   const [matchedNodes, setMatchedNodes] = useState([]);
-  const [credits, setCredits] = useState(getCredits);
+  const [credits, setCredits] = useState(null); // null = loading, wait for server
   const [proTier, setProTier] = useState(() => isPro() || null);
   const [fp, setFp] = useState(null);
   const [showUpgrade, setShowUpgrade] = useState(false);
@@ -130,6 +130,7 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
   const proTierRef = useRef(isPro() || null);
 
   // ── Init fingerprint + server credits ───────────────────────────────────────
+  // Server is always authoritative — especially important for incognito (localStorage wiped)
   useEffect(() => {
     getFingerprint().then(async fingerprint => {
       setFp(fingerprint);
@@ -137,8 +138,11 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
         const res = await fetch(`/api/credits?fp=${encodeURIComponent(fingerprint)}`);
         const data = await res.json();
         if (typeof data.credits === 'number') { setCredits(data.credits); syncCredits(data.credits); }
+        else { setCredits(getCredits()); } // server gave no count — fall back to localStorage
         if (data.pro) { setProStatus(data.pro); setProTier(data.pro); proTierRef.current = data.pro; }
-      } catch { /* localStorage fallback */ }
+      } catch {
+        setCredits(getCredits()); // server unreachable — fall back to localStorage
+      }
     });
   }, []);
 
@@ -260,8 +264,9 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
     if (!finalQuery) return;
 
     const pro = !!proTierRef.current;
-    const currentCredits = getCredits();
+    const currentCredits = credits ?? getCredits(); // use React state (server-synced) if available
 
+    if (!pro && currentCredits === null) return; // still loading — don't submit
     if (!pro && currentCredits <= 0 && !sessionStorage.getItem('oracle_token')) {
       setUpgradeReason('no_credits');
       setShowUpgrade(true);
@@ -388,7 +393,8 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
   }
 
   const pro = !!proTier; // reactive — updates immediately when server/Stripe sets tier
-  const depleted = !pro && credits <= 0 && !sessionStorage.getItem('oracle_token');
+  const creditsLoading = credits === null;
+  const depleted = !pro && !creditsLoading && credits <= 0 && !sessionStorage.getItem('oracle_token');
   const accentColor = '#00aaff'; // Tesla blue for QueryEngine
   const deepAvailable = pro && matchedNodes.length > 0;
 
@@ -450,7 +456,7 @@ export default function QueryEngine({ catalysts, onGraphSearch, onClearSearch, o
               animation: depleted ? 'qeCreditPulse 1.5s ease-in-out infinite' : 'none',
             }}
           >
-            Credits: {credits}{depleted && ' — Refill ↗'}
+            {creditsLoading ? 'Credits: …' : `Credits: ${credits}${depleted ? ' — Refill ↗' : ''}`}
           </span>
         )}
       </div>
