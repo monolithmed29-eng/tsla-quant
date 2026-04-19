@@ -98,7 +98,7 @@ function ScatterPlot({ mode, livePoint }) {
     ctx.setLineDash([]);
 
     // Beta line label
-    ctx.fillStyle = '#00aaff66';
+    ctx.fillStyle = '#00aaffaa';
     ctx.font = `10px ${FONT}`;
     ctx.textAlign = 'left';
     const lblX = toX(xMax * 0.55);
@@ -107,9 +107,9 @@ function ScatterPlot({ mode, livePoint }) {
 
     // Alpha/Laggard zone labels
     ctx.font = `9px ${FONT}`;
-    ctx.fillStyle = '#00ff8822';
+    ctx.fillStyle = '#00ff8866';
     ctx.fillText('α ALPHA DAYS', PAD.l + 4, PAD.t + 14);
-    ctx.fillStyle = '#ff444422';
+    ctx.fillStyle = '#ff444466';
     ctx.fillText('LAGGARD DAYS', PAD.l + 4, H - PAD.b - 6);
 
     // Dots
@@ -138,7 +138,7 @@ function ScatterPlot({ mode, livePoint }) {
     });
 
     // Axis labels
-    ctx.fillStyle = '#555';
+    ctx.fillStyle = '#888';
     ctx.font = `9px ${FONT}`;
     ctx.textAlign = 'center';
     for (let v = Math.ceil(xMin); v <= Math.floor(xMax); v += 1) {
@@ -152,7 +152,7 @@ function ScatterPlot({ mode, livePoint }) {
     }
 
     // Axis titles
-    ctx.fillStyle = '#444';
+    ctx.fillStyle = '#888';
     ctx.font = `9px ${FONT}`;
     ctx.textAlign = 'center';
     ctx.fillText(mode === 'spy' ? 'SPY daily %' : 'QQQ daily %', PAD.l + plotW / 2, H - 4);

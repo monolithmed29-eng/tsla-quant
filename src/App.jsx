@@ -5,6 +5,7 @@ import PriceModal from './PriceModal';
 import ProgressiveGraph from './ProgressiveGraph';
 import { logNodeClick } from './queryLogger';
 import BetaDashboard from './BetaDashboard';
+import ChartAnalysis from './ChartAnalysis';
 import QueryEngine from './QueryEngine';
 import DarkPoolGauge from './DarkPoolGauge';
 import { catalysts, links } from './data';
@@ -304,6 +305,9 @@ function BetaMetaTab({ tslaPrice, marketOpen, lastUpdated, predicted, quantChang
                 <DarkPoolGauge />
               </div>
             </div>
+
+{/* Chart Analysis — Roger's TA (shown before Beta Dashboard) */}
+            <ChartAnalysis />
 
 {/* Beta section heading lives inside BetaDashboard */}
             <BetaDashboard isMobile={false} inModal />
