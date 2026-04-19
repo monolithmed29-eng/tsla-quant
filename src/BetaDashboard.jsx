@@ -179,7 +179,9 @@ export default function BetaDashboard({ isMobile = false }) {
   const [showScatter, setShowScatter] = useState(false);
   const [loading, setLoading] = useState(true);
   const [showInfo, setShowInfo] = useState(false);
+  const [infoPos, setInfoPos] = useState({ top: 0, left: 0 });
   const infoRef = useRef(null);
+  const infoBtnRef = useRef(null);
 
   // Close info popover on outside click
   useEffect(() => {
@@ -260,11 +262,16 @@ export default function BetaDashboard({ isMobile = false }) {
           {/* ⓘ Info popover */}
           <div ref={infoRef} style={{ position: 'relative', marginLeft: '4px' }}>
             <button
-              onClick={() => setShowInfo(s => !s)}
+              ref={infoBtnRef}
+              onClick={() => {
+                const rect = infoBtnRef.current?.getBoundingClientRect();
+                if (rect) setInfoPos({ top: rect.bottom + 8, left: Math.min(rect.left, window.innerWidth - 340) });
+                setShowInfo(s => !s);
+              }}
               style={{ background: showInfo ? 'rgba(0,170,255,0.15)' : 'transparent', border: `1px solid ${showInfo ? '#00aaff' : '#aaa'}`, borderRadius: '50%', color: showInfo ? '#00aaff' : '#fff', width: '20px', height: '20px', fontSize: '11px', cursor: 'pointer', fontFamily: FONT, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, transition: 'all 0.15s', fontWeight: 700 }}
             >i</button>
             {showInfo && (
-              <div style={{ position: 'fixed', top: 'auto', left: 'auto', width: '320px', background: '#0a0d12', border: '1px solid #2a2a2a', padding: '14px 16px', zIndex: 99999, boxShadow: '0 8px 32px rgba(0,0,0,0.95)', fontSize: '12px', color: '#ddd', lineHeight: 1.8, WebkitFontSmoothing: 'antialiased', wordBreak: 'break-word', whiteSpace: 'normal', overflowWrap: 'break-word' }}>
+              <div style={{ position: 'fixed', top: infoPos.top, left: infoPos.left, width: '320px', background: '#0a0d12', border: '1px solid #2a2a2a', padding: '14px 16px', zIndex: 99999, boxShadow: '0 8px 32px rgba(0,0,0,0.95)', fontSize: '12px', color: '#ddd', lineHeight: 1.8, WebkitFontSmoothing: 'antialiased', wordBreak: 'break-word', whiteSpace: 'normal', overflowWrap: 'break-word' }}>
                 <div style={{ fontWeight: 700, color: '#fff', marginBottom: '8px', letterSpacing: '1px', textTransform: 'uppercase', fontSize: '11px' }}>What is Beta?</div>
                 <div style={{ marginBottom: '10px' }}>Beta (β) measures how much TSLA moves relative to the broader market. A β of 2.3 vs S&P 500 means: if SPY rises +1%, TSLA is expected to rise +2.3%.</div>
                 <div><span style={{ color: '#00ff88', fontWeight: 600 }}>Outperforming</span> — TSLA beats its expected β move. Stock-specific catalyst driving action.</div>
