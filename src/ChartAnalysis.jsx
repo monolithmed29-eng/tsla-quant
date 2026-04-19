@@ -31,20 +31,16 @@ function SignalRow({ label, reading, lean }) {
   const icon  = LEAN_ICON[lean]  || '◆';
   return (
     <div style={{
-      display: 'flex',
-      alignItems: 'flex-start',
-      justifyContent: 'space-between',
-      padding: '11px 0',
+      padding: '12px 0',
       borderBottom: '1px solid #0d1117',
-      gap: '12px',
-      flexWrap: 'nowrap',
-      minWidth: 0,
     }}>
-      <div style={{ fontSize: '13px', color: '#ccc', letterSpacing: '0.5px', flexShrink: 0, width: '160px' }}>{label}</div>
-      <div style={{ fontSize: '14px', color: '#fff', fontWeight: 500, lineHeight: 1.5, flex: 1, minWidth: 0, wordBreak: 'break-word' }}>{reading}</div>
-      <div style={{ flexShrink: 0, marginLeft: '12px' }}>
-        <span style={{ fontSize: '10px', color, fontWeight: 700, letterSpacing: '1.5px', whiteSpace: 'nowrap' }}>{icon} {LEAN_LABEL[lean]}</span>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+        <div style={{ fontSize: '12px', color: '#aaa', letterSpacing: '1px', textTransform: 'uppercase' }}>{label}</div>
+        <div style={{ flexShrink: 0 }}>
+          <span style={{ fontSize: '11px', color, fontWeight: 700, letterSpacing: '1.5px', whiteSpace: 'nowrap' }}>{icon} {LEAN_LABEL[lean]}</span>
+        </div>
       </div>
+      <div style={{ fontSize: '14px', color: '#fff', fontWeight: 500, lineHeight: 1.6 }}>{reading}</div>
     </div>
   );
 }
@@ -53,22 +49,60 @@ function SignalRow({ label, reading, lean }) {
 function TargetCard({ label, price, description, primary }) {
   return (
     <div style={{
-      flex: '1 1 200px',
-      minWidth: 0,
+      flex: '1 1 180px',
       background: primary ? 'rgba(0,255,136,0.04)' : 'rgba(255,170,0,0.04)',
       border: `1px solid ${primary ? '#00ff8833' : '#ffaa0033'}`,
       borderTop: `2px solid ${primary ? '#00ff88' : '#ffaa00'}`,
       padding: '18px 20px',
       borderRadius: '2px',
-      boxSizing: 'border-box',
     }}>
       <div style={{ fontSize: '11px', letterSpacing: '2px', color: primary ? '#00ff88' : '#ffaa00', textTransform: 'uppercase', marginBottom: '8px', fontWeight: 700 }}>
         {label}
       </div>
-      <div style={{ fontSize: '32px', fontWeight: 700, color: '#fff', letterSpacing: '-1px', marginBottom: '10px' }}>
+      <div style={{ fontSize: '30px', fontWeight: 700, color: '#fff', letterSpacing: '-1px', marginBottom: '10px' }}>
         ${price}
       </div>
-      <div style={{ fontSize: '13px', color: '#ccc', lineHeight: 1.75, wordBreak: 'break-word' }}>{description}</div>
+      <div style={{ fontSize: '13px', color: '#ccc', lineHeight: 1.75 }}>{description}</div>
+    </div>
+  );
+}
+
+// ── Chart Lightbox ────────────────────────────────────────────────────────────
+function ChartLightbox({ src, onClose }) {
+  useEffect(() => {
+    const handler = e => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [onClose]);
+
+  return (
+    <div
+      onClick={onClose}
+      style={{
+        position: 'fixed', inset: 0, zIndex: 99999,
+        background: 'rgba(0,0,0,0.92)',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        padding: '20px',
+        cursor: 'zoom-out',
+      }}
+    >
+      <div style={{ position: 'relative', maxWidth: '100%', maxHeight: '100%' }} onClick={e => e.stopPropagation()}>
+        <img
+          src={src}
+          alt="TSLA Chart — expanded"
+          style={{ maxWidth: '90vw', maxHeight: '90vh', display: 'block', borderRadius: '4px', border: '1px solid #2a2a3a' }}
+        />
+        <button
+          onClick={onClose}
+          style={{
+            position: 'absolute', top: '-14px', right: '-14px',
+            background: '#111', border: '1px solid #444', color: '#fff',
+            borderRadius: '50%', width: '32px', height: '32px',
+            fontSize: '16px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+            fontFamily: FONT,
+          }}
+        >✕</button>
+      </div>
     </div>
   );
 }
@@ -115,11 +149,11 @@ function CommentsSection() {
   }
 
   return (
-    <div style={{ padding: '28px', borderTop: '1px solid #0d1117', boxSizing: 'border-box', minWidth: 0 }}>
+    <div style={{ padding: '28px 24px', borderTop: '1px solid #0d1117' }}>
       <SectionTitle>Community Discussion</SectionTitle>
 
       {/* Submit form */}
-      <form onSubmit={handleSubmit} style={{ marginBottom: '28px', background: '#080b10', border: '1px solid #1a1a2a', padding: '20px', borderRadius: '4px', boxSizing: 'border-box' }}>
+      <form onSubmit={handleSubmit} style={{ marginBottom: '28px', background: '#080b10', border: '1px solid #1a1a2a', padding: '18px', borderRadius: '4px' }}>
         <div style={{ display: 'flex', gap: '12px', marginBottom: '12px', flexWrap: 'wrap' }}>
           <input
             value={name}
@@ -127,20 +161,19 @@ function CommentsSection() {
             placeholder="Your name / handle"
             maxLength={40}
             style={{
-              flex: '0 0 200px',
+              flex: '0 0 180px',
               background: '#030608',
               border: '1px solid #1e2a3a',
               color: '#fff',
               fontSize: '14px',
-              padding: '10px 14px',
+              padding: '10px 12px',
               fontFamily: FONT,
               outline: 'none',
               borderRadius: '3px',
-              boxSizing: 'border-box',
             }}
           />
-          <div style={{ fontSize: '12px', color: '#888', alignSelf: 'center', letterSpacing: '0.3px' }}>
-            No account needed. Just drop your thoughts.
+          <div style={{ fontSize: '12px', color: '#888', alignSelf: 'center' }}>
+            No account needed.
           </div>
         </div>
         <textarea
@@ -155,7 +188,7 @@ function CommentsSection() {
             border: '1px solid #1e2a3a',
             color: '#fff',
             fontSize: '14px',
-            padding: '10px 14px',
+            padding: '10px 12px',
             fontFamily: FONT,
             outline: 'none',
             resize: 'vertical',
@@ -195,24 +228,23 @@ function CommentsSection() {
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
           {comments.map((c, i) => (
-            <div key={i} style={{ background: '#080b10', border: '1px solid #0d1117', padding: '16px 20px', borderRadius: '4px' }}>
+            <div key={i} style={{ background: '#080b10', border: '1px solid #0d1117', padding: '16px 18px', borderRadius: '4px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '8px', gap: '8px', flexWrap: 'wrap' }}>
                 <span style={{ fontSize: '14px', fontWeight: 700, color: '#00aaff' }}>{c.name}</span>
-                <span style={{ fontSize: '11px', color: '#666' }}>{c.timeAgo || new Date(c.ts).toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</span>
+                <span style={{ fontSize: '11px', color: '#666' }}>{c.timeAgo || new Date(c.ts).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
               </div>
-              <div style={{ fontSize: '14px', color: '#ddd', lineHeight: 1.7, wordBreak: 'break-word' }}>{c.text}</div>
+              <div style={{ fontSize: '14px', color: '#ddd', lineHeight: 1.7 }}>{c.text}</div>
             </div>
           ))}
         </div>
       )}
 
       {/* Disclaimer */}
-      <div style={{ marginTop: '24px', padding: '16px 20px', background: '#06080c', border: '1px solid #222', borderLeft: '3px solid #333', borderRadius: '3px', boxSizing: 'border-box' }}>
-        <p style={{ fontSize: '12px', color: '#aaa', lineHeight: 1.8, margin: 0, wordBreak: 'break-word' }}>
-          <strong style={{ color: '#fff', letterSpacing: '0.5px' }}>⚠ NOT FINANCIAL ADVICE.</strong>{' '}
-          All analysis on this page is for informational and educational purposes only. Roger's commentary reflects personal technical analysis and does not constitute investment advice, a solicitation, or a recommendation to buy or sell any security. Past signal accuracy is not a guarantee of future results. Always do your own research and consult a licensed financial professional before making investment decisions.{' '}
-          Chart courtesy of{' '}
-          <a href="https://www.tradingview.com" target="_blank" rel="noopener noreferrer" style={{ color: '#aaa', textDecoration: 'underline' }}>TradingView</a>.
+      <div style={{ marginTop: '24px', padding: '16px 18px', background: '#06080c', border: '1px solid #222', borderLeft: '3px solid #444', borderRadius: '3px' }}>
+        <p style={{ fontSize: '12px', color: '#aaa', lineHeight: 1.8, margin: 0 }}>
+          <strong style={{ color: '#fff' }}>⚠ NOT FINANCIAL ADVICE.</strong>{' '}
+          All analysis is for informational and educational purposes only. Roger's commentary reflects personal technical analysis and does not constitute investment advice, a solicitation, or a recommendation to buy or sell any security. Past signal accuracy is not a guarantee of future results. Always do your own research and consult a licensed financial professional before making investment decisions.{' '}
+          Chart courtesy of <a href="https://www.tradingview.com" target="_blank" rel="noopener noreferrer" style={{ color: '#aaa', textDecoration: 'underline' }}>TradingView</a>.
         </p>
       </div>
     </div>
@@ -223,15 +255,19 @@ function CommentsSection() {
 export default function ChartAnalysis() {
   const a = ANALYSIS;
   const overallColor = LEAN_COLOR[a.overallLean] || '#aaa';
+  const [lightbox, setLightbox] = useState(false);
 
   return (
-    <div style={{ fontFamily: FONT, background: '#030608', WebkitFontSmoothing: 'antialiased', minWidth: 0, overflowX: 'hidden' }}>
+    <div style={{ fontFamily: FONT, background: '#030608', WebkitFontSmoothing: 'antialiased' }}>
+
+      {/* Lightbox */}
+      {lightbox && a.chartImage && <ChartLightbox src={a.chartImage} onClose={() => setLightbox(false)} />}
 
       {/* Section header */}
       <div style={{
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        padding: '16px 28px', borderBottom: '1px solid #0d1117',
-        background: '#040710', flexWrap: 'wrap', gap: '10px',
+        padding: '16px 24px', borderBottom: '1px solid #0d1117',
+        background: '#040710', gap: '10px', flexWrap: 'wrap',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
           <span style={{ fontSize: '14px', fontWeight: 700, letterSpacing: '2px', color: '#fff', textTransform: 'uppercase' }}>
@@ -242,7 +278,6 @@ export default function ChartAnalysis() {
           </span>
         </div>
         <div style={{
-          display: 'flex', alignItems: 'center', gap: '8px',
           background: `${overallColor}18`,
           border: `1px solid ${overallColor}44`,
           padding: '5px 14px', borderRadius: '20px', flexShrink: 0,
@@ -254,18 +289,33 @@ export default function ChartAnalysis() {
       </div>
 
       {/* Chart image */}
-      <div style={{ padding: '24px 28px 0', boxSizing: 'border-box', minWidth: 0 }}>
+      <div style={{ padding: '20px 24px 0' }}>
         {a.chartImage ? (
-          <div style={{ position: 'relative', border: '1px solid #1a1a2a', borderRadius: '4px', overflow: 'hidden', lineHeight: 0 }}>
+          <div
+            onClick={() => setLightbox(true)}
+            style={{
+              position: 'relative', border: '1px solid #1a1a2a', borderRadius: '4px',
+              overflow: 'hidden', lineHeight: 0, cursor: 'zoom-in',
+            }}
+          >
             <img
               src={a.chartImage}
               alt="TSLA Technical Analysis Chart"
-              style={{ width: '100%', display: 'block', maxWidth: '100%' }}
+              style={{ width: '100%', display: 'block' }}
             />
+            {/* Zoom hint */}
+            <div style={{
+              position: 'absolute', top: '10px', right: '12px',
+              fontSize: '11px', color: '#ccc', letterSpacing: '0.5px',
+              background: 'rgba(0,0,0,0.65)', padding: '4px 10px', borderRadius: '12px',
+              display: 'flex', alignItems: 'center', gap: '5px',
+            }}>
+              🔍 Click to expand
+            </div>
             <div style={{
               position: 'absolute', bottom: '10px', right: '12px',
-              fontSize: '10px', color: '#ccc', letterSpacing: '0.5px',
-              background: 'rgba(0,0,0,0.7)', padding: '3px 8px', borderRadius: '2px',
+              fontSize: '10px', color: '#bbb',
+              background: 'rgba(0,0,0,0.65)', padding: '3px 8px', borderRadius: '2px',
             }}>
               Chart courtesy of TradingView
             </div>
@@ -284,7 +334,7 @@ export default function ChartAnalysis() {
       </div>
 
       {/* Signal scorecard */}
-      <div style={{ padding: '24px 28px 0', boxSizing: 'border-box', minWidth: 0 }}>
+      <div style={{ padding: '20px 24px 0' }}>
         <SectionTitle>Signal Scorecard</SectionTitle>
         {a.signals.map((s, i) => (
           <SignalRow key={i} {...s} />
@@ -292,7 +342,7 @@ export default function ChartAnalysis() {
       </div>
 
       {/* Price targets */}
-      <div style={{ padding: '24px 28px 0', boxSizing: 'border-box', minWidth: 0 }}>
+      <div style={{ padding: '20px 24px 0' }}>
         <SectionTitle>Price Targets</SectionTitle>
         <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
           {a.targets.map((t, i) => (
@@ -302,15 +352,14 @@ export default function ChartAnalysis() {
       </div>
 
       {/* Roger's Read */}
-      <div style={{ padding: '24px 28px 0', boxSizing: 'border-box', minWidth: 0 }}>
+      <div style={{ padding: '20px 24px 0' }}>
         <SectionTitle>Roger's Read</SectionTitle>
         <div style={{
           background: '#060a0f',
           border: '1px solid #1a1a2a',
           borderLeft: `3px solid ${overallColor}`,
-          padding: '22px 24px',
+          padding: '20px 22px',
           borderRadius: '2px',
-          boxSizing: 'border-box',
         }}>
           {a.commentary.split('\n\n').map((para, i, arr) => (
             <p key={i} style={{
@@ -319,7 +368,6 @@ export default function ChartAnalysis() {
               lineHeight: 1.85,
               margin: 0,
               marginBottom: i < arr.length - 1 ? '16px' : 0,
-              wordBreak: 'break-word',
             }}>
               {para}
             </p>
