@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { betaHistory, BETA_SPY, BETA_QQQ } from './betaData';
 
 const FONT = "'Space Grotesk', sans-serif";
@@ -174,10 +174,20 @@ function ScatterPlot({ mode, livePoint }) {
 
 // ── Main Component ────────────────────────────────────────────────────────────
 export default function BetaDashboard({ isMobile = false }) {
-  const [live, setLive] = useState(null);       // { tsla, spy, qqq } % changes
-  const [scatterMode, setScatterMode] = useState('spy'); // 'spy' | 'qqq'
+  const [live, setLive] = useState(null);
+  const [scatterMode, setScatterMode] = useState('spy');
   const [showScatter, setShowScatter] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [showInfo, setShowInfo] = useState(false);
+  const infoRef = useRef(null);
+
+  // Close info popover on outside click
+  useEffect(() => {
+    if (!showInfo) return;
+    const handler = e => { if (infoRef.current && !infoRef.current.contains(e.target)) setShowInfo(false); };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, [showInfo]);
 
   useEffect(() => {
     let cancelled = false;
@@ -238,12 +248,31 @@ export default function BetaDashboard({ isMobile = false }) {
           <span style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '2px', color: '#fff', textTransform: 'uppercase' }}>
             Beta Dashboard
           </span>
+          <span style={{ fontSize: '11px', color: '#fff', fontStyle: 'italic', letterSpacing: '0.2px' }}>
+            Is this move Tesla-specific, or just market tide?
+          </span>
           <span style={{
             fontSize: '10px', color: '#888', letterSpacing: '1px',
             borderLeft: '1px solid #1a1a1a', paddingLeft: '12px',
           }}>
             {marketOpen ? '● Live' : '○ Last Close'}
           </span>
+          {/* ⓘ Info popover */}
+          <div ref={infoRef} style={{ position: 'relative', marginLeft: '4px' }}>
+            <button
+              onClick={() => setShowInfo(s => !s)}
+              style={{ background: showInfo ? 'rgba(0,170,255,0.15)' : 'transparent', border: `1px solid ${showInfo ? '#00aaff' : '#444'}`, borderRadius: '50%', color: showInfo ? '#00aaff' : '#888', width: '18px', height: '18px', fontSize: '10px', cursor: 'pointer', fontFamily: FONT, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, transition: 'all 0.15s' }}
+            >ⓘ</button>
+            {showInfo && (
+              <div style={{ position: 'absolute', top: '24px', left: '0', width: '320px', background: '#0a0d12', border: '1px solid #2a2a2a', padding: '12px 14px', zIndex: 19000, boxShadow: '0 8px 32px rgba(0,0,0,0.9)', fontSize: '12px', color: '#ddd', lineHeight: 1.7, WebkitFontSmoothing: 'antialiased' }}>
+                <div style={{ fontWeight: 700, color: '#fff', marginBottom: '6px', letterSpacing: '1px', textTransform: 'uppercase', fontSize: '10px' }}>What is Beta?</div>
+                Beta (β) measures how much TSLA moves relative to the broader market. A β of 2.3 vs S&P 500 means: if SPY rises +1%, TSLA is expected to rise +2.3%.<br /><br />
+                <span style={{ color: '#00ff88' }}>Outperforming</span> = TSLA beats its expected β move → stock-specific catalyst driving the action.<br />
+                <span style={{ color: '#ff4444' }}>Underperforming</span> = TSLA lags despite market tailwind → stock-specific headwind.<br />
+                <span style={{ color: '#aaa' }}>Tracking</span> = TSLA moving in line with beta → no special signal.
+              </div>
+            )}
+          </div>
         </div>
         <button
           onClick={() => setShowScatter(s => !s)}
@@ -262,8 +291,8 @@ export default function BetaDashboard({ isMobile = false }) {
       </div>
 
       {/* Table */}
-      <div style={{ padding: isMobile ? '0 14px 6px' : '0 28px 8px', overflowX: 'auto' }}>
-        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px', minWidth: '540px' }}>
+      <div style={{ padding: isMobile ? '0 14px 6px' : '0 28px 8px' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px' }}>
           <thead>
             <tr style={{ color: '#bbb', letterSpacing: '1px', textTransform: 'uppercase', fontSize: '11px' }}>
               <td style={{ padding: '8px 10px 6px 0', width: '130px' }}>Index</td>
@@ -309,16 +338,7 @@ export default function BetaDashboard({ isMobile = false }) {
           </tbody>
         </table>
 
-        {/* Beta explainer */}
-        <div style={{
-          fontSize: '11px', color: '#aaa', letterSpacing: '0.3px', lineHeight: 1.6,
-          padding: '8px 0 4px',
-          borderTop: '1px solid #0a0e14',
-          marginTop: '4px',
-        }}>
-          β (beta) measures TSLA's expected move relative to the market. β=2.3 vs S&P means a +1% SPY day implies +2.3% TSLA.
-          Divergence above that line = stock-specific alpha. Below = underperformance despite a market tailwind.
-        </div>
+
       </div>
 
       {/* Scatter Plot */}

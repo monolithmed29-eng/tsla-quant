@@ -305,13 +305,7 @@ function BetaMetaTab({ tslaPrice, marketOpen, lastUpdated, predicted, quantChang
               </div>
             </div>
 
-            {/* Beta section heading */}
-            <div style={{ padding: '16px 24px 4px', borderBottom: '1px solid #0d1117' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <span style={{ fontSize: '11px', color: '#fff', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: 700 }}>Beta Dashboard</span>
-                <span style={{ fontSize: '10px', color: '#666', marginLeft: '6px' }}>Is this move Tesla-specific, or just market tide?</span>
-              </div>
-            </div>
+{/* Beta section heading lives inside BetaDashboard */}
             <BetaDashboard isMobile={false} inModal />
           </div>
         </div>

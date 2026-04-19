@@ -311,7 +311,7 @@ function TooltipPanel({ calls, puts, pct, delta, showGhost, prevPct, needleColor
         <div style={{ fontSize: '7px', color: toneMode.color, letterSpacing: '2px', fontWeight: 700, marginBottom: '6px', textTransform: 'uppercase' }}>
           Roger · {toneMode.label}
         </div>
-        <div style={{ fontSize: '11px', color: '#ffffff', lineHeight: 1.7, fontWeight: 400, WebkitFontSmoothing: 'antialiased' }}>{roger_insight}</div>
+        <div style={{ fontSize: '11px', color: '#ffffff', lineHeight: 1.7, fontWeight: 400, WebkitFontSmoothing: 'antialiased', wordBreak: 'break-word', whiteSpace: 'normal', overflowWrap: 'break-word' }}>{roger_insight}</div>
       </div>
       <div style={{ fontSize: '8px', color: '#555', marginTop: '8px', textAlign: 'right' }}>Updated: {updated}</div>
     </div>
