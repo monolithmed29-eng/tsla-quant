@@ -264,9 +264,9 @@ export default function DarkPoolGauge({ mobile = false }) {
 function TooltipPanel({ calls, puts, pct, delta, showGhost, prevPct, needleColor, toneMode, statusDot, needle_status, roger_insight, updated, mobile }) {
   return (
     <div style={{
-      position: 'absolute',
-      top: '100%',
-      right: mobile ? '0' : '-20px',
+      position: 'fixed',
+      top: 'auto',
+      right: '24px',
       left: 'auto',
       marginTop: '8px',
       background: '#0a0d12',

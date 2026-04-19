@@ -283,7 +283,7 @@ function BetaMetaTab({ tslaPrice, marketOpen, lastUpdated, predicted, quantChang
             </div>
 
             {/* Stats row: TSLA · Quant · Whale */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', background: '#080b10', borderBottom: '1px solid #0d1117', overflow: 'visible' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', background: '#080b10', borderBottom: '1px solid #0d1117', overflow: 'hidden' }}>
               {/* TSLA Live */}
               <div style={{ padding: '18px 24px', borderRight: '1px solid #0d1117' }}>
                 <div style={{ fontSize: '9px', color: '#aaa', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '6px' }}>TSLA Live</div>
@@ -300,7 +300,7 @@ function BetaMetaTab({ tslaPrice, marketOpen, lastUpdated, predicted, quantChang
                 <div style={{ fontSize: '10px', color: '#555', marginTop: '4px' }}>Click for full breakdown</div>
               </div>
               {/* Whale Scale */}
-              <div style={{ padding: '18px 24px', display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: 'visible', position: 'relative', zIndex: 10 }}>
+              <div style={{ padding: '18px 24px', display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: 'hidden', position: 'relative', zIndex: 10 }}>
                 <div style={{ fontSize: '9px', color: '#aaa', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '10px' }}>Whale Scale</div>
                 <DarkPoolGauge />
               </div>
