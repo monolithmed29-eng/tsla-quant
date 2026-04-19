@@ -270,7 +270,9 @@ function BetaMetaTab({ tslaPrice, marketOpen, lastUpdated, predicted, quantChang
       {/* Modal */}
       {open && (
         <div onClick={e => { if (e.target === e.currentTarget) setOpen(false); }} style={{ position: 'fixed', inset: 0, zIndex: 9500, background: 'rgba(0,0,0,0.75)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <div style={{ background: '#030608', border: '1px solid #1e2a3a', borderTop: '2px solid #00aaff', width: '900px', maxWidth: '96vw', maxHeight: '90vh', overflowY: 'auto', overflowX: 'hidden', contain: 'paint', fontFamily: F, boxShadow: '0 24px 80px rgba(0,0,0,0.95)', WebkitFontSmoothing: 'antialiased' }}>
+          {/* Outer: clips width. Inner: scrolls vertically. Separated to avoid the overflowY+overflowX browser bug */}
+          <div style={{ border: '1px solid #1e2a3a', borderTop: '2px solid #00aaff', width: '900px', maxWidth: '96vw', maxHeight: '90vh', overflow: 'hidden', boxShadow: '0 24px 80px rgba(0,0,0,0.95)' }}>
+          <div style={{ background: '#030608', width: '100%', maxHeight: '90vh', overflowY: 'auto', overflowX: 'hidden', fontFamily: F, WebkitFontSmoothing: 'antialiased' }}>
 
             {/* Header */}
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px 24px', borderBottom: '1px solid #0d1117' }}>
@@ -313,7 +315,8 @@ function BetaMetaTab({ tslaPrice, marketOpen, lastUpdated, predicted, quantChang
 
 {/* Beta section heading lives inside BetaDashboard */}
             <BetaDashboard isMobile={false} inModal />
-          </div>
+          </div>{/* end inner scroll div */}
+          </div>{/* end outer clip div */}
         </div>
       )}
     </>
