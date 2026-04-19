@@ -191,7 +191,7 @@ function QueryEngineHeader({ open, onToggle }) {
     >
       <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#00aaff', display: 'inline-block', flexShrink: 0, boxShadow: '0 0 8px 3px rgba(0,170,255,0.6)' }} />
       <span style={{ color: '#00aaff', fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: 700 }}>Query Engine</span>
-      <span style={{ color: '#555', fontSize: '10px', letterSpacing: '1px', margin: '0 2px' }}>·</span>
+      <span style={{ color: '#888', fontSize: '10px', letterSpacing: '1px', margin: '0 2px' }}>·</span>
       <span style={{ color: '#00aaff', fontSize: '10px', letterSpacing: '1px', fontWeight: 600 }}>ROGER@TSLAQUANT:~$</span>
       <span style={{ color: '#fff', fontSize: '11px' }}>{open ? 'panel open →' : 'ask Roger...'}</span>
     </div>
@@ -265,7 +265,7 @@ function BetaMetaTab({ tslaPrice, marketOpen, lastUpdated, predicted, quantChang
         onMouseEnter={e => { e.currentTarget.style.borderColor='#00aaff'; e.currentTarget.style.background='rgba(0,170,255,0.08)'; }}
         onMouseLeave={e => { if (!open) { e.currentTarget.style.borderColor='#fff'; e.currentTarget.style.background='transparent'; } }}>
         <span style={{ fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', color: '#00ff88', fontWeight: 700 }}>Roger's Trading Corner</span>
-        <span style={{ fontSize: '9px', color: open ? '#00ff88' : '#555' }}>{open ? '▲' : '▼'}</span>
+        <span style={{ fontSize: '9px', color: open ? '#00ff88' : '#aaa' }}>{open ? '▲' : '▼'}</span>
       </button>
 
       {/* Modal */}
@@ -284,9 +284,9 @@ function BetaMetaTab({ tslaPrice, marketOpen, lastUpdated, predicted, quantChang
                   <div style={{ fontSize: '9px', letterSpacing: '2px', color: '#00aaff', textTransform: 'uppercase', marginTop: '4px', fontWeight: 600 }}>Live Analysis · TSLA</div>
                 </div>
               </div>
-              <button onClick={() => setOpen(false)} style={{ background: 'none', border: '1px solid #333', color: '#888', fontSize: '14px', cursor: 'pointer', padding: '2px 8px', transition: 'all 0.15s', borderRadius: '4px' }}
-                onMouseEnter={e => { e.currentTarget.style.color='#fff'; e.currentTarget.style.borderColor='#666'; }}
-                onMouseLeave={e => { e.currentTarget.style.color='#888'; e.currentTarget.style.borderColor='#333'; }}>✕</button>
+              <button onClick={() => setOpen(false)} style={{ background: 'none', border: '1px solid #555', color: '#ccc', fontSize: '14px', cursor: 'pointer', padding: '2px 8px', transition: 'all 0.15s', borderRadius: '4px' }}
+                onMouseEnter={e => { e.currentTarget.style.color='#fff'; e.currentTarget.style.borderColor='#aaa'; }}
+                onMouseLeave={e => { e.currentTarget.style.color='#ccc'; e.currentTarget.style.borderColor='#555'; }}>✕</button>
             </div>
 
             {/* Stats row: TSLA · Quant · Whale */}
@@ -515,14 +515,14 @@ export default function App() {
             <div style={{ width: '1px', height: '28px', background: '#333' }} />
             <button onClick={() => setShowMedia(m => !m)} style={{
               background: showMedia ? 'rgba(255,50,50,0.12)' : 'transparent',
-              border: `1px solid ${showMedia ? '#ff3333' : '#444'}`,
-              borderRadius: '20px', color: showMedia ? '#ff6666' : '#888',
+              border: `1px solid ${showMedia ? '#ff3333' : '#ff333388'}`,
+              borderRadius: '20px', color: showMedia ? '#ff6666' : '#fff',
               fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase',
               padding: '5px 14px', cursor: 'pointer', fontFamily: "'Space Grotesk', sans-serif",
               transition: 'all 0.2s', flexShrink: 0, display: 'flex', alignItems: 'center', gap: '6px',
             }}
               onMouseEnter={e => { if (!showMedia) { e.currentTarget.style.borderColor='#ff3333'; e.currentTarget.style.color='#ff6666'; }}}
-              onMouseLeave={e => { if (!showMedia) { e.currentTarget.style.borderColor='#444'; e.currentTarget.style.color='#888'; }}}
+              onMouseLeave={e => { if (!showMedia) { e.currentTarget.style.borderColor='#ff333388'; e.currentTarget.style.color='#fff'; }}}
             >
               <span style={{ fontSize: '12px' }}>🎬</span>TSLA TUBE
             </button>
@@ -940,12 +940,12 @@ export default function App() {
               <span style={{ fontSize: '10px', color: '#555', letterSpacing: '1px' }}>YouTube Digest · tslaquant.com</span>
             </div>
             <button onClick={() => setShowMedia(false)} style={{
-              background: 'none', border: '1px solid #333', color: '#888',
+              background: 'none', border: '1px solid #555', color: '#ccc',
               fontSize: '14px', cursor: 'pointer', padding: '2px 10px',
               fontFamily: "'Space Grotesk', sans-serif", borderRadius: '4px', transition: 'all 0.15s',
             }}
-              onMouseEnter={e => { e.currentTarget.style.color='#fff'; e.currentTarget.style.borderColor='#666'; }}
-              onMouseLeave={e => { e.currentTarget.style.color='#888'; e.currentTarget.style.borderColor='#333'; }}
+              onMouseEnter={e => { e.currentTarget.style.color='#fff'; e.currentTarget.style.borderColor='#aaa'; }}
+              onMouseLeave={e => { e.currentTarget.style.color='#ccc'; e.currentTarget.style.borderColor='#555'; }}
             >✕</button>
           </div>
           {/* Scrollable content */}
