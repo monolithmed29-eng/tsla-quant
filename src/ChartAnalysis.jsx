@@ -1,6 +1,18 @@
 import { useState, useEffect } from 'react';
 import { ANALYSIS } from './rogerAnalysis';
 
+// Inject once — forces all children to stay within the modal width
+const CA_STYLE = `
+  .ca-root, .ca-root * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .ca-root p, .ca-root div, .ca-root span {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+`;
+
 const FONT = "'Space Grotesk', sans-serif";
 
 const LEAN_COLOR = { bullish: '#00ff88', bearish: '#ff4444', neutral: '#ffaa00' };
@@ -259,7 +271,8 @@ export default function ChartAnalysis() {
   const [lightbox, setLightbox] = useState(false);
 
   return (
-    <div style={{ fontFamily: FONT, background: '#030608', WebkitFontSmoothing: 'antialiased', width: '100%', boxSizing: 'border-box', maxWidth: '100%' }}>
+    <div className="ca-root" style={{ fontFamily: FONT, background: '#030608', WebkitFontSmoothing: 'antialiased' }}>
+      <style>{CA_STYLE}</style>
 
       {/* Lightbox */}
       {lightbox && a.chartImage && <ChartLightbox src={a.chartImage} onClose={() => setLightbox(false)} />}
