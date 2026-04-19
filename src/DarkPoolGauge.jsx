@@ -273,7 +273,7 @@ function TooltipPanel({ calls, puts, pct, delta, showGhost, prevPct, needleColor
       border: '1px solid #2a2a2a',
       padding: '14px 16px',
       width: '300px',
-      zIndex: 9998,
+      zIndex: 19000,
       boxShadow: '0 12px 40px rgba(0,0,0,0.95)',
       animation: 'whaleFadeIn 0.18s ease',
       fontSmooth: 'always',

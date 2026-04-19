@@ -262,7 +262,6 @@ function BetaMetaTab({ tslaPrice, marketOpen, lastUpdated, predicted, quantChang
       <button onClick={() => setOpen(o => !o)} style={{ display: 'flex', alignItems: 'center', gap: '8px', border: `1px solid ${open ? '#00aaff' : '#fff'}`, borderRadius: '20px', padding: '5px 14px', background: open ? 'rgba(0,170,255,0.1)' : 'transparent', cursor: 'pointer', fontFamily: F, transition: 'all 0.2s', flexShrink: 0 }}
         onMouseEnter={e => { e.currentTarget.style.borderColor='#00aaff'; e.currentTarget.style.background='rgba(0,170,255,0.08)'; }}
         onMouseLeave={e => { if (!open) { e.currentTarget.style.borderColor='#fff'; e.currentTarget.style.background='transparent'; } }}>
-        <span style={{ fontSize: '13px', color: '#00aaff' }}>β</span>
         <span style={{ fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', color: '#fff', fontWeight: 700 }}>Roger's Trading Corner</span>
         <span style={{ fontSize: '9px', color: open ? '#00aaff' : '#666' }}>{open ? '▲' : '▼'}</span>
       </button>
@@ -270,12 +269,11 @@ function BetaMetaTab({ tslaPrice, marketOpen, lastUpdated, predicted, quantChang
       {/* Modal */}
       {open && (
         <div onClick={e => { if (e.target === e.currentTarget) setOpen(false); }} style={{ position: 'fixed', inset: 0, zIndex: 9500, background: 'rgba(0,0,0,0.75)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <div style={{ background: '#030608', border: '1px solid #1e2a3a', borderTop: '2px solid #00aaff', width: '860px', maxWidth: '94vw', maxHeight: '88vh', overflowY: 'auto', fontFamily: F, boxShadow: '0 24px 80px rgba(0,0,0,0.95)', WebkitFontSmoothing: 'antialiased' }}>
+          <div style={{ background: '#030608', border: '1px solid #1e2a3a', borderTop: '2px solid #00aaff', width: '900px', maxWidth: '96vw', maxHeight: '90vh', overflowY: 'auto', overflowX: 'visible', fontFamily: F, boxShadow: '0 24px 80px rgba(0,0,0,0.95)', WebkitFontSmoothing: 'antialiased' }}>
 
             {/* Header */}
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px 24px', borderBottom: '1px solid #0d1117' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <span style={{ fontSize: '16px', color: '#00aaff' }}>β</span>
                 <span style={{ fontSize: '13px', letterSpacing: '2px', textTransform: 'uppercase', color: '#fff', fontWeight: 700 }}>Roger's Trading Corner</span>
               </div>
               <button onClick={() => setOpen(false)} style={{ background: 'none', border: '1px solid #333', color: '#888', fontSize: '14px', cursor: 'pointer', padding: '2px 8px', transition: 'all 0.15s' }}
@@ -284,7 +282,7 @@ function BetaMetaTab({ tslaPrice, marketOpen, lastUpdated, predicted, quantChang
             </div>
 
             {/* Stats row: TSLA · Quant · Whale */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', background: '#080b10', borderBottom: '1px solid #0d1117' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', background: '#080b10', borderBottom: '1px solid #0d1117', overflow: 'visible' }}>
               {/* TSLA Live */}
               <div style={{ padding: '18px 24px', borderRight: '1px solid #0d1117' }}>
                 <div style={{ fontSize: '9px', color: '#aaa', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '6px' }}>TSLA Live</div>
@@ -301,18 +299,17 @@ function BetaMetaTab({ tslaPrice, marketOpen, lastUpdated, predicted, quantChang
                 <div style={{ fontSize: '10px', color: '#555', marginTop: '4px' }}>Click for full breakdown</div>
               </div>
               {/* Whale Scale */}
-              <div style={{ padding: '18px 24px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <div style={{ padding: '18px 24px', display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: 'visible', position: 'relative', zIndex: 10 }}>
                 <div style={{ fontSize: '9px', color: '#aaa', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '10px' }}>Whale Scale</div>
                 <DarkPoolGauge />
               </div>
             </div>
 
-            {/* Beta section — single heading */}
+            {/* Beta section heading */}
             <div style={{ padding: '16px 24px 4px', borderBottom: '1px solid #0d1117' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <span style={{ fontSize: '15px', color: '#00aaff', fontWeight: 700 }}>β</span>
-                <span style={{ fontSize: '11px', color: '#fff', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: 700 }}>Beta Analysis</span>
-                <span style={{ fontSize: '9px', color: '#444', marginLeft: '6px' }}>Is this move Tesla-specific or just market tide?</span>
+                <span style={{ fontSize: '11px', color: '#fff', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: 700 }}>Beta Dashboard</span>
+                <span style={{ fontSize: '10px', color: '#666', marginLeft: '6px' }}>Is this move Tesla-specific, or just market tide?</span>
               </div>
             </div>
             <BetaDashboard isMobile={false} inModal />
