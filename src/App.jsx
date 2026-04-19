@@ -251,6 +251,104 @@ function QueryEnginePanel({ open, onClose, catalysts, onGraphSearch, onClearSear
   );
 }
 
+// ── BetaMetaTab — compact pill + full modal ───────────────────────────────────
+function BetaMetaTab({ tslaPrice, marketOpen, lastUpdated, predicted, quantChange, onShowPriceModal }) {
+  const [open, setOpen] = useState(false);
+  const FONT = "'Space Grotesk', sans-serif";
+
+  return (
+    <>
+      {/* Pill button */}
+      <button
+        onClick={() => setOpen(o => !o)}
+        style={{
+          display: 'flex', alignItems: 'center', gap: '8px',
+          border: `1px solid ${open ? '#00aaff' : '#fff'}`,
+          borderRadius: '20px', padding: '5px 14px',
+          background: open ? 'rgba(0,170,255,0.1)' : 'transparent',
+          cursor: 'pointer', fontFamily: FONT,
+          transition: 'all 0.2s',
+          flexShrink: 0,
+        }}
+        onMouseEnter={e => { e.currentTarget.style.borderColor = '#00aaff'; e.currentTarget.style.background = 'rgba(0,170,255,0.08)'; }}
+        onMouseLeave={e => { if (!open) { e.currentTarget.style.borderColor = '#fff'; e.currentTarget.style.background = 'transparent'; } }}
+      >
+        <span style={{ fontSize: '13px', color: '#00aaff' }}>β</span>
+        <span style={{ fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', color: '#fff', fontWeight: 700 }}>Beta Meta</span>
+        {tslaPrice && (
+          <>
+            <span style={{ color: '#333', fontSize: '10px' }}>·</span>
+            <span style={{ fontSize: '12px', fontWeight: 700, color: marketOpen ? '#00aaff' : '#888' }}>${tslaPrice.toFixed(2)}</span>
+          </>
+        )}
+        <span style={{ fontSize: '9px', color: open ? '#00aaff' : '#666' }}>{open ? '▲' : '▼'}</span>
+      </button>
+
+      {/* Modal */}
+      {open && (
+        <div
+          onClick={e => { if (e.target === e.currentTarget) setOpen(false); }}
+          style={{
+            position: 'fixed', inset: 0, zIndex: 9500,
+            background: 'rgba(0,0,0,0.7)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+          }}
+        >
+          <div style={{
+            background: '#030608',
+            border: '1px solid #1e2a3a',
+            borderTop: '2px solid #00aaff',
+            width: '820px', maxWidth: '94vw',
+            maxHeight: '88vh', overflowY: 'auto',
+            fontFamily: FONT,
+            boxShadow: '0 24px 80px rgba(0,0,0,0.9), 0 0 40px rgba(0,170,255,0.06)',
+          }}>
+            {/* Modal header */}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px 24px', borderBottom: '1px solid #0d1117' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <span style={{ fontSize: '18px', color: '#00aaff' }}>β</span>
+                <span style={{ fontSize: '13px', letterSpacing: '2px', textTransform: 'uppercase', color: '#fff', fontWeight: 700 }}>Beta Meta</span>
+                <span style={{ fontSize: '9px', color: '#444', letterSpacing: '1px', textTransform: 'uppercase', borderLeft: '1px solid #1a1a1a', paddingLeft: '10px' }}>Roger's Trading Corner</span>
+              </div>
+              <button onClick={() => setOpen(false)} style={{ background: 'none', border: '1px solid #1e2a3a', color: '#666', fontSize: '14px', cursor: 'pointer', padding: '2px 8px', transition: 'all 0.15s' }}
+                onMouseEnter={e => { e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = '#555'; }}
+                onMouseLeave={e => { e.currentTarget.style.color = '#666'; e.currentTarget.style.borderColor = '#1e2a3a'; }}>✕</button>
+            </div>
+
+            {/* Top stats row */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1px', background: '#0d1117', borderBottom: '1px solid #0d1117' }}>
+              {/* TSLA Live */}
+              <div style={{ background: '#030608', padding: '18px 24px' }}>
+                <div style={{ fontSize: '9px', color: '#888', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '6px' }}>TSLA Live</div>
+                <div style={{ fontSize: '28px', fontWeight: 700, color: marketOpen ? '#00aaff' : '#666', letterSpacing: '-0.5px' }}>
+                  {tslaPrice ? `$${tslaPrice.toFixed(2)}` : '—'}
+                </div>
+                <div style={{ fontSize: '10px', color: '#555', marginTop: '4px' }}>{marketOpen ? (lastUpdated ? `Updated ${lastUpdated.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}` : 'Live') : 'Market Closed'}</div>
+              </div>
+              {/* Quant Model */}
+              <div style={{ background: '#030608', padding: '18px 24px', cursor: 'pointer' }} onClick={() => { setOpen(false); onShowPriceModal(); }}>
+                <div style={{ fontSize: '9px', color: '#888', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '6px' }}>Quant Model ↗</div>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
+                  <div style={{ fontSize: '28px', fontWeight: 700, color: '#00ff88', textDecoration: 'underline', textUnderlineOffset: '3px', textDecorationColor: '#00ff8833' }}>${predicted.toFixed(0)}</div>
+                  {quantChange !== null && <div style={{ fontSize: '14px', fontWeight: 600, color: quantChange >= 0 ? '#00ff88' : '#ff4444' }}>({quantChange >= 0 ? '+' : ''}{quantChange.toFixed(0)})</div>}
+                </div>
+                <div style={{ fontSize: '10px', color: '#555', marginTop: '4px' }}>Click to see breakdown</div>
+              </div>
+              {/* Whale Scale */}
+              <div style={{ background: '#030608', padding: '18px 24px', display: 'flex', alignItems: 'center' }}>
+                <DarkPoolGauge expanded />
+              </div>
+            </div>
+
+            {/* Beta Dashboard — full */}
+            <BetaDashboard isMobile={false} inModal />
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
+
 export default function App() {
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
 
@@ -404,106 +502,46 @@ export default function App() {
           top: '27px', left: 0, right: 0,
           zIndex: 100,
           background: 'rgba(0,0,0,0.95)',
-          display: 'flex',
-          flexDirection: 'column',
-          minWidth: 0,
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          padding: '10px 28px',
+          borderBottom: '1px solid #111',
+          whiteSpace: 'nowrap', minWidth: 0,
         }}>
-          {/* Top row: brand + controls */}
-          <div style={{
-            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-            padding: '10px 28px',
-            borderBottom: '1px solid #111',
-            whiteSpace: 'nowrap',
-          }}>
-          {/* Brand — fixed width, never shrinks */}
+
+          {/* Brand */}
           <div style={{ flexShrink: 0, marginRight: '20px' }}>
             <div style={{ fontSize: '20px', fontWeight: 700, letterSpacing: '2px', color: '#fff' }}>TSLA_QUANT</div>
-            <div style={{ fontSize: '10px', letterSpacing: '3px', color: '#888', textTransform: 'uppercase', marginTop: '2px' }}>v1.3</div>
+            <div style={{ fontSize: '10px', letterSpacing: '3px', color: '#aaa', textTransform: 'uppercase', marginTop: '2px' }}>v1.3</div>
           </div>
 
-          {/* Controls row — scrollable if window too narrow, never wraps */}
-          <div style={{ display: 'flex', gap: '16px', alignItems: 'center', fontSize: '13px', flexShrink: 0 }}>
-
-            {/* Overview / Full Network toggle — rounded, bright white */}
-            <div style={{
-              display: 'flex', alignItems: 'center',
-              border: '1px solid #fff', borderRadius: '20px',
-              overflow: 'hidden', fontFamily: "'Space Grotesk', sans-serif",
-              flexShrink: 0,
-            }}>
-              <button
-                onClick={() => { if (expandAll) { setExpandAll(false); setGraphKey(k => k + 1); } exitSmartMode(false); }}
-                style={{
-                  background: (!expandAll && !smartMode) ? 'rgba(0,255,136,0.18)' : 'transparent',
-                  border: 'none',
-                  borderRight: '1px solid #fff',
-                  color: (!expandAll && !smartMode) ? '#00ff88' : '#fff',
-                  fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase',
-                  padding: '5px 14px', cursor: (expandAll || smartMode) ? 'pointer' : 'default',
-                  fontFamily: "'Space Grotesk', sans-serif",
-                  display: 'flex', alignItems: 'center', gap: '6px',
-                  transition: 'all 0.2s ease',
-                }}
-              >
-                <span style={{ fontSize: '12px' }}>◉</span>
-                Overview
+          {/* Center: graph controls */}
+          <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexShrink: 0 }}>
+            <div style={{ display: 'flex', alignItems: 'center', border: '1px solid #fff', borderRadius: '20px', overflow: 'hidden', fontFamily: "'Space Grotesk', sans-serif" }}>
+              <button onClick={() => { if (expandAll) { setExpandAll(false); setGraphKey(k => k + 1); } exitSmartMode(false); }}
+                style={{ background: (!expandAll && !smartMode) ? 'rgba(0,255,136,0.18)' : 'transparent', border: 'none', borderRight: '1px solid #fff', color: (!expandAll && !smartMode) ? '#00ff88' : '#fff', fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', padding: '5px 14px', cursor: (expandAll || smartMode) ? 'pointer' : 'default', fontFamily: "'Space Grotesk', sans-serif", display: 'flex', alignItems: 'center', gap: '6px', transition: 'all 0.2s ease' }}>
+                <span style={{ fontSize: '12px' }}>◉</span>Overview
               </button>
-              <button
-                onClick={() => { if (!expandAll) { setExpandAll(true); } exitSmartMode(false); }}
-                style={{
-                  background: (expandAll && !smartMode) ? 'rgba(0,255,136,0.18)' : 'transparent',
-                  border: 'none',
-                  color: (expandAll && !smartMode) ? '#00ff88' : '#fff',
-                  fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase',
-                  padding: '5px 14px', cursor: (!expandAll || smartMode) ? 'pointer' : 'default',
-                  fontFamily: "'Space Grotesk', sans-serif",
-                  display: 'flex', alignItems: 'center', gap: '6px',
-                  transition: 'all 0.2s ease',
-                }}
-              >
-                <span style={{ fontSize: '12px' }}>⬡</span>
-                Full Network
+              <button onClick={() => { if (!expandAll) { setExpandAll(true); } exitSmartMode(false); }}
+                style={{ background: (expandAll && !smartMode) ? 'rgba(0,255,136,0.18)' : 'transparent', border: 'none', color: (expandAll && !smartMode) ? '#00ff88' : '#fff', fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', padding: '5px 14px', cursor: (!expandAll || smartMode) ? 'pointer' : 'default', fontFamily: "'Space Grotesk', sans-serif", display: 'flex', alignItems: 'center', gap: '6px', transition: 'all 0.2s ease' }}>
+                <span style={{ fontSize: '12px' }}>⬡</span>Full Network
               </button>
             </div>
-
-            <div style={{ width: '1px', height: '28px', background: '#333', flexShrink: 0 }} />
-
-            {/* Query Engine — single merged rounded box */}
-            <QueryEngineHeader
-              open={queryPanelOpen}
-              onToggle={() => setQueryPanelOpen(o => !o)}
-            />
-
-            <div style={{ width: '1px', height: '28px', background: '#333', flexShrink: 0 }} />
-            <button onClick={() => setShowHowTo(true)} style={{ background: 'none', border: '1px solid #555', color: '#ccc', fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', padding: '5px 14px', cursor: 'pointer', fontFamily: "'Space Grotesk', sans-serif", transition: 'all 0.2s ease' }} onMouseEnter={e => { e.currentTarget.style.borderColor = '#aaa'; e.currentTarget.style.color = '#fff'; }} onMouseLeave={e => { e.currentTarget.style.borderColor = '#555'; e.currentTarget.style.color = '#ccc'; }}>ⓘ Info</button>
-            <div style={{ width: '1px', height: '32px', background: '#222' }} />
-            <div style={{ textAlign: 'right', cursor: 'pointer' }} onClick={() => setShowPriceModal(true)}>
-              <div style={{ color: '#bbb', fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '2px' }}>Quant Model ↗</div>
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', justifyContent: 'flex-end' }}>
-                <div style={{ color: '#00ff88', fontWeight: 700, fontSize: '18px', textDecoration: 'underline', textUnderlineOffset: '3px', textDecorationColor: '#00ff8844' }}>${PREDICTED.toFixed(0)}</div>
-                {QUANT_CHANGE !== null && <div style={{ fontSize: '11px', fontWeight: 600, color: QUANT_CHANGE >= 0 ? '#00ff88' : '#ff4444' }}>({QUANT_CHANGE >= 0 ? '+' : ''}{QUANT_CHANGE.toFixed(0)})</div>}
-              </div>
-            </div>
-            <div style={{ width: '1px', height: '32px', background: '#222' }} />
-            <div style={{ textAlign: 'right' }}>
-              <div style={{ color: '#bbb', fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '2px' }}>TSLA Live</div>
-              <div style={{ color: marketOpen ? '#00aaff' : '#888', fontWeight: 700, fontSize: '18px' }}>{tslaPrice ? `$${tslaPrice.toFixed(2)}` : '—'}</div>
-              <div style={{ color: '#aaa', fontSize: '9px', marginTop: '2px' }}>{marketOpen ? (lastUpdated ? formatTime(lastUpdated) : '—') : 'Market Closed'}</div>
-            </div>
-            <div style={{ width: '1px', height: '32px', background: '#222' }} />
-            <DarkPoolGauge />
-            <div style={{ width: '1px', height: '32px', background: '#222' }} />
-            <div style={{ textAlign: 'right' }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '6px', marginBottom: '4px' }}>
-                <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#00ff88', boxShadow: '0 0 8px 3px rgba(0,255,136,0.7)', display: 'inline-block', animation: 'greenPulse 2s ease-in-out infinite' }} />
-                <span style={{ fontSize: '9px', color: '#00ff88', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: 600 }}>AI Engine: Online</span>
-              </div>
-              <div style={{ fontSize: '9px', color: '#999', letterSpacing: '1px', textAlign: 'right' }}>Last Sync: {syncLabel}</div>
-            </div>
+            <div style={{ width: '1px', height: '28px', background: '#333' }} />
+            <QueryEngineHeader open={queryPanelOpen} onToggle={() => setQueryPanelOpen(o => !o)} />
+            <div style={{ width: '1px', height: '28px', background: '#333' }} />
+            <button onClick={() => setShowHowTo(true)} style={{ background: 'none', border: '1px solid #666', color: '#fff', fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', padding: '5px 14px', cursor: 'pointer', fontFamily: "'Space Grotesk', sans-serif", transition: 'all 0.2s ease', borderRadius: '20px' }} onMouseEnter={e => e.currentTarget.style.borderColor='#aaa'} onMouseLeave={e => e.currentTarget.style.borderColor='#666'}>ⓘ Info</button>
           </div>
-          </div>{/* end top controls row */}
-          {/* ── Beta Dashboard — Roger's Trading Corner ── */}
-          <BetaDashboard isMobile={false} />
+
+          {/* Right: AI pulse + Beta Meta */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexShrink: 0, marginLeft: '20px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#00ff88', boxShadow: '0 0 6px 2px rgba(0,255,136,0.7)', display: 'inline-block', animation: 'greenPulse 2s ease-in-out infinite' }} />
+              <span style={{ fontSize: '9px', color: '#00ff88', letterSpacing: '1.5px', textTransform: 'uppercase', fontWeight: 600 }}>Live · {syncLabel}</span>
+            </div>
+            <div style={{ width: '1px', height: '24px', background: '#333' }} />
+            <BetaMetaTab tslaPrice={tslaPrice} marketOpen={marketOpen} lastUpdated={lastUpdated} predicted={PREDICTED} quantChange={QUANT_CHANGE} onShowPriceModal={() => setShowPriceModal(true)} />
+          </div>
+
         </header>
       )}
 
@@ -609,7 +647,7 @@ export default function App() {
       <div style={{
         position: 'absolute',
         inset: 0,
-        paddingTop: isMobile ? '90px' : '175px',
+        paddingTop: isMobile ? '90px' : '72px',
         paddingBottom: isMobile ? '0' : '56px',
         paddingRight: (!isMobile && queryPanelOpen) ? `${PANEL_WIDTH}px` : '0',
         transition: 'padding-right 0.28s cubic-bezier(0.4,0,0.2,1)',
