@@ -270,7 +270,7 @@ function BetaMetaTab({ tslaPrice, marketOpen, lastUpdated, predicted, quantChang
       {/* Modal */}
       {open && (
         <div onClick={e => { if (e.target === e.currentTarget) setOpen(false); }} style={{ position: 'fixed', inset: 0, zIndex: 9500, background: 'rgba(0,0,0,0.75)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <div style={{ background: '#030608', border: '1px solid #1e2a3a', borderTop: '2px solid #00aaff', width: '900px', maxWidth: '96vw', maxHeight: '90vh', overflowY: 'auto', overflowX: 'visible', fontFamily: F, boxShadow: '0 24px 80px rgba(0,0,0,0.95)', WebkitFontSmoothing: 'antialiased' }}>
+          <div style={{ background: '#030608', border: '1px solid #1e2a3a', borderTop: '2px solid #00aaff', width: '900px', maxWidth: '96vw', maxHeight: '90vh', overflowY: 'auto', overflowX: 'hidden', fontFamily: F, boxShadow: '0 24px 80px rgba(0,0,0,0.95)', WebkitFontSmoothing: 'antialiased' }}>
 
             {/* Header */}
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px 24px', borderBottom: '1px solid #0d1117' }}>
