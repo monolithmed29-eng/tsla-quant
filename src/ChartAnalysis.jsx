@@ -49,15 +49,13 @@ function SignalRow({ label, reading, lean }) {
 function TargetCard({ label, price, description, primary }) {
   return (
     <div style={{
-      flex: '1 1 180px',
-      minWidth: 0,
-      overflow: 'hidden',
+      width: '100%',
+      boxSizing: 'border-box',
       background: primary ? 'rgba(0,255,136,0.04)' : 'rgba(255,170,0,0.04)',
       border: `1px solid ${primary ? '#00ff8833' : '#ffaa0033'}`,
       borderTop: `2px solid ${primary ? '#00ff88' : '#ffaa00'}`,
       padding: '18px 20px',
       borderRadius: '2px',
-      boxSizing: 'border-box',
     }}>
       <div style={{ fontSize: '11px', letterSpacing: '2px', color: primary ? '#00ff88' : '#ffaa00', textTransform: 'uppercase', marginBottom: '8px', fontWeight: 700 }}>
         {label}
@@ -152,11 +150,11 @@ function CommentsSection() {
   }
 
   return (
-    <div style={{ padding: '28px 24px', borderTop: '1px solid #0d1117' }}>
+    <div style={{ padding: '28px 24px', borderTop: '1px solid #0d1117', width: '100%', boxSizing: 'border-box' }}>
       <SectionTitle>Community Discussion</SectionTitle>
 
       {/* Submit form */}
-      <form onSubmit={handleSubmit} style={{ marginBottom: '28px', background: '#080b10', border: '1px solid #1a1a2a', padding: '18px', borderRadius: '4px' }}>
+      <form onSubmit={handleSubmit} style={{ marginBottom: '28px', background: '#080b10', border: '1px solid #1a1a2a', padding: '18px', borderRadius: '4px', width: '100%', boxSizing: 'border-box' }}>
         <div style={{ display: 'flex', gap: '12px', marginBottom: '12px', flexWrap: 'wrap' }}>
           <input
             value={name}
@@ -261,7 +259,7 @@ export default function ChartAnalysis() {
   const [lightbox, setLightbox] = useState(false);
 
   return (
-    <div style={{ fontFamily: FONT, background: '#030608', WebkitFontSmoothing: 'antialiased', overflow: 'hidden', width: '100%', boxSizing: 'border-box' }}>
+    <div style={{ fontFamily: FONT, background: '#030608', WebkitFontSmoothing: 'antialiased', width: '100%', boxSizing: 'border-box', maxWidth: '100%' }}>
 
       {/* Lightbox */}
       {lightbox && a.chartImage && <ChartLightbox src={a.chartImage} onClose={() => setLightbox(false)} />}
@@ -292,7 +290,7 @@ export default function ChartAnalysis() {
       </div>
 
       {/* Chart image */}
-      <div style={{ padding: '20px 24px 0' }}>
+      <div style={{ padding: '20px 24px 0', width: '100%', boxSizing: 'border-box' }}>
         {a.chartImage ? (
           <div
             onClick={() => setLightbox(true)}
@@ -337,7 +335,7 @@ export default function ChartAnalysis() {
       </div>
 
       {/* Signal scorecard */}
-      <div style={{ padding: '20px 24px 0' }}>
+      <div style={{ padding: '20px 24px 0', width: '100%', boxSizing: 'border-box' }}>
         <SectionTitle>Signal Scorecard</SectionTitle>
         {a.signals.map((s, i) => (
           <SignalRow key={i} {...s} />
@@ -345,9 +343,9 @@ export default function ChartAnalysis() {
       </div>
 
       {/* Price targets */}
-      <div style={{ padding: '20px 24px 0' }}>
+      <div style={{ padding: '20px 24px 0', width: '100%', boxSizing: 'border-box' }}>
         <SectionTitle>Price Targets</SectionTitle>
-        <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', minWidth: 0, overflow: 'hidden' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
           {a.targets.map((t, i) => (
             <TargetCard key={i} {...t} primary={i === 0} />
           ))}
@@ -355,7 +353,7 @@ export default function ChartAnalysis() {
       </div>
 
       {/* Roger's Read */}
-      <div style={{ padding: '20px 24px 0' }}>
+      <div style={{ padding: '20px 24px 0', width: '100%', boxSizing: 'border-box' }}>
         <SectionTitle>Roger's Read</SectionTitle>
         <div style={{
           background: '#060a0f',
@@ -363,8 +361,8 @@ export default function ChartAnalysis() {
           borderLeft: `3px solid ${overallColor}`,
           padding: '20px 22px',
           borderRadius: '2px',
-          overflow: 'hidden',
-          minWidth: 0,
+          width: '100%',
+          boxSizing: 'border-box',
         }}>
           {a.commentary.split('\n\n').map((para, i, arr) => (
             <p key={i} style={{
