@@ -27,20 +27,20 @@ html, body, #root {
 
 /* Chart Analysis — hard containment */
 .ca-root {
-  width: 100%;
-  box-sizing: border-box;
-  overflow-x: hidden;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  overflow-x: hidden !important;
 }
 .ca-root * {
-  max-width: 100%;
-  box-sizing: border-box;
-  word-break: break-word;
-  overflow-wrap: break-word;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
 }
 .ca-root img {
-  display: block;
-  width: 100%;
-  height: auto;
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
 }
 
 /* Node orb interaction */
