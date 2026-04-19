@@ -8,6 +8,7 @@ import BetaDashboard from './BetaDashboard';
 import ChartAnalysis from './ChartAnalysis';
 import QueryEngine from './QueryEngine';
 import DarkPoolGauge from './DarkPoolGauge';
+import TSLAMedia from './TSLAMedia';
 import { catalysts, links } from './data';
 import { calcPredictedPrice, calcPriceBreakdown } from './priceModel';
 import { useTSLAPrice } from './useTSLAPrice';
@@ -343,6 +344,7 @@ export default function App() {
   }, []);
 
   const [selected, setSelected] = useState(null);
+  const [showMedia, setShowMedia] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
   const [showHowTo, setShowHowTo] = useState(false);
   const [showDisclaimer, setShowDisclaimer] = useState(false);
@@ -510,6 +512,20 @@ export default function App() {
                 <span style={{ fontSize: '12px' }}>⬡</span>Full Network
               </button>
             </div>
+            <div style={{ width: '1px', height: '28px', background: '#333' }} />
+            <button onClick={() => setShowMedia(m => !m)} style={{
+              background: showMedia ? 'rgba(255,50,50,0.12)' : 'transparent',
+              border: `1px solid ${showMedia ? '#ff3333' : '#444'}`,
+              borderRadius: '20px', color: showMedia ? '#ff6666' : '#888',
+              fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase',
+              padding: '5px 14px', cursor: 'pointer', fontFamily: "'Space Grotesk', sans-serif",
+              transition: 'all 0.2s', flexShrink: 0, display: 'flex', alignItems: 'center', gap: '6px',
+            }}
+              onMouseEnter={e => { if (!showMedia) { e.currentTarget.style.borderColor='#ff3333'; e.currentTarget.style.color='#ff6666'; }}}
+              onMouseLeave={e => { if (!showMedia) { e.currentTarget.style.borderColor='#444'; e.currentTarget.style.color='#888'; }}}
+            >
+              <span style={{ fontSize: '12px' }}>🎬</span>TSLA TUBE
+            </button>
             <div style={{ width: '1px', height: '28px', background: '#333' }} />
             <QueryEngineHeader open={queryPanelOpen} onToggle={() => setQueryPanelOpen(o => !o)} />
             <div style={{ width: '1px', height: '28px', background: '#333' }} />
@@ -904,6 +920,43 @@ export default function App() {
       )}
 
       {/* Disclaimer Modal */}
+      {/* ── TSLA TUBE Media Overlay ── */}
+      {showMedia && (
+        <div style={{
+          position: 'fixed', inset: 0, zIndex: 9400,
+          background: 'rgba(0,0,0,0.92)',
+          display: 'flex', flexDirection: 'column',
+        }}>
+          {/* Header bar */}
+          <div style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            padding: '12px 24px', borderBottom: '1px solid #111',
+            background: '#020406', flexShrink: 0,
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <span style={{ fontSize: '16px', fontWeight: 800, letterSpacing: '2px', color: '#fff', fontFamily: "'Space Grotesk', sans-serif" }}>🎬 TSLA TUBE</span>
+              <span style={{ fontSize: '10px', color: '#555', letterSpacing: '1px' }}>YouTube Digest · tslaquant.com</span>
+            </div>
+            <button onClick={() => setShowMedia(false)} style={{
+              background: 'none', border: '1px solid #333', color: '#888',
+              fontSize: '14px', cursor: 'pointer', padding: '2px 10px',
+              fontFamily: "'Space Grotesk', sans-serif", borderRadius: '4px', transition: 'all 0.15s',
+            }}
+              onMouseEnter={e => { e.currentTarget.style.color='#fff'; e.currentTarget.style.borderColor='#666'; }}
+              onMouseLeave={e => { e.currentTarget.style.color='#888'; e.currentTarget.style.borderColor='#333'; }}
+            >✕</button>
+          </div>
+          {/* Scrollable content */}
+          <div style={{ flex: 1, overflowY: 'auto', display: 'grid', gridTemplateColumns: 'minmax(0,1fr)' }}>
+            <TSLAMedia onAskRogerVideo={(video) => {
+              setShowMedia(false);
+              setQueryPanelOpen(true);
+              // Pre-fill is handled by QueryEngine receiving the video context
+            }} />
+          </div>
+        </div>
+      )}
+
       {showDisclaimer && (
         <div
           onClick={() => setShowDisclaimer(false)}
