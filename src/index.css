@@ -46,6 +46,18 @@ html, body, #root {
 
 
 
+/* ── Pill pulse animations ───────────────────────────────────────────────── */
+@keyframes pill-pulse-blue {
+  0%, 100% { box-shadow: 0 0 6px 1px rgba(0,170,255,0.2); }
+  50%       { box-shadow: 0 0 16px 4px rgba(0,170,255,0.5); }
+}
+@keyframes pill-pulse-green {
+  0%, 100% { box-shadow: 0 0 6px 1px rgba(0,255,136,0.2); }
+  50%       { box-shadow: 0 0 16px 4px rgba(0,255,136,0.45); }
+}
+.pill-query  { animation: pill-pulse-blue  3s ease-in-out infinite; }
+.pill-corner { animation: pill-pulse-green 3s ease-in-out infinite; }
+
 /* Node orb interaction */
 .node-orb {
   transition: transform 0.2s ease-in-out;
