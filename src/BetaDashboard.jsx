@@ -238,11 +238,11 @@ export default function BetaDashboard({ isMobile = false }) {
           <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '2px', color: '#fff', textTransform: 'uppercase' }}>
             β Beta Dashboard
           </span>
-          <span style={{ fontSize: '9px', color: '#444', letterSpacing: '1px', textTransform: 'uppercase' }}>
+          <span style={{ fontSize: '9px', color: '#aaa', letterSpacing: '1px', textTransform: 'uppercase' }}>
             Roger's Trading Corner
           </span>
           <span style={{
-            fontSize: '8px', color: '#555', letterSpacing: '1px',
+            fontSize: '8px', color: '#888', letterSpacing: '1px',
             borderLeft: '1px solid #1a1a1a', paddingLeft: '10px',
           }}>
             {marketOpen ? '● Live' : '○ Last Close'}
@@ -268,7 +268,7 @@ export default function BetaDashboard({ isMobile = false }) {
       <div style={{ padding: isMobile ? '0 14px 6px' : '0 28px 8px', overflowX: 'auto' }}>
         <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '11px', minWidth: '520px' }}>
           <thead>
-            <tr style={{ color: '#444', letterSpacing: '1px', textTransform: 'uppercase', fontSize: '9px' }}>
+            <tr style={{ color: '#aaa', letterSpacing: '1px', textTransform: 'uppercase', fontSize: '9px' }}>
               <td style={{ padding: '6px 8px 4px 0', width: '110px' }}>Index</td>
               <td style={{ padding: '6px 8px 4px', textAlign: 'center', width: '60px' }}>β Actual</td>
               <td style={{ padding: '6px 8px 4px', textAlign: 'center', width: '70px' }}>TSLA Expected</td>
@@ -281,7 +281,7 @@ export default function BetaDashboard({ isMobile = false }) {
               <tr key={row.key} style={{ borderTop: '1px solid #0d1117' }}>
                 <td style={{ padding: '7px 8px 7px 0' }}>
                   <div style={{ color: '#ccc', fontWeight: 600 }}>{row.index}</div>
-                  <div style={{ color: '#444', fontSize: '9px', marginTop: '1px' }}>{row.ticker} · {row.symbol}={row.beta}</div>
+                  <div style={{ color: '#aaa', fontSize: '9px', marginTop: '1px' }}>{row.ticker} · {row.symbol}={row.beta}</div>
                 </td>
                 <td style={{ padding: '7px 8px', textAlign: 'center' }}>
                   <span style={{ color: row.actual == null ? '#333' : row.actual >= 0 ? '#00ff88' : '#ff4444', fontWeight: 600 }}>
@@ -304,7 +304,7 @@ export default function BetaDashboard({ isMobile = false }) {
                       {row.signal.label}
                     </span>
                   ) : (
-                    <span style={{ color: '#333', fontSize: '10px' }}>{loading ? '…' : 'Awaiting data'}</span>
+                    <span style={{ color: '#777', fontSize: '10px' }}>{loading ? '…' : 'Awaiting data'}</span>
                   )}
                 </td>
               </tr>
@@ -314,7 +314,7 @@ export default function BetaDashboard({ isMobile = false }) {
 
         {/* Beta explainer */}
         <div style={{
-          fontSize: '9px', color: '#333', letterSpacing: '0.5px',
+          fontSize: '9px', color: '#777', letterSpacing: '0.5px',
           padding: '4px 0 2px',
           borderTop: '1px solid #0a0e14',
           marginTop: '2px',
@@ -329,7 +329,7 @@ export default function BetaDashboard({ isMobile = false }) {
         <div style={{ padding: isMobile ? '0 14px 14px' : '0 28px 16px' }}>
           {/* Mode toggle */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
-            <span style={{ fontSize: '9px', color: '#444', letterSpacing: '1px', textTransform: 'uppercase' }}>vs.</span>
+            <span style={{ fontSize: '9px', color: '#aaa', letterSpacing: '1px', textTransform: 'uppercase' }}>vs.</span>
             {['spy', 'qqq'].map(m => (
               <button
                 key={m}
@@ -347,7 +347,7 @@ export default function BetaDashboard({ isMobile = false }) {
                 {m === 'spy' ? `SPY  β=${BETA_SPY}` : `QQQ  β=${BETA_QQQ}`}
               </button>
             ))}
-            <span style={{ marginLeft: 'auto', fontSize: '9px', color: '#333' }}>
+            <span style={{ marginLeft: 'auto', fontSize: '9px', color: '#777' }}>
               {betaHistory.length} days · <span style={{ color: '#00ff8866' }}>● alpha</span>  <span style={{ color: '#ff444466' }}>● laggard</span>  <span style={{ color: '#ffdc00' }}>● today</span>
             </span>
           </div>

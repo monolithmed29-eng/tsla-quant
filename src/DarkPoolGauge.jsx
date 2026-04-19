@@ -217,7 +217,7 @@ export default function DarkPoolGauge({ mobile = false }) {
     <div ref={containerRef} style={{ position: 'relative', display: 'flex', flexDirection: 'column', gap: '4px', width: '100%' }}>
       <style>{CSS}</style>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <span style={{ fontSize: '8px', color: '#555', letterSpacing: '1.5px', textTransform: 'uppercase' }}>BEAR</span>
+        <span style={{ fontSize: '8px', color: '#fff', letterSpacing: '1.5px', textTransform: 'uppercase', fontWeight: 700 }}>BEAR</span>
         <div style={{ display: 'flex', alignItems: 'center', gap: '4px', cursor: 'pointer' }} onClick={() => setShowTooltip(v => !v)}>
           <span style={{
             width: '5px', height: '5px', borderRadius: '50%',
@@ -227,7 +227,7 @@ export default function DarkPoolGauge({ mobile = false }) {
           }} />
           <span style={{ fontSize: '7px', color: statusDot.color, letterSpacing: '2px', fontWeight: 700 }}>{statusDot.label}</span>
         </div>
-        <span style={{ fontSize: '8px', color: '#555', letterSpacing: '1.5px', textTransform: 'uppercase' }}>BULL</span>
+        <span style={{ fontSize: '8px', color: '#fff', letterSpacing: '1.5px', textTransform: 'uppercase', fontWeight: 700 }}>BULL</span>
       </div>
       <Track trackW="100%" trackH="5px" />
       <ScoreRow />
@@ -240,7 +240,7 @@ export default function DarkPoolGauge({ mobile = false }) {
     <div ref={containerRef} style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3px', minWidth: '120px' }}>
       <style>{CSS}</style>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
-        <span style={{ fontSize: '8px', color: '#555', letterSpacing: '1.5px', textTransform: 'uppercase' }}>BEAR</span>
+        <span style={{ fontSize: '8px', color: '#fff', letterSpacing: '1.5px', textTransform: 'uppercase', fontWeight: 700 }}>BEAR</span>
         <div style={{ display: 'flex', alignItems: 'center', gap: '4px', cursor: 'pointer' }} onClick={() => setShowTooltip(v => !v)}>
           <span style={{
             width: '6px', height: '6px', borderRadius: '50%',
@@ -251,9 +251,9 @@ export default function DarkPoolGauge({ mobile = false }) {
           }} />
           <span style={{ fontSize: '8px', color: statusDot.color, letterSpacing: '2px', fontWeight: 700 }}>{statusDot.label}</span>
         </div>
-        <span style={{ fontSize: '8px', color: '#555', letterSpacing: '1.5px', textTransform: 'uppercase' }}>BULL</span>
+        <span style={{ fontSize: '8px', color: '#fff', letterSpacing: '1.5px', textTransform: 'uppercase', fontWeight: 700 }}>BULL</span>
       </div>
-      <Track trackW="120px" trackH="6px" />
+      <Track trackW="160px" trackH="8px" />
       <ScoreRow />
       {showTooltip && <TooltipPanel calls={calls} puts={puts} pct={pct} delta={delta} showGhost={showGhost} prevPct={prevPct} needleColor={needleColor} toneMode={toneMode} statusDot={statusDot} needle_status={needle_status} roger_insight={roger_insight} updated={updated} mobile={false} />}
     </div>
@@ -266,21 +266,20 @@ function TooltipPanel({ calls, puts, pct, delta, showGhost, prevPct, needleColor
     <div style={{
       position: 'absolute',
       top: '100%',
-      left: mobile ? '0' : '50%',
-      transform: mobile ? 'none' : 'translateX(-50%)',
-      right: mobile ? '0' : 'auto',
+      right: mobile ? '0' : '-20px',
+      left: 'auto',
       marginTop: '8px',
-      background: '#0c0c0c',
+      background: '#0a0d12',
       border: '1px solid #2a2a2a',
-      padding: '12px 14px',
-      backdropFilter: 'none',
-      WebkitBackdropFilter: 'none',
-      width: mobile ? 'auto' : '265px',
-      zIndex: 500,
-      boxShadow: '0 8px 32px rgba(0,0,0,0.9)',
+      padding: '14px 16px',
+      width: '300px',
+      zIndex: 9998,
+      boxShadow: '0 12px 40px rgba(0,0,0,0.95)',
       animation: 'whaleFadeIn 0.18s ease',
+      fontSmooth: 'always',
+      WebkitFontSmoothing: 'antialiased',
     }}>
-      <div style={{ fontSize: '9px', color: '#aaa', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '10px' }}>
+      <div style={{ fontSize: '9px', color: '#fff', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '10px', fontWeight: 600 }}>
         🐳 Whale Scale — Dark Pool Flow
       </div>
 
@@ -308,13 +307,13 @@ function TooltipPanel({ calls, puts, pct, delta, showGhost, prevPct, needleColor
         </div>
       </div>
 
-      <div style={{ borderTop: '1px solid #141414', paddingTop: '8px' }}>
-        <div style={{ fontSize: '7px', color: toneMode.color, letterSpacing: '2px', fontWeight: 700, marginBottom: '4px', textTransform: 'uppercase' }}>
+      <div style={{ borderTop: '1px solid #1a1a1a', paddingTop: '10px' }}>
+        <div style={{ fontSize: '7px', color: toneMode.color, letterSpacing: '2px', fontWeight: 700, marginBottom: '6px', textTransform: 'uppercase' }}>
           Roger · {toneMode.label}
         </div>
-        <div style={{ fontSize: '10px', color: '#ffffff', lineHeight: 1.65, textShadow: 'none', fontWeight: 400 }}>{roger_insight}</div>
+        <div style={{ fontSize: '11px', color: '#ffffff', lineHeight: 1.7, fontWeight: 400, WebkitFontSmoothing: 'antialiased' }}>{roger_insight}</div>
       </div>
-      <div style={{ fontSize: '8px', color: '#444', marginTop: '6px', textAlign: 'right' }}>Updated: {updated}</div>
+      <div style={{ fontSize: '8px', color: '#555', marginTop: '8px', textAlign: 'right' }}>Updated: {updated}</div>
     </div>
   );
 }

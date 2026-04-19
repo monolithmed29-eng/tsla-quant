@@ -251,96 +251,70 @@ function QueryEnginePanel({ open, onClose, catalysts, onGraphSearch, onClearSear
   );
 }
 
-// ── BetaMetaTab — compact pill + full modal ───────────────────────────────────
+// ── Roger's Trading Corner pill + modal ──────────────────────────────────────
 function BetaMetaTab({ tslaPrice, marketOpen, lastUpdated, predicted, quantChange, onShowPriceModal }) {
   const [open, setOpen] = useState(false);
-  const FONT = "'Space Grotesk', sans-serif";
+  const F = "'Space Grotesk', sans-serif";
 
   return (
     <>
-      {/* Pill button */}
-      <button
-        onClick={() => setOpen(o => !o)}
-        style={{
-          display: 'flex', alignItems: 'center', gap: '8px',
-          border: `1px solid ${open ? '#00aaff' : '#fff'}`,
-          borderRadius: '20px', padding: '5px 14px',
-          background: open ? 'rgba(0,170,255,0.1)' : 'transparent',
-          cursor: 'pointer', fontFamily: FONT,
-          transition: 'all 0.2s',
-          flexShrink: 0,
-        }}
-        onMouseEnter={e => { e.currentTarget.style.borderColor = '#00aaff'; e.currentTarget.style.background = 'rgba(0,170,255,0.08)'; }}
-        onMouseLeave={e => { if (!open) { e.currentTarget.style.borderColor = '#fff'; e.currentTarget.style.background = 'transparent'; } }}
-      >
+      {/* Pill */}
+      <button onClick={() => setOpen(o => !o)} style={{ display: 'flex', alignItems: 'center', gap: '8px', border: `1px solid ${open ? '#00aaff' : '#fff'}`, borderRadius: '20px', padding: '5px 14px', background: open ? 'rgba(0,170,255,0.1)' : 'transparent', cursor: 'pointer', fontFamily: F, transition: 'all 0.2s', flexShrink: 0 }}
+        onMouseEnter={e => { e.currentTarget.style.borderColor='#00aaff'; e.currentTarget.style.background='rgba(0,170,255,0.08)'; }}
+        onMouseLeave={e => { if (!open) { e.currentTarget.style.borderColor='#fff'; e.currentTarget.style.background='transparent'; } }}>
         <span style={{ fontSize: '13px', color: '#00aaff' }}>β</span>
-        <span style={{ fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', color: '#fff', fontWeight: 700 }}>Beta Meta</span>
-        {tslaPrice && (
-          <>
-            <span style={{ color: '#333', fontSize: '10px' }}>·</span>
-            <span style={{ fontSize: '12px', fontWeight: 700, color: marketOpen ? '#00aaff' : '#888' }}>${tslaPrice.toFixed(2)}</span>
-          </>
-        )}
+        <span style={{ fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', color: '#fff', fontWeight: 700 }}>Roger's Trading Corner</span>
         <span style={{ fontSize: '9px', color: open ? '#00aaff' : '#666' }}>{open ? '▲' : '▼'}</span>
       </button>
 
       {/* Modal */}
       {open && (
-        <div
-          onClick={e => { if (e.target === e.currentTarget) setOpen(false); }}
-          style={{
-            position: 'fixed', inset: 0, zIndex: 9500,
-            background: 'rgba(0,0,0,0.7)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-          }}
-        >
-          <div style={{
-            background: '#030608',
-            border: '1px solid #1e2a3a',
-            borderTop: '2px solid #00aaff',
-            width: '820px', maxWidth: '94vw',
-            maxHeight: '88vh', overflowY: 'auto',
-            fontFamily: FONT,
-            boxShadow: '0 24px 80px rgba(0,0,0,0.9), 0 0 40px rgba(0,170,255,0.06)',
-          }}>
-            {/* Modal header */}
+        <div onClick={e => { if (e.target === e.currentTarget) setOpen(false); }} style={{ position: 'fixed', inset: 0, zIndex: 9500, background: 'rgba(0,0,0,0.75)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{ background: '#030608', border: '1px solid #1e2a3a', borderTop: '2px solid #00aaff', width: '860px', maxWidth: '94vw', maxHeight: '88vh', overflowY: 'auto', fontFamily: F, boxShadow: '0 24px 80px rgba(0,0,0,0.95)', WebkitFontSmoothing: 'antialiased' }}>
+
+            {/* Header */}
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px 24px', borderBottom: '1px solid #0d1117' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <span style={{ fontSize: '18px', color: '#00aaff' }}>β</span>
-                <span style={{ fontSize: '13px', letterSpacing: '2px', textTransform: 'uppercase', color: '#fff', fontWeight: 700 }}>Beta Meta</span>
-                <span style={{ fontSize: '9px', color: '#444', letterSpacing: '1px', textTransform: 'uppercase', borderLeft: '1px solid #1a1a1a', paddingLeft: '10px' }}>Roger's Trading Corner</span>
+                <span style={{ fontSize: '16px', color: '#00aaff' }}>β</span>
+                <span style={{ fontSize: '13px', letterSpacing: '2px', textTransform: 'uppercase', color: '#fff', fontWeight: 700 }}>Roger's Trading Corner</span>
               </div>
-              <button onClick={() => setOpen(false)} style={{ background: 'none', border: '1px solid #1e2a3a', color: '#666', fontSize: '14px', cursor: 'pointer', padding: '2px 8px', transition: 'all 0.15s' }}
-                onMouseEnter={e => { e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = '#555'; }}
-                onMouseLeave={e => { e.currentTarget.style.color = '#666'; e.currentTarget.style.borderColor = '#1e2a3a'; }}>✕</button>
+              <button onClick={() => setOpen(false)} style={{ background: 'none', border: '1px solid #333', color: '#888', fontSize: '14px', cursor: 'pointer', padding: '2px 8px', transition: 'all 0.15s' }}
+                onMouseEnter={e => { e.currentTarget.style.color='#fff'; e.currentTarget.style.borderColor='#666'; }}
+                onMouseLeave={e => { e.currentTarget.style.color='#888'; e.currentTarget.style.borderColor='#333'; }}>✕</button>
             </div>
 
-            {/* Top stats row */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1px', background: '#0d1117', borderBottom: '1px solid #0d1117' }}>
+            {/* Stats row: TSLA · Quant · Whale */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', background: '#080b10', borderBottom: '1px solid #0d1117' }}>
               {/* TSLA Live */}
-              <div style={{ background: '#030608', padding: '18px 24px' }}>
-                <div style={{ fontSize: '9px', color: '#888', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '6px' }}>TSLA Live</div>
-                <div style={{ fontSize: '28px', fontWeight: 700, color: marketOpen ? '#00aaff' : '#666', letterSpacing: '-0.5px' }}>
-                  {tslaPrice ? `$${tslaPrice.toFixed(2)}` : '—'}
-                </div>
-                <div style={{ fontSize: '10px', color: '#555', marginTop: '4px' }}>{marketOpen ? (lastUpdated ? `Updated ${lastUpdated.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}` : 'Live') : 'Market Closed'}</div>
+              <div style={{ padding: '18px 24px', borderRight: '1px solid #0d1117' }}>
+                <div style={{ fontSize: '9px', color: '#aaa', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '6px' }}>TSLA Live</div>
+                <div style={{ fontSize: '30px', fontWeight: 700, color: marketOpen ? '#00aaff' : '#777', letterSpacing: '-0.5px' }}>{tslaPrice ? `$${tslaPrice.toFixed(2)}` : '—'}</div>
+                <div style={{ fontSize: '10px', color: '#666', marginTop: '4px' }}>{marketOpen ? (lastUpdated ? `Updated ${lastUpdated.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}` : 'Live') : 'Market Closed'}</div>
               </div>
               {/* Quant Model */}
-              <div style={{ background: '#030608', padding: '18px 24px', cursor: 'pointer' }} onClick={() => { setOpen(false); onShowPriceModal(); }}>
-                <div style={{ fontSize: '9px', color: '#888', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '6px' }}>Quant Model ↗</div>
+              <div style={{ padding: '18px 24px', borderRight: '1px solid #0d1117', cursor: 'pointer' }} onClick={() => { setOpen(false); onShowPriceModal(); }}>
+                <div style={{ fontSize: '9px', color: '#aaa', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '6px' }}>Quant Model ↗</div>
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
-                  <div style={{ fontSize: '28px', fontWeight: 700, color: '#00ff88', textDecoration: 'underline', textUnderlineOffset: '3px', textDecorationColor: '#00ff8833' }}>${predicted.toFixed(0)}</div>
+                  <div style={{ fontSize: '30px', fontWeight: 700, color: '#00ff88', textDecoration: 'underline', textUnderlineOffset: '3px', textDecorationColor: '#00ff8833' }}>${predicted.toFixed(0)}</div>
                   {quantChange !== null && <div style={{ fontSize: '14px', fontWeight: 600, color: quantChange >= 0 ? '#00ff88' : '#ff4444' }}>({quantChange >= 0 ? '+' : ''}{quantChange.toFixed(0)})</div>}
                 </div>
-                <div style={{ fontSize: '10px', color: '#555', marginTop: '4px' }}>Click to see breakdown</div>
+                <div style={{ fontSize: '10px', color: '#555', marginTop: '4px' }}>Click for full breakdown</div>
               </div>
               {/* Whale Scale */}
-              <div style={{ background: '#030608', padding: '18px 24px', display: 'flex', alignItems: 'center' }}>
-                <DarkPoolGauge expanded />
+              <div style={{ padding: '18px 24px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                <div style={{ fontSize: '9px', color: '#aaa', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '10px' }}>Whale Scale</div>
+                <DarkPoolGauge />
               </div>
             </div>
 
-            {/* Beta Dashboard — full */}
+            {/* Beta section — single heading */}
+            <div style={{ padding: '16px 24px 4px', borderBottom: '1px solid #0d1117' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ fontSize: '15px', color: '#00aaff', fontWeight: 700 }}>β</span>
+                <span style={{ fontSize: '11px', color: '#fff', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: 700 }}>Beta Analysis</span>
+                <span style={{ fontSize: '9px', color: '#444', marginLeft: '6px' }}>Is this move Tesla-specific or just market tide?</span>
+              </div>
+            </div>
             <BetaDashboard isMobile={false} inModal />
           </div>
         </div>
@@ -532,8 +506,24 @@ export default function App() {
             <button onClick={() => setShowHowTo(true)} style={{ background: 'none', border: '1px solid #666', color: '#fff', fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', padding: '5px 14px', cursor: 'pointer', fontFamily: "'Space Grotesk', sans-serif", transition: 'all 0.2s ease', borderRadius: '20px' }} onMouseEnter={e => e.currentTarget.style.borderColor='#aaa'} onMouseLeave={e => e.currentTarget.style.borderColor='#666'}>ⓘ Info</button>
           </div>
 
-          {/* Right: AI pulse + Beta Meta */}
+          {/* Right: prices + AI pulse + Trading Corner */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexShrink: 0, marginLeft: '20px' }}>
+            {/* Quant Model */}
+            <div style={{ textAlign: 'right', cursor: 'pointer' }} onClick={() => setShowPriceModal(true)}>
+              <div style={{ color: '#fff', fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '2px' }}>Quant Model ↗</div>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '5px', justifyContent: 'flex-end' }}>
+                <span style={{ color: '#00ff88', fontWeight: 700, fontSize: '17px', textDecoration: 'underline', textUnderlineOffset: '3px', textDecorationColor: '#00ff8844' }}>${PREDICTED.toFixed(0)}</span>
+                {QUANT_CHANGE !== null && <span style={{ fontSize: '10px', fontWeight: 600, color: QUANT_CHANGE >= 0 ? '#00ff88' : '#ff4444' }}>({QUANT_CHANGE >= 0 ? '+' : ''}{QUANT_CHANGE.toFixed(0)})</span>}
+              </div>
+            </div>
+            <div style={{ width: '1px', height: '28px', background: '#333' }} />
+            {/* TSLA Live */}
+            <div style={{ textAlign: 'right' }}>
+              <div style={{ color: '#fff', fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '2px' }}>TSLA Live</div>
+              <div style={{ color: marketOpen ? '#00aaff' : '#888', fontWeight: 700, fontSize: '17px' }}>{tslaPrice ? `$${tslaPrice.toFixed(2)}` : '—'}</div>
+            </div>
+            <div style={{ width: '1px', height: '28px', background: '#333' }} />
+            {/* AI pulse — compact */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
               <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#00ff88', boxShadow: '0 0 6px 2px rgba(0,255,136,0.7)', display: 'inline-block', animation: 'greenPulse 2s ease-in-out infinite' }} />
               <span style={{ fontSize: '9px', color: '#00ff88', letterSpacing: '1.5px', textTransform: 'uppercase', fontWeight: 600 }}>Live · {syncLabel}</span>
