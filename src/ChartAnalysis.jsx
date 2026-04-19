@@ -49,7 +49,7 @@ function SignalRow({ label, reading, lean }) {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
         <div style={{ fontSize: '12px', color: '#aaa', letterSpacing: '1px', textTransform: 'uppercase' }}>{label}</div>
         <div style={{ flexShrink: 0 }}>
-          <span style={{ fontSize: '11px', color, fontWeight: 700, letterSpacing: '1.5px', whiteSpace: 'nowrap' }}>{icon} {LEAN_LABEL[lean]}</span>
+          <span style={{ fontSize: '11px', color, fontWeight: 700, letterSpacing: '1.5px' }}>{icon} {LEAN_LABEL[lean]}</span>
         </div>
       </div>
       <div style={{ fontSize: '14px', color: '#fff', fontWeight: 500, lineHeight: 1.6 }}>{reading}</div>
