@@ -70,7 +70,7 @@ function ScatterPlot({ mode, livePoint }) {
     ctx.fillRect(0, 0, W, H);
 
     // Grid
-    ctx.strokeStyle = '#111';
+    ctx.strokeStyle = '#1e2a3a';
     ctx.lineWidth = 1;
     for (let v = Math.ceil(xMin); v <= Math.floor(xMax); v++) {
       ctx.beginPath(); ctx.moveTo(toX(v), PAD.t); ctx.lineTo(toX(v), H - PAD.b); ctx.stroke();
@@ -80,16 +80,16 @@ function ScatterPlot({ mode, livePoint }) {
     }
 
     // Zero axes
-    ctx.strokeStyle = '#333';
-    ctx.lineWidth = 1;
+    ctx.strokeStyle = '#555';
+    ctx.lineWidth = 1.5;
     ctx.beginPath(); ctx.moveTo(toX(0), PAD.t); ctx.lineTo(toX(0), H - PAD.b); ctx.stroke();
     ctx.beginPath(); ctx.moveTo(PAD.l, toY(0)); ctx.lineTo(W - PAD.r, toY(0)); ctx.stroke();
 
     // Beta line
     const bLineX1 = xMin, bLineY1 = xMin * beta;
     const bLineX2 = xMax, bLineY2 = xMax * beta;
-    ctx.strokeStyle = '#00aaff44';
-    ctx.lineWidth = 1.5;
+    ctx.strokeStyle = '#00aaffaa';
+    ctx.lineWidth = 2;
     ctx.setLineDash([6, 4]);
     ctx.beginPath();
     ctx.moveTo(toX(bLineX1), toY(bLineY1));
@@ -98,18 +98,18 @@ function ScatterPlot({ mode, livePoint }) {
     ctx.setLineDash([]);
 
     // Beta line label
-    ctx.fillStyle = '#00aaffaa';
-    ctx.font = `10px ${FONT}`;
+    ctx.fillStyle = '#00ccff';
+    ctx.font = `bold 12px ${FONT}`;
     ctx.textAlign = 'left';
     const lblX = toX(xMax * 0.55);
-    const lblY = toY(xMax * 0.55 * beta) - 6;
+    const lblY = toY(xMax * 0.55 * beta) - 8;
     ctx.fillText(`β=${beta}`, lblX, lblY);
 
     // Alpha/Laggard zone labels
-    ctx.font = `9px ${FONT}`;
-    ctx.fillStyle = '#00ff8866';
-    ctx.fillText('α ALPHA DAYS', PAD.l + 4, PAD.t + 14);
-    ctx.fillStyle = '#ff444466';
+    ctx.font = `bold 11px ${FONT}`;
+    ctx.fillStyle = '#00ff88aa';
+    ctx.fillText('α ALPHA DAYS', PAD.l + 4, PAD.t + 16);
+    ctx.fillStyle = '#ff4444aa';
     ctx.fillText('LAGGARD DAYS', PAD.l + 4, H - PAD.b - 6);
 
     // Dots
@@ -137,27 +137,27 @@ function ScatterPlot({ mode, livePoint }) {
       ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
     });
 
-    // Axis labels
-    ctx.fillStyle = '#888';
-    ctx.font = `9px ${FONT}`;
+    // Axis labels — solid white, larger
+    ctx.fillStyle = '#ffffff';
+    ctx.font = `bold 11px ${FONT}`;
     ctx.textAlign = 'center';
     for (let v = Math.ceil(xMin); v <= Math.floor(xMax); v += 1) {
       if (v === 0) continue;
-      ctx.fillText(`${v > 0 ? '+' : ''}${v}%`, toX(v), H - PAD.b + 14);
+      ctx.fillText(`${v > 0 ? '+' : ''}${v}%`, toX(v), H - PAD.b + 16);
     }
     ctx.textAlign = 'right';
     for (let v = Math.ceil(yMin); v <= Math.floor(yMax); v += 2) {
       if (v === 0) continue;
-      ctx.fillText(`${v > 0 ? '+' : ''}${v}%`, PAD.l - 4, toY(v) + 3);
+      ctx.fillText(`${v > 0 ? '+' : ''}${v}%`, PAD.l - 5, toY(v) + 4);
     }
 
-    // Axis titles
-    ctx.fillStyle = '#888';
-    ctx.font = `9px ${FONT}`;
+    // Axis titles — solid white
+    ctx.fillStyle = '#cccccc';
+    ctx.font = `11px ${FONT}`;
     ctx.textAlign = 'center';
-    ctx.fillText(mode === 'spy' ? 'SPY daily %' : 'QQQ daily %', PAD.l + plotW / 2, H - 4);
+    ctx.fillText(mode === 'spy' ? 'SPY daily %' : 'QQQ daily %', PAD.l + plotW / 2, H - 2);
     ctx.save();
-    ctx.translate(10, PAD.t + plotH / 2);
+    ctx.translate(11, PAD.t + plotH / 2);
     ctx.rotate(-Math.PI / 2);
     ctx.fillText('TSLA daily %', 0, 0);
     ctx.restore();
