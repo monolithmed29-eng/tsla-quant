@@ -263,8 +263,8 @@ function BetaMetaTab({ tslaPrice, marketOpen, lastUpdated, predicted, quantChang
       <button onClick={() => setOpen(o => !o)} className="pill-corner" style={{ display: 'flex', alignItems: 'center', gap: '8px', border: `1px solid ${open ? '#00ff88' : 'rgba(0,255,136,0.5)'}`, borderRadius: '20px', padding: '5px 14px', background: open ? 'rgba(0,255,136,0.08)' : 'rgba(0,255,136,0.03)', cursor: 'pointer', fontFamily: F, transition: 'border-color 0.2s, background 0.2s', flexShrink: 0 }}
         onMouseEnter={e => { e.currentTarget.style.borderColor='#00aaff'; e.currentTarget.style.background='rgba(0,170,255,0.08)'; }}
         onMouseLeave={e => { if (!open) { e.currentTarget.style.borderColor='#fff'; e.currentTarget.style.background='transparent'; } }}>
-        <span style={{ fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', color: '#fff', fontWeight: 700 }}>Roger's Trading Corner</span>
-        <span style={{ fontSize: '9px', color: open ? '#00aaff' : '#666' }}>{open ? '▲' : '▼'}</span>
+        <span style={{ fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', color: '#00ff88', fontWeight: 700 }}>Roger's Trading Corner</span>
+        <span style={{ fontSize: '9px', color: open ? '#00ff88' : '#555' }}>{open ? '▲' : '▼'}</span>
       </button>
 
       {/* Modal */}
