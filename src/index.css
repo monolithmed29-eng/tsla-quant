@@ -44,6 +44,70 @@ html, body, #root {
   height: auto !important;
 }
 
+/* ── Pill shimmer animations ─────────────────────────────────────────────── */
+@keyframes shimmer-blue {
+  0%   { background-position: -300% center; }
+  100% { background-position: 300% center; }
+}
+@keyframes shimmer-green {
+  0%   { background-position: -300% center; }
+  100% { background-position: 300% center; }
+}
+@keyframes pill-pulse-blue {
+  0%, 100% { box-shadow: 0 0 8px 1px rgba(0,170,255,0.25), inset 0 0 0px rgba(0,170,255,0); }
+  50%       { box-shadow: 0 0 18px 4px rgba(0,170,255,0.5), inset 0 0 8px rgba(0,170,255,0.08); }
+}
+@keyframes pill-pulse-green {
+  0%, 100% { box-shadow: 0 0 8px 1px rgba(0,255,136,0.2), inset 0 0 0px rgba(0,255,136,0); }
+  50%       { box-shadow: 0 0 18px 4px rgba(0,255,136,0.45), inset 0 0 8px rgba(0,255,136,0.07); }
+}
+
+.pill-query {
+  position: relative;
+  overflow: hidden;
+  animation: pill-pulse-blue 3s ease-in-out infinite;
+}
+.pill-query::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(0,170,255,0.18) 48%,
+    rgba(150,230,255,0.35) 50%,
+    rgba(0,170,255,0.18) 52%,
+    transparent 70%
+  );
+  background-size: 300% 100%;
+  animation: shimmer-blue 3s linear infinite;
+  pointer-events: none;
+}
+
+.pill-corner {
+  position: relative;
+  overflow: hidden;
+  animation: pill-pulse-green 3s ease-in-out infinite;
+}
+.pill-corner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(0,255,136,0.15) 48%,
+    rgba(150,255,200,0.30) 50%,
+    rgba(0,255,136,0.15) 52%,
+    transparent 70%
+  );
+  background-size: 300% 100%;
+  animation: shimmer-green 3s linear infinite;
+  pointer-events: none;
+}
+
 /* Node orb interaction */
 .node-orb {
   transition: transform 0.2s ease-in-out;

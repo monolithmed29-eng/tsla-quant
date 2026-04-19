@@ -172,15 +172,15 @@ function QueryEngineHeader({ open, onToggle }) {
   return (
     <div
       onClick={onToggle}
+      className="pill-query"
       style={{
         display: 'flex', alignItems: 'center', gap: '10px',
-        border: `1px solid ${open ? '#00aaff' : '#fff'}`,
+        border: `1px solid ${open ? '#00aaff' : 'rgba(0,170,255,0.6)'}`,
         borderRadius: '20px',
         padding: '5px 16px',
         cursor: 'pointer',
-        background: open ? 'rgba(0,170,255,0.10)' : 'transparent',
-        transition: 'all 0.2s ease',
-        boxShadow: open ? '0 0 12px rgba(0,170,255,0.2)' : 'none',
+        background: open ? 'rgba(0,170,255,0.10)' : 'rgba(0,170,255,0.04)',
+        transition: 'border-color 0.2s ease, background 0.2s ease',
         fontFamily: "'Space Grotesk', sans-serif",
         flexShrink: 0,
         whiteSpace: 'nowrap',
@@ -260,7 +260,7 @@ function BetaMetaTab({ tslaPrice, marketOpen, lastUpdated, predicted, quantChang
   return (
     <>
       {/* Pill */}
-      <button onClick={() => setOpen(o => !o)} style={{ display: 'flex', alignItems: 'center', gap: '8px', border: `1px solid ${open ? '#00aaff' : '#fff'}`, borderRadius: '20px', padding: '5px 14px', background: open ? 'rgba(0,170,255,0.1)' : 'transparent', cursor: 'pointer', fontFamily: F, transition: 'all 0.2s', flexShrink: 0 }}
+      <button onClick={() => setOpen(o => !o)} className="pill-corner" style={{ display: 'flex', alignItems: 'center', gap: '8px', border: `1px solid ${open ? '#00ff88' : 'rgba(0,255,136,0.5)'}`, borderRadius: '20px', padding: '5px 14px', background: open ? 'rgba(0,255,136,0.08)' : 'rgba(0,255,136,0.03)', cursor: 'pointer', fontFamily: F, transition: 'border-color 0.2s, background 0.2s', flexShrink: 0 }}
         onMouseEnter={e => { e.currentTarget.style.borderColor='#00aaff'; e.currentTarget.style.background='rgba(0,170,255,0.08)'; }}
         onMouseLeave={e => { if (!open) { e.currentTarget.style.borderColor='#fff'; e.currentTarget.style.background='transparent'; } }}>
         <span style={{ fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', color: '#fff', fontWeight: 700 }}>Roger's Trading Corner</span>
