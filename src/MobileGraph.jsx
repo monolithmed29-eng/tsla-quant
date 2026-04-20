@@ -159,18 +159,18 @@ function Level3Panel({ node, originXY, onBack }) {
         display:'flex', alignItems:'center', justifyContent:'space-between',
       }}>
         <button onClick={onBack} style={{
-          background:'none', border:'1px solid #2a2a2a', color:'#fff',
-          padding:'7px 14px', fontSize:'13px', cursor:'pointer',
+          background:'none', border:'1px solid #333', color:'#aaa',
+          padding:'7px 14px', fontSize:'12px', cursor:'pointer',
           fontFamily:"'Space Grotesk', sans-serif", borderRadius:'4px',
           display:'flex', alignItems:'center', gap:'5px', fontWeight:600,
         }}>← Back</button>
         <button onClick={onBack} style={{
-          background:'rgba(255,255,255,0.1)', border:'1px solid #555',
-          color:'#fff', fontSize:'13px', fontWeight:700,
-          cursor:'pointer', padding:'7px 16px', lineHeight:1,
-          fontFamily:"'Space Grotesk', sans-serif", borderRadius:'4px',
-          letterSpacing:'0.5px',
-        }}>✕ Close</button>
+          background:'rgba(255,255,255,0.12)', border:'2px solid #fff',
+          color:'#fff', fontSize:'14px', fontWeight:800,
+          cursor:'pointer', padding:'8px 20px', lineHeight:1,
+          fontFamily:"'Space Grotesk', sans-serif", borderRadius:'6px',
+          letterSpacing:'1px',
+        }}>✕ CLOSE</button>
       </div>
 
       {/* Left padding clears the BreakingNews tab (~32px), bottom clears pill+legal (~120px) */}
@@ -251,6 +251,15 @@ function Level3Panel({ node, originXY, onBack }) {
         </div>
       </div>
 
+      {/* Bottom close */}
+      <div style={{ padding:'32px 24px 56px', display:'flex', justifyContent:'center' }}>
+        <button onClick={onBack} style={{
+          background:'rgba(255,255,255,0.12)', border:'2px solid #fff',
+          color:'#fff', padding:'14px 60px', fontSize:'14px', fontWeight:800,
+          cursor:'pointer', fontFamily:"'Space Grotesk', sans-serif",
+          borderRadius:'8px', letterSpacing:'1px',
+        }}>✕ CLOSE</button>
+      </div>
 
     </div>
   );
@@ -987,7 +996,7 @@ function LegalStrip({ onDisclaimer, onToS, onRefund }) {
 }
 
 // ─── Main export ──────────────────────────────────────────────────────────────
-export default function MobileGraph({ onShowDisclaimer, onShowToS, onShowRefund, onOracleOpen, onOracleClose, onL3Open, onL3Close }) {
+export default function MobileGraph({ onShowDisclaimer, onShowToS, onShowRefund, onOracleOpen, onOracleClose, onL3Open, onL3Close, onTradingOpen, onTradingClose }) {
   const [activeTab, setActiveTab] = useState('');
   const [prevTab, setPrevTab] = useState('');
   const [showOracle, setShowOracle] = useState(false);
@@ -1002,7 +1011,7 @@ export default function MobileGraph({ onShowDisclaimer, onShowToS, onShowRefund,
   const masterNodes = CATEGORY_ORDER.map(catId => buildMasterNode(catId));
 
   function handleTab(tab) {
-    if (tab === 'trading') { setShowTrading(true); return; }
+    if (tab === 'trading') { setShowTrading(true); onTradingOpen?.(); return; }
     if (tab === activeTab) return;
     setPrevTab(activeTab);
     setActiveTab(tab);
@@ -1059,7 +1068,7 @@ export default function MobileGraph({ onShowDisclaimer, onShowToS, onShowRefund,
       {showOracle && <OracleSheet onClose={() => closeOracle()} />}
 
       {/* Trading Corner sheet */}
-      {showTrading && <TradingSheet onClose={() => setShowTrading(false)} />}
+      {showTrading && <TradingSheet onClose={() => { setShowTrading(false); onTradingClose?.(); }} />}
     </>
   );
 }

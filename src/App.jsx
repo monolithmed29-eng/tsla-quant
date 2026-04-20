@@ -339,6 +339,7 @@ export default function App() {
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
   const [mobileOracleOpen, setMobileOracleOpen] = useState(false);
   const [mobileL3Open, setMobileL3Open] = useState(false);
+  const [mobileTradingOpen, setMobileTradingOpen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
@@ -676,6 +677,8 @@ export default function App() {
             onOracleClose={() => setMobileOracleOpen(false)}
             onL3Open={() => setMobileL3Open(true)}
             onL3Close={() => setMobileL3Open(false)}
+            onTradingOpen={() => setMobileTradingOpen(true)}
+            onTradingClose={() => setMobileTradingOpen(false)}
           />
         </div>
       )}
@@ -718,7 +721,7 @@ export default function App() {
       {!isMobile && <Panel node={selected} onClose={() => setSelected(null)} isMobile={false} />}
 
       {/* Breaking News Tab */}
-      <BreakingNews isMobile={isMobile} hidden={isMobile && (mobileOracleOpen || mobileL3Open)} />
+      <BreakingNews isMobile={isMobile} hidden={isMobile && (mobileOracleOpen || mobileL3Open || mobileTradingOpen)} />
 
       {/* Desktop: Query Engine right-side panel */}
       {!isMobile && (
