@@ -337,6 +337,7 @@ function BetaMetaTab({ tslaPrice, marketOpen, lastUpdated, predicted, quantChang
 
 export default function App() {
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
+  const [mobileOracleOpen, setMobileOracleOpen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
@@ -666,6 +667,8 @@ export default function App() {
             onShowDisclaimer={() => setShowDisclaimer(true)}
             onShowToS={() => setShowToS(true)}
             onShowRefund={() => setShowRefund(true)}
+            onOracleOpen={() => setMobileOracleOpen(true)}
+            onOracleClose={() => setMobileOracleOpen(false)}
           />
         </div>
       )}
@@ -708,7 +711,7 @@ export default function App() {
       {!isMobile && <Panel node={selected} onClose={() => setSelected(null)} isMobile={false} />}
 
       {/* Breaking News Tab */}
-      <BreakingNews isMobile={isMobile} />
+      <BreakingNews isMobile={isMobile} hidden={isMobile && mobileOracleOpen} />
 
       {/* Desktop: Query Engine right-side panel */}
       {!isMobile && (

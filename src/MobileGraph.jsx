@@ -30,9 +30,9 @@ const MASTER_LAYOUT = [
 const ORB_R = 38;
 const SUB_R = 26;
 const FAN_RADIUS = 115;
-// Fixed anchor: active master snaps here (center-bottom of canvas)
+// Fixed anchor: active master snaps here (center of canvas)
 const ANCHOR_X_PCT = 0.50;
-const ANCHOR_Y_PCT = 0.72;
+const ANCHOR_Y_PCT = 0.48;
 // Ghost slots: top corners + side mids
 const GHOST_SLOTS = [
   { x: 0.10, y: 0.08 }, { x: 0.90, y: 0.08 },
@@ -90,17 +90,17 @@ const CSS = `
     22%  { opacity:0; transform:scale(0.8); }
     100% { opacity:0; transform:scale(0.8); }
   }
-  @keyframes orbPulse {
-    0%,100% { box-shadow: 0 0 0 0 rgba(0,255,136,0); }
-    50%     { box-shadow: 0 0 0 8px rgba(0,255,136,0.15); }
+  @keyframes orbPulseBright {
+    0%,100% { box-shadow: 0 0 0 0 rgba(220,235,255,0); }
+    50%     { box-shadow: 0 0 0 8px rgba(220,235,255,0.20); }
   }
   @keyframes orbPulseMed {
-    0%,100% { box-shadow: 0 0 0 0 rgba(180,200,255,0); }
-    50%     { box-shadow: 0 0 0 6px rgba(180,200,255,0.12); }
+    0%,100% { box-shadow: 0 0 0 0 rgba(180,200,230,0); }
+    50%     { box-shadow: 0 0 0 6px rgba(180,200,230,0.14); }
   }
   @keyframes orbPulseLow {
-    0%,100% { box-shadow: 0 0 0 0 rgba(100,120,180,0); }
-    50%     { box-shadow: 0 0 0 4px rgba(100,120,180,0.10); }
+    0%,100% { box-shadow: 0 0 0 0 rgba(100,120,160,0); }
+    50%     { box-shadow: 0 0 0 4px rgba(100,120,160,0.10); }
   }
   @keyframes greenRing {
     0%,100% { box-shadow: 0 0 0 3px rgba(0,255,136,0.6), 0 0 16px 4px rgba(0,255,136,0.2); }
@@ -141,7 +141,7 @@ function Level3Panel({ node, originXY, onBack }) {
   // Animate: grow from sub-node position using transform-origin trick
   return (
     <div style={{
-      position:'fixed', inset:0, zIndex:9000,
+      position:'fixed', inset:0, zIndex:9500,
       background:'#000',
       fontFamily:"'Space Grotesk', sans-serif",
       color:'#fff',
@@ -366,9 +366,9 @@ function GraphCanvas({ masterNodes }) {
         const opacity = isGhost ? 0.25 : 1;
         const size = ORB_R*2;
 
-        // Pulse animation keyed to likelihood
+        // Pulse animation keyed to likelihood (white-toned glow, not green)
         const pulseAnim = master.likelihood >= 0.7
-          ? 'orbPulse 2.5s ease-in-out infinite'
+          ? 'orbPulseBright 2.5s ease-in-out infinite'
           : master.likelihood >= 0.4
           ? 'orbPulseMed 3s ease-in-out infinite'
           : 'orbPulseLow 3.5s ease-in-out infinite';
@@ -467,20 +467,7 @@ function GraphCanvas({ masterNodes }) {
         {activeMaster ? 'Tap subnode for analysis' : 'Tap a node to explore'}
       </div>
 
-      {/* Legend key — bottom left */}
-      {!activeMaster && (
-        <div style={{
-          position:'absolute', bottom:36, left:12,
-          display:'flex', alignItems:'center', gap:'6px',
-          pointerEvents:'none',
-        }}>
-          <div style={{ width:'7px', height:'7px', borderRadius:'50%', background:'rgba(80,100,140,0.55)', boxShadow:'0 0 4px rgba(70,90,130,0.4)', flexShrink:0 }} />
-          <span style={{ fontSize:'8px', color:'#333', letterSpacing:'0.8px' }}>DIM</span>
-          <span style={{ fontSize:'8px', color:'#2a2a2a' }}>→</span>
-          <div style={{ width:'7px', height:'7px', borderRadius:'50%', background:'rgba(255,255,255,1.0)', boxShadow:'0 0 6px rgba(255,255,255,0.8)', flexShrink:0 }} />
-          <span style={{ fontSize:'8px', color:'#555', letterSpacing:'0.8px' }}>BRIGHT = likelihood</span>
-        </div>
-      )}
+
 
       {/* Level 3 overlay */}
       {selectedNode && (
@@ -735,8 +722,9 @@ function OracleSheet({ onClose }) {
 }
 
 // ─── Trading Corner bottom sheet ──────────────────────────────────────────────
-function TradingSheet({ onClose, tslaPrice, marketOpen, lastUpdated }) {
+function TradingSheet({ onClose }) {
   const PREDICTED = calcPredictedPrice();
+  const { tslaPrice, marketOpen, lastUpdated } = useTSLAPrice();
 
   return (
     <div style={{ position:'fixed', inset:0, zIndex:8000, background:'rgba(0,0,0,0.8)', backdropFilter:'blur(4px)', display:'flex', flexDirection:'column', justifyContent:'flex-end' }} onClick={onClose}>
@@ -901,7 +889,6 @@ function BottomPill({ activeTab, onTab, onOracle }) {
         gap:'2px',
       }}>
         {[
-          { key:'network', icon:'◉', label:'Network' },
           { key:'trading', icon:'📈', label:'Trading' },
           { key:'tube',    icon:'📺', label:'Tube' },
         ].map(({ key, icon, label }) => {
@@ -927,17 +914,26 @@ function BottomPill({ activeTab, onTab, onOracle }) {
         })}
       </div>
 
-      {/* Oracle FAB */}
+      {/* Oracle FAB — red pill style */}
       <button onClick={onOracle} style={{
-        marginLeft:'10px', width:'48px', height:'48px', borderRadius:'50%',
-        background:'rgba(229,57,53,0.12)', border:'1.5px solid rgba(229,57,53,0.65)',
-        color:'#ff3333', fontSize:'20px',
-        display:'flex', alignItems:'center', justifyContent:'center',
+        marginLeft:'10px',
+        background:'rgba(229,57,53,0.12)',
+        border:'1px solid rgba(229,57,53,0.7)',
+        color:'#ff3333',
+        padding:'9px 18px',
+        borderRadius:'24px',
+        fontSize:'10px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase',
         cursor:'pointer',
-        boxShadow:'0 0 18px rgba(229,57,53,0.35), 0 0 6px rgba(229,57,53,0.2)',
-        backdropFilter:'blur(12px)', WebkitTapHighlightColor:'transparent',
-        flexShrink:0,
-      }}>◉</button>
+        fontFamily:"'Space Grotesk', sans-serif",
+        display:'flex', alignItems:'center', gap:'7px',
+        boxShadow:'0 0 20px rgba(229,57,53,0.25)',
+        backdropFilter:'blur(8px)',
+        WebkitTapHighlightColor:'transparent',
+        whiteSpace:'nowrap', flexShrink:0,
+      }}>
+        <span style={{ width:'7px', height:'7px', borderRadius:'50%', background:'#ff1a1a', display:'inline-block', boxShadow:'0 0 8px 3px rgba(229,57,53,0.8)', flexShrink:0 }} />
+        Ask Roger
+      </button>
     </div>
   );
 }
@@ -947,31 +943,45 @@ function LegalStrip({ onDisclaimer, onToS, onRefund }) {
   return (
     <div style={{
       position:'fixed', bottom:0, left:0, right:0, zIndex:100,
-      padding:'4px 14px',
-      borderTop:'1px solid #0e0e0e',
-      background:'rgba(0,0,0,0.92)', backdropFilter:'blur(8px)',
-      display:'flex', alignItems:'center', justifyContent:'flex-end', gap:'12px',
+      padding:'5px 14px',
+      borderTop:'1px solid #1a1a1a',
+      background:'rgba(0,0,0,0.94)', backdropFilter:'blur(8px)',
+      display:'flex', alignItems:'center', justifyContent:'space-between',
     }}>
-      {[['Disclaimer',onDisclaimer],['Terms',onToS],['Refunds',onRefund]].map(([label,fn]) => (
-        <button key={label} onClick={fn} style={{
-          background:'none', border:'none', padding:0,
-          color:'#333', fontSize:'8px', letterSpacing:'1px',
-          textTransform:'uppercase', cursor:'pointer',
-          fontFamily:"'Space Grotesk', sans-serif",
-          textDecoration:'underline', textUnderlineOffset:'2px',
-        }}>{label}</button>
-      ))}
+      {/* Dim → Bright legend */}
+      <div style={{ display:'flex', alignItems:'center', gap:'5px', flexShrink:0 }}>
+        <div style={{ width:'7px', height:'7px', borderRadius:'50%', background:'rgba(80,100,140,0.6)', boxShadow:'0 0 3px rgba(70,90,130,0.5)', flexShrink:0 }} />
+        <span style={{ fontSize:'8px', color:'#888', letterSpacing:'0.5px' }}>DIM</span>
+        <span style={{ fontSize:'8px', color:'#555' }}>→</span>
+        <div style={{ width:'7px', height:'7px', borderRadius:'50%', background:'rgba(255,255,255,1.0)', boxShadow:'0 0 5px rgba(255,255,255,0.9)', flexShrink:0 }} />
+        <span style={{ fontSize:'8px', color:'#aaa', letterSpacing:'0.5px' }}>BRIGHT = likelihood</span>
+      </div>
+      {/* Legal links */}
+      <div style={{ display:'flex', gap:'12px' }}>
+        {[['Disclaimer',onDisclaimer],['Terms',onToS],['Refunds',onRefund]].map(([label,fn]) => (
+          <button key={label} onClick={fn} style={{
+            background:'none', border:'none', padding:0,
+            color:'#888', fontSize:'9px', letterSpacing:'1px',
+            textTransform:'uppercase', cursor:'pointer',
+            fontFamily:"'Space Grotesk', sans-serif",
+            textDecoration:'underline', textUnderlineOffset:'2px',
+          }}>{label}</button>
+        ))}
+      </div>
     </div>
   );
 }
 
 // ─── Main export ──────────────────────────────────────────────────────────────
-export default function MobileGraph({ onShowDisclaimer, onShowToS, onShowRefund }) {
-  const [activeTab, setActiveTab] = useState('network');
-  const [prevTab, setPrevTab] = useState('network');
+export default function MobileGraph({ onShowDisclaimer, onShowToS, onShowRefund, onOracleOpen, onOracleClose }) {
+  const [activeTab, setActiveTab] = useState('tube');
+  const [prevTab, setPrevTab] = useState('tube');
   const [showOracle, setShowOracle] = useState(false);
   const [showTrading, setShowTrading] = useState(false);
   const { tslaPrice, marketOpen, lastUpdated } = useTSLAPrice();
+
+  function openOracle() { setShowOracle(true); onOracleOpen?.(); }
+  function closeOracle() { setShowOracle(false); onOracleClose?.(); }
 
   const masterNodes = CATEGORY_ORDER.map(catId => buildMasterNode(catId));
 
@@ -982,64 +992,46 @@ export default function MobileGraph({ onShowDisclaimer, onShowToS, onShowRefund 
     setActiveTab(tab);
   }
 
-  const TAB_ORDER = ['network','tube'];
-  const slideDir = TAB_ORDER.indexOf(activeTab) > TAB_ORDER.indexOf(prevTab) ? -1 : 1;
+  const TAB_ORDER = ['tube'];
+  const slideDir = 1;
 
   return (
     <>
       <style>{CSS}</style>
 
-      {/* Tab content area */}
-      <div style={{ position:'fixed', inset:0, paddingTop:'90px', paddingBottom:'88px', overflow:'hidden' }}>
+      {/* Canvas — always visible as base layer */}
+      <div style={{ position:'fixed', inset:0, paddingTop:'90px', paddingBottom:'88px', overflow:'hidden', zIndex:1 }}>
+        <GraphCanvas masterNodes={masterNodes} />
+      </div>
 
-        {/* Network tab */}
-        <div style={{
-          position:'absolute', inset:0, paddingTop:'90px', paddingBottom:'88px',
-          transform: activeTab==='network' ? 'translateX(0)' : `translateX(${100*slideDir}%)`,
-          opacity: activeTab==='network' ? 1 : 0,
-          transition:'transform 0.32s cubic-bezier(0.4,0,0.2,1), opacity 0.28s ease',
-          pointerEvents: activeTab==='network' ? 'auto' : 'none',
-        }}>
-          <GraphCanvas masterNodes={masterNodes} />
-        </div>
-
-        {/* Tube tab */}
-        <div style={{
-          position:'absolute', inset:0, paddingTop:'90px', paddingBottom:'88px',
-          display:'flex', flexDirection:'column',
-          transform: activeTab==='tube' ? 'translateX(0)' : `translateX(${-100*slideDir}%)`,
-          opacity: activeTab==='tube' ? 1 : 0,
-          transition:'transform 0.32s cubic-bezier(0.4,0,0.2,1), opacity 0.28s ease',
-          pointerEvents: activeTab==='tube' ? 'auto' : 'none',
-        }}>
-          <TubeView onAskRoger={() => setShowOracle(true)} />
-        </div>
+      {/* Tube tab — slides in over canvas */}
+      <div style={{
+        position:'fixed', inset:0, paddingTop:'90px', paddingBottom:'88px',
+        display:'flex', flexDirection:'column',
+        transform: activeTab==='tube' ? 'translateX(0)' : 'translateX(100%)',
+        opacity: activeTab==='tube' ? 1 : 0,
+        transition:'transform 0.32s cubic-bezier(0.4,0,0.2,1), opacity 0.28s ease',
+        pointerEvents: activeTab==='tube' ? 'auto' : 'none',
+        zIndex:2, background:'#000',
+      }}>
+        <TubeView onAskRoger={() => openOracle()} />
       </div>
 
       {/* Bottom pill — always visible */}
       <BottomPill
         activeTab={activeTab}
         onTab={handleTab}
-        onOracle={() => setShowOracle(true)}
+        onOracle={() => openOracle()}
       />
 
-      {/* Legal strip */}
-      {activeTab==='network' && (
-        <LegalStrip onDisclaimer={onShowDisclaimer} onToS={onShowToS} onRefund={onShowRefund} />
-      )}
+      {/* Legal strip — always visible */}
+      <LegalStrip onDisclaimer={onShowDisclaimer} onToS={onShowToS} onRefund={onShowRefund} />
 
       {/* Oracle sheet */}
-      {showOracle && <OracleSheet onClose={() => setShowOracle(false)} />}
+      {showOracle && <OracleSheet onClose={() => closeOracle()} />}
 
       {/* Trading Corner sheet */}
-      {showTrading && (
-        <TradingSheet
-          onClose={() => setShowTrading(false)}
-          tslaPrice={tslaPrice}
-          marketOpen={marketOpen}
-          lastUpdated={lastUpdated}
-        />
-      )}
+      {showTrading && <TradingSheet onClose={() => setShowTrading(false)} />}
     </>
   );
 }

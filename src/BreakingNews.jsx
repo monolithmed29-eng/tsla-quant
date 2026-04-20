@@ -33,7 +33,8 @@ const CATEGORY_LABELS = {
   corporate:     'Corporate',
 };
 
-export default function BreakingNews({ isMobile = false }) {
+export default function BreakingNews({ isMobile = false, hidden = false }) {
+  if (hidden) return null;
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
   const { data: breakingNews } = useRemoteData('news.json', fallbackNews);
