@@ -52,11 +52,10 @@ function ScatterPlot({ mode, livePoint }) {
 
     // Axis range — pad to nearest 2%
     const allX = pts.map(p => p.x);
-    const allY = pts.map(p => p.y);
     const xMin = Math.min(-3, ...allX) - 0.5;
     const xMax = Math.max(3, ...allX) + 0.5;
-    const yMin = Math.min(-6, ...allY) - 0.5;
-    const yMax = Math.max(6, ...allY) + 0.5;
+    const yMin = -7.5;
+    const yMax = 7.5;
 
     const PAD = { l: 42, r: 16, t: 16, b: 36 };
     const plotW = W - PAD.l - PAD.r;
@@ -75,7 +74,7 @@ function ScatterPlot({ mode, livePoint }) {
     for (let v = Math.ceil(xMin); v <= Math.floor(xMax); v++) {
       ctx.beginPath(); ctx.moveTo(toX(v), PAD.t); ctx.lineTo(toX(v), H - PAD.b); ctx.stroke();
     }
-    for (let v = Math.ceil(yMin); v <= Math.floor(yMax); v++) {
+    for (let v = -6; v <= 6; v += 2) {
       ctx.beginPath(); ctx.moveTo(PAD.l, toY(v)); ctx.lineTo(W - PAD.r, toY(v)); ctx.stroke();
     }
 
@@ -146,7 +145,7 @@ function ScatterPlot({ mode, livePoint }) {
       ctx.fillText(`${v > 0 ? '+' : ''}${v}%`, toX(v), H - PAD.b + 16);
     }
     ctx.textAlign = 'right';
-    for (let v = Math.ceil(yMin); v <= Math.floor(yMax); v += 2) {
+    for (let v = -6; v <= 6; v += 2) {
       if (v === 0) continue;
       ctx.fillText(`${v > 0 ? '+' : ''}${v}%`, PAD.l - 5, toY(v) + 4);
     }
