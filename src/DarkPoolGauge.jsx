@@ -41,38 +41,35 @@ function getNeedleAnimation(status) {
 export default function DarkPoolGauge({ mobile = false }) {
   const [showTooltip, setShowTooltip] = useState(false);
   const containerRef = useRef(null);
-  const { data: darkPoolData } = useRemoteData('darkpool.json', fallbackDarkPool);
+  const { data: darkPoolData, loading } = useRemoteData('darkpool.json', fallbackDarkPool);
 
   const { gauge_value, needle_status, roger_insight, updated, calls, puts } = darkPoolData;
   const pct = Math.max(0, Math.min(100, gauge_value));
 
   // ── Prev-score tracking (delta from last read) ─────────────────────────────
-  const [prevPct, setPrevPct] = useState(() => {
-    const stored = localStorage.getItem(PREV_KEY);
-    return stored !== null ? Number(stored) : pct;
-  });
-  const [displayPct, setDisplayPct] = useState(prevPct);
+  const [prevPct, setPrevPct] = useState(pct);
+  const [displayPct, setDisplayPct] = useState(pct);
   const [animating, setAnimating] = useState(false);
-  const hasMounted = useRef(false);
+  const initializedRef = useRef(false);
 
+  // Fire once when remote data finishes loading (loading flips false)
   useEffect(() => {
-    if (hasMounted.current) return;
-    hasMounted.current = true;
+    if (loading) return;                    // wait for real data
+    if (initializedRef.current) return;     // only once
+    initializedRef.current = true;
 
     const stored = localStorage.getItem(PREV_KEY);
     const prev = stored !== null ? Number(stored) : pct;
     setPrevPct(prev);
-    setDisplayPct(prev); // start needle at prev position (no transition yet)
+    setDisplayPct(prev);
 
-    // After a short paint delay, enable transition and slide to current value
     const t = setTimeout(() => {
       setAnimating(true);
       setDisplayPct(pct);
-      // Save current as new prev for next session
       localStorage.setItem(PREV_KEY, String(pct));
     }, 120);
     return () => clearTimeout(t);
-  }, [pct]);
+  }, [loading, pct]);
 
   const delta = pct - prevPct;
   const showGhost = Math.abs(delta) >= 1; // only show ghost if meaningful delta
@@ -293,8 +290,8 @@ function TooltipPanel({ calls, puts, pct, delta, showGhost, prevPct, needleColor
           <>
             <div style={{ textAlign: 'center' }}>
               <div style={{ fontSize: '8px', color: '#aaa', letterSpacing: '1px', marginBottom: '4px' }}>FLOW LEAN</div>
-              <div style={{ fontSize: '13px', fontWeight: 700, color: calls.count > puts.count ? '#00ff88' : '#ff4444' }}>
-                {calls.count > puts.count ? '▲ CALL HEAVY' : calls.count < puts.count ? '▼ PUT HEAVY' : '— NEUTRAL'}
+              <div style={{ fontSize: '13px', fontWeight: 700, color: calls.value > puts.value ? '#00ff88' : '#ff4444' }}>
+                {calls.value > puts.value ? '▲ CALL HEAVY' : calls.value < puts.value ? '▼ PUT HEAVY' : '— NEUTRAL'}
               </div>
             </div>
             <div style={{ width: '1px', background: '#1e1e1e', alignSelf: 'stretch' }} />

@@ -3,10 +3,10 @@
 // Benchmark: $2B full day, $1B midday snapshot
 
 export const darkPoolData = {
-  gauge_value: 78,
-  needle_status: "Aggressive",      // "Static" | "Vibrating" | "Aggressive"
-  roger_insight: "Institutional flow running ~3:1 calls over puts by dollar value — a strongly skewed bullish print heading into Q1 earnings Apr 22. Smart money is leaning hard toward upside.",
-  updated: "Apr 17 · 1pm ET",
-  calls: { count: 3, value: 3 },
-  puts:  { count: 1, value: 1 },
+  gauge_value: 35,
+  needle_status: "Vibrating",
+  roger_insight: "Dollar-weighted flow skews put-heavy heading into earnings — institutions are paying up for downside protection despite roughly even contract count. Smart money hedging, not conviction selling.",
+  updated: "Apr 20 · 10am ET",
+  calls: { count: 236, value: 8140000 },
+  puts:  { count: 221, value: 15190000 },
 };
