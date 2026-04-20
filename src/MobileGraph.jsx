@@ -29,7 +29,7 @@ const MASTER_LAYOUT = [
 ];
 const ORB_R = 38;
 const SUB_R = 26;
-const FAN_RADIUS = 115;
+const FAN_RADIUS = 145;
 // Fixed anchor: active master snaps here (center of canvas)
 const ANCHOR_X_PCT = 0.50;
 const ANCHOR_Y_PCT = 0.48;
@@ -119,8 +119,8 @@ const CSS = `
     to   { opacity:1; transform:translateY(0); }
   }
   @keyframes scaleGrow {
-    from { transform:scale(0) translateX(-50%) translateY(-50%); opacity:0.5; }
-    to   { transform:scale(1) translateX(-50%) translateY(-50%); opacity:1; }
+    from { opacity:0; transform:scale(0.92); }
+    to   { opacity:1; transform:scale(1); }
   }
   .hb  { animation: heartbeat 2.8s ease-in-out infinite; }
   .hbs { animation: heartbeat 2.8s ease-in-out 0.4s infinite; }
@@ -145,8 +145,7 @@ function Level3Panel({ node, originXY, onBack }) {
       background:'#000',
       fontFamily:"'Space Grotesk', sans-serif",
       color:'#fff',
-      animation:'scaleGrow 0.35s cubic-bezier(0.22,1,0.36,1) forwards',
-      transformOrigin: originXY ? `${originXY.x}px ${originXY.y}px` : '50% 50%',
+      animation:'scaleGrow 0.28s cubic-bezier(0.22,1,0.36,1) forwards',
       overflowY:'auto', WebkitOverflowScrolling:'touch',
     }}>
       {/* Top sticky header */}
@@ -449,7 +448,7 @@ function GraphCanvas({ masterNodes }) {
             </div>
             <div style={{
               position:'absolute', top:size+4, left:'50%', transform:'translateX(-50%)',
-              width:72, textAlign:'center', fontSize:'9px', color:'#bbb', lineHeight:1.3,
+              width:82, textAlign:'center', fontSize:'9px', color:'#bbb', lineHeight:1.3,
               pointerEvents:'none',
               opacity: subSpawned ? 1 : 0,
               transition:`opacity 0.28s ease ${i*45+80}ms`,
@@ -721,6 +720,25 @@ function OracleSheet({ onClose }) {
   );
 }
 
+// ─── Safe section wrapper (catches render errors in ChartAnalysis/BetaDashboard) ──
+import React from 'react';
+class TradingSectionSafe extends React.Component {
+  constructor(p) { super(p); this.state = { err: null }; }
+  static getDerivedStateFromError(e) { return { err: e?.message || 'Error' }; }
+  render() {
+    if (this.state.err) return (
+      <div style={{ padding:'16px', color:'#555', fontSize:'11px', fontFamily:"'Space Grotesk', sans-serif" }}>
+        {this.props.title}: unavailable on mobile
+      </div>
+    );
+    return (
+      <div style={{ borderBottom:'1px solid #111', overflow:'hidden' }}>
+        {this.props.children}
+      </div>
+    );
+  }
+}
+
 // ─── Trading Corner bottom sheet ──────────────────────────────────────────────
 function TradingSheet({ onClose }) {
   const PREDICTED = calcPredictedPrice();
@@ -728,59 +746,64 @@ function TradingSheet({ onClose }) {
 
   return (
     <div style={{ position:'fixed', inset:0, zIndex:8000, background:'rgba(0,0,0,0.8)', backdropFilter:'blur(4px)', display:'flex', flexDirection:'column', justifyContent:'flex-end' }} onClick={onClose}>
-      <div onClick={e=>e.stopPropagation()} style={{
+      <div className="oracle-sheet" onClick={e=>e.stopPropagation()} style={{
         background:'#060608', borderTop:'2px solid #00aaff88',
         borderRadius:'16px 16px 0 0',
-        maxHeight:'92vh', overflowY:'auto', WebkitOverflowScrolling:'touch',
+        height:'92vh', overflowY:'auto', WebkitOverflowScrolling:'touch',
         fontFamily:"'Space Grotesk', sans-serif",
+        display:'flex', flexDirection:'column',
       }}>
-        {/* Handle + header */}
-        <div style={{ display:'flex', justifyContent:'center', padding:'10px 0 4px' }}>
-          <div style={{ width:'36px', height:'4px', borderRadius:'2px', background:'#1e1e1e' }} />
+        {/* Handle */}
+        <div style={{ display:'flex', justifyContent:'center', padding:'10px 0 4px', flexShrink:0 }}>
+          <div style={{ width:'36px', height:'4px', borderRadius:'2px', background:'#333' }} />
         </div>
-        <div style={{ position:'sticky', top:0, zIndex:2, background:'rgba(6,6,8,0.97)', backdropFilter:'blur(8px)', borderBottom:'1px solid #111', padding:'10px 16px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
+
+        {/* Sticky header */}
+        <div style={{ flexShrink:0, background:'#060608', borderBottom:'1px solid #111', padding:'10px 16px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
           <div style={{ display:'flex', alignItems:'center', gap:'10px' }}>
             <span style={{ fontSize:'16px' }}>📈</span>
             <span style={{ fontSize:'13px', fontWeight:800, letterSpacing:'2px', textTransform:'uppercase', color:'#fff' }}>Trading Corner</span>
           </div>
-          {/* Top X */}
-          <button onClick={onClose} style={{ background:'none', border:'none', color:'#fff', fontSize:'22px', cursor:'pointer', padding:'4px 8px', lineHeight:1 }}>✕</button>
+          <button onClick={onClose} style={{ background:'none', border:'none', color:'#fff', fontSize:'24px', cursor:'pointer', padding:'4px 10px', lineHeight:1 }}>✕</button>
         </div>
 
-        <div style={{ padding:'0 0 20px' }}>
+        {/* Scrollable content */}
+        <div style={{ flex:1, overflowY:'auto', WebkitOverflowScrolling:'touch' }}>
           {/* Stats row */}
-          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', borderBottom:'1px solid #0d0d0d' }}>
-            <div style={{ padding:'14px 16px', borderRight:'1px solid #0d0d0d' }}>
-              <div style={{ fontSize:'8px', color:'#666', letterSpacing:'1.5px', textTransform:'uppercase', marginBottom:'4px' }}>TSLA Live</div>
+          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', borderBottom:'1px solid #111' }}>
+            <div style={{ padding:'14px 16px', borderRight:'1px solid #111' }}>
+              <div style={{ fontSize:'8px', color:'#777', letterSpacing:'1.5px', textTransform:'uppercase', marginBottom:'4px' }}>TSLA Live</div>
               <div style={{ fontSize:'24px', fontWeight:700, color: marketOpen?'#00aaff':'#555' }}>
                 {tslaPrice ? `$${tslaPrice.toFixed(2)}` : '—'}
               </div>
-              <div style={{ fontSize:'9px', color:'#444', marginTop:'2px' }}>{marketOpen?'Live':'Market Closed'}</div>
+              <div style={{ fontSize:'9px', color:'#555', marginTop:'2px' }}>{marketOpen?'Live':'Market Closed'}</div>
             </div>
             <div style={{ padding:'14px 16px' }}>
-              <div style={{ fontSize:'8px', color:'#666', letterSpacing:'1.5px', textTransform:'uppercase', marginBottom:'4px' }}>Quant Model</div>
+              <div style={{ fontSize:'8px', color:'#777', letterSpacing:'1.5px', textTransform:'uppercase', marginBottom:'4px' }}>Quant Model</div>
               <div style={{ fontSize:'24px', fontWeight:700, color:'#00ff88' }}>${PREDICTED.toFixed(0)}</div>
             </div>
           </div>
-          <div style={{ padding:'14px 16px', borderBottom:'1px solid #0d0d0d' }}>
-            <div style={{ fontSize:'8px', color:'#666', letterSpacing:'1.5px', textTransform:'uppercase', marginBottom:'10px' }}>Whale Scale</div>
+
+          {/* Whale Scale */}
+          <div style={{ padding:'14px 16px', borderBottom:'1px solid #111' }}>
+            <div style={{ fontSize:'8px', color:'#777', letterSpacing:'1.5px', textTransform:'uppercase', marginBottom:'10px' }}>Whale Scale</div>
             <DarkPoolGauge mobile />
           </div>
-          <div style={{ borderBottom:'1px solid #0d0d0d' }}>
-            <ChartAnalysis />
-          </div>
-          <div style={{ padding:'0' }}>
-            <BetaDashboard isMobile={true} inModal />
-          </div>
-        </div>
 
-        {/* Bottom X */}
-        <div style={{ position:'sticky', bottom:0, padding:'12px 16px', background:'rgba(6,6,8,0.97)', borderTop:'1px solid #111', display:'flex', justifyContent:'center' }}>
-          <button onClick={onClose} style={{
-            background:'rgba(255,255,255,0.06)', border:'1px solid #333',
-            color:'#fff', padding:'10px 48px', fontSize:'13px', fontWeight:600,
-            cursor:'pointer', fontFamily:"'Space Grotesk', sans-serif", borderRadius:'6px', letterSpacing:'0.5px',
-          }}>✕ Close</button>
+          {/* Chart Analysis — wrapped so crash doesn't blank whole sheet */}
+          <TradingSectionSafe title="Chart Analysis"><ChartAnalysis /></TradingSectionSafe>
+
+          {/* Beta Dashboard */}
+          <TradingSectionSafe title="Beta Dashboard"><BetaDashboard isMobile={true} /></TradingSectionSafe>
+
+          {/* Bottom close */}
+          <div style={{ padding:'16px', display:'flex', justifyContent:'center' }}>
+            <button onClick={onClose} style={{
+              background:'rgba(255,255,255,0.06)', border:'1px solid #333',
+              color:'#fff', padding:'10px 48px', fontSize:'13px', fontWeight:600,
+              cursor:'pointer', fontFamily:"'Space Grotesk', sans-serif", borderRadius:'6px',
+            }}>✕ Close</button>
+          </div>
         </div>
       </div>
     </div>
