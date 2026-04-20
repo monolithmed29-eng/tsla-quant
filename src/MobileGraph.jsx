@@ -742,7 +742,7 @@ class TradingSectionSafe extends React.Component {
 
 // ─── Trading Corner bottom sheet ──────────────────────────────────────────────
 function TradingSheet({ onClose }) {
-  const PREDICTED = calcPredictedPrice();
+  const PREDICTED = calcPredictedPrice(catalysts);
   const { tslaPrice, marketOpen, lastUpdated } = useTSLAPrice();
 
   return (
