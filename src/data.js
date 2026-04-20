@@ -95,7 +95,7 @@ export const catalysts = [
     weight: 0.08,
     status: "in_progress",
     expected: "1H 2026",
-    likelihood: 0.78,
+    likelihood: 0.82,
     updated: "Apr 20, 2026",
     description: [
       "🆕 Apr 20, 2026: Electrek (Apr 19) calls Dallas/Houston launch 'another stock pump before earnings' — small initial geofences with limited vehicles, not real commercial scale; Engadget confirms small sections only; skepticism about autonomy pace intensifying just before Apr 22 earnings call; bull/bear tension at maximum",
@@ -337,7 +337,7 @@ export const catalysts = [
     likelihood: 0.28,
     updated: "Apr 20, 2026",
     description: [
-      "🆕 Apr 20, 2026: OFFICIAL Tesla Q1 2026 consensus (ir.tesla.com, 20 analysts — Baird/Barclays/GS/MS/Wedbush etc): GAAP EPS $0.16 avg / $0.14 median; Non-GAAP EPS $0.33 avg / $0.30 median; Total revenues $21.4B avg; Gross margin 17.5%; Operating margin 2.5%; FCF **–$1.6B** (negative — heavy CapEx drag); Energy revenue $2.9B avg. TSLA trading $389–$409 range (Apr 19). Earnings call Apr 22, 5:30 PM ET.",
+      "🆕 Apr 20, 2026: TSLA closed Apr 19 at $401.09 (range $389–$409); Polymarket implies 28.5% odds of TSLA closing week above $410 — pre-earnings uncertainty maximum; 2 days to Apr 22 earnings call (5:30 PM ET). OFFICIAL consensus (ir.tesla.com, 20 analysts): GAAP EPS $0.16 avg / $0.14 median; Non-GAAP EPS $0.33 avg; Revenue $21.4B; FCF **–$1.6B** (negative). Dallas/Houston 573-vehicle robotaxi launch now confirmed live — key management talking point for call.",
       "🆕 Apr 17, 2026 (PM close): TSLA opened ~$396; Q1 earnings call in 5 days (Apr 22, 5:30 PM ET); consensus $0.37 EPS / $22.71B revenue (IG/Refinitiv Smart Estimate $0.30 / $21.52B — predicted surprise of –20.6%); 3:1 bullish options flow by value; prediction markets still ~53% odds of miss",
       "🆕 Apr 17, 2026: TSLA premarket ~$365 (Fri open); analysts divided ahead of Apr 22 Q1 call — TipRanks Smart Score 3/10 (Underperform); 30 analysts: 13 Buy / 11 Hold / 6 Sell; Motley Fool: 'More likely outcome is a share price boom' on FSD 10B miles + Cybercab ramp; TD Cowen PT cut to $490 on competition risk",
       "🆕 Apr 16, 2026: TSLA trading $381–$397 (+7.6%) on AI5 tape-out enthusiasm + pre-earnings positioning; Q1 earnings call in 6 days (Apr 22, 5:30 PM ET); consensus $0.39 EPS, $22.82B revenue; prediction markets 53% odds of miss",

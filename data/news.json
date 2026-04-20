@@ -1,5 +1,19 @@
 [
   {
+    "headline": "TSLA at $401 pre-earnings; Polymarket: 28.5% odds of closing week above $410 — maximum pre-earnings uncertainty with Q1 call Wednesday Apr 22 at 5:30 PM ET",
+    "category": "financials",
+    "source": "Robinhood / Polymarket",
+    "timestamp": "Apr 20, 2026",
+    "url": "https://polymarket.com/event/tsla-week-april-24-2026"
+  },
+  {
+    "headline": "14 Cybercab units WITHOUT steering wheels spotted at Giga Texas — production-spec autonomous Cybercabs rolling off line; original no-steering-wheel design confirmed; production ramp accelerating",
+    "category": "autonomy",
+    "source": "Teslarati / drone footage",
+    "timestamp": "Apr 20, 2026",
+    "url": null
+  },
+  {
     "headline": "Optimus robot live at Tesla Boston Boylston Street showroom for Marathon Monday — hundreds of thousands of spectators + international broadcast; zero ad spend PR at massive scale",
     "category": "robotics",
     "source": "Teslarati / WeTalkTesla",
@@ -21,21 +35,14 @@
     "url": "https://www.fool.com/investing/2026/04/19/is-tesla-stock-a-buy-ahead-of-earnings/"
   },
   {
-    "headline": "Tesla launches unsupervised robotaxi service in Dallas and Houston — Model Y fleet, no driver or monitor in front seats; Musk reposted launch; first multi-city expansion beyond Austin (Reuters, TechCrunch, Engadget)",
+    "headline": "Tesla launches unsupervised robotaxi service in Dallas and Houston — 573-vehicle Model Y fleet, no driver or monitor in front seats; first multi-city expansion beyond Austin confirmed live",
     "category": "autonomy",
     "source": "Reuters / TechCrunch",
     "timestamp": "Apr 18, 2026",
     "url": "https://www.reuters.com/business/autos-transportation/tesla-rolls-out-robotaxis-dallas-houston-2026-04-18/"
   },
   {
-    "headline": "Tesla pushing Robotaxi features to owner cars with Spring Update — standalone Self-Driving subscription app + 'Hey Grok' xAI voice assistant rolling out to existing FSD fleet",
-    "category": "autonomy",
-    "source": "Teslarati",
-    "timestamp": "Apr 18, 2026",
-    "url": "https://www.teslarati.com/tesla-pushing-robotaxi-features-owner-cars-spring-update/"
-  },
-  {
-    "headline": "Teslarati: Optimus Gen 3 hand and arm details revealed in new patents — new joint architecture, dexterity upgrades; production design now locked per blueprint filings",
+    "headline": "Optimus Gen 3 hand and arm details revealed in new patents — new joint architecture and dexterity upgrades; production design locked per blueprint filings",
     "category": "robotics",
     "source": "Teslarati",
     "timestamp": "Apr 18, 2026",
@@ -45,13 +52,6 @@
     "headline": "Samsung Taylor Texas fab equipment installation ceremony April 24 — 2nm AI5/AI6 chips; CEO Han Jin-man attending; yields in high-50% range; $16.5B Tesla deal on track for 2027 volume production",
     "category": "robotics",
     "source": "evxl.co / Korea Herald / Chosun Daily",
-    "timestamp": "Apr 17, 2026",
-    "url": null
-  },
-  {
-    "headline": "TD Cowen cuts Tesla PT to $490 ahead of Q1 earnings — cites robotics/autonomy competition (Unitree, BYD global push) and FSD near-miss headlines; still bull but trimming expectations",
-    "category": "financials",
-    "source": "TD Cowen",
     "timestamp": "Apr 17, 2026",
     "url": null
   }
