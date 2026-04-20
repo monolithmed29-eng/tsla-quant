@@ -129,13 +129,18 @@ export default function DarkPoolGauge({ mobile = false }) {
     const fill = fillStyle(displayPct);
     const ghostFill = fillStyle(prevPct);
     const needleAnim = getNeedleAnimation(needle_status);
+    const trackBg = pct >= 55
+      ? 'linear-gradient(to right, #1a1a1a, #111 50%, #082a14)'
+      : pct <= 45
+      ? 'linear-gradient(to right, #2a0808, #111 50%, #1a1a1a)'
+      : 'linear-gradient(to right, #1a0808, #111 50%, #081a10)';
 
     return (
       <div
         style={{
           position: 'relative',
           width: trackW, height: trackH,
-          background: 'linear-gradient(to right, #2a0808, #111 50%, #082a14)',
+          background: trackBg,
           border: '1px solid #252525',
           cursor: 'pointer',
           ...trackStyle,
