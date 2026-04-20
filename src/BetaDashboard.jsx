@@ -191,26 +191,18 @@ export default function BetaDashboard({ isMobile = false }) {
     return () => document.removeEventListener('mousedown', handler);
   }, [showInfo]);
 
+  // Use most recent entry from betaHistory as today's data (Rooz-verified numbers)
   useEffect(() => {
-    let cancelled = false;
-    async function fetchLive() {
-      try {
-        const res = await fetch('/api/beta-prices');
-        const data = await res.json();
-        if (!cancelled) {
-          setLive({
-            tsla: data.tsla?.changePercent ?? null,
-            spy:  data.spy?.changePercent  ?? null,
-            qqq:  data.qqq?.changePercent  ?? null,
-            marketOpen: data.marketOpen,
-          });
-          setLoading(false);
-        }
-      } catch { if (!cancelled) setLoading(false); }
+    const latest = betaHistory[betaHistory.length - 1];
+    if (latest) {
+      setLive({
+        tsla: latest.tsla,
+        spy:  latest.spy,
+        qqq:  latest.qqq,
+        marketOpen: isMarketOpen(),
+      });
     }
-    fetchLive();
-    const iv = setInterval(fetchLive, 5 * 60 * 1000);
-    return () => { cancelled = true; clearInterval(iv); };
+    setLoading(false);
   }, []);
 
   const marketOpen = live?.marketOpen ?? isMarketOpen();
