@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { catalysts } from './data';
 import { useRemoteData } from './useRemoteData';
 import { MEDIA_DIGEST as FALLBACK_DIGEST } from './tslaMediaData';
@@ -720,8 +720,7 @@ function OracleSheet({ onClose }) {
   );
 }
 
-// ─── Safe section wrapper (catches render errors in ChartAnalysis/BetaDashboard) ──
-import React from 'react';
+// ─── Safe section wrapper ─────────────────────────────────────────────────────
 class TradingSectionSafe extends React.Component {
   constructor(p) { super(p); this.state = { err: null }; }
   static getDerivedStateFromError(e) { return { err: e?.message || 'Error' }; }
