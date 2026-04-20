@@ -1,10 +1,24 @@
 [
   {
-    "headline": "TSLA at $401 pre-earnings; Polymarket: 28.5% odds of closing week above $410 — maximum pre-earnings uncertainty with Q1 call Wednesday Apr 22 at 5:30 PM ET",
-    "category": "financials",
-    "source": "Robinhood / Polymarket",
+    "headline": "Musk: 'We expect fully autonomous vehicles in a quarter to half of the US' by end 2026 — robotaxis targeting 'dozens of major cities'; same promise made for 2025 and missed; aspirational language flagged by analysts",
+    "category": "autonomy",
+    "source": "Motley Fool / X (Elon Musk)",
     "timestamp": "Apr 20, 2026",
-    "url": "https://polymarket.com/event/tsla-week-april-24-2026"
+    "url": "https://www.fool.com/investing/2026/04/20/tesla-stock-good-news-elon-musk-trillion-dollar/"
+  },
+  {
+    "headline": "TSLA trading ~$393 (–2%) with 48 hours to Q1 earnings call — 3 key bull catalysts per Techi.com: Cybercab unit target >20K annualized, robotaxi revenue-per-mile disclosure, and gross margin ex-credits >19%",
+    "category": "financials",
+    "source": "Techi.com / Reuters",
+    "timestamp": "Apr 20, 2026",
+    "url": "https://www.techi.com/tesla-q1-2026-earnings-preview/"
+  },
+  {
+    "headline": "~1 in 5 Cybertruck Q1 2026 registrations were internal SpaceX transfers — organic civilian retail demand materially weaker than headline numbers; bear case on Cybertruck profitability strengthened",
+    "category": "product",
+    "source": "Teslarati",
+    "timestamp": "Apr 20, 2026",
+    "url": null
   },
   {
     "headline": "14 Cybercab units WITHOUT steering wheels spotted at Giga Texas — production-spec autonomous Cybercabs rolling off line; original no-steering-wheel design confirmed; production ramp accelerating",
@@ -16,7 +30,7 @@
   {
     "headline": "Optimus robot live at Tesla Boston Boylston Street showroom for Marathon Monday — hundreds of thousands of spectators + international broadcast; zero ad spend PR at massive scale",
     "category": "robotics",
-    "source": "Teslarati / WeTalkTesla",
+    "source": "Teslarati",
     "timestamp": "Apr 20, 2026",
     "url": "https://www.teslarati.com/tesla-optimus-boston-marathon/"
   },
@@ -26,13 +40,6 @@
     "source": "Electrek",
     "timestamp": "Apr 19, 2026",
     "url": "https://electrek.co/2026/04/19/tesla-robotaxi-expansion-dallas-houston-stock-pump-earnings/"
-  },
-  {
-    "headline": "Motley Fool: 'Is Tesla stock a buy ahead of earnings?' — Q1 EPS expected $0.16 GAAP / $0.33 non-GAAP; FCF projected –$1.6B; robotaxi and Cybercab remain key catalysts for sentiment",
-    "category": "financials",
-    "source": "Motley Fool",
-    "timestamp": "Apr 19, 2026",
-    "url": "https://www.fool.com/investing/2026/04/19/is-tesla-stock-a-buy-ahead-of-earnings/"
   },
   {
     "headline": "Tesla launches unsupervised robotaxi service in Dallas and Houston — 573-vehicle Model Y fleet, no driver or monitor in front seats; first multi-city expansion beyond Austin confirmed live",
@@ -47,12 +54,5 @@
     "source": "Teslarati",
     "timestamp": "Apr 18, 2026",
     "url": "https://www.teslarati.com/tesla-optimus-v3-hand-arm-details-revealed-new-patents/"
-  },
-  {
-    "headline": "Samsung Taylor Texas fab equipment installation ceremony April 24 — 2nm AI5/AI6 chips; CEO Han Jin-man attending; yields in high-50% range; $16.5B Tesla deal on track for 2027 volume production",
-    "category": "robotics",
-    "source": "evxl.co / Korea Herald / Chosun Daily",
-    "timestamp": "Apr 17, 2026",
-    "url": null
   }
 ]

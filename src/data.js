@@ -95,9 +95,10 @@ export const catalysts = [
     weight: 0.08,
     status: "in_progress",
     expected: "1H 2026",
-    likelihood: 0.82,
+    likelihood: 0.83,
     updated: "Apr 20, 2026",
     description: [
+      "🆕 Apr 20, 2026 (6pm ET): Musk on X: 'We expect to have fully autonomous vehicles in somewhere between a quarter and half of the United States' by end 2026 — robotaxis targeting 'dozens of major cities'; caveat: same promise made for end of 2025 (half of US population) and missed badly; aspirational language flagged by Motley Fool / Reuters",
       "🆕 Apr 20, 2026: Electrek (Apr 19) calls Dallas/Houston launch 'another stock pump before earnings' — small initial geofences with limited vehicles, not real commercial scale; Engadget confirms small sections only; skepticism about autonomy pace intensifying just before Apr 22 earnings call; bull/bear tension at maximum",
       "🆕 Apr 18, 2026: Tesla launches UNSUPERVISED robotaxi service in Dallas and Houston — 573-vehicle fleet, Model Y SUVs with no driver or monitor in front seats; CEO Musk reposted 'Try Tesla Robotaxi in Dallas & Houston!'; small initial geofences, no fleet size or pricing disclosed; first multi-city expansion beyond Austin — confirms 1H 2026 expansion is executing on schedule (Reuters / notateslaapp / Wikipedia)",
       "🆕 Apr 17, 2026: Teslarati confirms autonomous Robotaxi service expansion to 7 new U.S. cities confirmed — concrete milestone alongside Cybercab volume production ramp; multi-city 1H 2026 target now actively in execution",
@@ -337,6 +338,7 @@ export const catalysts = [
     likelihood: 0.28,
     updated: "Apr 20, 2026",
     description: [
+      "🆕 Apr 20, 2026 (6pm ET): TSLA trading ~$393 (–2% on day); 48 hours to Apr 22 earnings call. 3 bull catalysts per Techi.com: (a) Cybercab 2026 unit target >20K annualized run-rate, (b) robotaxi miles + revenue-per-mile validating unit economics, (c) gross margin ex-credits >19% ending the 'credits are carrying it' debate. Musk quotes 'dozens of cities' for robotaxi by year-end.",
       "🆕 Apr 20, 2026: TSLA closed Apr 19 at $401.09 (range $389–$409); Polymarket implies 28.5% odds of TSLA closing week above $410 — pre-earnings uncertainty maximum; 2 days to Apr 22 earnings call (5:30 PM ET). OFFICIAL consensus (ir.tesla.com, 20 analysts): GAAP EPS $0.16 avg / $0.14 median; Non-GAAP EPS $0.33 avg; Revenue $21.4B; FCF **–$1.6B** (negative). Dallas/Houston 573-vehicle robotaxi launch now confirmed live — key management talking point for call.",
       "🆕 Apr 17, 2026 (PM close): TSLA opened ~$396; Q1 earnings call in 5 days (Apr 22, 5:30 PM ET); consensus $0.37 EPS / $22.71B revenue (IG/Refinitiv Smart Estimate $0.30 / $21.52B — predicted surprise of –20.6%); 3:1 bullish options flow by value; prediction markets still ~53% odds of miss",
       "🆕 Apr 17, 2026: TSLA premarket ~$365 (Fri open); analysts divided ahead of Apr 22 Q1 call — TipRanks Smart Score 3/10 (Underperform); 30 analysts: 13 Buy / 11 Hold / 6 Sell; Motley Fool: 'More likely outcome is a share price boom' on FSD 10B miles + Cybercab ramp; TD Cowen PT cut to $490 on competition risk",
@@ -533,6 +535,7 @@ export const catalysts = [
     likelihood: 0.45,
     updated: "Apr 16, 2026",
     description: [
+      "🆕 Apr 20, 2026: Teslarati confirms ~1 in 5 Cybertruck Q1 2026 registrations were transferred internally within Musk's companies (SpaceX purchases) — quantifies the organic demand hole; civilian retail demand weaker than headline numbers suggest; bear case on Cybertruck profitability strengthened",
       "🆕 Apr 16, 2026: Electrek reveals SpaceX purchased 1,279 Cybertruck units — inflating reported sales figures; raises serious questions about organic retail demand; if SpaceX is propping up Cybertruck numbers, underlying civilian demand may be materially weaker than reported; bear case strengthened",
       "Cybertruck production ramping at Giga Texas — initial units unprofitable",
       "Complex stainless steel body and new 48V architecture drove early cost overruns",
