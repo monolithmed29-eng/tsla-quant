@@ -3,6 +3,7 @@ import Panel from './Panel';
 import BreakingNews from './BreakingNews';
 import PriceModal from './PriceModal';
 import ProgressiveGraph from './ProgressiveGraph';
+import MobileGraph from './MobileGraph';
 import { logNodeClick } from './queryLogger';
 import BetaDashboard from './BetaDashboard';
 import ChartAnalysis from './ChartAnalysis';
@@ -654,46 +655,52 @@ export default function App() {
         </>
       )}
 
-      {/* Graph — same ProgressiveGraph for both, different paddingTop */}
-      <div style={{
-        position: 'absolute',
-        inset: 0,
-        paddingTop: isMobile ? '90px' : '72px',
-        paddingBottom: isMobile ? '0' : '56px',
-        paddingRight: (!isMobile && queryPanelOpen) ? `${PANEL_WIDTH}px` : '0',
-        transition: 'padding-right 0.28s cubic-bezier(0.4,0,0.2,1)',
-        zIndex: 1,
-      }}>
-        <ProgressiveGraph
-          ref={graphRef}
-          key={graphKey}
-          catalysts={catalysts}
-          links={links}
-          onNodeClick={(node) => {
-            setSelected(node);
-            if (node && activeQueryRef.current) {
-              logNodeClick({ query: activeQueryRef.current, clickedId: node.id });
-            }
-          }}
-          expandAll={expandAll}
-          onAllExpanded={() => setExpandAll(true)}
-          isMobile={isMobile}
-          highlightedIds={searchHighlightIds}
-          highlightedCategories={searchHighlightCats}
-          smartMode={smartMode}
-          smartBadge={smartBadge}
-          onExitSmart={() => exitSmartMode(true)}
-        />
-      </div>
+      {/* Mobile: full-screen experience */}
+      {isMobile && (
+        <div style={{ position: 'absolute', inset: 0, paddingTop: '90px', zIndex: 1 }}>
+          <MobileGraph />
+        </div>
+      )}
 
-      {/* Detail Panel */}
-      <Panel node={selected} onClose={() => setSelected(null)} isMobile={isMobile} />
+      {/* Desktop graph */}
+      {!isMobile && (
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          paddingTop: '72px',
+          paddingBottom: '56px',
+          paddingRight: queryPanelOpen ? `${PANEL_WIDTH}px` : '0',
+          transition: 'padding-right 0.28s cubic-bezier(0.4,0,0.2,1)',
+          zIndex: 1,
+        }}>
+          <ProgressiveGraph
+            ref={graphRef}
+            key={graphKey}
+            catalysts={catalysts}
+            links={links}
+            onNodeClick={(node) => {
+              setSelected(node);
+              if (node && activeQueryRef.current) {
+                logNodeClick({ query: activeQueryRef.current, clickedId: node.id });
+              }
+            }}
+            expandAll={expandAll}
+            onAllExpanded={() => setExpandAll(true)}
+            isMobile={false}
+            highlightedIds={searchHighlightIds}
+            highlightedCategories={searchHighlightCats}
+            smartMode={smartMode}
+            smartBadge={smartBadge}
+            onExitSmart={() => exitSmartMode(true)}
+          />
+        </div>
+      )}
+
+      {/* Detail Panel (desktop only) */}
+      {!isMobile && <Panel node={selected} onClose={() => setSelected(null)} isMobile={false} />}
 
       {/* Breaking News Tab */}
       <BreakingNews isMobile={isMobile} />
-
-      {/* Mobile: Oracle FAB (centered bottom) */}
-      {isMobile && !selected && <MobileOracleFAB onShowDisclaimer={() => setShowDisclaimer(true)} onShowToS={() => setShowToS(true)} onShowRefund={() => setShowRefund(true)} />}
 
       {/* Desktop: Query Engine right-side panel */}
       {!isMobile && (
