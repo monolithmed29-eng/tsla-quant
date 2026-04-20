@@ -892,7 +892,7 @@ function BottomPill({ activeTab, onTab, onOracle }) {
           { key:'trading', icon:'📈', label:'Trading' },
           { key:'tube',    icon:'📺', label:'Tube' },
         ].map(({ key, icon, label }) => {
-          const isActive = activeTab===key;
+          const isActive = activeTab === key && key !== 'trading';
           return (
             <button key={key} onClick={()=>onTab(key)} style={{
               display:'flex', alignItems:'center', gap:'5px',
@@ -974,8 +974,8 @@ function LegalStrip({ onDisclaimer, onToS, onRefund }) {
 
 // ─── Main export ──────────────────────────────────────────────────────────────
 export default function MobileGraph({ onShowDisclaimer, onShowToS, onShowRefund, onOracleOpen, onOracleClose }) {
-  const [activeTab, setActiveTab] = useState('tube');
-  const [prevTab, setPrevTab] = useState('tube');
+  const [activeTab, setActiveTab] = useState('');   // '' = canvas home
+  const [prevTab, setPrevTab] = useState('');
   const [showOracle, setShowOracle] = useState(false);
   const [showTrading, setShowTrading] = useState(false);
   const { tslaPrice, marketOpen, lastUpdated } = useTSLAPrice();
@@ -1009,10 +1009,10 @@ export default function MobileGraph({ onShowDisclaimer, onShowToS, onShowRefund,
         position:'fixed', inset:0, paddingTop:'90px', paddingBottom:'88px',
         display:'flex', flexDirection:'column',
         transform: activeTab==='tube' ? 'translateX(0)' : 'translateX(100%)',
-        opacity: activeTab==='tube' ? 1 : 0,
-        transition:'transform 0.32s cubic-bezier(0.4,0,0.2,1), opacity 0.28s ease',
+        transition:'transform 0.32s cubic-bezier(0.4,0,0.2,1)',
         pointerEvents: activeTab==='tube' ? 'auto' : 'none',
         zIndex:2, background:'#000',
+        visibility: activeTab==='tube' ? 'visible' : 'hidden',
       }}>
         <TubeView onAskRoger={() => openOracle()} />
       </div>
