@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { catalysts } from './data';
-import { useRemoteData } from './useRemoteData';
+import { useRemoteData, fetchRemoteData } from './useRemoteData';
 import { MEDIA_DIGEST as FALLBACK_DIGEST } from './tslaMediaData';
 import { searchCatalysts } from './useNodeSearch';
-import { getCredits, isPro } from './creditManager';
+import { getCredits, isPro, decrementCredit } from './creditManager';
+import { getFingerprint } from './fingerprint';
+import { darkPoolData as fallbackDarkPool } from './darkPoolData';
 import UpgradeModal from './UpgradeModal';
 import RestoreAccess from './RestoreAccess';
 import DarkPoolGauge from './DarkPoolGauge';
@@ -163,13 +165,16 @@ function Level3Panel({ node, originXY, onBack }) {
           display:'flex', alignItems:'center', gap:'5px', fontWeight:600,
         }}>← Back</button>
         <button onClick={onBack} style={{
-          background:'none', border:'none', color:'#fff',
-          fontSize:'22px', cursor:'pointer', padding:'4px 10px', lineHeight:1,
-          fontFamily:"'Space Grotesk', sans-serif",
-        }}>✕</button>
+          background:'rgba(255,255,255,0.1)', border:'1px solid #555',
+          color:'#fff', fontSize:'13px', fontWeight:700,
+          cursor:'pointer', padding:'7px 16px', lineHeight:1,
+          fontFamily:"'Space Grotesk', sans-serif", borderRadius:'4px',
+          letterSpacing:'0.5px',
+        }}>✕ Close</button>
       </div>
 
-      <div style={{ padding:'18px 16px 24px' }}>
+      {/* Left padding clears the BreakingNews tab (~32px), bottom clears pill+legal (~120px) */}
+      <div style={{ padding:'18px 16px 120px 44px' }}>
         {node.status && (
           <div style={{
             display:'inline-block', padding:'3px 10px', marginBottom:'14px',
@@ -246,15 +251,7 @@ function Level3Panel({ node, originXY, onBack }) {
         </div>
       </div>
 
-      {/* Bottom close — end of scroll */}
-      <div style={{ padding:'24px 16px 48px', display:'flex', justifyContent:'center' }}>
-        <button onClick={onBack} style={{
-          background:'rgba(255,255,255,0.07)', border:'1px solid #444',
-          color:'#fff', padding:'12px 48px', fontSize:'13px', fontWeight:700,
-          cursor:'pointer', fontFamily:"'Space Grotesk', sans-serif", borderRadius:'24px',
-          letterSpacing:'0.5px',
-        }}>✕ Close</button>
-      </div>
+
     </div>
   );
 }
@@ -493,17 +490,48 @@ function OracleSheet({ onClose }) {
     setPhase('loading'); setResult('');
     let pi = 0;
     setLoadingText(PHASES[0]);
-    const timer = setInterval(() => { pi++; if(pi<PHASES.length) setLoadingText(PHASES[pi]); }, 2200);
+    const timer = setInterval(() => { pi++; if(pi < PHASES.length) setLoadingText(PHASES[pi]); }, 2200);
     try {
+      const fingerprint = await getFingerprint();
+      let liveWhale = fallbackDarkPool;
+      try { liveWhale = await fetchRemoteData('darkpool.json'); } catch(_) {}
+
       const res = await fetch('/api/oracle', {
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({ query, pro, credits: cr }),
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          query: query.trim(),
+          fp: fingerprint,
+          token: null,
+          content: '',
+          whaleScale: {
+            gauge_value: liveWhale.gauge_value,
+            needle_status: liveWhale.needle_status,
+            roger_insight: liveWhale.roger_insight,
+            updated: liveWhale.updated,
+            flowLean: liveWhale.calls && liveWhale.puts
+              ? liveWhale.calls.value > liveWhale.puts.value ? 'CALL HEAVY' : 'PUT HEAVY'
+              : 'UNKNOWN',
+          },
+        }),
       });
-      const data = await res.json();
       clearInterval(timer);
-      setResult(data.result || data.error || 'No response');
-      setPhase('result');
+
+      if (res.status === 402) { setShowUpgrade(true); setPhase('idle'); return; }
+
+      const data = await res.json();
+      if (data.unlocked && data.result) {
+        const next = decrementCredit();
+        setCredits(next);
+        setResult(data.result);
+        setPhase('result');
+      } else if (data.result) {
+        setResult(data.result);
+        setPhase('result');
+      } else {
+        setShowUpgrade(true);
+        setPhase('idle');
+      }
     } catch(e) {
       clearInterval(timer);
       setResult('Connection error. Please try again.');
