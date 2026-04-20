@@ -573,7 +573,7 @@ export default function App() {
             alignItems: 'center',
             justifyContent: 'space-between',
           }}>
-            {/* Brand + badge */}
+            {/* Brand + badge + AI Engine */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <span style={{ fontSize: '14px', fontWeight: 700, letterSpacing: '2px', color: '#fff' }}>
                 TSLA_QUANT
@@ -585,6 +585,10 @@ export default function App() {
                 background: 'rgba(0,255,136,0.06)',
               }}>
                 Mobile
+              </span>
+              <span style={{ fontSize: '7px', color: '#00ff8888', letterSpacing: '1px', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#00ff88', boxShadow: '0 0 5px 2px rgba(0,255,136,0.6)', display: 'inline-block', flexShrink: 0 }} />
+                AI Online · {syncLabel}
               </span>
             </div>
 
@@ -658,7 +662,11 @@ export default function App() {
       {/* Mobile: full-screen experience */}
       {isMobile && (
         <div style={{ position: 'absolute', inset: 0, paddingTop: '90px', zIndex: 1 }}>
-          <MobileGraph />
+          <MobileGraph
+            onShowDisclaimer={() => setShowDisclaimer(true)}
+            onShowToS={() => setShowToS(true)}
+            onShowRefund={() => setShowRefund(true)}
+          />
         </div>
       )}
 
