@@ -1,8 +1,8 @@
 {
-  "gauge_value": 35,
+  "gauge_value": 44,
   "needle_status": "Vibrating",
-  "roger_insight": "Dollar-weighted flow skews put-heavy heading into earnings — institutions are paying up for downside protection despite roughly even contract count. Smart money hedging, not conviction selling.",
-  "updated": "Apr 20 · 10am ET",
-  "calls": { "count": 236, "value": 8140000 },
-  "puts":  { "count": 221, "value": 15190000 }
+  "roger_insight": "Flow is essentially balanced heading into earnings — call count edges out puts but dollar value leans slightly put-heavy. Institutions aren't making a strong directional bet; this reads as pre-earnings hedging rather than conviction either way.",
+  "updated": "Apr 20 · 2:51pm ET",
+  "calls": { "count": 1152, "value": 58640000 },
+  "puts":  { "count": 1044, "value": 62710000 }
 }
