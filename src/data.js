@@ -926,6 +926,13 @@ export const links = [
   { source: "digital_optimus", target: "optimus_production" },
   { source: "digital_optimus", target: "optimus_external" },
   { source: "elon_focus", target: "digital_optimus" },
+  // Lithium refinery chain
+  { source: "lithium_refinery", target: "battery_4680" },
+  { source: "lithium_refinery", target: "megapack_growth" },
+  { source: "lithium_refinery", target: "energy_revenue" },
+  { source: "lithium_refinery", target: "affordable_model" },
+  { source: "lithium_refinery", target: "margin_recovery" },
+  { source: "battery_4680", target: "lithium_refinery" },
   // SpaceX merger chain
   { source: "elon_focus", target: "spacex_merger" },
   { source: "spacex_merger", target: "optimus_external" },
