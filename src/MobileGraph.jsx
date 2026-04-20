@@ -816,7 +816,7 @@ const CAT_COLORS = {
   Optimus:'#a78bfa', General:'#888', Energy:'#f97316',
 };
 
-function TubeView({ onAskRoger }) {
+function TubeView({ onAskRoger, onClose }) {
   const { data:digest } = useRemoteData('tube_digest.json', FALLBACK_DIGEST);
   const [filter, setFilter] = useState('All');
   const [expanded, setExpanded] = useState({});
@@ -827,12 +827,21 @@ function TubeView({ onAskRoger }) {
 
   return (
     <div style={{ flex:1, overflowY:'auto', WebkitOverflowScrolling:'touch', paddingBottom:'100px', fontFamily:"'Space Grotesk', sans-serif" }}>
-      <div style={{ padding:'12px 14px 8px', borderBottom:'1px solid #111', background:'rgba(0,0,0,0.9)' }}>
-        <div style={{ display:'flex', alignItems:'baseline', gap:'8px', marginBottom:'10px' }}>
-          <span style={{ fontSize:'15px', fontWeight:800, letterSpacing:'2px', color:'#fff' }}>🎬 TSLA TUBE</span>
-          <span style={{ fontSize:'9px', color:'#444', letterSpacing:'1px' }}>
-            {digest?.generatedAt ? `Updated ${timeAgo(digest.generatedAt)}` : 'YouTube Digest'}
-          </span>
+      <div style={{ padding:'10px 14px 8px', borderBottom:'1px solid #111', background:'rgba(0,0,0,0.9)' }}>
+        <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:'10px' }}>
+          <div style={{ display:'flex', alignItems:'baseline', gap:'8px' }}>
+            <span style={{ fontSize:'15px', fontWeight:800, letterSpacing:'2px', color:'#fff' }}>🎬 TSLA TUBE</span>
+            <span style={{ fontSize:'9px', color:'#444', letterSpacing:'1px' }}>
+              {digest?.generatedAt ? `Updated ${timeAgo(digest.generatedAt)}` : 'YouTube Digest'}
+            </span>
+          </div>
+          <button onClick={onClose} style={{
+            background:'rgba(255,255,255,0.12)', border:'2px solid #fff',
+            color:'#fff', fontSize:'13px', fontWeight:800,
+            cursor:'pointer', padding:'6px 16px', borderRadius:'6px',
+            fontFamily:"'Space Grotesk', sans-serif", letterSpacing:'1px',
+            WebkitTapHighlightColor:'transparent',
+          }}>✕ CLOSE</button>
         </div>
         <div style={{ display:'flex', gap:'6px', overflowX:'auto', paddingBottom:'2px' }}>
           {categories.map(cat => (
@@ -996,7 +1005,7 @@ function LegalStrip({ onDisclaimer, onToS, onRefund }) {
 }
 
 // ─── Main export ──────────────────────────────────────────────────────────────
-export default function MobileGraph({ onShowDisclaimer, onShowToS, onShowRefund, onOracleOpen, onOracleClose, onL3Open, onL3Close, onTradingOpen, onTradingClose }) {
+export default function MobileGraph({ onShowDisclaimer, onShowToS, onShowRefund, onOracleOpen, onOracleClose, onL3Open, onL3Close, onTradingOpen, onTradingClose, onTubeOpen, onTubeClose }) {
   const [activeTab, setActiveTab] = useState('');
   const [prevTab, setPrevTab] = useState('');
   const [showOracle, setShowOracle] = useState(false);
@@ -1013,6 +1022,8 @@ export default function MobileGraph({ onShowDisclaimer, onShowToS, onShowRefund,
   function handleTab(tab) {
     if (tab === 'trading') { setShowTrading(true); onTradingOpen?.(); return; }
     if (tab === activeTab) return;
+    if (tab === 'tube') onTubeOpen?.();
+    if (activeTab === 'tube') onTubeClose?.();
     setPrevTab(activeTab);
     setActiveTab(tab);
   }
@@ -1042,7 +1053,7 @@ export default function MobileGraph({ onShowDisclaimer, onShowToS, onShowRefund,
         zIndex:2, background:'#000',
         visibility: activeTab==='tube' ? 'visible' : 'hidden',
       }}>
-        <TubeView onAskRoger={() => openOracle()} />
+        <TubeView onAskRoger={() => openOracle()} onClose={() => { setActiveTab(''); onTubeClose?.(); }} />
       </div>
 
       {/* Bottom pill — always visible */}
