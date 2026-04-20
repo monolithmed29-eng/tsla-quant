@@ -169,7 +169,7 @@ function Level3Panel({ node, originXY, onBack }) {
         }}>✕</button>
       </div>
 
-      <div style={{ padding:'18px 16px 140px' }}>
+      <div style={{ padding:'18px 16px 24px' }}>
         {node.status && (
           <div style={{
             display:'inline-block', padding:'3px 10px', marginBottom:'14px',
@@ -246,15 +246,13 @@ function Level3Panel({ node, originXY, onBack }) {
         </div>
       </div>
 
-      {/* Bottom close — floats above pill nav */}
-      <div style={{ position:'fixed', bottom:'100px', left:0, right:0, display:'flex', justifyContent:'center', zIndex:9501, pointerEvents:'none' }}>
+      {/* Bottom close — end of scroll */}
+      <div style={{ padding:'24px 16px 48px', display:'flex', justifyContent:'center' }}>
         <button onClick={onBack} style={{
-          background:'rgba(0,0,0,0.92)', border:'1px solid #444',
-          color:'#fff', padding:'10px 40px', fontSize:'13px', fontWeight:700,
+          background:'rgba(255,255,255,0.07)', border:'1px solid #444',
+          color:'#fff', padding:'12px 48px', fontSize:'13px', fontWeight:700,
           cursor:'pointer', fontFamily:"'Space Grotesk', sans-serif", borderRadius:'24px',
-          letterSpacing:'0.5px', backdropFilter:'blur(8px)',
-          boxShadow:'0 4px 20px rgba(0,0,0,0.6)',
-          pointerEvents:'auto',
+          letterSpacing:'0.5px',
         }}>✕ Close</button>
       </div>
     </div>
@@ -262,13 +260,11 @@ function Level3Panel({ node, originXY, onBack }) {
 }
 
 // ─── Canvas Graph ─────────────────────────────────────────────────────────────
-function GraphCanvas({ masterNodes }) {
+function GraphCanvas({ masterNodes, onSubNodeTap }) {
   const containerRef = useRef(null);
   const [dims, setDims] = useState({ w:0, h:0 });
   const [activeMaster, setActiveMaster] = useState(null);
   const [subSpawned, setSubSpawned] = useState(false);
-  const [selectedNode, setSelectedNode] = useState(null);
-  const [originXY, setOriginXY] = useState(null);
 
   useEffect(() => {
     const el = containerRef.current;
@@ -304,13 +300,7 @@ function GraphCanvas({ masterNodes }) {
 
   function handleSubTap(child, el) {
     const r = el.getBoundingClientRect();
-    setOriginXY({ x: r.left+r.width/2, y: r.top+r.height/2 });
-    setSelectedNode(child);
-  }
-
-  function handleCloseL3() {
-    setSelectedNode(null);
-    // activeMaster stays — subnodes waiting
+    onSubNodeTap(child, { x: r.left+r.width/2, y: r.top+r.height/2 });
   }
 
   if (w===0) return <div ref={containerRef} style={{ width:'100%', height:'100%' }} />;
@@ -470,10 +460,6 @@ function GraphCanvas({ masterNodes }) {
 
 
 
-      {/* Level 3 overlay */}
-      {selectedNode && (
-        <Level3Panel node={selectedNode} originXY={originXY} onBack={handleCloseL3} />
-      )}
     </div>
   );
 }
@@ -794,7 +780,8 @@ function TradingSheet({ onClose }) {
           {/* Chart Analysis — wrapped so crash doesn't blank whole sheet */}
           <TradingSectionSafe title="Chart Analysis"><ChartAnalysis /></TradingSectionSafe>
 
-          {/* Beta Dashboard — desktop only for now */}
+          {/* Beta Dashboard */}
+          <TradingSectionSafe title="Beta Dashboard"><BetaDashboard isMobile={true} /></TradingSectionSafe>
 
           {/* Bottom close */}
           <div style={{ padding:'16px', display:'flex', justifyContent:'center' }}>
@@ -997,10 +984,12 @@ function LegalStrip({ onDisclaimer, onToS, onRefund }) {
 
 // ─── Main export ──────────────────────────────────────────────────────────────
 export default function MobileGraph({ onShowDisclaimer, onShowToS, onShowRefund, onOracleOpen, onOracleClose }) {
-  const [activeTab, setActiveTab] = useState('');   // '' = canvas home
+  const [activeTab, setActiveTab] = useState('');
   const [prevTab, setPrevTab] = useState('');
   const [showOracle, setShowOracle] = useState(false);
   const [showTrading, setShowTrading] = useState(false);
+  const [l3Node, setL3Node] = useState(null);
+  const [l3Origin, setL3Origin] = useState(null);
   const { tslaPrice, marketOpen, lastUpdated } = useTSLAPrice();
 
   function openOracle() { setShowOracle(true); onOracleOpen?.(); }
@@ -1024,7 +1013,10 @@ export default function MobileGraph({ onShowDisclaimer, onShowToS, onShowRefund,
 
       {/* Canvas — always visible as base layer */}
       <div style={{ position:'fixed', inset:0, paddingTop:'90px', paddingBottom:'88px', overflow:'hidden', zIndex:1 }}>
-        <GraphCanvas masterNodes={masterNodes} />
+        <GraphCanvas
+          masterNodes={masterNodes}
+          onSubNodeTap={(node, origin) => { setL3Node(node); setL3Origin(origin); }}
+        />
       </div>
 
       {/* Tube tab — slides in over canvas */}
@@ -1049,6 +1041,15 @@ export default function MobileGraph({ onShowDisclaimer, onShowToS, onShowRefund,
 
       {/* Legal strip — always visible */}
       <LegalStrip onDisclaimer={onShowDisclaimer} onToS={onShowToS} onRefund={onShowRefund} />
+
+      {/* Level 3 — rendered at root so it's above BreakingNews stacking context */}
+      {l3Node && (
+        <Level3Panel
+          node={l3Node}
+          originXY={l3Origin}
+          onBack={() => setL3Node(null)}
+        />
+      )}
 
       {/* Oracle sheet */}
       {showOracle && <OracleSheet onClose={() => closeOracle()} />}
