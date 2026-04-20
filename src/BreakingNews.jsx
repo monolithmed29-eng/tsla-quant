@@ -64,7 +64,7 @@ export default function BreakingNews({ isMobile = false, hidden = false }) {
         position: 'fixed',
         left: 0,
         ...(isMobile
-          ? { bottom: '28px', top: 'auto', transform: 'none' }
+          ? { bottom: '130px', top: 'auto', transform: 'none' }
           : { top: '50%', transform: 'translateY(-50%)' }
         ),
         zIndex: 300,
@@ -187,7 +187,8 @@ export default function BreakingNews({ isMobile = false, hidden = false }) {
 
       {/* Tab */}
       <div style={{
-        background: 'rgba(5,5,5,0.95)',
+        background: isMobile ? 'rgba(5,5,5,0.45)' : 'rgba(5,5,5,0.95)',
+        backdropFilter: isMobile ? 'blur(4px)' : 'none',
         border: '1px solid #1a1a1a',
         borderLeft: 'none',
         padding: '16px 10px',

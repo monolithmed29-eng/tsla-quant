@@ -169,7 +169,7 @@ function Level3Panel({ node, originXY, onBack }) {
         }}>✕</button>
       </div>
 
-      <div style={{ padding:'18px 16px 40px' }}>
+      <div style={{ padding:'18px 16px 140px' }}>
         {node.status && (
           <div style={{
             display:'inline-block', padding:'3px 10px', marginBottom:'14px',
@@ -246,13 +246,15 @@ function Level3Panel({ node, originXY, onBack }) {
         </div>
       </div>
 
-      {/* Bottom close button — always visible */}
-      <div style={{ position:'sticky', bottom:0, padding:'12px 16px', background:'rgba(0,0,0,0.97)', borderTop:'1px solid #1a1a1a', display:'flex', justifyContent:'center' }}>
+      {/* Bottom close — floats above pill nav */}
+      <div style={{ position:'fixed', bottom:'100px', left:0, right:0, display:'flex', justifyContent:'center', zIndex:9501, pointerEvents:'none' }}>
         <button onClick={onBack} style={{
-          background:'rgba(255,255,255,0.06)', border:'1px solid #333',
-          color:'#fff', padding:'10px 40px', fontSize:'13px', fontWeight:600,
-          cursor:'pointer', fontFamily:"'Space Grotesk', sans-serif", borderRadius:'6px',
-          letterSpacing:'0.5px',
+          background:'rgba(0,0,0,0.92)', border:'1px solid #444',
+          color:'#fff', padding:'10px 40px', fontSize:'13px', fontWeight:700,
+          cursor:'pointer', fontFamily:"'Space Grotesk', sans-serif", borderRadius:'24px',
+          letterSpacing:'0.5px', backdropFilter:'blur(8px)',
+          boxShadow:'0 4px 20px rgba(0,0,0,0.6)',
+          pointerEvents:'auto',
         }}>✕ Close</button>
       </div>
     </div>
@@ -792,8 +794,7 @@ function TradingSheet({ onClose }) {
           {/* Chart Analysis — wrapped so crash doesn't blank whole sheet */}
           <TradingSectionSafe title="Chart Analysis"><ChartAnalysis /></TradingSectionSafe>
 
-          {/* Beta Dashboard */}
-          <TradingSectionSafe title="Beta Dashboard"><BetaDashboard isMobile={true} /></TradingSectionSafe>
+          {/* Beta Dashboard — desktop only for now */}
 
           {/* Bottom close */}
           <div style={{ padding:'16px', display:'flex', justifyContent:'center' }}>
