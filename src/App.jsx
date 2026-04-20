@@ -20,7 +20,7 @@ const BREAKDOWN = calcPriceBreakdown(catalysts);
 // PREV_PREDICTED = the model price before today's data updates.
 // Update this manually whenever a meaningful data change is deployed.
 // This ensures ALL visitors see the delta, not just returning ones.
-const PREV_PREDICTED = 653; // model price before Apr 15, 2026 (6pm) AI5 vehicle clarification update
+const PREV_PREDICTED = 672; // model price before Apr 20, 2026 (9am) Dallas/Houston robotaxi launch + earnings pre-positioning update
 const QUANT_CHANGE = PREDICTED !== PREV_PREDICTED ? PREDICTED - PREV_PREDICTED : null;
 
 // Starfield
