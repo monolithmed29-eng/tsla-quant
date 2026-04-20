@@ -338,6 +338,7 @@ function BetaMetaTab({ tslaPrice, marketOpen, lastUpdated, predicted, quantChang
 export default function App() {
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
   const [mobileOracleOpen, setMobileOracleOpen] = useState(false);
+  const [mobileL3Open, setMobileL3Open] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
@@ -591,6 +592,10 @@ export default function App() {
                 <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#00ff88', boxShadow: '0 0 5px 2px rgba(0,255,136,0.6)', display: 'inline-block', flexShrink: 0 }} />
                 AI Online · {syncLabel}
               </span>
+              <a href="https://x.com/RogerTSLAquant" target="_blank" rel="noopener noreferrer" style={{ fontSize: '7px', color: '#ddd', letterSpacing: '0.5px', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '3px', flexShrink: 0 }}>
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.741l7.73-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+                @RogerTSLAquant
+              </a>
             </div>
 
             {/* How to Use — top right */}
@@ -669,6 +674,8 @@ export default function App() {
             onShowRefund={() => setShowRefund(true)}
             onOracleOpen={() => setMobileOracleOpen(true)}
             onOracleClose={() => setMobileOracleOpen(false)}
+            onL3Open={() => setMobileL3Open(true)}
+            onL3Close={() => setMobileL3Open(false)}
           />
         </div>
       )}
@@ -711,7 +718,7 @@ export default function App() {
       {!isMobile && <Panel node={selected} onClose={() => setSelected(null)} isMobile={false} />}
 
       {/* Breaking News Tab */}
-      <BreakingNews isMobile={isMobile} hidden={isMobile && mobileOracleOpen} />
+      <BreakingNews isMobile={isMobile} hidden={isMobile && (mobileOracleOpen || mobileL3Open)} />
 
       {/* Desktop: Query Engine right-side panel */}
       {!isMobile && (

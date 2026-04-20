@@ -620,6 +620,26 @@ export const catalysts = [
     ]
   },
 
+  {
+    id: "lithium_refinery",
+    label: "Lithium Refinery TX",
+    category: "manufacturing",
+    weight: 0.03,
+    status: "active",
+    expected: "2026",
+    likelihood: 0.88,
+    updated: "Apr 20, 2026",
+    description: [
+      "🆕 Apr 20, 2026: Tesla's Robstown, TX lithium refinery (near Corpus Christi) is now fully operational — largest lithium refinery in North America",
+      "Elon Musk confirmed on X: 'the largest Lithium refinery in America is now operational'",
+      "Production started Jan 2026 — went from groundbreaking (2023) to full operation in under 3 years",
+      "34% lower carbon footprint than traditional hard rock refineries; engineered to incorporate recycled battery material",
+      "Directly reduces Tesla's exposure to volatile lithium spot prices and foreign supply chain dependencies",
+      "Key enabler for 4680 cell cost targets, Cybercab economics, and Megapack margin expansion",
+      "Strategic moat: no other US automaker controls its own lithium refining capacity at this scale",
+    ]
+  },
+
   // ENERGY
   {
     id: "megapack_growth",

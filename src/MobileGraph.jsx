@@ -194,7 +194,7 @@ function Level3Panel({ node, originXY, onBack }) {
 
         {/* Likelihood bar */}
         <div style={{ marginBottom:'20px' }}>
-          <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', fontSize:'9px', color:'#555', letterSpacing:'1.5px', textTransform:'uppercase', marginBottom:'8px' }}>
+          <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', fontSize:'9px', color:'#aaa', letterSpacing:'1.5px', textTransform:'uppercase', marginBottom:'8px' }}>
             <span>Likelihood</span>
             <span style={{ color:lum.core, fontSize:'18px', fontWeight:700 }}>{Math.round(node.likelihood*100)}%</span>
           </div>
@@ -206,12 +206,12 @@ function Level3Panel({ node, originXY, onBack }) {
         {/* Price contribution — blurred for non-pro */}
         {node.weight != null && (
           <div style={{ marginBottom:'20px', position:'relative' }}>
-            <div style={{ fontSize:'9px', color:'#555', letterSpacing:'1.5px', textTransform:'uppercase', marginBottom:'6px' }}>Price Contribution</div>
+            <div style={{ fontSize:'9px', color:'#aaa', letterSpacing:'1.5px', textTransform:'uppercase', marginBottom:'6px' }}>Price Contribution</div>
             <div style={{ filter: pro ? 'none' : 'blur(6px)', userSelect: pro ? 'auto' : 'none', pointerEvents: pro ? 'auto' : 'none' }}>
               <span style={{ fontSize:'20px', fontWeight:700, color:'#00ff88' }}>
                 +${((node.weight||0) * node.likelihood * 200).toFixed(0)}
               </span>
-              <span style={{ fontSize:'11px', color:'#555', marginLeft:'6px' }}>to model price</span>
+              <span style={{ fontSize:'11px', color:'#aaa', marginLeft:'6px' }}>to model price</span>
             </div>
             {!pro && (
               <div style={{ position:'absolute', inset:0, display:'flex', alignItems:'center', justifyContent:'center' }}>
@@ -226,7 +226,7 @@ function Level3Panel({ node, originXY, onBack }) {
         {/* Analysis */}
         <div>
           <div style={{ display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:'12px' }}>
-            <div style={{ fontSize:'9px', color:'#555', letterSpacing:'1.5px', textTransform:'uppercase' }}>Analysis</div>
+            <div style={{ fontSize:'9px', color:'#aaa', letterSpacing:'1.5px', textTransform:'uppercase' }}>Analysis</div>
             {node.updated && <div style={{ fontSize:'9px', color:'#444', letterSpacing:'1px' }}>Updated {node.updated}</div>}
           </div>
           {Array.isArray(node.description) ? (
@@ -246,7 +246,7 @@ function Level3Panel({ node, originXY, onBack }) {
               })}
             </ul>
           ) : (
-            <p style={{ fontSize:'13px', color:'#999', lineHeight:1.6, margin:0 }}>{node.description}</p>
+            <p style={{ fontSize:'13px', color:'#ccc', lineHeight:1.6, margin:0 }}>{node.description}</p>
           )}
         </div>
       </div>
@@ -756,9 +756,6 @@ class TradingSectionSafe extends React.Component {
 
 // ─── Trading Corner bottom sheet ──────────────────────────────────────────────
 function TradingSheet({ onClose }) {
-  const PREDICTED = calcPredictedPrice(catalysts);
-  const { tslaPrice, marketOpen, lastUpdated } = useTSLAPrice();
-
   return (
     <div style={{ position:'fixed', inset:0, zIndex:8000, background:'rgba(0,0,0,0.8)', backdropFilter:'blur(4px)', display:'flex', flexDirection:'column', justifyContent:'flex-end' }} onClick={onClose}>
       <div className="oracle-sheet" onClick={e=>e.stopPropagation()} style={{
@@ -784,28 +781,7 @@ function TradingSheet({ onClose }) {
 
         {/* Scrollable content */}
         <div style={{ flex:1, overflowY:'auto', WebkitOverflowScrolling:'touch' }}>
-          {/* Stats row */}
-          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', borderBottom:'1px solid #111' }}>
-            <div style={{ padding:'14px 16px', borderRight:'1px solid #111' }}>
-              <div style={{ fontSize:'8px', color:'#777', letterSpacing:'1.5px', textTransform:'uppercase', marginBottom:'4px' }}>TSLA Live</div>
-              <div style={{ fontSize:'24px', fontWeight:700, color: marketOpen?'#00aaff':'#555' }}>
-                {tslaPrice ? `$${tslaPrice.toFixed(2)}` : '—'}
-              </div>
-              <div style={{ fontSize:'9px', color:'#555', marginTop:'2px' }}>{marketOpen?'Live':'Market Closed'}</div>
-            </div>
-            <div style={{ padding:'14px 16px' }}>
-              <div style={{ fontSize:'8px', color:'#777', letterSpacing:'1.5px', textTransform:'uppercase', marginBottom:'4px' }}>Quant Model</div>
-              <div style={{ fontSize:'24px', fontWeight:700, color:'#00ff88' }}>${PREDICTED.toFixed(0)}</div>
-            </div>
-          </div>
-
-          {/* Whale Scale */}
-          <div style={{ padding:'14px 16px', borderBottom:'1px solid #111' }}>
-            <div style={{ fontSize:'8px', color:'#777', letterSpacing:'1.5px', textTransform:'uppercase', marginBottom:'10px' }}>Whale Scale</div>
-            <DarkPoolGauge mobile />
-          </div>
-
-          {/* Chart Analysis — wrapped so crash doesn't blank whole sheet */}
+          {/* Chart Analysis */}
           <TradingSectionSafe title="Chart Analysis"><ChartAnalysis /></TradingSectionSafe>
 
           {/* Beta Dashboard */}
@@ -935,13 +911,13 @@ function BottomPill({ activeTab, onTab, onOracle }) {
             <button key={key} onClick={()=>onTab(key)} style={{
               display:'flex', alignItems:'center', gap:'5px',
               padding:'8px 14px', borderRadius:'26px',
-              background: isActive ? 'rgba(0,255,136,0.12)' : 'transparent',
-              border:'none',
-              color: isActive ? '#00ff88' : '#555',
-              fontSize:'11px', fontWeight: isActive?700:500,
+              background: isActive ? 'rgba(0,255,136,0.18)' : 'transparent',
+              border: isActive ? '1px solid rgba(0,255,136,0.5)' : '1px solid transparent',
+              color: isActive ? '#00ff88' : '#ddd',
+              fontSize:'11px', fontWeight: isActive?700:600,
               letterSpacing:'0.5px', cursor:'pointer',
               fontFamily:"'Space Grotesk', sans-serif",
-              boxShadow: isActive ? '0 0 12px rgba(0,255,136,0.2)' : 'none',
+              boxShadow: isActive ? '0 0 16px rgba(0,255,136,0.3)' : 'none',
               transition:'all 0.22s ease',
               WebkitTapHighlightColor:'transparent',
             }}>
@@ -1011,7 +987,7 @@ function LegalStrip({ onDisclaimer, onToS, onRefund }) {
 }
 
 // ─── Main export ──────────────────────────────────────────────────────────────
-export default function MobileGraph({ onShowDisclaimer, onShowToS, onShowRefund, onOracleOpen, onOracleClose }) {
+export default function MobileGraph({ onShowDisclaimer, onShowToS, onShowRefund, onOracleOpen, onOracleClose, onL3Open, onL3Close }) {
   const [activeTab, setActiveTab] = useState('');
   const [prevTab, setPrevTab] = useState('');
   const [showOracle, setShowOracle] = useState(false);
@@ -1043,7 +1019,7 @@ export default function MobileGraph({ onShowDisclaimer, onShowToS, onShowRefund,
       <div style={{ position:'fixed', inset:0, paddingTop:'90px', paddingBottom:'88px', overflow:'hidden', zIndex:1 }}>
         <GraphCanvas
           masterNodes={masterNodes}
-          onSubNodeTap={(node, origin) => { setL3Node(node); setL3Origin(origin); }}
+          onSubNodeTap={(node, origin) => { setL3Node(node); setL3Origin(origin); onL3Open?.(); }}
         />
       </div>
 
@@ -1075,7 +1051,7 @@ export default function MobileGraph({ onShowDisclaimer, onShowToS, onShowRefund,
         <Level3Panel
           node={l3Node}
           originXY={l3Origin}
-          onBack={() => setL3Node(null)}
+          onBack={() => { setL3Node(null); onL3Close?.(); }}
         />
       )}
 
