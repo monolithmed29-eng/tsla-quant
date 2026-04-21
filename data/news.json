@@ -14,11 +14,25 @@
     "url": "https://www.tesery.com/blogs/news/teslas-q1-2026-earnings-call-investors-demand-answers-on-optimus-fsd-and-robotaxi-future"
   },
   {
-    "headline": "Tesla Spring Update v2026.14+ pushes Robotaxi features to all owner vehicles — rear passenger display gets fully interactive navigation map while driving; capability previously reserved for Robotaxi fleet only",
-    "category": "autonomy",
-    "source": "Teslarati",
-    "timestamp": "Apr 18, 2026",
-    "url": "https://www.teslarati.com/tesla-pushing-robotaxi-features-owner-cars-spring-update/"
+    "headline": "Ross Gerber reiterates FSD refund demand ahead of earnings — calls robotaxi expansion 'a distraction' and predicts below-average Q1 print; FSD 'never worked as promised' per longtime investor",
+    "category": "corporate",
+    "source": "Benzinga",
+    "timestamp": "Apr 21, 2026",
+    "url": "https://www.benzinga.com/markets/tech/26/04/51929763/ross-gerber-fsd-refund-demand-tesla-needs-to-make-people-whole"
+  },
+  {
+    "headline": "TSLA down ~20% in 2026 — could Q1 earnings be the turning point? TIKR bull case $9,900/share (45% IRR on Cybercab + Optimus ramp); bear case $4,700/share (33% IRR) on demand softness",
+    "category": "financials",
+    "source": "TIKR.com",
+    "timestamp": "Apr 21, 2026",
+    "url": "https://www.tikr.com/blog/tesla-has-lost-20-in-2026-could-q1-earnings-be-the-turning-point"
+  },
+  {
+    "headline": "MarketPulse/OANDA: Can Tesla's 'AI powerhouse' narrative offset waning auto demand? CapEx projected to exceed $20B in 2026 across FSD, Cybercab lines, and Optimus/Dojo",
+    "category": "financials",
+    "source": "MarketPulse by OANDA",
+    "timestamp": "Apr 21, 2026",
+    "url": "https://www.marketpulse.com/markets/tesla-tsla-q1-2026-earnings-preview-is-the-ai-powerhouse-narrative-enough-to-offset-waning-auto-demand/"
   },
   {
     "headline": "Musk: 'We expect fully autonomous vehicles in a quarter to half of the US' by end 2026 — robotaxis targeting 'dozens of major cities'; same promise made for 2025 and missed; aspirational language flagged by analysts",
@@ -54,19 +68,5 @@
     "source": "Teslarati",
     "timestamp": "Apr 20, 2026",
     "url": "https://www.teslarati.com/tesla-optimus-boston-marathon/"
-  },
-  {
-    "headline": "Tesla launches unsupervised robotaxi service in Dallas and Houston — 573-vehicle Model Y fleet, no driver or monitor in front seats; first multi-city expansion beyond Austin confirmed live",
-    "category": "autonomy",
-    "source": "Reuters / TechCrunch",
-    "timestamp": "Apr 18, 2026",
-    "url": "https://www.reuters.com/business/autos-transportation/tesla-rolls-out-robotaxis-dallas-houston-2026-04-18/"
-  },
-  {
-    "headline": "Optimus Gen 3 hand and arm details revealed in new patents — new joint architecture and dexterity upgrades; production design locked per blueprint filings",
-    "category": "robotics",
-    "source": "Teslarati",
-    "timestamp": "Apr 18, 2026",
-    "url": "https://www.teslarati.com/tesla-optimus-v3-hand-arm-details-revealed-new-patents/"
   }
 ]
