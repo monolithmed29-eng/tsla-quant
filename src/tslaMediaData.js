@@ -163,9 +163,9 @@ export const MODEL_MOVERS = ["demo1", "demo3", "demo4"];
 
 // Top creators this week (manual or auto-populated from digest)
 export const TOP_CREATORS = [
-  { name: "Whole Mars Catalog", views: "1.2M",  category: "FSD"      },
-  { name: "HyperChange",        views: "890K",  category: "Optimus"  },
-  { name: "InvestAnswers",      views: "560K",  category: "Robotaxi" },
-  { name: "Dave Lee",           views: "210K",  category: "Cybertruck"},
-  { name: "Rob Maurer",         views: "187K",  category: "Energy"   },
+  { name: "Solving The Money Problem", views: "—",  category: "Valuation" },
+  { name: "Farzad",                    views: "—",  category: "FSD / Autonomy" },
+  { name: "Brighter with Herbert",     views: "—",  category: "Catalysts" },
+  { name: "Jo Bhakdi",                 views: "—",  category: "AI / Tesla" },
+  { name: "Rob Maurer",                views: "—",  category: "General"   },
 ];
