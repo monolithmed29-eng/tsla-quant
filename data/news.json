@@ -1,5 +1,19 @@
 [
   {
+    "headline": "TSLA closes +1.55% at ~$407 day before Q1 earnings — market pricing in cautious optimism ahead of Apr 22 call; options flow tilts bullish by 3:1 ratio",
+    "category": "financials",
+    "source": "Motley Fool / MarketBeat",
+    "timestamp": "Apr 21, 2026",
+    "url": "https://www.fool.com/investing/2026/04/21/should-you-buy-this-electric-vehicle-ev-stock-befo/"
+  },
+  {
+    "headline": "Seeking Alpha earnings preview: spotlight on AI5 chip updates, robotaxi miles-per-day growth, and $20B+ 2026 capex spend — three core pillars Wall Street will interrogate April 22",
+    "category": "financials",
+    "source": "Seeking Alpha",
+    "timestamp": "Apr 21, 2026",
+    "url": "https://seekingalpha.com/news/4576684-tesla-earnings-preview-spotlight-on-robotaxi-progress-ai5-chips-and-capex-spending"
+  },
+  {
     "headline": "Electrek earnings preview: 'Q1 2026 growth story is dead' — 50K inventory overhang, energy storage down 38% QoQ, sequential revenue decline expected; earnings call April 22 after close",
     "category": "financials",
     "source": "Electrek",
@@ -9,9 +23,16 @@
   {
     "headline": "Investors demand Optimus, FSD and robotaxi answers on tomorrow's Q1 2026 earnings call — AI5 timeline, Cybercab unit economics, and robotaxi miles-per-day growth are top 3 hotspot questions",
     "category": "financials",
-    "source": "Tesery / EV community",
+    "source": "eletric-vehicles.com",
     "timestamp": "Apr 21, 2026",
-    "url": "https://www.tesery.com/blogs/news/teslas-q1-2026-earnings-call-investors-demand-answers-on-optimus-fsd-and-robotaxi-future"
+    "url": "https://eletric-vehicles.com/tesla/tesla-shareholders-demand-updates-on-optimus-robotaxi-fsd-on-earnings-call/"
+  },
+  {
+    "headline": "TradingKey: 5 core Q1 metrics long-term TSLA investors should watch — robotaxi revenue-per-mile, Cybercab ramp rate, gross margin ex-credits, FSD subscriber growth, and energy storage recovery",
+    "category": "financials",
+    "source": "TradingKey",
+    "timestamp": "Apr 21, 2026",
+    "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/261804129-tesla-q1-2026-earnings-preview-5-key-metrics-tradingkey"
   },
   {
     "headline": "Ross Gerber reiterates FSD refund demand ahead of earnings — calls robotaxi expansion 'a distraction' and predicts below-average Q1 print; FSD 'never worked as promised' per longtime investor",
@@ -21,32 +42,11 @@
     "url": "https://www.benzinga.com/markets/tech/26/04/51929763/ross-gerber-fsd-refund-demand-tesla-needs-to-make-people-whole"
   },
   {
-    "headline": "TSLA down ~20% in 2026 — could Q1 earnings be the turning point? TIKR bull case $9,900/share (45% IRR on Cybercab + Optimus ramp); bear case $4,700/share (33% IRR) on demand softness",
-    "category": "financials",
-    "source": "TIKR.com",
-    "timestamp": "Apr 21, 2026",
-    "url": "https://www.tikr.com/blog/tesla-has-lost-20-in-2026-could-q1-earnings-be-the-turning-point"
-  },
-  {
-    "headline": "MarketPulse/OANDA: Can Tesla's 'AI powerhouse' narrative offset waning auto demand? CapEx projected to exceed $20B in 2026 across FSD, Cybercab lines, and Optimus/Dojo",
-    "category": "financials",
-    "source": "MarketPulse by OANDA",
-    "timestamp": "Apr 21, 2026",
-    "url": "https://www.marketpulse.com/markets/tesla-tsla-q1-2026-earnings-preview-is-the-ai-powerhouse-narrative-enough-to-offset-waning-auto-demand/"
-  },
-  {
     "headline": "Musk: 'We expect fully autonomous vehicles in a quarter to half of the US' by end 2026 — robotaxis targeting 'dozens of major cities'; same promise made for 2025 and missed; aspirational language flagged by analysts",
     "category": "autonomy",
     "source": "Motley Fool / X (Elon Musk)",
     "timestamp": "Apr 20, 2026",
     "url": "https://www.fool.com/investing/2026/04/20/tesla-stock-good-news-elon-musk-trillion-dollar/"
-  },
-  {
-    "headline": "TSLA T-minus 24 hours to Q1 earnings: consensus $0.33 non-GAAP EPS / $21.4B revenue (Tesla official); 3 bull catalyst tests — Cybercab unit target, robotaxi revenue-per-mile, gross margin ex-credits >19%",
-    "category": "financials",
-    "source": "Techi.com / Reuters",
-    "timestamp": "Apr 20, 2026",
-    "url": "https://www.techi.com/tesla-q1-2026-earnings-preview/"
   },
   {
     "headline": "14 Cybercab units WITHOUT steering wheels spotted at Giga Texas — production-spec autonomous Cybercabs rolling off line; original no-steering-wheel design confirmed; production ramp accelerating",
@@ -56,11 +56,11 @@
     "url": null
   },
   {
-    "headline": "~1 in 5 Cybertruck Q1 2026 registrations were internal SpaceX transfers — organic civilian retail demand materially weaker than headline numbers; bear case on Cybertruck profitability strengthened",
-    "category": "product",
-    "source": "Teslarati",
-    "timestamp": "Apr 20, 2026",
-    "url": null
+    "headline": "TIKR bull/bear case: TSLA down ~20% in 2026 — bull $9,900/share (45% IRR on Cybercab + Optimus ramp); bear $4,700/share (33% IRR) on demand softness; could Q1 earnings be the turning point?",
+    "category": "financials",
+    "source": "TIKR.com",
+    "timestamp": "Apr 21, 2026",
+    "url": "https://www.tikr.com/blog/tesla-has-lost-20-in-2026-could-q1-earnings-be-the-turning-point"
   },
   {
     "headline": "Optimus robot live at Tesla Boston Boylston Street showroom for Marathon Monday — hundreds of thousands of spectators + international broadcast; zero ad spend PR at massive scale",
