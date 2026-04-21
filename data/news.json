@@ -1,5 +1,26 @@
 [
   {
+    "headline": "Electrek earnings preview: 'Q1 2026 growth story is dead' — 50K inventory overhang, energy storage down 38% QoQ, sequential revenue decline expected; earnings call April 22 after close",
+    "category": "financials",
+    "source": "Electrek",
+    "timestamp": "Apr 21, 2026",
+    "url": "https://electrek.co/2026/04/21/tesla-tsla-q1-2026-earnings-preview-wall-street-expects-growth/"
+  },
+  {
+    "headline": "Investors demand Optimus, FSD and robotaxi answers on tomorrow's Q1 2026 earnings call — AI5 timeline, Cybercab unit economics, and robotaxi miles-per-day growth are top 3 hotspot questions",
+    "category": "financials",
+    "source": "Tesery / EV community",
+    "timestamp": "Apr 21, 2026",
+    "url": "https://www.tesery.com/blogs/news/teslas-q1-2026-earnings-call-investors-demand-answers-on-optimus-fsd-and-robotaxi-future"
+  },
+  {
+    "headline": "Tesla Spring Update v2026.14+ pushes Robotaxi features to all owner vehicles — rear passenger display gets fully interactive navigation map while driving; capability previously reserved for Robotaxi fleet only",
+    "category": "autonomy",
+    "source": "Teslarati",
+    "timestamp": "Apr 18, 2026",
+    "url": "https://www.teslarati.com/tesla-pushing-robotaxi-features-owner-cars-spring-update/"
+  },
+  {
     "headline": "Musk: 'We expect fully autonomous vehicles in a quarter to half of the US' by end 2026 — robotaxis targeting 'dozens of major cities'; same promise made for 2025 and missed; aspirational language flagged by analysts",
     "category": "autonomy",
     "source": "Motley Fool / X (Elon Musk)",
@@ -7,18 +28,11 @@
     "url": "https://www.fool.com/investing/2026/04/20/tesla-stock-good-news-elon-musk-trillion-dollar/"
   },
   {
-    "headline": "TSLA trading ~$393 (–2%) with 48 hours to Q1 earnings call — 3 key bull catalysts per Techi.com: Cybercab unit target >20K annualized, robotaxi revenue-per-mile disclosure, and gross margin ex-credits >19%",
+    "headline": "TSLA T-minus 24 hours to Q1 earnings: consensus $0.33 non-GAAP EPS / $21.4B revenue (Tesla official); 3 bull catalyst tests — Cybercab unit target, robotaxi revenue-per-mile, gross margin ex-credits >19%",
     "category": "financials",
     "source": "Techi.com / Reuters",
     "timestamp": "Apr 20, 2026",
     "url": "https://www.techi.com/tesla-q1-2026-earnings-preview/"
-  },
-  {
-    "headline": "~1 in 5 Cybertruck Q1 2026 registrations were internal SpaceX transfers — organic civilian retail demand materially weaker than headline numbers; bear case on Cybertruck profitability strengthened",
-    "category": "product",
-    "source": "Teslarati",
-    "timestamp": "Apr 20, 2026",
-    "url": null
   },
   {
     "headline": "14 Cybercab units WITHOUT steering wheels spotted at Giga Texas — production-spec autonomous Cybercabs rolling off line; original no-steering-wheel design confirmed; production ramp accelerating",
@@ -28,18 +42,18 @@
     "url": null
   },
   {
+    "headline": "~1 in 5 Cybertruck Q1 2026 registrations were internal SpaceX transfers — organic civilian retail demand materially weaker than headline numbers; bear case on Cybertruck profitability strengthened",
+    "category": "product",
+    "source": "Teslarati",
+    "timestamp": "Apr 20, 2026",
+    "url": null
+  },
+  {
     "headline": "Optimus robot live at Tesla Boston Boylston Street showroom for Marathon Monday — hundreds of thousands of spectators + international broadcast; zero ad spend PR at massive scale",
     "category": "robotics",
     "source": "Teslarati",
     "timestamp": "Apr 20, 2026",
     "url": "https://www.teslarati.com/tesla-optimus-boston-marathon/"
-  },
-  {
-    "headline": "Electrek: Dallas/Houston robotaxi expansion 'looks like another stock pump before earnings' — small geofences, limited vehicles; skepticism growing on autonomy pace ahead of Apr 22 Q1 call",
-    "category": "autonomy",
-    "source": "Electrek",
-    "timestamp": "Apr 19, 2026",
-    "url": "https://electrek.co/2026/04/19/tesla-robotaxi-expansion-dallas-houston-stock-pump-earnings/"
   },
   {
     "headline": "Tesla launches unsupervised robotaxi service in Dallas and Houston — 573-vehicle Model Y fleet, no driver or monitor in front seats; first multi-city expansion beyond Austin confirmed live",

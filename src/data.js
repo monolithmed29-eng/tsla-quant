@@ -124,9 +124,10 @@ export const catalysts = [
     weight: 0.06,
     status: "upcoming",
     expected: "Q3 2026",
-    likelihood: 0.58,
-    updated: "Apr 15, 2026",
+    likelihood: 0.60,
+    updated: "Apr 21, 2026",
     description: [
+      "🆕 Apr 21, 2026: Tesla Spring Update v2026.14+ rolling out — rear passenger display now features fully interactive navigation map while driving, a capability previously reserved for Tesla Robotaxi; Tesla pushing robotaxi-grade features to all owner vehicles, accelerating consumer familiarity with autonomous UX (Teslarati)",
       "🆕 Apr 15, 2026: Tesla Spring 2026 software update introduces a standalone Self-Driving subscription app and 'Hey Grok' xAI voice assistant — significant step toward a consumer-facing autonomous ride ecosystem; reduces friction to FSD adoption",
       "Consumer-facing Tesla Robotaxi app for public ride booking",
       "Currently ride access is invite-only / limited beta in Austin",
@@ -336,8 +337,9 @@ export const catalysts = [
     status: "upcoming",
     expected: "Q2 2026",
     likelihood: 0.28,
-    updated: "Apr 20, 2026",
+    updated: "Apr 21, 2026",
     description: [
+      "🆕 Apr 21, 2026: Electrek earnings preview — 'the growth story is dead'; energy storage halved QoQ, inventory buildup of 50K+ vehicles flagged as structural demand concern; non-GAAP EPS consensus $0.33, revenue $21.4B (Tesla official compilation) vs $22.3B (Estimize community). Likelihood unchanged at 28% — miss odds remain elevated with operating margins near 2.5%.",
       "🆕 Apr 20, 2026 (6pm ET): TSLA trading ~$393 (–2% on day); 48 hours to Apr 22 earnings call. 3 bull catalysts per Techi.com: (a) Cybercab 2026 unit target >20K annualized run-rate, (b) robotaxi miles + revenue-per-mile validating unit economics, (c) gross margin ex-credits >19% ending the 'credits are carrying it' debate. Musk quotes 'dozens of cities' for robotaxi by year-end.",
       "🆕 Apr 20, 2026: TSLA closed Apr 19 at $401.09 (range $389–$409); Polymarket implies 28.5% odds of TSLA closing week above $410 — pre-earnings uncertainty maximum; 2 days to Apr 22 earnings call (5:30 PM ET). OFFICIAL consensus (ir.tesla.com, 20 analysts): GAAP EPS $0.16 avg / $0.14 median; Non-GAAP EPS $0.33 avg; Revenue $21.4B; FCF **–$1.6B** (negative). Dallas/Houston 573-vehicle robotaxi launch now confirmed live — key management talking point for call.",
       "🆕 Apr 17, 2026 (PM close): TSLA opened ~$396; Q1 earnings call in 5 days (Apr 22, 5:30 PM ET); consensus $0.37 EPS / $22.71B revenue (IG/Refinitiv Smart Estimate $0.30 / $21.52B — predicted surprise of –20.6%); 3:1 bullish options flow by value; prediction markets still ~53% odds of miss",
