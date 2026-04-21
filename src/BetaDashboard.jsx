@@ -50,10 +50,9 @@ function ScatterPlot({ mode, livePoint }) {
       pts.push({ x: livePoint[key], y: livePoint.tsla, date: 'Today', live: true });
     }
 
-    // Axis range — pad to nearest 2%
-    const allX = pts.map(p => p.x);
-    const xMin = Math.min(-3, ...allX) - 0.5;
-    const xMax = Math.max(3, ...allX) + 0.5;
+    // Axis range — fixed ±4% for x (index), ±7.5% for y (TSLA)
+    const xMin = -4;
+    const xMax = 4;
     const yMin = -7.5;
     const yMax = 7.5;
 
@@ -71,7 +70,7 @@ function ScatterPlot({ mode, livePoint }) {
     // Grid
     ctx.strokeStyle = '#1e2a3a';
     ctx.lineWidth = 1;
-    for (let v = Math.ceil(xMin); v <= Math.floor(xMax); v++) {
+    for (let v = -4; v <= 4; v++) {
       ctx.beginPath(); ctx.moveTo(toX(v), PAD.t); ctx.lineTo(toX(v), H - PAD.b); ctx.stroke();
     }
     for (let v = -6; v <= 6; v += 2) {
@@ -140,7 +139,7 @@ function ScatterPlot({ mode, livePoint }) {
     ctx.fillStyle = '#ffffff';
     ctx.font = `bold 11px ${FONT}`;
     ctx.textAlign = 'center';
-    for (let v = Math.ceil(xMin); v <= Math.floor(xMax); v += 1) {
+    for (let v = -4; v <= 4; v += 1) {
       if (v === 0) continue;
       ctx.fillText(`${v > 0 ? '+' : ''}${v}%`, toX(v), H - PAD.b + 16);
     }

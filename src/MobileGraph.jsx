@@ -14,6 +14,11 @@ import BetaDashboard from './BetaDashboard';
 import { calcPredictedPrice } from './priceModel';
 import { useTSLAPrice } from './useTSLAPrice';
 
+// Stripe payment links for mobile upgrade buttons
+const STRIPE_SINGLE  = import.meta.env.VITE_STRIPE_LINK_SINGLE  || 'https://buy.stripe.com/6oU3cw0qT5Oz19h8X29Ve00';
+const STRIPE_TRADER  = import.meta.env.VITE_STRIPE_LINK_TRADER  || 'https://buy.stripe.com/6oUbJ2gpR2Cn05dgpu9Ve01';
+const STRIPE_INST    = import.meta.env.VITE_STRIPE_LINK_INST    || 'https://buy.stripe.com/00wfZic9Ba4PcRZflq9Ve02';
+
 // ─── Constants ────────────────────────────────────────────────────────────────
 const CATEGORY_ORDER = ['autonomy', 'robotics', 'financials', 'product', 'manufacturing', 'energy'];
 const CATEGORY_LABELS = {
@@ -135,6 +140,7 @@ const CSS = `
 
 // ─── Level 3 detail overlay ───────────────────────────────────────────────────
 function Level3Panel({ node, originXY, onBack }) {
+  const [showUpgradeL3, setShowUpgradeL3] = useState(false);
   if (!node) return null;
   const lum = getLum(node.likelihood);
   const catColor = CATEGORY_COLORS[node.category] || '#aaa';
@@ -215,9 +221,18 @@ function Level3Panel({ node, originXY, onBack }) {
             </div>
             {!pro && (
               <div style={{ position:'absolute', inset:0, display:'flex', alignItems:'center', justifyContent:'center' }}>
-                <span style={{ fontSize:'10px', color:'#00ff88', letterSpacing:'1px', border:'1px solid #00ff8844', padding:'4px 10px', borderRadius:'12px', background:'rgba(0,0,0,0.85)', cursor:'pointer' }}>
+                <button
+                  onClick={() => setShowUpgradeL3(true)}
+                  style={{
+                    fontSize:'10px', color:'#e53935', letterSpacing:'1px',
+                    border:'1px solid #e5393566', padding:'6px 14px', borderRadius:'12px',
+                    background:'rgba(0,0,0,0.85)', cursor:'pointer',
+                    fontFamily:"'Space Grotesk', sans-serif", fontWeight:600,
+                    display:'flex', alignItems:'center', gap:'5px',
+                  }}
+                >
                   🔒 View Exact Impact
-                </span>
+                </button>
               </div>
             )}
           </div>
@@ -261,6 +276,7 @@ function Level3Panel({ node, originXY, onBack }) {
         }}>✕ CLOSE</button>
       </div>
 
+      {showUpgradeL3 && <UpgradeModal reason="price_contribution" onClose={() => setShowUpgradeL3(false)} />}
     </div>
   );
 }
@@ -817,9 +833,17 @@ const CAT_COLORS = {
 };
 
 function TubeView({ onAskRoger, onClose }) {
-  const { data:digest } = useRemoteData('tube_digest.json', FALLBACK_DIGEST);
+  const [digest, setDigest] = useState(FALLBACK_DIGEST);
   const [filter, setFilter] = useState('All');
   const [expanded, setExpanded] = useState({});
+
+  // Fetch the same daily-digest API as desktop
+  useEffect(() => {
+    fetch('/api/media/daily-digest')
+      .then(r => r.json())
+      .then(data => { if (data.videos && data.videos.length > 0) setDigest(data); })
+      .catch(() => {});
+  }, []);
 
   const videos = digest?.videos || FALLBACK_DIGEST.videos || [];
   const categories = ['All', ...Array.from(new Set(videos.map(v=>v.category).filter(Boolean)))];
@@ -827,7 +851,7 @@ function TubeView({ onAskRoger, onClose }) {
 
   return (
     <div style={{ flex:1, overflowY:'auto', WebkitOverflowScrolling:'touch', paddingBottom:'100px', fontFamily:"'Space Grotesk', sans-serif" }}>
-      <div style={{ padding:'10px 14px 8px', borderBottom:'1px solid #111', background:'rgba(0,0,0,0.9)' }}>
+      <div style={{ padding:'12px 14px 8px', borderBottom:'1px solid #111', background:'rgba(0,0,0,0.9)' }}>
         <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:'10px' }}>
           <div style={{ display:'flex', alignItems:'baseline', gap:'8px' }}>
             <span style={{ fontSize:'15px', fontWeight:800, letterSpacing:'2px', color:'#fff' }}>🎬 TSLA TUBE</span>
@@ -838,9 +862,10 @@ function TubeView({ onAskRoger, onClose }) {
           <button onClick={onClose} style={{
             background:'rgba(255,255,255,0.12)', border:'2px solid #fff',
             color:'#fff', fontSize:'13px', fontWeight:800,
-            cursor:'pointer', padding:'6px 16px', borderRadius:'6px',
+            cursor:'pointer', padding:'7px 16px', borderRadius:'6px',
             fontFamily:"'Space Grotesk', sans-serif", letterSpacing:'1px',
             WebkitTapHighlightColor:'transparent',
+            flexShrink: 0,
           }}>✕ CLOSE</button>
         </div>
         <div style={{ display:'flex', gap:'6px', overflowX:'auto', paddingBottom:'2px' }}>

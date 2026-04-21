@@ -1007,6 +1007,8 @@ export default function App() {
               padding: '44px 48px',
               maxWidth: '560px',
               width: '90%',
+              maxHeight: '80vh',
+              overflowY: 'auto',
             }}
           >
             <div style={{ fontSize: '9px', letterSpacing: '4px', color: '#333', textTransform: 'uppercase', marginBottom: '16px' }}>Legal</div>
@@ -1034,8 +1036,8 @@ export default function App() {
                 },
               ].map(({ heading, body }) => (
                 <div key={heading} style={{ borderLeft: '2px solid #1e1e1e', paddingLeft: '16px' }}>
-                  <div style={{ fontSize: '10px', letterSpacing: '1.5px', color: '#555', textTransform: 'uppercase', marginBottom: '6px' }}>{heading}</div>
-                  <p style={{ fontSize: '13px', color: '#666', lineHeight: '1.7', margin: 0 }}>{body}</p>
+                  <div style={{ fontSize: '10px', letterSpacing: '1.5px', color: '#666', textTransform: 'uppercase', marginBottom: '6px' }}>{heading}</div>
+                  <p style={{ fontSize: '13px', color: '#bbb', lineHeight: '1.7', margin: 0 }}>{body}</p>
                 </div>
               ))}
             </div>

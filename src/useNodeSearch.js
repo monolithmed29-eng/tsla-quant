@@ -2,15 +2,31 @@
 // No external libraries. Pure JS, fast enough for 34 nodes.
 
 export const CATEGORY_KEYWORDS = {
-  autonomy:      ['fsd', 'autonomous', 'self-driving', 'cybercab', 'robotaxi', 'unsupervised', 'full self driving', 'driverless', 'autopilot'],
-  robotics:      ['optimus', 'robot', 'humanoid', 'cortex', 'dojo', 'neural', 'grok', 'macrohard', 'digital optimus', 'ai training'],
-  financials:    ['earnings', 'revenue', 'delivery', 'deliveries', 'margin', 'profit', 'q1', 'q2', 'q3', 'q4', 'eps', 'cash', 'guidance', 'gross margin', 'fcf'],
-  product:       ['model s', 'model 3', 'model x', 'model y', 'cybertruck', 'semi', 'affordable', 'refresh', 'vehicle', '$25k', 'compact'],
-  manufacturing: ['giga', 'factory', 'production', 'unboxed', 'terafab', 'chip', 'capacity', 'texas', 'berlin', 'shanghai', 'ramp', 'output'],
-  energy:        ['megapack', 'powerwall', 'solar', 'storage', 'vpp', 'virtual power', 'battery', 'grid', 'megapack 3', 'energy division'],
-  corporate:     ['musk', 'management', 'brand', 'sentiment', 'political', 'board', 'governance', 'executive', 'ceo', 'leadership'],
-  spacex:        ['spacex', 'starlink', 'xai', 'merger', 'synergy', 'space', 'elon', 'grok', 'crossover'],
+  autonomy:      ['fsd', 'autonomous', 'self-driving', 'cybercab', 'robotaxi', 'unsupervised', 'full self driving', 'driverless', 'autopilot', 'cybertaxi', 'austin', 'unsupervised driving'],
+  robotics:      ['optimus', 'robot', 'humanoid', 'cortex', 'dojo', 'neural', 'grok', 'macrohard', 'digital optimus', 'ai training', 'humanoid robot'],
+  financials:    ['earnings', 'revenue', 'delivery', 'deliveries', 'margin', 'profit', 'q1', 'q2', 'q3', 'q4', 'eps', 'cash', 'guidance', 'gross margin', 'fcf', 'buyback', 'income'],
+  product:       ['model s', 'model 3', 'model x', 'model y', 'cybertruck', 'semi', 'affordable', 'refresh', 'vehicle', '$25k', 'compact', 'roadster'],
+  manufacturing: ['giga', 'factory', 'production', 'unboxed', 'terafab', 'chip', 'capacity', 'texas', 'berlin', 'shanghai', 'ramp', 'output', 'gigafactory', '4680'],
+  energy:        ['megapack', 'powerwall', 'solar', 'storage', 'vpp', 'virtual power', 'battery', 'grid', 'megapack 3', 'energy division', 'lithium', 'lft', 'lfp', 'ncm', 'cathode', 'anode', 'cell', 'charging', 'supercharger', 'ev battery', 'energy storage'],
+  corporate:     ['musk', 'management', 'brand', 'sentiment', 'political', 'board', 'governance', 'executive', 'ceo', 'leadership', 'elon'],
+  spacex:        ['spacex', 'starlink', 'xai', 'merger', 'synergy', 'space', 'elon', 'grok', 'crossover', 'satellite', 'rocket'],
 };
+
+// Stop words to ignore when scoring (don't penalize for missing these)
+const STOP_WORDS = new Set([
+  'the','a','an','is','are','was','were','be','been','being','have','has','had',
+  'do','does','did','will','would','could','should','may','might','shall',
+  'to','of','in','on','at','by','for','with','about','against','between','into',
+  'through','during','before','after','above','below','from','up','down',
+  'how','what','when','where','why','who','which','that','this','these','those',
+  'and','or','but','if','then','so','yet','both','either','neither','whether',
+  'i','you','he','she','it','we','they','me','him','her','us','them',
+  'my','your','his','its','our','their','mine','yours','ours','theirs',
+  'not','no','nor','than','as','such','like','very','just','also','too',
+  'can','cannot','next','last','new','old','big','small','high','low',
+  'go','get','make','take','come','see','know','think','look','way',
+  'work','use','seem','help','mean','call','keep','try','need','feel',
+]);
 
 /**
  * Search catalysts by query text + optional chip filter.
@@ -20,8 +36,11 @@ export function searchCatalysts(rawQuery, catalysts, chipFilter = 'all') {
   if (!rawQuery.trim() && chipFilter === 'all') return [];
 
   const q = rawQuery.toLowerCase().trim();
-  // Ignore very short tokens (articles etc)
-  const words = q ? q.split(/\s+/).filter(w => w.length > 1) : [];
+  // Filter: remove very short tokens AND stop words to keep only signal words
+  const allWords = q ? q.split(/\s+/).filter(w => w.length > 1) : [];
+  const signalWords = allWords.filter(w => !STOP_WORDS.has(w));
+  // Use signal words for scoring; fall back to all words if nothing survives (e.g. single word query)
+  const words = signalWords.length > 0 ? signalWords : allWords.filter(w => w.length > 1);
 
   const scored = [];
 
@@ -42,22 +61,42 @@ export function searchCatalysts(rawQuery, catalysts, chipFilter = 'all') {
       ? node.description.slice(0, 6).join(' ')
       : (node.description || '');
     const catKeywords = (CATEGORY_KEYWORDS[node.category] || []).join(' ');
+    const nodeLabel = node.label.toLowerCase();
+    const nodeId = node.id.replace(/_/g, ' ');
 
     const corpus = [
-      node.label,
+      nodeLabel,
       node.category,
-      node.id.replace(/_/g, ' '),
+      nodeId,
       (node.status || '').replace(/_/g, ' '),
       node.expected || '',
       descText,
       catKeywords,
     ].join(' ').toLowerCase();
 
-    // ── Score: how many words match ──────────────────────────────────────────
-    const matchCount = words.reduce((acc, w) => acc + (corpus.includes(w) ? 1 : 0), 0);
-    const threshold = Math.max(1, Math.ceil(words.length * 0.6));
+    // ── Score: signal word matches, with label-word bonus ────────────────────
+    let matchCount = 0;
+    let labelBonus = 0;
+    const labelWords = nodeLabel.split(/\s+/);
+
+    for (const w of words) {
+      if (corpus.includes(w)) {
+        matchCount++;
+        // Extra bonus if the word directly hits the node label (e.g. "lithium" → "battery" node)
+        if (labelWords.some(lw => lw.startsWith(w) || w.startsWith(lw))) {
+          labelBonus += 0.5;
+        }
+      }
+    }
+
+    // For short signal-word queries (1–2 words), threshold = 1 match
+    // For longer queries, require 50% of signal words to match
+    const threshold = words.length <= 2 ? 1 : Math.max(1, Math.ceil(words.length * 0.5));
     if (matchCount >= threshold) {
-      scored.push({ node, score: matchCount / words.length + node.likelihood * 0.1 });
+      scored.push({
+        node,
+        score: matchCount / words.length + labelBonus + node.likelihood * 0.1,
+      });
     }
   }
 
