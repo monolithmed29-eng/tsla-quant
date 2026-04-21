@@ -1,8 +1,8 @@
 {
-  "gauge_value": 62,
+  "gauge_value": 65,
   "needle_status": "Vibrating",
-  "roger_insight": "Dollar-weighted flow flips call-heavy day-of earnings — institutions putting more capital behind upside despite slightly more put contracts. Positioning shift suggests smart money expecting a beat or bullish guidance.",
-  "updated": "Apr 21 · 10am ET",
-  "calls": { "count": 6, "value": 1940000 },
-  "puts":  { "count": 7, "value": 1210000 }
+  "roger_insight": "Call-heavy on dollar flow heading into earnings eve — institutions committing $11.77M to calls vs $9.1M puts despite slightly more put contracts. Dollar conviction is bullish. Smart money positioning for upside into tomorrow's Q1 print.",
+  "updated": "Apr 21 · 12pm ET",
+  "calls": { "count": 66, "value": 11770000 },
+  "puts":  { "count": 69, "value": 9100000 }
 }
