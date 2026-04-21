@@ -1,8 +1,8 @@
 {
-  "gauge_value": 44,
-  "needle_status": "Vibrating",
-  "roger_insight": "Flow is essentially balanced heading into earnings — call count edges out puts but dollar value leans slightly put-heavy. Institutions aren't making a strong directional bet; this reads as pre-earnings hedging rather than conviction either way.",
-  "updated": "Apr 20 · 2:51pm ET",
-  "calls": { "count": 1152, "value": 58640000 },
-  "puts":  { "count": 1044, "value": 62710000 }
+  "gauge_value": 62,
+  "needle_status": "Leaning Call",
+  "roger_insight": "Dollar-weighted flow flips call-heavy day-of earnings — institutions putting more capital behind upside despite slightly more put contracts. Positioning shift suggests smart money expecting a beat or bullish guidance.",
+  "updated": "Apr 21 · 10am ET",
+  "calls": { "count": 6, "value": 1940000 },
+  "puts":  { "count": 7, "value": 1210000 }
 }
