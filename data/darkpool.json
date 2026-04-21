@@ -1,8 +1,8 @@
 {
-  "gauge_value": 65,
+  "gauge_value": 66,
   "needle_status": "Vibrating",
-  "roger_insight": "Call-heavy on dollar flow heading into earnings eve — institutions committing $11.77M to calls vs $9.1M puts despite slightly more put contracts. Dollar conviction is bullish. Smart money positioning for upside into tomorrow's Q1 print.",
-  "updated": "Apr 21 · 12pm ET",
-  "calls": { "count": 66, "value": 11770000 },
-  "puts":  { "count": 69, "value": 9100000 }
+  "roger_insight": "Call-heavy on dollar flow into earnings — $23.23M calls vs $20.01M puts despite 2 more put contracts. Dollar conviction stays bullish as the session matures. Institutions loading upside ahead of tonight's Q1 print.",
+  "updated": "Apr 21 · 3pm ET",
+  "calls": { "count": 136, "value": 23230000 },
+  "puts":  { "count": 138, "value": 20010000 }
 }
