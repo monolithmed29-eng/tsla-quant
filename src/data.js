@@ -345,7 +345,7 @@ export const catalysts = [
       "⚠️ Apr 22, 2026: Energy revenue $2.408B (–12% YoY) — confirmed miss. Services +42% YoY ($3.745B) — standout outperformer. CapEx $2.493B (+67% YoY) — heavy investment cycle ongoing.",
       "✅ Apr 22, 2026 (Operations highlights): FSD Supervised approved Netherlands. Launched unsupervised Robotaxi Dallas + Houston. Began ramping lithium, cathode, LFP production. Prepared lines for Megapack 3, Cybercab, Tesla Semi. Cortex 2 online + training. Dojo 3 in development.",
       "✅ Apr 22, 2026: Optimus — Fremont converting Model S/X lines to Optimus (Q2). Giga Texas 2nd-gen line prep underway, 10M robot/yr long-term capacity. Demand rebound confirmed in APAC, South America, EMEA, North America.",
-      "⚠️ Q1 margin uplift partly from one-time warranty + tariff adjustments — some benefit non-recurring.",
+      "⚠️ Apr 22, 2026 (YoY summary): Profitability drivers itemized — one-time warranty + tariff benefits listed FIRST. Structural positive: lower avg cost/vehicle due to lower material costs. Lower regulatory credits = headwind (cited twice). CEO 2025 SBC + AI/R&D opex = headwinds. Tesla invested $2.0B in SpaceX equity in Q1.",
       "🚨 Deliveries: 358,023 (missed 365,600 consensus). Production: 408,386 — 50,363 units into inventory.",
     ]
   },
@@ -816,7 +816,8 @@ export const catalysts = [
     likelihood: 0.28,
     updated: "Apr 3, 2026",
     description: [
-      "Cross-Equity Inflection Point (Mar 2026): Tesla's $2B xAI investment converted to SpaceX shares after SpaceX acquired xAI — Tesla now holds a direct, albeit small (<1%), stake in SpaceX for the first time",
+      "✅ Apr 22, 2026 (Q1 financial summary): Tesla made a $2.0B SpaceX equity investment in Q1 2026 — confirmed in cash flow reconciliation. This is a deliberate balance sheet allocation to SpaceX, not a passive conversion. Deepens Tesla-SpaceX financial integration significantly.",
+      "Cross-Equity Inflection Point (Mar 2026): Tesla's $2B xAI investment converted to SpaceX shares after SpaceX acquired xAI — Tesla now holds a direct stake in SpaceX",
       "Regulatory filings in March 2026 formally linked the two companies financially — first official cross-entity equity bridge",
       "Musk's 'system-of-systems' vision: Tesla (energy/transport/robotics) + SpaceX (launch/connectivity/interplanetary) converge into a unified platform",
       "Starlink integration thesis: Tesla vehicles as premium Starlink endpoints — always-on high-bandwidth connectivity without cellular dependency",
