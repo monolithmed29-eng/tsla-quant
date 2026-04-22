@@ -1,8 +1,8 @@
 {
-  "gauge_value": 23,
+  "gauge_value": 30,
   "needle_status": "Aggressive",
-  "roger_insight": "Put-heavy on dollar flow heading into Q1 earnings — institutions are committing significantly more capital to downside protection than calls. Contract count also skews puts. Aggressive positioning ahead of the print suggests smart money is hedging or outright bearish near-term.",
-  "updated": "Apr 22 · 10am ET",
-  "calls": { "count": 9, "value": 1070000 },
-  "puts":  { "count": 12, "value": 3650000 }
+  "roger_insight": "Put-heavy on dollar flow into earnings — institutions are committing significantly more capital to downside protection than calls despite nearly even contract counts. Dollar conviction skews bearish heading into the post-earnings session.",
+  "updated": "Apr 22 · 1pm ET",
+  "calls": { "count": 65, "value": 6960000 },
+  "puts":  { "count": 64, "value": 15900000 }
 }

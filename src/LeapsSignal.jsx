@@ -57,7 +57,7 @@ export default function LeapsSignal({ isMobile = false }) {
             background: 'rgba(0,255,136,0.06)',
           }}>AI · High Conviction</span>
         </div>
-        <span style={{ fontSize: '9px', color: '#444', letterSpacing: '1px' }}>{signal.updated}</span>
+        <span style={{ fontSize: '9px', color: '#aaa', letterSpacing: '1px' }}>{signal.updated}</span>
       </div>
 
       {/* Signal row */}
@@ -67,18 +67,18 @@ export default function LeapsSignal({ isMobile = false }) {
       }}>
         {/* Strike + type */}
         <div>
-          <div style={{ fontSize: '9px', color: '#555', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '4px' }}>Signal</div>
-          <div style={{ fontSize: isMobile ? '18px' : '22px', fontWeight: 800, color: '#fff', letterSpacing: '-0.5px', lineHeight: 1 }}>
+          <div style={{ fontSize: '9px', color: '#ffffff', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '4px', fontWeight: 700 }}>Signal</div>
+          <div style={{ fontSize: isMobile ? '18px' : '22px', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.5px', lineHeight: 1 }}>
             ${signal.strike} {signal.type}
           </div>
-          <div style={{ fontSize: '10px', color: '#888', marginTop: '3px' }}>{expFormatted}</div>
+          <div style={{ fontSize: '10px', color: '#cccccc', marginTop: '3px' }}>{expFormatted}</div>
         </div>
 
         <div style={{ width: '1px', height: '44px', background: '#111', flexShrink: 0 }} />
 
         {/* Entry */}
         <div>
-          <div style={{ fontSize: '9px', color: '#555', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '4px' }}>Entry</div>
+          <div style={{ fontSize: '9px', color: '#ffffff', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '4px', fontWeight: 700 }}>Entry</div>
           <div style={{ fontSize: isMobile ? '16px' : '20px', fontWeight: 700, color: '#00ff88', letterSpacing: '-0.3px' }}>
             {premiumFormatted}
           </div>
@@ -88,7 +88,7 @@ export default function LeapsSignal({ isMobile = false }) {
 
         {/* Efficiency */}
         <div>
-          <div style={{ fontSize: '9px', color: '#555', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '4px' }}>Efficiency</div>
+          <div style={{ fontSize: '9px', color: '#ffffff', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '4px', fontWeight: 700 }}>Efficiency</div>
           <div style={{ fontSize: isMobile ? '16px' : '20px', fontWeight: 700, color: '#00aaff', letterSpacing: '-0.3px' }}>
             {signal.efficiency?.toFixed(3)}
           </div>
@@ -98,7 +98,7 @@ export default function LeapsSignal({ isMobile = false }) {
 
         {/* IV */}
         <div>
-          <div style={{ fontSize: '9px', color: '#555', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '4px' }}>IV</div>
+          <div style={{ fontSize: '9px', color: '#ffffff', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '4px', fontWeight: 700 }}>IV</div>
           <div style={{ fontSize: isMobile ? '16px' : '20px', fontWeight: 700, color: '#f59e0b', letterSpacing: '-0.3px' }}>
             {signal.iv?.toFixed(1)}%
           </div>
