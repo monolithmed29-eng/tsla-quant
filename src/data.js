@@ -73,6 +73,7 @@ export const catalysts = [
     description: [
       "🆕 Apr 11, 2026: Tesla opens FSD outright purchase option in Europe following Netherlands RDW approval — first time EU customers can buy FSD, not just subscribe. Signals confidence in sustained EU regulatory status and unlocks a material new revenue stream from the EU's ~15M Tesla-addressable fleet.",
       "Apr 10, 2026: Netherlands RDW approval CONFIRMED — FSD Supervised now officially cleared for European roads, opening EU subscriber market for first time. First regulatory greenlight outside the US; sets precedent for EU-wide harmonization expected this summer.",
+      "✅ Apr 22, 2026 (Q1 deck): FSD v14.3 AI compiler rewritten — inference latency cut up to 20%. FSD cumulative miles ~9B+ by end Q1 2026. Digital Optimus = intelligence layer automating digital workloads (complement to physical Optimus).",
       "Apr 7, 2026: FSD v14.3 officially released — biggest architectural leap in FSD history",
       "v14.3 is a ground-up rewrite: larger model, new RL training method, completely new vision system, new compiler/runtime",
       "Expected to drive better than a human (better decisions, less robotic), see better in tricky/low-visibility conditions, and react faster",
@@ -301,6 +302,7 @@ export const catalysts = [
       "🆕 Apr 16, 2026: Electrek reports AI5 is nearly 2 years behind original schedule (was promised for 2024 vehicles); tape-out Apr 15 confirms the design is done, but engineering samples + volume production targets 2027 — AI5 in vehicles is now a late-2027/2028 event",
       "🆕 Apr 15, 2026: Musk clarified on X that AI5 is NOT going into vehicles — 'AI4 is enough to achieve much better than human safety for FSD.' AI5 is targeted at Optimus robots and supercomputer clusters. In-vehicle chip upgrade (AI4.5 or future HW5) timeline pushed to 2027+.",
       "Cybercab confirmed launching on AI4 hardware — no HW5 dependency for near-term robotaxi scale",
+      "✅ Apr 22, 2026 (Q1 deck): Tesla confirmed 'completed the final chip design of AI5 inference processor' in April — tape-out official. Tesla Research Fab now on Giga Texas campus. SpaceX partnership announced to build largest chip fab ever: vertically integrating logic, memory + advanced packaging. AI inference compute expanding alongside Robotaxi/Optimus ramps.",
       "AI5 taped out Apr 15, 2026 — manufacturing dual-sourced at TSMC Arizona and Samsung Texas; engineering samples late 2026, volume production 2027",
       "HW5/AI5 for vehicles is now a 2027 story at earliest — reduces near-term catalyst weight",
       "HW4 currently deployed — significant improvement over HW3; Musk says sufficient for FSD safety targets",
@@ -553,6 +555,7 @@ export const catalysts = [
     likelihood: 0.65,
     updated: "Mar 22, 2026",
     description: [
+      "✅ Apr 22, 2026 (Q1 deck): 4680 at Giga Texas = 40 GWh installed annual capacity — Production status. LFP cells in Nevada = 7 GWh Early Ramp. Cathode Materials Texas = 10 GWh Early Ramp. Battery pack capacity remains the limiting factor for vehicle production ramp.",
       "4680 structural battery cells: tabless design, higher energy density, lower cost target",
       "Production at Giga Texas ramping — still below cost targets as of Q4 2025",
       "Target: $60/kWh structural pack cost — would enable $25K vehicle and Cybercab economics",
@@ -612,7 +615,8 @@ export const catalysts = [
     updated: "Apr 22, 2026",
     description: [
       "⚠️ Apr 22, 2026: Independent lab testing finds Tesla's TX refinery discharge contains hexavalent chromium (0.0104 mg/L) and arsenic (0.0025+ mg/L) — both absent from TCEQ-issued permit (Feb 2026 inspection didn't check heavy metals); local drainage district issued cease & desist; wastewater flows into Petronila Creek → Baffin Bay (major fishing area); Musk had called the facility 'very clean' (Benzinga)",
-      "🆕 Apr 20, 2026: Tesla's Robstown, TX lithium refinery (near Corpus Christi) is now fully operational — largest lithium refinery in North America",
+      "⚠️ Apr 22, 2026 (Q1 manufacturing table): Lithium Refining listed at 30 GWh capacity in Texas — 'Early Ramp' status, not full production. Consistent with environmental compliance risk (cease & desist) during ramp.",
+      "🆕 Apr 20, 2026: Tesla's Robstown, TX lithium refinery (near Corpus Christi) now operational — largest in North America",
       "Elon Musk confirmed on X: 'the largest Lithium refinery in America is now operational'",
       "Production started Jan 2026 — went from groundbreaking (2023) to full operation in under 3 years",
       "34% lower carbon footprint than traditional hard rock refineries; engineered to incorporate recycled battery material",
@@ -654,6 +658,7 @@ export const catalysts = [
     likelihood: 0.92,
     updated: "Apr 1, 2026",
     description: [
+      "✅ Apr 22, 2026 (Q1 deck): 8,463 stations / 79,918 connectors (+19% YoY). Added 2,200+ net new stalls in Q1. V4 Supercharger cabinets (3x power density, 2x stalls vs V3) now produced at Giga New York. First public Megacharger deployed in Southern California. Japan service center doubling targeted.",
       "Musk confirmed Apr 1, 2026: Supercharger energy delivered growing exponentially — 2025 was record year, 2026 Q1 tracking above 2024 Q1 pace",
       "15,000+ Supercharger stations globally — largest fast-charging network",
       "NACS (Tesla plug) adopted as North American standard by Ford, GM, Rivian, others",
@@ -767,7 +772,7 @@ export const catalysts = [
     likelihood: 0.95,
     updated: "Apr 22, 2026",
     description: [
-      "✅ Apr 22, 2026 (Q1 shareholder deck): Cortex 2 is now online and has started running training workloads — confirmed in Q1 earnings release. Tesla: 'We continue to ramp our onsite training infrastructure to ensure sufficient compute resources for the development of our AI products and services.'",
+      "✅ Apr 22, 2026 (Q1 deck): Cortex 2 = >130k H100e equivalent — Early Ramp. Cortex 1 = >100k H100e — Production. Combined >230k H100e+ at Giga Texas. Cortex 2 now online running training workloads. Tesla: 'We continue to ramp our onsite training infrastructure to ensure sufficient compute resources for the development of our AI products and services.'",
       "Cortex 2.0 is Tesla's next-generation AI training supercomputer at Giga Texas",
       "First 250MW phase activates April 2026 — full 500MW capacity expected mid-2026",
       "Successor to original Cortex cluster (100MW) — 5x compute power at full build",
