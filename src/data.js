@@ -98,9 +98,10 @@ export const catalysts = [
     weight: 0.08,
     status: "in_progress",
     expected: "1H 2026",
-    likelihood: 0.87,
+    likelihood: 0.82,
     updated: "Apr 22, 2026",
     description: [
+      "⚠️ Apr 22, 2026 (Earnings Call): Tesla quietly slips 5-city 1H 2026 robotaxi commitments — Phoenix, Miami, Orlando, Tampa, Las Vegas now listed as 'preparations underway' with no firm date; prior language was explicit 1H 2026 target; only Dallas + Houston confirmed live; Electrek, Business Insider flag the language change as a material timeline slip; 5-city 2H 2026 or later now the base case",
       "🆕 Apr 22, 2026: Tesla files permits for first robotaxi-only Supercharger stations in Arizona — dedicated V4 fleet charging hubs exclusively for Cybercab fleet (not public-use); first physical fleet infrastructure for autonomous operations; sites in Waymo's home territory signal competitive intent; private charging enables optimized scheduling, reduced downtime, and bidirectional energy integration (Electrek / notateslaapp / Teslarati)",
       "🆕 Apr 21, 2026: Fleet growth data (robotaxitracker.com / Autolane): TOTAL FLEET 611 vehicles cumulative — Bay Area 511, Austin 96, Dallas 2, Houston 2. UNSUPERVISED count: 17 active. Fleet curve shows steep ramp through Apr 2026 driven by Bay Area scale-up; Austin steady at ~96; Dallas/Houston just launched at 2 vehicles each confirming live operations but early stage",
       "🆕 Apr 20, 2026 (6pm ET): Musk on X: 'We expect to have fully autonomous vehicles in somewhere between a quarter and half of the United States' by end 2026 — robotaxis targeting 'dozens of major cities'; caveat: same promise made for end of 2025 (half of US population) and missed badly; aspirational language flagged by Motley Fool / Reuters",
@@ -129,9 +130,10 @@ export const catalysts = [
     weight: 0.06,
     status: "upcoming",
     expected: "Q3 2026",
-    likelihood: 0.60,
-    updated: "Apr 21, 2026",
+    likelihood: 0.57,
+    updated: "Apr 22, 2026",
     description: [
+      "⚠️ Apr 22, 2026 (Earnings Call): With 5 planned expansion cities slipped to vague 'preparations underway,' broad public app launch tied to multi-city scale is delayed; only Austin, Dallas, Houston operational; mass-market consumer app requires more cities to be viable — Q3/Q4 2026 more likely than Q3",
       "🆕 Apr 21, 2026: Tesla Spring Update v2026.14+ rolling out — rear passenger display now features fully interactive navigation map while driving, a capability previously reserved for Tesla Robotaxi; Tesla pushing robotaxi-grade features to all owner vehicles, accelerating consumer familiarity with autonomous UX (Teslarati)",
       "🆕 Apr 15, 2026: Tesla Spring 2026 software update introduces a standalone Self-Driving subscription app and 'Hey Grok' xAI voice assistant — significant step toward a consumer-facing autonomous ride ecosystem; reduces friction to FSD adoption",
       "Consumer-facing Tesla Robotaxi app for public ride booking",
@@ -379,7 +381,7 @@ export const catalysts = [
     weight: 0.05,
     status: "active",
     expected: "Q2 2026",
-    likelihood: 0.72,
+    likelihood: 0.74,
     updated: "Apr 22, 2026",
     description: [
       "✅ Apr 22, 2026: Q1 2026 gross margin confirmed 21.1% — up 478 bps YoY from 16.3%, above Q4 2025's 20.1%. Now two consecutive quarters above 20%. Strongest gross margin print in years.",

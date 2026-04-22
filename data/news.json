@@ -1,31 +1,24 @@
 [
   {
+    "headline": "Tesla Q1 2026 BEAT: Revenue $22.38B (+16% YoY), non-GAAP EPS $0.41 (+52% YoY) vs $0.37 consensus, gross margin 21.1% (+478 bps YoY) — strongest margin in years; TSLA +4% AH; partly aided by one-time warranty/tariff benefits",
+    "category": "financials",
+    "source": "Electrek / CNBC / Tesla IR",
+    "timestamp": "Apr 22, 2026",
+    "url": "https://electrek.co/2026/04/22/tesla-tsla-q1-2026-financial-results/"
+  },
+  {
+    "headline": "⚠️ Tesla quietly slips 5-city robotaxi 1H 2026 timelines — Phoenix, Miami, Orlando, Tampa, Las Vegas now listed as 'preparations underway' with no firm date in Q1 deck; previously committed to 1H 2026 for all 7 cities; only Dallas + Houston confirmed live",
+    "category": "autonomy",
+    "source": "Electrek / Business Insider / Tesla Q1 Shareholder Deck",
+    "timestamp": "Apr 22, 2026",
+    "url": "https://electrek.co/2026/04/22/tesla-seems-to-say-robotaxi-launch-will-be-pushed-back-in-5-us-cities/"
+  },
+  {
     "headline": "Tesla files permits for first robotaxi-only Supercharger stations in Arizona — dedicated V4 fleet charging hubs not open to public; first physical autonomous fleet infrastructure, sited in Waymo's home market",
     "category": "autonomy",
     "source": "Electrek / notateslaapp / Teslarati",
     "timestamp": "Apr 22, 2026",
     "url": "https://electrek.co/2026/04/21/tesla-first-robotaxi-only-supercharger-stations-arizona/"
-  },
-  {
-    "headline": "Q1 2026 earnings call TONIGHT at 5:30 PM ET — Wall Street consensus EPS $0.35 / revenue $22.27B (+15% YoY); 3 bull catalysts: Cybercab ramp rate, robotaxi miles/revenue-per-mile validation, gross margin ex-credits >19%; 50K inventory overhang + energy storage miss are key bear risks; prediction market ~28% beat odds",
-    "category": "financials",
-    "source": "TipRanks / ir.tesla.com / tradingkey",
-    "timestamp": "Apr 22, 2026",
-    "url": "https://www.tipranks.com/news/tesla-will-report-q1-earnings-today-does-wall-street-expect-tsla-stock-to-recover"
-  },
-  {
-    "headline": "Tesla lithium refinery in Robstown TX cited in environmental dispute — independent lab finds hexavalent chromium and arsenic in discharge not covered by TCEQ permit; local drainage district issues cease & desist; wastewater flows toward Baffin Bay fishing area",
-    "category": "manufacturing",
-    "source": "Benzinga",
-    "timestamp": "Apr 22, 2026",
-    "url": null
-  },
-  {
-    "headline": "FSD v14.3 MLIR rewrite confirmed: 20% faster reaction times via rebuilt AI compiler; new fleet-to-fleet RL pipeline sourcing 'hard examples' from global fleet; v14.3.1 follow-up patch now rolling fleet-wide on 2026.2.9.7 build",
-    "category": "autonomy",
-    "source": "notateslaapp / ordoh.com",
-    "timestamp": "Apr 21, 2026",
-    "url": "https://www.notateslaapp.com/news/3925/tesla-releases-fsd-143-fleet-learning-20-faster-reactions-and-more"
   },
   {
     "headline": "Forbes: Tesla targeting one Cybercab every 10 seconds at full Giga Texas scale — annual capacity of 2 million units; production ramp started April 2026 with Cybercab on AI4.5 hardware (AI5 pushed to 2027)",
@@ -42,17 +35,24 @@
     "url": "https://ilovetesla.com/teslas-optimus-robot-cheers-on-boston-marathon-runners-a-historic-public-debut-on-the-road-to-mass-humanoid-adoption/"
   },
   {
+    "headline": "FSD v14.3 MLIR rewrite confirmed: 20% faster reaction times via rebuilt AI compiler; new fleet-to-fleet RL pipeline sourcing 'hard examples' from global fleet; v14.3.1 patch rolling fleet-wide on 2026.2.9.7 build",
+    "category": "autonomy",
+    "source": "notateslaapp / ordoh.com",
+    "timestamp": "Apr 21, 2026",
+    "url": "https://www.notateslaapp.com/news/3925/tesla-releases-fsd-143-fleet-learning-20-faster-reactions-and-more"
+  },
+  {
+    "headline": "Dallas/Houston robotaxi fleet expands to 4 unsupervised vehicles after first geofence expansion — early-stage small coverage zones; Tesla total cross-fleet unsupervised vehicles: 17 (Austin 13, Dallas 2, Houston 2)",
+    "category": "autonomy",
+    "source": "eletric-vehicles.com / robotaxitracker.com",
+    "timestamp": "Apr 22, 2026",
+    "url": "https://eletric-vehicles.com/tesla/teslas-dallas-houston-robotaxi-fleet-at-four-vehicles-after-first-expansion/"
+  },
+  {
     "headline": "Samsung Taylor Texas 2nm fab kicks off equipment installation April 24 — AI5 chip production milestone; $16.5B Tesla deal signed Jul 2025; 2nm yields in high-50% range; volume production targeting 2027 for Optimus and supercomputer clusters",
     "category": "robotics",
     "source": "evxl.co / Korea Herald",
     "timestamp": "Apr 21, 2026",
     "url": null
-  },
-  {
-    "headline": "Dallas/Houston robotaxi fleet expands to 4 unsupervised vehicles after first geofence expansion — early-stage small coverage zones; Tesla committed to full 1H 2026 launches in 7 cities: Dallas, Houston, Phoenix, Miami, Orlando, Tampa, Las Vegas",
-    "category": "autonomy",
-    "source": "eletric-vehicles.com / robotaxitracker.com",
-    "timestamp": "Apr 22, 2026",
-    "url": "https://eletric-vehicles.com/tesla/teslas-dallas-houston-robotaxi-fleet-at-four-vehicles-after-first-expansion/"
   }
 ]
