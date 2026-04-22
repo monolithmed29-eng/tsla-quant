@@ -7,11 +7,11 @@
     "url": "https://electrek.co/2026/04/21/tesla-first-robotaxi-only-supercharger-stations-arizona/"
   },
   {
-    "headline": "Q1 2026 earnings call TONIGHT at 5:30 PM ET — TSLA trading ~$389 heading in; consensus Non-GAAP EPS $0.33, revenue $21.4B, FCF –$1.6B; key questions: Cybercab ramp rate, robotaxi miles/day, gross margin ex-credits",
+    "headline": "Q1 2026 earnings call TONIGHT at 5:30 PM ET — Wall Street consensus EPS $0.35 / revenue $22.27B (+15% YoY); 3 bull catalysts: Cybercab ramp rate, robotaxi miles/revenue-per-mile validation, gross margin ex-credits >19%; 50K inventory overhang + energy storage miss are key bear risks; prediction market ~28% beat odds",
     "category": "financials",
-    "source": "Yahoo Finance / ir.tesla.com",
+    "source": "TipRanks / ir.tesla.com / tradingkey",
     "timestamp": "Apr 22, 2026",
-    "url": "https://finance.yahoo.com/quote/TSLA/"
+    "url": "https://www.tipranks.com/news/tesla-will-report-q1-earnings-today-does-wall-street-expect-tsla-stock-to-recover"
   },
   {
     "headline": "Tesla lithium refinery in Robstown TX cited in environmental dispute — independent lab finds hexavalent chromium and arsenic in discharge not covered by TCEQ permit; local drainage district issues cease & desist; wastewater flows toward Baffin Bay fishing area",
@@ -49,10 +49,10 @@
     "url": null
   },
   {
-    "headline": "TSLA closed +1.55% at ~$407 day before Q1 earnings; Musk says 'fully autonomous in a quarter to half of the US' by end 2026 — same promise missed in 2025; robotaxi fleet hits 611 vehicles total (Bay Area 511, Austin 96, Dallas/Houston 4)",
-    "category": "financials",
-    "source": "Motley Fool / robotaxitracker.com",
-    "timestamp": "Apr 21, 2026",
-    "url": "https://www.fool.com/investing/2026/04/21/should-you-buy-this-electric-vehicle-ev-stock-befo/"
+    "headline": "Dallas/Houston robotaxi fleet expands to 4 unsupervised vehicles after first geofence expansion — early-stage small coverage zones; Tesla committed to full 1H 2026 launches in 7 cities: Dallas, Houston, Phoenix, Miami, Orlando, Tampa, Las Vegas",
+    "category": "autonomy",
+    "source": "eletric-vehicles.com / robotaxitracker.com",
+    "timestamp": "Apr 22, 2026",
+    "url": "https://eletric-vehicles.com/tesla/teslas-dallas-houston-robotaxi-fleet-at-four-vehicles-after-first-expansion/"
   }
 ]
