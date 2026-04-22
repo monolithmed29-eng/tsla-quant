@@ -1,8 +1,8 @@
 {
-  "gauge_value": 66,
-  "needle_status": "Vibrating",
-  "roger_insight": "Call-heavy on dollar flow as the session matures — institutions committing more capital to calls than puts despite a nearly even contract split. Dollar conviction stays bullish heading into tomorrow's Q1 earnings print.",
-  "updated": "Apr 21 · 3pm ET",
-  "calls": { "count": 136, "value": 23230000 },
-  "puts":  { "count": 138, "value": 20010000 }
+  "gauge_value": 23,
+  "needle_status": "Aggressive",
+  "roger_insight": "Put-heavy on dollar flow heading into Q1 earnings — institutions are committing significantly more capital to downside protection than calls. Contract count also skews puts. Aggressive positioning ahead of the print suggests smart money is hedging or outright bearish near-term.",
+  "updated": "Apr 22 · 10am ET",
+  "calls": { "count": 9, "value": 1070000 },
+  "puts":  { "count": 12, "value": 3650000 }
 }
