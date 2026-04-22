@@ -73,7 +73,8 @@ export const catalysts = [
     description: [
       "🆕 Apr 11, 2026: Tesla opens FSD outright purchase option in Europe following Netherlands RDW approval — first time EU customers can buy FSD, not just subscribe. Signals confidence in sustained EU regulatory status and unlocks a material new revenue stream from the EU's ~15M Tesla-addressable fleet.",
       "Apr 10, 2026: Netherlands RDW approval CONFIRMED — FSD Supervised now officially cleared for European roads, opening EU subscriber market for first time. First regulatory greenlight outside the US; sets precedent for EU-wide harmonization expected this summer.",
-      "✅ Apr 22, 2026 (Q1 deck): FSD v14.3 AI compiler rewritten — inference latency cut up to 20%. FSD cumulative miles ~9B+ by end Q1 2026. Digital Optimus = intelligence layer automating digital workloads (complement to physical Optimus).",
+      "✅ Apr 22, 2026 (Q1 deck): FSD moving to subscription-only. Record net new subscriptions in Q1. FSD insurance: Safety Score of 100 available on every FSD mile driven — premium savings can 'more than compensate for the monthly price of FSD.' Netherlands approval clears path for other EU countries. China in progress.",
+      "✅ Apr 22, 2026 (Q1 deck): FSD v14.3 inference latency cut 20%. Cumulative FSD miles ~9B+ by end Q1. Digital Optimus = intelligence layer for physical Optimus.",
       "Apr 7, 2026: FSD v14.3 officially released — biggest architectural leap in FSD history",
       "v14.3 is a ground-up rewrite: larger model, new RL training method, completely new vision system, new compiler/runtime",
       "Expected to drive better than a human (better decisions, less robotic), see better in tricky/low-visibility conditions, and react faster",
@@ -218,6 +219,7 @@ export const catalysts = [
     likelihood: 0.76,
     updated: "Apr 22, 2026",
     description: [
+      "✅ Apr 22, 2026 (Q1 Outlook): Tesla OFFICIAL: 'First-generation production lines for Optimus are being installed in anticipation of volume production.' Fremont gen-1 line (1M/yr) + Giga Texas gen-2 (10M/yr long-term) both under construction per manufacturing table.",
       "✅ Apr 22, 2026 (Q1 shareholder deck): Fremont plant actively converting Model S/X production lines to Optimus factory — confirmed for Q2 start. Giga Texas being prepared for 2nd-gen Optimus line with long-term 10M robot/year capacity. No hard shipment numbers disclosed yet.",
       "🆕 Apr 17, 2026: Tesla files Optimus Gen 3 mechanical blueprint patents — joint designs, actuator architecture, chassis geometry locked in for mass manufacturing",
       "🆕 Apr 16, 2026: Gen 3 enters mass production phase — concurrent ramp at Giga Texas and GigaShanghai; first units targeting internal factory deployment",
@@ -477,7 +479,8 @@ export const catalysts = [
     likelihood: 0.72,
     updated: "Apr 22, 2026",
     description: [
-      "✅ Apr 22, 2026 (Q1 manufacturing table): Tesla Semi = 'Pilot Production' at Gigafactory Nevada. Tesla: 'We expect volume production of both Cybercab and the Tesla Semi this year.' Strongest commitment to date.",
+      "✅ Apr 22, 2026 (Q1 Outlook): Tesla OFFICIAL: 'Cybercab, Tesla Semi and Megapack 3 are on schedule for volume production starting in 2026.' Explicit commitment in Outlook section.",
+      "✅ Apr 22, 2026 (Q1 manufacturing table): Tesla Semi = 'Pilot Production' at Gigafactory Nevada.",
       "Semi production line confirmed at Gigafactory Nevada",
       "Pepsi pilot fleet has logged significant miles — positive reliability data",
       "500-mile range on single charge — no Class 8 competitor matches this",
