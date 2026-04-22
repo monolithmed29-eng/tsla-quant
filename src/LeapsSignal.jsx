@@ -37,6 +37,10 @@ export default function LeapsSignal({ isMobile = false }) {
       borderTop: '2px solid #00aaff',
       padding: isMobile ? '14px 16px' : '18px 28px',
       position: 'relative',
+      width: '100%',
+      maxWidth: '100%',
+      boxSizing: 'border-box',
+      overflow: 'hidden',
     }}>
       {/* Header */}
       <div style={{
@@ -59,7 +63,7 @@ export default function LeapsSignal({ isMobile = false }) {
       {/* Signal row */}
       <div style={{
         display: 'flex', alignItems: 'center', gap: isMobile ? '10px' : '20px',
-        flexWrap: 'wrap', marginBottom: '14px',
+        flexWrap: 'wrap', marginBottom: '14px', minWidth: 0,
       }}>
         {/* Strike + type */}
         <div>
@@ -117,6 +121,10 @@ export default function LeapsSignal({ isMobile = false }) {
           color: '#00ff88',
           lineHeight: 1.7,
           letterSpacing: '0.2px',
+          wordBreak: 'break-word',
+          overflowWrap: 'anywhere',
+          whiteSpace: 'normal',
+          maxWidth: '100%',
         }}>
           `{signal.quant_note}`
         </div>
