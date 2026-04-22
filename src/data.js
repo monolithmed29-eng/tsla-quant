@@ -96,9 +96,10 @@ export const catalysts = [
     weight: 0.08,
     status: "in_progress",
     expected: "1H 2026",
-    likelihood: 0.85,
-    updated: "Apr 21, 2026",
+    likelihood: 0.87,
+    updated: "Apr 22, 2026",
     description: [
+      "🆕 Apr 22, 2026: Tesla files permits for first robotaxi-only Supercharger stations in Arizona — dedicated V4 fleet charging hubs exclusively for Cybercab fleet (not public-use); first physical fleet infrastructure for autonomous operations; sites in Waymo's home territory signal competitive intent; private charging enables optimized scheduling, reduced downtime, and bidirectional energy integration (Electrek / notateslaapp / Teslarati)",
       "🆕 Apr 21, 2026: Fleet growth data (robotaxitracker.com / Autolane): TOTAL FLEET 611 vehicles cumulative — Bay Area 511, Austin 96, Dallas 2, Houston 2. UNSUPERVISED count: 17 active. Fleet curve shows steep ramp through Apr 2026 driven by Bay Area scale-up; Austin steady at ~96; Dallas/Houston just launched at 2 vehicles each confirming live operations but early stage",
       "🆕 Apr 20, 2026 (6pm ET): Musk on X: 'We expect to have fully autonomous vehicles in somewhere between a quarter and half of the United States' by end 2026 — robotaxis targeting 'dozens of major cities'; caveat: same promise made for end of 2025 (half of US population) and missed badly; aspirational language flagged by Motley Fool / Reuters",
       "🆕 Apr 20, 2026: Electrek (Apr 19) calls Dallas/Houston launch 'another stock pump before earnings' — small initial geofences with limited vehicles, not real commercial scale; Engadget confirms small sections only; skepticism about autonomy pace intensifying just before Apr 22 earnings call; bull/bear tension at maximum",

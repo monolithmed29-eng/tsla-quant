@@ -1,72 +1,58 @@
 [
   {
-    "headline": "TSLA closes +1.55% at ~$407 day before Q1 earnings — market pricing in cautious optimism ahead of Apr 22 call; options flow tilts bullish by 3:1 ratio",
-    "category": "financials",
-    "source": "Motley Fool / MarketBeat",
-    "timestamp": "Apr 21, 2026",
-    "url": "https://www.fool.com/investing/2026/04/21/should-you-buy-this-electric-vehicle-ev-stock-befo/"
+    "headline": "Tesla files permits for first robotaxi-only Supercharger stations in Arizona — dedicated V4 fleet charging hubs not open to public; first physical autonomous fleet infrastructure, sited in Waymo's home market",
+    "category": "autonomy",
+    "source": "Electrek / notateslaapp / Teslarati",
+    "timestamp": "Apr 22, 2026",
+    "url": "https://electrek.co/2026/04/21/tesla-first-robotaxi-only-supercharger-stations-arizona/"
   },
   {
-    "headline": "Seeking Alpha earnings preview: spotlight on AI5 chip updates, robotaxi miles-per-day growth, and $20B+ 2026 capex spend — three core pillars Wall Street will interrogate April 22",
+    "headline": "Q1 2026 earnings call TONIGHT at 5:30 PM ET — TSLA trading ~$389 heading in; consensus Non-GAAP EPS $0.33, revenue $21.4B, FCF –$1.6B; key questions: Cybercab ramp rate, robotaxi miles/day, gross margin ex-credits",
     "category": "financials",
-    "source": "Seeking Alpha",
-    "timestamp": "Apr 21, 2026",
-    "url": "https://seekingalpha.com/news/4576684-tesla-earnings-preview-spotlight-on-robotaxi-progress-ai5-chips-and-capex-spending"
+    "source": "Yahoo Finance / ir.tesla.com",
+    "timestamp": "Apr 22, 2026",
+    "url": "https://finance.yahoo.com/quote/TSLA/"
   },
   {
-    "headline": "Electrek earnings preview: 'Q1 2026 growth story is dead' — 50K inventory overhang, energy storage down 38% QoQ, sequential revenue decline expected; earnings call April 22 after close",
-    "category": "financials",
-    "source": "Electrek",
-    "timestamp": "Apr 21, 2026",
-    "url": "https://electrek.co/2026/04/21/tesla-tsla-q1-2026-earnings-preview-wall-street-expects-growth/"
-  },
-  {
-    "headline": "Investors demand Optimus, FSD and robotaxi answers on tomorrow's Q1 2026 earnings call — AI5 timeline, Cybercab unit economics, and robotaxi miles-per-day growth are top 3 hotspot questions",
-    "category": "financials",
-    "source": "eletric-vehicles.com",
-    "timestamp": "Apr 21, 2026",
-    "url": "https://eletric-vehicles.com/tesla/tesla-shareholders-demand-updates-on-optimus-robotaxi-fsd-on-earnings-call/"
-  },
-  {
-    "headline": "TradingKey: 5 core Q1 metrics long-term TSLA investors should watch — robotaxi revenue-per-mile, Cybercab ramp rate, gross margin ex-credits, FSD subscriber growth, and energy storage recovery",
-    "category": "financials",
-    "source": "TradingKey",
-    "timestamp": "Apr 21, 2026",
-    "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/261804129-tesla-q1-2026-earnings-preview-5-key-metrics-tradingkey"
-  },
-  {
-    "headline": "Ross Gerber reiterates FSD refund demand ahead of earnings — calls robotaxi expansion 'a distraction' and predicts below-average Q1 print; FSD 'never worked as promised' per longtime investor",
-    "category": "corporate",
+    "headline": "Tesla lithium refinery in Robstown TX cited in environmental dispute — independent lab finds hexavalent chromium and arsenic in discharge not covered by TCEQ permit; local drainage district issues cease & desist; wastewater flows toward Baffin Bay fishing area",
+    "category": "manufacturing",
     "source": "Benzinga",
-    "timestamp": "Apr 21, 2026",
-    "url": "https://www.benzinga.com/markets/tech/26/04/51929763/ross-gerber-fsd-refund-demand-tesla-needs-to-make-people-whole"
-  },
-  {
-    "headline": "Musk: 'We expect fully autonomous vehicles in a quarter to half of the US' by end 2026 — robotaxis targeting 'dozens of major cities'; same promise made for 2025 and missed; aspirational language flagged by analysts",
-    "category": "autonomy",
-    "source": "Motley Fool / X (Elon Musk)",
-    "timestamp": "Apr 20, 2026",
-    "url": "https://www.fool.com/investing/2026/04/20/tesla-stock-good-news-elon-musk-trillion-dollar/"
-  },
-  {
-    "headline": "14 Cybercab units WITHOUT steering wheels spotted at Giga Texas — production-spec autonomous Cybercabs rolling off line; original no-steering-wheel design confirmed; production ramp accelerating",
-    "category": "autonomy",
-    "source": "Teslarati / drone footage",
-    "timestamp": "Apr 20, 2026",
+    "timestamp": "Apr 22, 2026",
     "url": null
   },
   {
-    "headline": "TIKR bull/bear case: TSLA down ~20% in 2026 — bull $9,900/share (45% IRR on Cybercab + Optimus ramp); bear $4,700/share (33% IRR) on demand softness; could Q1 earnings be the turning point?",
-    "category": "financials",
-    "source": "TIKR.com",
+    "headline": "FSD v14.3 MLIR rewrite confirmed: 20% faster reaction times via rebuilt AI compiler; new fleet-to-fleet RL pipeline sourcing 'hard examples' from global fleet; v14.3.1 follow-up patch now rolling fleet-wide on 2026.2.9.7 build",
+    "category": "autonomy",
+    "source": "notateslaapp / ordoh.com",
     "timestamp": "Apr 21, 2026",
-    "url": "https://www.tikr.com/blog/tesla-has-lost-20-in-2026-could-q1-earnings-be-the-turning-point"
+    "url": "https://www.notateslaapp.com/news/3925/tesla-releases-fsd-143-fleet-learning-20-faster-reactions-and-more"
   },
   {
-    "headline": "Optimus robot live at Tesla Boston Boylston Street showroom for Marathon Monday — hundreds of thousands of spectators + international broadcast; zero ad spend PR at massive scale",
+    "headline": "Forbes: Tesla targeting one Cybercab every 10 seconds at full Giga Texas scale — annual capacity of 2 million units; production ramp started April 2026 with Cybercab on AI4.5 hardware (AI5 pushed to 2027)",
+    "category": "autonomy",
+    "source": "Forbes",
+    "timestamp": "Apr 21, 2026",
+    "url": "https://www.forbes.com/sites/jonmarkman/2026/04/16/master-plan-part-deux-teslas-cybercab-vision-enters-production/"
+  },
+  {
+    "headline": "Optimus Gen 3 enters mass production — Fremont factory floor converted for 1M units/year long-term capacity; GigaShanghai confirmed as second production site; Gen 3 powered by FSD AI; internal factory deployment before external sales",
     "category": "robotics",
-    "source": "Teslarati",
-    "timestamp": "Apr 20, 2026",
-    "url": "https://www.teslarati.com/tesla-optimus-boston-marathon/"
+    "source": "Teslarati / ilovetesla.com",
+    "timestamp": "Apr 21, 2026",
+    "url": "https://ilovetesla.com/teslas-optimus-robot-cheers-on-boston-marathon-runners-a-historic-public-debut-on-the-road-to-mass-humanoid-adoption/"
+  },
+  {
+    "headline": "Samsung Taylor Texas 2nm fab kicks off equipment installation April 24 — AI5 chip production milestone; $16.5B Tesla deal signed Jul 2025; 2nm yields in high-50% range; volume production targeting 2027 for Optimus and supercomputer clusters",
+    "category": "robotics",
+    "source": "evxl.co / Korea Herald",
+    "timestamp": "Apr 21, 2026",
+    "url": null
+  },
+  {
+    "headline": "TSLA closed +1.55% at ~$407 day before Q1 earnings; Musk says 'fully autonomous in a quarter to half of the US' by end 2026 — same promise missed in 2025; robotaxi fleet hits 611 vehicles total (Bay Area 511, Austin 96, Dallas/Houston 4)",
+    "category": "financials",
+    "source": "Motley Fool / robotaxitracker.com",
+    "timestamp": "Apr 21, 2026",
+    "url": "https://www.fool.com/investing/2026/04/21/should-you-buy-this-electric-vehicle-ev-stock-befo/"
   }
 ]
