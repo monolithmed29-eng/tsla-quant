@@ -11,6 +11,7 @@ import RestoreAccess from './RestoreAccess';
 import DarkPoolGauge from './DarkPoolGauge';
 import ChartAnalysis from './ChartAnalysis';
 import BetaDashboard from './BetaDashboard';
+import LeapsSignal from './LeapsSignal';
 import { calcPredictedPrice } from './priceModel';
 import { useTSLAPrice } from './useTSLAPrice';
 
@@ -806,6 +807,9 @@ function TradingSheet({ onClose }) {
 
         {/* Scrollable content */}
         <div style={{ flex:1, overflowY:'auto', WebkitOverflowScrolling:'touch' }}>
+          {/* LEAPS Signal */}
+          <TradingSectionSafe title="LEAPS Signal"><LeapsSignal isMobile={true} /></TradingSectionSafe>
+
           {/* Chart Analysis */}
           <TradingSectionSafe title="Chart Analysis"><ChartAnalysis /></TradingSectionSafe>
 

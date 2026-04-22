@@ -1,0 +1,10 @@
+{
+  "strike": 340,
+  "expiry": "2027-06-17",
+  "type": "CALL",
+  "premium": 11245,
+  "efficiency": 3.436,
+  "iv": 56.0,
+  "quant_note": "Highest efficiency at the highest strike — the model is paying you to reach further, and with Q1 earnings dropping today after close, the market hasn't priced in what a robotaxi guidance beat could do to a June '27 contract.",
+  "updated": "Apr 22, 2026 · 9am ET"
+}
