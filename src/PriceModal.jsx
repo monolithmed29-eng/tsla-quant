@@ -55,7 +55,7 @@ const CATEGORY_COLOR = {
   spacex:   '#e2e8f0',
 };
 
-export default function PriceModal({ breakdown, total, livePrice, quantChange, onClose }) {
+export default function PriceModal({ breakdown, total, livePrice, quantChange, quantChangeNote, onClose }) {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -123,7 +123,7 @@ export default function PriceModal({ breakdown, total, livePrice, quantChange, o
                     {quantChange >= 0 ? '+' : ''}{quantChange} pts
                   </span>
                   {' '}since last update —{' '}
-                  {`Apr 15, 2026: Musk clarified AI5 is NOT going into vehicles — Cybercab ships on AI4, in-vehicle chip upgrade pushed to 2027+. HW5 likelihood trimmed 0.45 → 0.38. TSLA surged ~8% today on AI chip reveal (range $362–$394).`}
+                  {quantChangeNote || ''}
                 </div>
               )}
             </div>
