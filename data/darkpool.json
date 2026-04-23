@@ -1,8 +1,8 @@
 {
-  "gauge_value": 30,
+  "gauge_value": 28,
   "needle_status": "Aggressive",
-  "roger_insight": "Put-heavy on dollar flow into earnings — institutions are committing significantly more capital to downside protection than calls despite nearly even contract counts. Dollar conviction skews bearish heading into the post-earnings session.",
-  "updated": "Apr 22 · 1pm ET",
-  "calls": { "count": 65, "value": 6960000 },
-  "puts":  { "count": 64, "value": 15900000 }
+  "roger_insight": "Put-heavy on dollar flow — institutions are deploying significantly more capital to downside protection than calls despite nearly even contract counts. Dollar conviction continues to skew bearish.",
+  "updated": "Apr 23 · 10am ET",
+  "calls": { "count": 244, "value": 13490000 },
+  "puts":  { "count": 240, "value": 19000000 }
 }
