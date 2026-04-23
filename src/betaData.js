@@ -9,4 +9,5 @@ export const BETA_QQQ = 1.5;   // TSLA β vs Nasdaq-100
 export const betaHistory = [
   // Rolling 10-day window — cron appends daily, drops oldest when >10 entries
   { date: "2026-04-21", tsla: -1.56, spy: -0.63, qqq: -0.42 },
+  { date: "2026-04-22", tsla: 0.28, spy: 1.01, qqq: 1.67 },
 ];
