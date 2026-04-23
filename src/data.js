@@ -88,6 +88,7 @@ export const catalysts = [
       "⚠️ Apr 14, 2026: Morgan Stanley note — 'Investors Need More Proof of Real Autonomy' despite milestone; emphasizes market wants demonstrated unsupervised reliability before re-rating",
       "✅ Apr 22, 2026 (Q1 deck): Active FSD Subscriptions 1.28M (+51% YoY from 0.85M in Q1 2025). Cumulative all-time deliveries: 9.2M (+21% YoY).",
       "🇳🇱 Netherlands RDW approval: CONFIRMED April 10, 2026 — first EU regulatory greenlight; EU-wide rollout expected summer 2026",
+      "🆕 Apr 23, 2026 (Q1 Earnings Call): Musk CONFIRMED HW3 cannot achieve Unsupervised FSD — 'simply does not have the capability'; only 1/8 memory bandwidth of HW4/AI4; FSD v12.6.4 was last HW3 update (Mar 2025); Musk offered free HW3→HW4 retrofit path. V14 Lite for HW3 (supervised only) releasing by end of June.",
       "Risk: NHTSA has not yet granted 'fully autonomous' commercial approval",
     ]
   },
@@ -239,10 +240,11 @@ export const catalysts = [
     category: "robotics",
     weight: 0.08,
     status: "upcoming",
-    expected: "Q4 2026",
-    likelihood: 0.35,
-    updated: "Mar 22, 2026",
+    expected: "2027",
+    likelihood: 0.30,
+    updated: "Apr 23, 2026",
     description: [
+      "🆕 Apr 23, 2026 (Q1 Earnings Call): Musk confirmed Optimus external sales 'probably' in 2027 — said it will 'probably be made useful outside of Tesla sometime next year'; slides timeline from Q4 2026 to 2027; consistent with earlier TheNextWeb confirmation of 2027 commercial deployment.",
       "First external customer deliveries of Optimus humanoid robot",
       "Target price not officially confirmed — estimated $20K–$30K/unit",
       "Initial customers likely industrial/warehouse clients, not consumers",
