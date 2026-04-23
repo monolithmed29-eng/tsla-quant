@@ -157,10 +157,16 @@ export default function PriceModal({ breakdown, total, livePrice, quantChange, o
           {breakdown.map(unit => {
             const color = CATEGORY_COLOR[unit.id] || '#aaa';
             const desc = UNIT_DESCRIPTIONS[unit.id];
-            const range = unit.bull - unit.bear;
-            // Normalize to unit's own bear→bull range so fill aligns with Bear/Base/Bull labels
-            const barPct  = Math.min(100, Math.max(0, ((unit.value - unit.bear) / range) * 100));
-            const basePct = ((unit.base  - unit.bear) / range) * 100;
+            // Two-segment scale: bear→base = left half (0–50%), base→bull = right half (50–100%)
+            // This keeps the base marker always at 50% so the bar reads intuitively.
+            let barPct;
+            if (unit.value <= unit.base) {
+              barPct = ((unit.value - unit.bear) / (unit.base - unit.bear)) * 50;
+            } else {
+              barPct = 50 + ((unit.value - unit.base) / (unit.bull - unit.base)) * 50;
+            }
+            barPct = Math.min(100, Math.max(0, barPct));
+            const basePct = 50; // always at midpoint
 
             return (
               <div key={unit.id} style={{
