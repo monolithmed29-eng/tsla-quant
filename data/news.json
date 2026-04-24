@@ -1,48 +1,48 @@
 [
   {
-    "headline": "🚨 Tesla quietly buries $2B AI hardware acquisition in 10-Q — unnamed company disclosed in a single sentence; never mentioned on earnings call; $1.8B contingent on service/performance milestones; could accelerate Optimus or FSD chip roadmap",
+    "headline": "Tesla Spring Update 2026.14.1/2026.14.2 goes wide release — Hey Grok voice assistant, standalone FSD app, Cyberhog Pet Mode, sharper Model 3/Y visualizations now rolling fleet-wide",
+    "category": "product",
+    "source": "Tesla Oracle / notateslaapp.com",
+    "timestamp": "Apr 24, 2026",
+    "url": "https://www.teslaoracle.com/2026/04/24/watch-the-sharp-new-tesla-model-3-and-model-y-visualizations-spring-update-goes-wide-release-2026-14-1-and-2026-14-2/"
+  },
+  {
+    "headline": "Samsung Taylor Texas 2nm fab equipment installation ceremony goes live — CEO Han Jin-man attending; AI5 + AI6 chip manufacturing ramp officially kicks off; volume production targeting 2027",
+    "category": "product",
+    "source": "evxl.co / Korea Herald",
+    "timestamp": "Apr 24, 2026",
+    "url": null
+  },
+  {
+    "headline": "🚨 Tesla quietly buries $2B AI hardware acquisition in 10-Q — unnamed company; $1.8B contingent on deployment milestones; could accelerate Optimus or FSD chip roadmap",
     "category": "corporate",
     "source": "Electrek / Business Insider / Gizmodo",
     "timestamp": "Apr 23, 2026",
     "url": "https://electrek.co/2026/04/23/tesla-tsla-quietly-discloses-2-billion-ai-hardware-acquisition-10q/"
   },
   {
-    "headline": "⚠️ TSLA closes ~$372, -3.7% post-earnings — CFO confirms negative free cash flow for rest of 2026; $25B capex ($5B above prior guidance) covers 6 new factories; Fortune: 'earned next to nothing on cars in Q1'; -17% YTD",
+    "headline": "⚠️ TSLA closes $373.60, -3.59% post-earnings — CFO confirms negative FCF for rest of 2026; $25B capex ($5B above prior guidance); Fortune: 'earned next to nothing on cars in Q1'; -17% YTD",
     "category": "financials",
-    "source": "Fortune / Yahoo Finance / The Next Web",
+    "source": "Fortune / Yahoo Finance / Motley Fool",
     "timestamp": "Apr 23, 2026",
-    "url": "https://fortune.com/2026/04/23/tesla-stock-price-earnings-call-outlook/"
+    "url": "https://www.fool.com/investing/2026/04/23/why-tesla-stock-sank-today/"
   },
   {
-    "headline": "⚠️ Musk confirms HW3 CANNOT achieve Unsupervised FSD — 'simply does not have the capability'; only 1/8 the memory bandwidth of HW4; v14 Lite (supervised) coming to HW3 by end of June",
+    "headline": "Musk on Q1 call: Optimus production starts 'late July or August' at Fremont — second Giga Texas factory targets summer 2027; Gen 3 reveal pushed closer to production; ramp rates 'impossible to predict'",
+    "category": "robotics",
+    "source": "Electrek / Ticker Report / Motley Fool",
+    "timestamp": "Apr 23, 2026",
+    "url": "https://electrek.co/2026/04/22/tesla-optimus-production-fremont-model-sx-line/"
+  },
+  {
+    "headline": "⚠️ Musk confirms HW3 CANNOT achieve Unsupervised FSD — 'simply does not have the capability'; only 1/8 memory bandwidth of HW4/AI4; v14 Lite (supervised only) coming to HW3 by end of June",
     "category": "autonomy",
     "source": "Tesla Oracle / Q1 2026 Earnings Call",
     "timestamp": "Apr 23, 2026",
     "url": "https://www.teslaoracle.com/2026/04/23/tesla-hw3-vehicles-cant-achieve-unsupervised-fsd-v14-lite-to-be-released-by-june-musk-on-q1-2026-earnings-call/"
   },
   {
-    "headline": "Musk: Optimus external sales 'probably next year' (2027) — shifts timeline from Q4 2026; says Optimus will be 'useful outside of Tesla sometime next year'",
-    "category": "robotics",
-    "source": "TheNextWeb / Q1 2026 Earnings Call",
-    "timestamp": "Apr 23, 2026",
-    "url": "https://thenextweb.com/news/tesla-25-billion-capex-2026-optimus-robotaxi-ai-chip-fab"
-  },
-  {
-    "headline": "Musk on earnings call: New Roadster could debut 'in a month or so' — first concrete timeline signal in years; unexpected acceleration from 2027 to possible Q2/Q3 2026 reveal",
-    "category": "product",
-    "source": "TipRanks / CNBC",
-    "timestamp": "Apr 23, 2026",
-    "url": "https://www.cnbc.com/quotes/TSLA"
-  },
-  {
-    "headline": "Musk targets unsupervised FSD in 'a dozen or so states' by year-end 2026 — but cautions it 'won't be super material this year'; safety improvement remains prerequisite for scaling",
-    "category": "autonomy",
-    "source": "CNBC / Business Insider / Q1 2026 Earnings Call",
-    "timestamp": "Apr 23, 2026",
-    "url": "https://www.cnbc.com/2026/04/22/tesla-tsla-q1-2026-earnings-report.html"
-  },
-  {
-    "headline": "Tesla Q1 2026 BEAT: Revenue $22.38B (+16% YoY), non-GAAP EPS $0.41 (+52% YoY) vs $0.37 est, gross margin 21.1% (+478 bps YoY), FCF $1.4B (+117% YoY) — strongest margins in years",
+    "headline": "Tesla Q1 2026 BEAT: Revenue $22.38B (+16% YoY), non-GAAP EPS $0.41 (+52% YoY), gross margin 21.1% (+478 bps YoY), FCF $1.4B (+117% YoY) — strongest margins in years",
     "category": "financials",
     "source": "Electrek / CNBC / Tesla IR",
     "timestamp": "Apr 22, 2026",
