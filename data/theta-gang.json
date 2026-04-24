@@ -1,11 +1,23 @@
 {
-  "signal_type": "PUT",
-  "strike": 350.0,
-  "expiry": "2026-05-22",
-  "premium": 7.62,
-  "aroc": 28.38,
-  "delta": -0.26,
-  "conviction": "STANDARD",
-  "quant_note": "The $350 CSP May 22 leads all candidates at 28.38% AROC with 28 DTE — near-peak Theta decay territory. At -0.26 delta, the strike sits ~5.9% OTM from current ~$372, providing a meaningful cushion. Yield/risk tradeoff tops all CSP entries by 150bps+ annualized; no HIGH CONVICTION plays this scan (no contract cleared both Delta <0.20 and AROC >25%).",
-  "updated": "Apr 23, 2026 · 11pm ET"
+  "updated": "Apr 23, 2026 · 11pm ET",
+  "csp": {
+    "signal_type": "PUT",
+    "strike": 350.0,
+    "expiry": "2026-05-22",
+    "premium": 7.62,
+    "aroc": 28.38,
+    "delta": -0.26,
+    "conviction": "STANDARD",
+    "quant_note": "The $350 CSP May 22 leads all CSP candidates at 28.38% AROC with 28 DTE — near-peak Theta decay territory. At -0.26 delta the strike sits ~5.9% OTM from ~$372, providing a meaningful cushion against near-term volatility."
+  },
+  "cc": {
+    "signal_type": "CALL",
+    "strike": 405.0,
+    "expiry": "2026-05-22",
+    "premium": 7.10,
+    "aroc": 24.80,
+    "delta": 0.27,
+    "conviction": "STANDARD",
+    "quant_note": "The $405 CC May 22 tops the CC group at 24.80% AROC with 28 DTE. Strike sits ~$33 OTM (~8.9% above ~$372), offering solid upside buffer while collecting premium. Shorter expiry maximizes Theta decay vs the May 29 equivalent."
+  }
 }
