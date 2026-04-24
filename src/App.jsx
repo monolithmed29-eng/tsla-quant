@@ -8,6 +8,7 @@ import { logNodeClick } from './queryLogger';
 import BetaDashboard from './BetaDashboard';
 import ChartAnalysis from './ChartAnalysis';
 import LeapsSignal from './LeapsSignal';
+import ThetaGangSignal from './ThetaGangSignal';
 import QueryEngine from './QueryEngine';
 import DarkPoolGauge from './DarkPoolGauge';
 import TSLAMedia from './TSLAMedia';
@@ -318,6 +319,9 @@ function BetaMetaTab({ tslaPrice, marketOpen, lastUpdated, predicted, quantChang
 
 {/* ── LEAPS Signal ── */}
             <LeapsSignal isMobile={false} />
+
+{/* ── Theta Gang Signal ── */}
+            <ThetaGangSignal isMobile={false} />
 
 {/* ── Section divider: Tickers → Chart Analysis ── */}
             <div style={{ height: '3px', background: 'linear-gradient(to right, #00aaff33, #00ff8833, #00aaff33)', margin: '0' }} />
