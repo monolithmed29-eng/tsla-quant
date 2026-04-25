@@ -43,7 +43,7 @@ function SignalCard({ signal, updated, isMobile }) {
   const convictionBg = isHighConviction ? 'rgba(0,255,136,0.08)' : 'rgba(245,158,11,0.08)';
   const convictionBorder = isHighConviction ? '#00ff8833' : '#f59e0b33';
   const isPut = signal.signal_type === 'PUT';
-  const signalColor = isPut ? '#a78bfa' : '#38bdf8';
+  const signalColor = '#00aaff';
   const label = isPut ? '⚡ Cash Secured Put' : '⚡ Covered Call';
 
   return (
@@ -51,7 +51,7 @@ function SignalCard({ signal, updated, isMobile }) {
       fontFamily: FONT,
       background: '#030608',
       border: '1px solid #00aaff22',
-      borderTop: `2px solid ${isPut ? '#a78bfa' : '#38bdf8'}`,
+      borderTop: '2px solid #00aaff',
       padding: isMobile ? '14px 16px' : '18px 28px',
       width: '100%',
       maxWidth: '100%',
@@ -116,18 +116,18 @@ function SignalCard({ signal, updated, isMobile }) {
 
       {/* Quant Note */}
       <div style={{
-        background: `rgba(${isPut ? '167,139,250' : '56,189,248'},0.04)`,
-        border: `1px solid ${signalColor}22`,
+        background: 'rgba(0,255,136,0.04)',
+        border: '1px solid #00ff8822',
         padding: '10px 14px',
-        borderLeft: `3px solid ${signalColor}`,
+        borderLeft: '3px solid #00ff88',
       }}>
-        <div style={{ fontSize: '9px', color: signalColor, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '5px', fontWeight: 700 }}>
+        <div style={{ fontSize: '9px', color: '#00ff88', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '5px', fontWeight: 700 }}>
           Quant Note
         </div>
         <div style={{
           fontFamily: 'monospace',
           fontSize: isMobile ? '11px' : '12px',
-          color: signalColor,
+          color: '#00ff88',
           lineHeight: 1.7,
           letterSpacing: '0.2px',
           wordBreak: 'break-word',

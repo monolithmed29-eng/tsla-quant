@@ -23,9 +23,9 @@ const BREAKDOWN = calcPriceBreakdown(catalysts);
 // PREV_PREDICTED = the model price before today's data updates.
 // Update BOTH constants whenever a meaningful data change is deployed.
 // QUANT_CHANGE_NOTE explains what drove the move from PREV_PREDICTED → PREDICTED.
-const PREV_PREDICTED = 684; // model price before Apr 22, 2026 Q1 earnings beat update
+const PREV_PREDICTED = 701; // model price before Apr 24, 2026 update
 const QUANT_CHANGE = PREDICTED !== PREV_PREDICTED ? PREDICTED - PREV_PREDICTED : null;
-const QUANT_CHANGE_NOTE = "Apr 22, 2026: Q1 earnings beat — Rev $22.38B (+16% YoY), GM 21.1%, EPS $0.41 non-GAAP (+52%). Cybercab/Semi/Megapack3 volume production 2026 confirmed. 5-city robotaxi slippage partially offsets. Model moved $684 → $701.";
+const QUANT_CHANGE_NOTE = "Apr 24, 2026: Optimus Fremont \"late July or August\" start confirmed on Q1 call (0.76→0.78). Elon focus upgrade (0.48→0.50). Optimus external sales pushed to 2027 (0.35→0.30). Samsung Taylor 2nm equipment install live today (AI5/AI6 ramp). Net: model moved $701 → $699.";
 
 // Starfield
 function Starfield() {
