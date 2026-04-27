@@ -1,10 +1,31 @@
 [
   {
+    "headline": "TSLA fades to ~$340 post-earnings week (-23% from Dec record high) — Motley Fool: Cybercab in production and Optimus close are real milestones, but 300x earnings valuation is 'sky-high'; unsupervised FSD still Austin-only means robotaxi revenue 'relatively small until 2027'; Wall St consensus Buy with avg PT $405 (29 analysts)",
+    "category": "financials",
+    "source": "Motley Fool / stockanalysis.com / 24/7WallSt",
+    "timestamp": "Apr 27, 2026",
+    "url": "https://www.fool.com/investing/2026/04/27/elon-musk-great-news-tesla-dont-buy-stock/"
+  },
+  {
+    "headline": "FSD China approval slips again to Q3 2026 — Tesla execs told investors during Q1 call that approval is now expected Q3 2026; Musk had publicly promised Feb/Mar 2026 at Davos in January; ~15M Chinese Tesla owners remain without FSD access; bear case: pattern of regulatory delays undermines global licensing thesis",
+    "category": "autonomy",
+    "source": "LetsDatScience / Automotive World / Reuters",
+    "timestamp": "Apr 27, 2026",
+    "url": "https://letsdatascience.com/news/tesla-promises-fsd-china-approval-despite-delays-6f05dbf8"
+  },
+  {
     "headline": "TSLA opens Apr 27 at ~$366 (-2.1%) — market risk-off on Iran Strait geopolitical developments; Deutsche Bank reiterates Buy, calls Q1 a 'surprisingly large beat'; post-earnings pressure continues, stock -19% YTD",
     "category": "financials",
     "source": "Deutsche Bank / TheStreet / Investing.com",
     "timestamp": "Apr 27, 2026",
     "url": null
+  },
+  {
+    "headline": "Motley Fool post-earnings: Musk says robotaxi 'will not be super material this year' — targets 'dozen or so states'; $25B capex + negative FCF become new bear anchors; bull case rests entirely on 2027+ Optimus + Cybercab scale",
+    "category": "autonomy",
+    "source": "Motley Fool",
+    "timestamp": "Apr 26, 2026",
+    "url": "https://www.fool.com/investing/2026/04/26/how-teslas-latest-update-changed-the-bull-and-bear/"
   },
   {
     "headline": "Tesla confirms Cybercab has NO production cap as ramp begins — Musk says volumes will scale 'exponentially by end of 2026'; demand-driven production model unlike any prior Tesla vehicle; confirms extreme management confidence in Cybercab trajectory",
@@ -21,13 +42,6 @@
     "url": "https://www.notateslaapp.com/news/4042/tesla-hits-546-million-in-annual-recurring-revenue-from-fsd-subscriptions"
   },
   {
-    "headline": "Giga Berlin records best-ever Q1 (61K+ vehicles), announces 20% production increase and 1,000 new hires — Electrek notes factory still running at 65% of 375K-unit capacity despite the record quarter",
-    "category": "manufacturing",
-    "source": "notateslaapp.com / Electrek",
-    "timestamp": "Apr 25, 2026",
-    "url": "https://www.notateslaapp.com/news/4043/giga-berlin-ramps-up-20-production-increase-and-1000-new-hires"
-  },
-  {
     "headline": "FSD v14.3.2 released — first unified AI model across Smart Summon, FSD, and Robotaxi fleet; vehicles no longer switch neural networks between parking lots and public roads; major step toward production-grade unsupervised autonomy",
     "category": "autonomy",
     "source": "notateslaapp.com",
@@ -35,38 +49,17 @@
     "url": "https://www.notateslaapp.com/news/4033/tesla-fsd-v1432-unifies-fsd-models-across-robotaxi-and-customer-vehicles-improves-summon-and-adds-new-menu"
   },
   {
+    "headline": "Optimus v3 to debut mid-2026, mass production July–August at Fremont — Electrek: first-gen production lines 'being installed' targeting 1M robots/year capacity; Giga Texas second factory targeting 10M/yr long-term; Musk warns ramp rates 'impossible to predict' with 10,000+ unique parts",
+    "category": "robotics",
+    "source": "Electrek / Wikipedia / Robot Report",
+    "timestamp": "Apr 25, 2026",
+    "url": "https://electrek.co/2026/04/22/tesla-optimus-production-fremont-model-sx-line/"
+  },
+  {
     "headline": "Tesla launches Robotaxi app for Android — was iOS-only since Austin launch; Android release opens service to majority of smartphone users ahead of multi-city expansion; app still invite/region-limited",
     "category": "autonomy",
     "source": "notateslaapp.com",
     "timestamp": "Apr 24, 2026",
     "url": "https://www.notateslaapp.com/news/4045/tesla-finally-launches-robotaxi-app-for-android"
-  },
-  {
-    "headline": "Motley Fool post-earnings: Musk says robotaxi 'will not be super material this year' — targets 'dozen or so states'; $25B capex + negative FCF become new bear anchors; bull case rests entirely on 2027+ Optimus + Cybercab scale",
-    "category": "autonomy",
-    "source": "Motley Fool",
-    "timestamp": "Apr 26, 2026",
-    "url": "https://www.fool.com/investing/2026/04/26/how-teslas-latest-update-changed-the-bull-and-bear/"
-  },
-  {
-    "headline": "Analyst: Cybercab to become Tesla's flagship model long-term — 'most of production will be Cybercab'; Roadster will be the only manually-driven car in Tesla's eventual fleet",
-    "category": "autonomy",
-    "source": "Seoul Economic Daily / WebProNews",
-    "timestamp": "Apr 25, 2026",
-    "url": "https://en.sedaily.com/finance/2026/04/25/teslas-cybercab-robotaxi-to-become-flagship-model-analyst"
-  },
-  {
-    "headline": "Musk reveals 8M sq-ft Optimus factory at Giga Texas; Model S/X production ends late July/Aug; Optimus 3 kicks off at Fremont thereafter — Roadster 'only a month late so far,' hover capability confirmed",
-    "category": "robotics",
-    "source": "Autoweek / notateslaapp",
-    "timestamp": "Apr 25, 2026",
-    "url": "https://www.autoweek.com/news/a71110538/tesla-2026-q1-earnings-roadster-is-late/"
-  },
-  {
-    "headline": "🚀 Musk posts official Cybercab production video — 'Cybercab has started production'; footage shows interior with NO steering wheel or pedals; multiple units confirmed built; TSLA +<1% premarket after post-earnings selloff",
-    "category": "autonomy",
-    "source": "Elon Musk / X · Bloomberg · Benzinga · Sherwood News",
-    "timestamp": "Apr 24, 2026",
-    "url": "https://www.businessinsider.com/tesla-cybercab-robotaxi-production-video-2026-4"
   }
 ]
