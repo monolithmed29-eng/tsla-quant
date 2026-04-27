@@ -1,8 +1,8 @@
 {
-  "gauge_value": 68,
+  "gauge_value": 25,
   "needle_status": "Aggressive",
-  "roger_insight": "Call-heavy on dollar flow — institutions are committing significantly more capital to upside than downside, with calls leading on both count and dollar value. Conviction is shifting bullish heading into the afternoon session.",
-  "updated": "Apr 23 · 12pm ET",
-  "calls": { "count": 734, "value": 44120000 },
-  "puts":  { "count": 513, "value": 38600000 }
+  "roger_insight": "Put-heavy on both count and dollar flow — institutions are deploying significantly more capital to downside protection, with puts leading on contracts and dollar value. Bearish conviction is clear heading into the session.",
+  "updated": "Apr 27 · 10am ET",
+  "calls": { "count": 136, "value": 5340000 },
+  "puts":  { "count": 211, "value": 8800000 }
 }
