@@ -1,5 +1,33 @@
 [
   {
+    "headline": "TSLA pre-market Apr 27: ~$374 (-0.6%) as market continues digesting $25B+ capex plan and negative FCF guidance for rest of 2026; stock -17% YTD; post-earnings pressure persists",
+    "category": "financials",
+    "source": "Yahoo Finance / Robinhood",
+    "timestamp": "Apr 27, 2026",
+    "url": null
+  },
+  {
+    "headline": "Motley Fool post-earnings: Musk says robotaxi 'will not be super material this year' — targets 'dozen or so states'; $25B capex + negative FCF become new bear anchors; bull case rests entirely on 2027+ Optimus + Cybercab scale",
+    "category": "autonomy",
+    "source": "Motley Fool",
+    "timestamp": "Apr 26, 2026",
+    "url": "https://www.fool.com/investing/2026/04/26/how-teslas-latest-update-changed-the-bull-and-bear/"
+  },
+  {
+    "headline": "Analyst: Cybercab to become Tesla's flagship model long-term — 'most of production will be Cybercab'; Roadster will be the only manually-driven car in Tesla's eventual fleet",
+    "category": "autonomy",
+    "source": "Seoul Economic Daily / WebProNews",
+    "timestamp": "Apr 25, 2026",
+    "url": "https://en.sedaily.com/finance/2026/04/25/teslas-cybercab-robotaxi-to-become-flagship-model-analyst"
+  },
+  {
+    "headline": "Musk reveals 8M sq-ft Optimus factory at Giga Texas; Model S/X production ends late July/Aug; Optimus 3 kicks off at Fremont thereafter — Roadster 'only a month late so far,' hover capability confirmed",
+    "category": "robotics",
+    "source": "Autoweek / notateslaapp",
+    "timestamp": "Apr 25, 2026",
+    "url": "https://www.autoweek.com/news/a71110538/tesla-2026-q1-earnings-roadster-is-late/"
+  },
+  {
     "headline": "🚀 Musk posts official Cybercab production video — 'Cybercab has started production'; footage shows interior with NO steering wheel or pedals; multiple units confirmed built; TSLA +<1% premarket after post-earnings selloff",
     "category": "autonomy",
     "source": "Elon Musk / X · Bloomberg · Benzinga · Sherwood News",
@@ -40,19 +68,5 @@
     "source": "Tesla Oracle / Q1 2026 Earnings Call",
     "timestamp": "Apr 23, 2026",
     "url": "https://www.teslaoracle.com/2026/04/23/tesla-hw3-vehicles-cant-achieve-unsupervised-fsd-v14-lite-to-be-released-by-june-musk-on-q1-2026-earnings-call/"
-  },
-  {
-    "headline": "Tesla Q1 2026 BEAT: Revenue $22.38B (+16% YoY), non-GAAP EPS $0.41 (+52% YoY), gross margin 21.1% (+478 bps YoY), FCF $1.4B (+117% YoY) — strongest margins in years",
-    "category": "financials",
-    "source": "Electrek / CNBC / Tesla IR",
-    "timestamp": "Apr 22, 2026",
-    "url": "https://electrek.co/2026/04/22/tesla-tsla-q1-2026-financial-results/"
-  },
-  {
-    "headline": "⚠️ Tesla quietly slips 5-city robotaxi 1H 2026 timelines — Phoenix, Miami, Orlando, Tampa, Las Vegas now 'preparations underway' with no firm date; only Dallas + Houston confirmed live",
-    "category": "autonomy",
-    "source": "Electrek / Business Insider / Tesla Q1 Deck",
-    "timestamp": "Apr 22, 2026",
-    "url": "https://electrek.co/2026/04/22/tesla-seems-to-say-robotaxi-launch-will-be-pushed-back-in-5-us-cities/"
   }
 ]
