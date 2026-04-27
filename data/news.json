@@ -1,62 +1,70 @@
 [
   {
-    "headline": "TSLA fades to ~$340 post-earnings week (-23% from Dec record high) — Motley Fool: Cybercab in production and Optimus close are real milestones, but 300x earnings valuation is 'sky-high'; unsupervised FSD still Austin-only means robotaxi revenue 'relatively small until 2027'; Wall St consensus Buy with avg PT $405 (29 analysts)",
+    "headline": "Tesla files S-8 registering 303.9M shares for Musk (2018 comp award) \u2014 NOT a sale; Delaware Supreme Court restored award Dec 2025; next taxable event not until Jan 2028 per TeslaBoomerMama",
+    "category": "corporate",
+    "source": "SEC / TeslaBoomerMama",
+    "timestamp": "Apr 27, 2026",
+    "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=TSLA&type=S-8&dateb=&owner=include&count=10",
+    "sentiment": "neutral"
+  },
+  {
+    "headline": "TSLA fades to ~$340 post-earnings week (-23% from Dec record high) \u2014 Motley Fool: Cybercab in production and Optimus close are real milestones, but 300x earnings valuation is 'sky-high'; unsupervised FSD still Austin-only means robotaxi revenue 'relatively small until 2027'; Wall St consensus Buy with avg PT $405 (29 analysts)",
     "category": "financials",
     "source": "Motley Fool / stockanalysis.com / 24/7WallSt",
     "timestamp": "Apr 27, 2026",
     "url": "https://www.fool.com/investing/2026/04/27/elon-musk-great-news-tesla-dont-buy-stock/"
   },
   {
-    "headline": "FSD China approval slips again to Q3 2026 — Tesla execs told investors during Q1 call that approval is now expected Q3 2026; Musk had publicly promised Feb/Mar 2026 at Davos in January; ~15M Chinese Tesla owners remain without FSD access; bear case: pattern of regulatory delays undermines global licensing thesis",
+    "headline": "FSD China approval slips again to Q3 2026 \u2014 Tesla execs told investors during Q1 call that approval is now expected Q3 2026; Musk had publicly promised Feb/Mar 2026 at Davos in January; ~15M Chinese Tesla owners remain without FSD access; bear case: pattern of regulatory delays undermines global licensing thesis",
     "category": "autonomy",
     "source": "LetsDatScience / Automotive World / Reuters",
     "timestamp": "Apr 27, 2026",
     "url": "https://letsdatascience.com/news/tesla-promises-fsd-china-approval-despite-delays-6f05dbf8"
   },
   {
-    "headline": "TSLA opens Apr 27 at ~$366 (-2.1%) — market risk-off on Iran Strait geopolitical developments; Deutsche Bank reiterates Buy, calls Q1 a 'surprisingly large beat'; post-earnings pressure continues, stock -19% YTD",
+    "headline": "TSLA opens Apr 27 at ~$366 (-2.1%) \u2014 market risk-off on Iran Strait geopolitical developments; Deutsche Bank reiterates Buy, calls Q1 a 'surprisingly large beat'; post-earnings pressure continues, stock -19% YTD",
     "category": "financials",
     "source": "Deutsche Bank / TheStreet / Investing.com",
     "timestamp": "Apr 27, 2026",
     "url": null
   },
   {
-    "headline": "Motley Fool post-earnings: Musk says robotaxi 'will not be super material this year' — targets 'dozen or so states'; $25B capex + negative FCF become new bear anchors; bull case rests entirely on 2027+ Optimus + Cybercab scale",
+    "headline": "Motley Fool post-earnings: Musk says robotaxi 'will not be super material this year' \u2014 targets 'dozen or so states'; $25B capex + negative FCF become new bear anchors; bull case rests entirely on 2027+ Optimus + Cybercab scale",
     "category": "autonomy",
     "source": "Motley Fool",
     "timestamp": "Apr 26, 2026",
     "url": "https://www.fool.com/investing/2026/04/26/how-teslas-latest-update-changed-the-bull-and-bear/"
   },
   {
-    "headline": "Tesla confirms Cybercab has NO production cap as ramp begins — Musk says volumes will scale 'exponentially by end of 2026'; demand-driven production model unlike any prior Tesla vehicle; confirms extreme management confidence in Cybercab trajectory",
+    "headline": "Tesla confirms Cybercab has NO production cap as ramp begins \u2014 Musk says volumes will scale 'exponentially by end of 2026'; demand-driven production model unlike any prior Tesla vehicle; confirms extreme management confidence in Cybercab trajectory",
     "category": "autonomy",
     "source": "notateslaapp.com",
     "timestamp": "Apr 25, 2026",
     "url": "https://www.notateslaapp.com/news/4057/tesla-confirms-cybercab-has-no-production-cap-as-ramp-begins"
   },
   {
-    "headline": "Tesla hits $546M annual recurring revenue from FSD subscriptions — 1.28M active subscribers as of Q1 (+51% YoY); subscription-only transition turning FSD into a SaaS revenue stream; fastest-growing segment in Tesla's business model",
+    "headline": "Tesla hits $546M annual recurring revenue from FSD subscriptions \u2014 1.28M active subscribers as of Q1 (+51% YoY); subscription-only transition turning FSD into a SaaS revenue stream; fastest-growing segment in Tesla's business model",
     "category": "autonomy",
     "source": "notateslaapp.com",
     "timestamp": "Apr 25, 2026",
     "url": "https://www.notateslaapp.com/news/4042/tesla-hits-546-million-in-annual-recurring-revenue-from-fsd-subscriptions"
   },
   {
-    "headline": "FSD v14.3.2 released — first unified AI model across Smart Summon, FSD, and Robotaxi fleet; vehicles no longer switch neural networks between parking lots and public roads; major step toward production-grade unsupervised autonomy",
+    "headline": "FSD v14.3.2 released \u2014 first unified AI model across Smart Summon, FSD, and Robotaxi fleet; vehicles no longer switch neural networks between parking lots and public roads; major step toward production-grade unsupervised autonomy",
     "category": "autonomy",
     "source": "notateslaapp.com",
     "timestamp": "Apr 25, 2026",
     "url": "https://www.notateslaapp.com/news/4033/tesla-fsd-v1432-unifies-fsd-models-across-robotaxi-and-customer-vehicles-improves-summon-and-adds-new-menu"
   },
   {
-    "headline": "Optimus v3 to debut mid-2026, mass production July–August at Fremont — Electrek: first-gen production lines 'being installed' targeting 1M robots/year capacity; Giga Texas second factory targeting 10M/yr long-term; Musk warns ramp rates 'impossible to predict' with 10,000+ unique parts",
+    "headline": "Optimus v3 to debut mid-2026, mass production July\u2013August at Fremont \u2014 Electrek: first-gen production lines 'being installed' targeting 1M robots/year capacity; Giga Texas second factory targeting 10M/yr long-term; Musk warns ramp rates 'impossible to predict' with 10,000+ unique parts",
     "category": "robotics",
     "source": "Electrek / Wikipedia / Robot Report",
     "timestamp": "Apr 25, 2026",
     "url": "https://electrek.co/2026/04/22/tesla-optimus-production-fremont-model-sx-line/"
   },
   {
-    "headline": "Tesla launches Robotaxi app for Android — was iOS-only since Austin launch; Android release opens service to majority of smartphone users ahead of multi-city expansion; app still invite/region-limited",
+    "headline": "Tesla launches Robotaxi app for Android \u2014 was iOS-only since Austin launch; Android release opens service to majority of smartphone users ahead of multi-city expansion; app still invite/region-limited",
     "category": "autonomy",
     "source": "notateslaapp.com",
     "timestamp": "Apr 24, 2026",

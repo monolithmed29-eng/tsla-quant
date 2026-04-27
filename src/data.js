@@ -351,7 +351,7 @@ export const catalysts = [
     weight: 0.08,
     status: "complete",
     expected: "Q1 2026",
-    likelihood: 0.97,
+    likelihood: 1.0,
     updated: "Apr 22, 2026",
     description: [
       "✅ Apr 22, 2026 — OFFICIAL SHAREHOLDER DECK: Revenue $22.387B (+16% YoY). Non-GAAP EPS $0.41 (+52% YoY). GAAP EPS $0.13 (+8% YoY). GAAP gross margin 21.1% (+478 bps YoY from 16.3%). Operating income $941M (+136% YoY). Operating margin 4.2% (+214 bps YoY). Adj EBITDA $3.668B (+30%). Op cash flow $3.937B (+83% YoY). Free cash flow $1.444B (+117% YoY). Cash $44.743B (+21% YoY). TSLA +4% AH.",

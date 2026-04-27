@@ -101,7 +101,7 @@ function HeroCard({ video, onAskRoger }) {
             <span style={{ color: '#333', fontSize: '10px' }}>·</span>
             <span style={{ fontSize: '11px', color: '#888' }}>{fmtViews(video.viewCount)} views</span>
             <span style={{ color: '#333', fontSize: '10px' }}>·</span>
-            <span style={{ fontSize: '11px', color: '#666' }}>{timeAgo(video.publishedAt)}</span>
+            <span style={{ fontSize: '11px', color: '#aaa' }}>{timeAgo(video.publishedAt)}</span>
           </div>
           {/* Title */}
           <div style={{ fontSize: '17px', fontWeight: 700, color: '#fff', lineHeight: 1.4, marginBottom: '8px' }}>
@@ -207,7 +207,7 @@ function VideoCard({ video, onAskRoger }) {
           <span style={{ color: '#333' }}>·</span>
           <span style={{ fontSize: '10px', color: '#777' }}>{fmtViews(video.viewCount)} views</span>
           <span style={{ color: '#333' }}>·</span>
-          <span style={{ fontSize: '10px', color: '#555' }}>{timeAgo(video.publishedAt)}</span>
+          <span style={{ fontSize: '10px', color: '#aaa' }}>{timeAgo(video.publishedAt)}</span>
         </div>
         <div style={{ fontSize: '13px', fontWeight: 700, color: '#fff', lineHeight: 1.4, marginBottom: '6px' }}>{video.title}</div>
         <a href={`https://www.youtube.com/channel/${video.channelId}`} target="_blank" rel="noopener noreferrer"
