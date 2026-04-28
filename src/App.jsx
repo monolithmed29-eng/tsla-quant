@@ -703,11 +703,8 @@ export default function App() {
           paddingTop: '72px',
           paddingBottom: '56px',
           paddingRight: queryPanelOpen ? `${PANEL_WIDTH}px` : '0',
-          transition: 'padding-right 0.28s cubic-bezier(0.4,0,0.2,1), transform 0.2s ease, opacity 0.2s ease',
+          transition: 'padding-right 0.28s cubic-bezier(0.4,0,0.2,1)',
           zIndex: 1,
-          transform: selected ? 'scale(0.75)' : 'scale(1)',
-          transformOrigin: 'top right',
-          opacity: selected ? 0.5 : 1,
         }}>
           <ProgressiveGraph
             ref={graphRef}
