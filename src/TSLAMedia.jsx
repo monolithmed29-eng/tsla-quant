@@ -18,6 +18,32 @@ function fmtViews(n) {
   return n;
 }
 
+// Convert timestamp strings like [05:40] or [1:23:45] in bullet text to YouTube links
+function renderBulletWithTimestamps(text, videoId, videoUrl) {
+  // Match [MM:SS] or [H:MM:SS] patterns
+  const parts = text.split(/(\[\d{1,2}:\d{2}(?::\d{2})?\])/g);
+  if (parts.length === 1) return text; // no timestamps, plain string
+  return parts.map((part, i) => {
+    const match = part.match(/^\[(\d{1,2}):(\d{2})(?::(\d{2}))?\]$/);
+    if (!match) return part;
+    const h = match[3] ? parseInt(match[1]) : 0;
+    const m = match[3] ? parseInt(match[2]) : parseInt(match[1]);
+    const s = match[3] ? parseInt(match[3]) : parseInt(match[2]);
+    const totalSeconds = h * 3600 + m * 60 + s;
+    const base = videoUrl || `https://www.youtube.com/watch?v=${videoId}`;
+    const url = `${base}${base.includes('?') ? '&' : '?'}t=${totalSeconds}`;
+    return (
+      <a key={i} href={url} target="_blank" rel="noopener noreferrer" style={{
+        color: '#00aaff', textDecoration: 'none', fontWeight: 700,
+        borderBottom: '1px solid #00aaff44', paddingBottom: '1px',
+      }}
+        onMouseEnter={e => e.currentTarget.style.color = '#00ccff'}
+        onMouseLeave={e => e.currentTarget.style.color = '#00aaff'}
+      >{part}</a>
+    );
+  });
+}
+
 function lastUpdatedText(iso) {
   const diff = Date.now() - new Date(iso).getTime();
   const h = Math.floor(diff / 3600000);
@@ -118,7 +144,7 @@ function HeroCard({ video, onAskRoger }) {
             {video.summaryBullets.map((b, i) => (
               <div key={i} style={{ display: 'flex', gap: '8px', marginBottom: '7px', alignItems: 'flex-start' }}>
                 <span style={{ color: '#00ff88', flexShrink: 0, marginTop: '2px', fontSize: '10px' }}>▸</span>
-                <span style={{ fontSize: '13px', color: '#ccc', lineHeight: 1.6 }}>{b}</span>
+                <span style={{ fontSize: '13px', color: '#ccc', lineHeight: 1.6 }}>{renderBulletWithTimestamps(b, video.videoId, video.videoUrl)}</span>
               </div>
             ))}
           </div>
@@ -220,7 +246,7 @@ function VideoCard({ video, onAskRoger }) {
           {video.summaryBullets.slice(0, 4).map((b, i) => (
             <div key={i} style={{ display: 'flex', gap: '6px', marginBottom: '5px', alignItems: 'flex-start' }}>
               <span style={{ color: '#00ff88', flexShrink: 0, fontSize: '9px', marginTop: '3px' }}>▸</span>
-              <span style={{ fontSize: '12px', color: '#bbb', lineHeight: 1.55 }}>{b}</span>
+              <span style={{ fontSize: '12px', color: '#bbb', lineHeight: 1.55 }}>{renderBulletWithTimestamps(b, video.videoId, video.videoUrl)}</span>
             </div>
           ))}
         </div>

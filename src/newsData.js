@@ -1,7 +1,28 @@
 // Auto-updated 3x daily by cron — do not edit manually
-// Last updated: Apr 17, 2026 18:00 ET
+// Last updated: Apr 28, 2026 18:00 ET
 
 export const breakingNews = [
+  {
+    headline: "NHTSA closes 3-year probe into 120,089 Model Y vehicles (2023) — no recall, no action required; steering wheel detachment risk from missing retaining bolt found non-defective; regulatory overhang removed",
+    category: "regulatory",
+    source: "NHTSA / Reuters",
+    timestamp: "Apr 28, 2026",
+    url: "https://www.nhtsa.gov/",
+  },
+  {
+    headline: "Musk S-8 SEC filing registers 303,960,630 shares under 2018 performance comp package — expected post-Delaware Supreme Court restoration Dec 2025; filing does NOT mean shares were sold; next taxable event January 2028, no imminent sell pressure",
+    category: "corporate",
+    source: "SEC / TeslaBoomerMama",
+    timestamp: "Apr 27, 2026",
+    url: "https://www.sec.gov/",
+  },
+  {
+    headline: "Tesla officially confirms FSD v15 gates mass robotaxi scale — Elluswamy: v15 is a 'major upgrade'; validation fleets only in FL/NV/AZ near-term; unsupervised personal FSD targeted Q4 2026; FSD Insurance expands to FL + MD; software 2026.14.3 rolling out fleet-wide",
+    category: "autonomy",
+    source: "Tesla / Electrek",
+    timestamp: "Apr 28, 2026",
+    url: "https://electrek.co/",
+  },
   {
     headline: "Teslarati: Tesla's 'Cybercab robotaxi golden era is officially underway' — volume production live at Giga Texas, 7 new U.S. city expansions confirmed, late-2026 Austin commercial launch reaffirmed",
     category: "autonomy",
@@ -64,12 +85,5 @@ export const breakingNews = [
     source: "247 Wall St. / The Next Web / CoinCentral",
     timestamp: "Apr 16, 2026",
     url: "https://247wallst.com/investing/2026/04/14/elon-musks-tesla-exec-shanghai-factory-is-the-key-to-unlocking-robot-mass-production/",
-  },
-  {
-    headline: "AI5 chip taped out Apr 15 — Musk: 'radical simplicity'; 5x AI4 compute; Samsung Korea engineering samples; targets Optimus + supercomputers NOT vehicles; AI6 + Dojo3 also confirmed in pipeline",
-    category: "robotics",
-    source: "Electrek / Musk on X",
-    timestamp: "Apr 15, 2026",
-    url: "https://electrek.co/2026/04/15/tesla-ai5-chip-taped-out-musk-ai6-dojo3/",
   },
 ];
