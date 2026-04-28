@@ -1,8 +1,8 @@
 {
-  "gauge_value": 78,
+  "gauge_value": 62,
   "needle_status": "Aggressive",
-  "roger_insight": "Call-heavy on both contract count and dollar flow — institutions are committing significantly more capital to upside. Dollar-weighted flow strongly favors calls heading into the session.",
-  "updated": "Apr 28 · 9am ET",
-  "calls": { "count": 139, "value": 7800000 },
-  "puts":  { "count": 42, "value": 2620000 }
+  "roger_insight": "Call-heavy on both contract count and dollar flow — institutions continue to favor upside on dollar value, though the gap has narrowed from the morning session. Dollar-weighted flow maintains a call lean into the afternoon.",
+  "updated": "Apr 28 · 1pm ET",
+  "calls": { "count": 839, "value": 48220000 },
+  "puts":  { "count": 625, "value": 33450000 }
 }
