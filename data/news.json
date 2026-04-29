@@ -1,5 +1,33 @@
 [
   {
+    "headline": "Tesla 2026.14.3 Spring Update hits 3rd wave rollout — Hey Grok voice AI, FSD app redesign, 24hr Dashcam, and Cyberhog Pet Mode now reaching broader fleet; Grok can now 'see' saved location labels for natural language nav",
+    "category": "product",
+    "source": "notateslaapp.com / basenor.com",
+    "timestamp": "Apr 29, 2026",
+    "url": "https://www.notateslaapp.com/software-updates/version/2026.14.3/release-notes"
+  },
+  {
+    "headline": "FSD v14.3.2 (2026.2.9.9) released — adds Blind Spot Warning While Parked, Supercharger Site Maps, and service mode improvements; marks rapid cadence of FSD point releases continuing post-v14 architecture launch",
+    "category": "autonomy",
+    "source": "notateslaapp.com",
+    "timestamp": "Apr 28, 2026",
+    "url": "https://www.notateslaapp.com/software-updates/version/2026.2.9.9/release-notes"
+  },
+  {
+    "headline": "Tesla begins actively probing FSD navigation errors via owner feedback loop — new in-car prompts collect data on speed limit errors, suboptimal routing, and wrong entrance bugs; direct data pipeline for FSD v15 training",
+    "category": "autonomy",
+    "source": "teslarati.com",
+    "timestamp": "Apr 28, 2026",
+    "url": "https://www.teslarati.com/tesla-begins-probing-owners-full-self-driving-navigation-errors/"
+  },
+  {
+    "headline": "Tesla AI5 chip design finalized in April 2026 — next-generation inference processor completed at Tesla's Research Fab at Giga Texas; will power future FSD + Optimus workloads; successor to HW4/AI4+",
+    "category": "autonomy",
+    "source": "Tesla Q1 2026 Update (IR deck)",
+    "timestamp": "Apr 28, 2026",
+    "url": "https://assets-ir.tesla.com/tesla-contents/IR/TSLA-Q1-2026-Update.pdf"
+  },
+  {
     "headline": "Sweden approves Tesla FSD Supervised for public testing — 2nd EU member state greenlight after Netherlands; confirms EU regulatory cascade accelerating ahead of summer EU-wide harmonization; Tesla also unveils AI4+ FSD computer with more memory and compute for improved inference on all new-build vehicles",
     "category": "autonomy",
     "source": "notateslaapp.com",
@@ -11,50 +39,7 @@
     "category": "corporate",
     "source": "SEC / TeslaBoomerMama",
     "timestamp": "Apr 27, 2026",
-    "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=TSLA&type=S-8&dateb=&owner=include&count=10",
-    "sentiment": "neutral"
-  },
-  {
-    "headline": "TSLA post-earnings week: ~$340 low, closes Apr 27 at $378.67 (+0.63%); Wall St consensus Buy, avg PT $405 (29 analysts); Motley Fool: 300x earnings valuation 'sky-high'; robotaxi revenue 'relatively small until 2027'",
-    "category": "financials",
-    "source": "Motley Fool / stockanalysis.com / 24/7WallSt",
-    "timestamp": "Apr 27, 2026",
-    "url": "https://www.fool.com/investing/2026/04/27/elon-musk-great-news-tesla-dont-buy-stock/"
-  },
-  {
-    "headline": "FSD China approval slips again to Q3 2026 — Tesla execs confirmed on Q1 call; Musk had promised Feb/Mar at Davos; ~15M Chinese Tesla owners remain without FSD access; pattern of regulatory delays weighs on global licensing thesis",
-    "category": "autonomy",
-    "source": "LetsDatScience / Automotive World / Reuters",
-    "timestamp": "Apr 27, 2026",
-    "url": "https://letsdatascience.com/news/tesla-promises-fsd-china-approval-despite-delays-6f05dbf8"
-  },
-  {
-    "headline": "Giga Berlin records best-ever Q1 with 61,000+ vehicles built, then announces 20% production increase and 1,000 new hires — Electrek notes factory still at ~65% of 375K stated capacity; headroom remains for further ramp through 2026",
-    "category": "manufacturing",
-    "source": "notateslaapp.com / Electrek",
-    "timestamp": "Apr 23, 2026",
-    "url": "https://www.notateslaapp.com/news/4043/giga-berlin-ramps-up-20-production-increase-and-1000-new-hires"
-  },
-  {
-    "headline": "Tesla announces AI4+ FSD computer with more memory and compute — upgraded HW4 hardware begins shipping in new vehicles; bridges current fleet toward HW5/AI5 performance levels; improves FSD inference latency and model capacity",
-    "category": "autonomy",
-    "source": "notateslaapp.com",
-    "timestamp": "Apr 23, 2026",
-    "url": "https://www.notateslaapp.com/news/4032/tesla-announces-new-ai4-fsd-computer-with-more-memory-and-compute"
-  },
-  {
-    "headline": "Tesla confirms FSD v14 Lite arriving late June 2026 for HW3 vehicles — brings next-gen autonomous behaviors to older cars; supervised-only; HW3 cannot achieve Unsupervised FSD per Musk; free HW3→HW4 retrofit path still available",
-    "category": "autonomy",
-    "source": "notateslaapp.com",
-    "timestamp": "Apr 25, 2026",
-    "url": "https://www.notateslaapp.com/news/4038/tesla-announces-fsd-v14-lite-features-and-release-timeline"
-  },
-  {
-    "headline": "Tesla opens direct sales to 50,000 government agencies via Sourcewell contract — cities, counties, schools, utilities all eligible for institutional fleet purchases; first structured bulk-sales channel outside retail",
-    "category": "product",
-    "source": "notateslaapp.com",
-    "timestamp": "Apr 23, 2026",
-    "url": "https://www.notateslaapp.com/news/4025/tesla-opens-up-direct-sales-to-50000-government-agencies-with-sourcewell-contract"
+    "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=TSLA&type=S-8&dateb=&owner=include&count=10"
   },
   {
     "headline": "Tesla confirms Cybercab has NO production cap as ramp begins — Musk says volumes will scale 'exponentially by end of 2026'; demand-driven production model unlike any prior Tesla vehicle",
