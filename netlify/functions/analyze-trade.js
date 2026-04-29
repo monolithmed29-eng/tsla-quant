@@ -6,7 +6,7 @@ import { getStore } from '@netlify/blobs';
 
 const FREE_CREDITS = 3;
 const ANTHROPIC_API = 'https://api.anthropic.com/v1/messages';
-const MODEL = 'claude-3-5-sonnet-20241022';
+const MODEL = 'claude-sonnet-4-6';
 
 const CORS = {
   'Access-Control-Allow-Origin': '*',
@@ -80,11 +80,13 @@ Break-even at expiry: $${breakeven}
 Explain why this strike and premium were selected at risk level ${risk}/10, what the break-even means, and the probability-of-assignment context.`;
 
   // ── Call Claude ───────────────────────────────────────────────────────────
-  const apiKey = Deno.env.get('ANTHROPIC_API_KEY');
+  const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) return json({ error: 'API key not configured' }, 500);
 
   let analysis = '';
   try {
+    if (!apiKey) return json({ error: 'ANTHROPIC_API_KEY not set in environment' }, 500);
+
     const res = await fetch(ANTHROPIC_API, {
       method: 'POST',
       headers: {
@@ -100,7 +102,9 @@ Explain why this strike and premium were selected at risk level ${risk}/10, what
       }),
     });
     const data = await res.json();
-    analysis = data.content?.[0]?.text || 'Analysis unavailable.';
+    // Surface API errors clearly
+    if (data.error) return json({ error: `Anthropic error: ${data.error.message || JSON.stringify(data.error)}` }, 500);
+    analysis = data.content?.[0]?.text || `Parse failed: ${JSON.stringify(data).slice(0, 200)}`;
   } catch (err) {
     // Restore credit on API failure
     if (!record.pro) {
