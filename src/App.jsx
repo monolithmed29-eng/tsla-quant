@@ -12,6 +12,7 @@ import ThetaGangSignal from './ThetaGangSignal';
 import QueryEngine from './QueryEngine';
 import DarkPoolGauge from './DarkPoolGauge';
 import TSLAMedia from './TSLAMedia';
+import QuantAudit from './QuantAudit';
 import { catalysts, links } from './data';
 import { calcPredictedPrice, calcPriceBreakdown } from './priceModel';
 import { useTSLAPrice } from './useTSLAPrice';
@@ -257,8 +258,9 @@ function QueryEnginePanel({ open, onClose, catalysts, onGraphSearch, onClearSear
   );
 }
 
-// ── Quant Audit Section ──────────────────────────────────────────────────────
-function QuantAudit() {
+// QuantAudit imported from ./QuantAudit.jsx
+// (inline definition removed — shared with mobile)
+function _QuantAuditPlaceholder() {
   const F = "'Space Grotesk', sans-serif";
   const [status, setStatus] = useState('idle'); // idle | loading | done | error
   const [results, setResults] = useState([]);

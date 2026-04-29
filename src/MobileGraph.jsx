@@ -13,6 +13,7 @@ import ChartAnalysis from './ChartAnalysis';
 import BetaDashboard from './BetaDashboard';
 import LeapsSignal from './LeapsSignal';
 import ThetaGangSignal from './ThetaGangSignal';
+import QuantAudit from './QuantAudit';
 import { calcPredictedPrice } from './priceModel';
 import { useTSLAPrice } from './useTSLAPrice';
 
@@ -811,6 +812,9 @@ function TradingSheet({ onClose }) {
           {/* LEAPS Signal */}
           <TradingSectionSafe title="LEAPS Signal"><LeapsSignal isMobile={true} /></TradingSectionSafe>
           <TradingSectionSafe title="Theta Gang Signal"><ThetaGangSignal isMobile={true} /></TradingSectionSafe>
+
+          {/* Quant Audit */}
+          <TradingSectionSafe title="Quant Audit"><QuantAudit isMobile={true} /></TradingSectionSafe>
 
           {/* Chart Analysis */}
           <TradingSectionSafe title="Chart Analysis"><ChartAnalysis /></TradingSectionSafe>
