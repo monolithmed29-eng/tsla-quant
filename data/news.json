@@ -1,5 +1,12 @@
 [
   {
+    "headline": "Ross Gerber: Tesla + SpaceX merger would create 'Berkshire Hathaway of AI' — TSLA slips in premarket as speculation intensifies ahead of potential SpaceX IPO and H1 2027 merger timeline flagged by Wedbush",
+    "category": "corporate",
+    "source": "StockTwits / Wedbush",
+    "timestamp": "Apr 29, 2026",
+    "url": "https://stocktwits.com/news-articles/markets/equity/tesla-stock-slips-ross-gerber-calls-tesla-spacex-berkshire-of-ai/cZBN169Re2N"
+  },
+  {
     "headline": "Tesla 2026.14.3 Spring Update hits 3rd wave rollout — Hey Grok voice AI, FSD app redesign, 24hr Dashcam, and Cyberhog Pet Mode now reaching broader fleet; Grok can now 'see' saved location labels for natural language nav",
     "category": "product",
     "source": "notateslaapp.com / basenor.com",
@@ -7,18 +14,18 @@
     "url": "https://www.notateslaapp.com/software-updates/version/2026.14.3/release-notes"
   },
   {
+    "headline": "Dan Ives (Wedbush) forecasts Tesla-SpaceX merger in H1 2027 — Musk seeking to build unified AI conglomerate; Tesla's $2B SpaceX equity investment in Q1 seen as the financial bridge ahead of a formal combination",
+    "category": "corporate",
+    "source": "GuruFocus / Wedbush",
+    "timestamp": "Apr 27, 2026",
+    "url": "https://www.gurufocus.com/news/8819203/elon-musks-tesla-and-spacex-merger-predictions-by-dan-ives"
+  },
+  {
     "headline": "FSD v14.3.2 (2026.2.9.9) released — adds Blind Spot Warning While Parked, Supercharger Site Maps, and service mode improvements; marks rapid cadence of FSD point releases continuing post-v14 architecture launch",
     "category": "autonomy",
     "source": "notateslaapp.com",
     "timestamp": "Apr 28, 2026",
     "url": "https://www.notateslaapp.com/software-updates/version/2026.2.9.9/release-notes"
-  },
-  {
-    "headline": "Tesla begins actively probing FSD navigation errors via owner feedback loop — new in-car prompts collect data on speed limit errors, suboptimal routing, and wrong entrance bugs; direct data pipeline for FSD v15 training",
-    "category": "autonomy",
-    "source": "teslarati.com",
-    "timestamp": "Apr 28, 2026",
-    "url": "https://www.teslarati.com/tesla-begins-probing-owners-full-self-driving-navigation-errors/"
   },
   {
     "headline": "Tesla AI5 chip design finalized in April 2026 — next-generation inference processor completed at Tesla's Research Fab at Giga Texas; will power future FSD + Optimus workloads; successor to HW4/AI4+",
@@ -35,11 +42,11 @@
     "url": "https://www.notateslaapp.com/news/4063/tesla-fsd-in-europe-sweden-approves-public-testing"
   },
   {
-    "headline": "Tesla files S-8 registering 303.9M shares for Musk (2018 comp award) — NOT a sale; Delaware Supreme Court restored award Dec 2025; next taxable event not until Jan 2028 per TeslaBoomerMama",
-    "category": "corporate",
-    "source": "SEC / TeslaBoomerMama",
-    "timestamp": "Apr 27, 2026",
-    "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=TSLA&type=S-8&dateb=&owner=include&count=10"
+    "headline": "Tesla delays large-scale Robotaxi expansion until FSD v15 — Musk confirms v14.3 is 'last piece of the puzzle' for autonomy but v15 architectural upgrade is the gate for nationwide commercial scale; 2027 now base case for material robotaxi revenue",
+    "category": "autonomy",
+    "source": "TeslaNorth / Seeking Alpha",
+    "timestamp": "Apr 22, 2026",
+    "url": "https://teslanorth.com/2026/04/22/tesla-to-delay-large-scale-robotaxi-expansion-until-fsd-15-software-release/"
   },
   {
     "headline": "Tesla confirms Cybercab has NO production cap as ramp begins — Musk says volumes will scale 'exponentially by end of 2026'; demand-driven production model unlike any prior Tesla vehicle",
@@ -47,12 +54,5 @@
     "source": "notateslaapp.com",
     "timestamp": "Apr 25, 2026",
     "url": "https://www.notateslaapp.com/news/4057/tesla-confirms-cybercab-has-no-production-cap-as-ramp-begins"
-  },
-  {
-    "headline": "Tesla hits $546M annual recurring revenue from FSD subscriptions — 1.28M active subscribers as of Q1 (+51% YoY); subscription-only transition turning FSD into a SaaS revenue stream growing faster than vehicle deliveries",
-    "category": "autonomy",
-    "source": "notateslaapp.com",
-    "timestamp": "Apr 25, 2026",
-    "url": "https://www.notateslaapp.com/news/4042/tesla-hits-546-million-in-annual-recurring-revenue-from-fsd-subscriptions"
   }
 ]
