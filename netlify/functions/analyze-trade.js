@@ -4,7 +4,7 @@
 
 import { getStore } from '@netlify/blobs';
 
-const FREE_CREDITS = 3;
+const FREE_CREDITS = 0; // Quant Audit has no free tier — purchase required
 const ANTHROPIC_API = 'https://api.anthropic.com/v1/messages';
 const MODEL = 'claude-sonnet-4-6';
 
@@ -43,17 +43,22 @@ export default async (req) => {
   }
 
   // ── Credit gate (server-authoritative) ────────────────────────────────────
-  const store = getStore('oracle-credits');
-  let record = await store.get(fp, { type: 'json' }).catch(() => null);
-  if (!record) record = { credits: FREE_CREDITS, pro: null, created: Date.now() };
+  const store = getStore('quant-credits');
+  // Also check pro status from oracle-credits store (shared pro tier)
+  const oracleStore = getStore('oracle-credits');
+  const oracleRecord = await oracleStore.get(fp, { type: 'json' }).catch(() => null);
+  const isPro = oracleRecord?.pro || null;
 
-  // No free credits — hard gate
-  if (!record.pro && record.credits <= 0) {
+  let record = await store.get(fp, { type: 'json' }).catch(() => null);
+  if (!record) record = { credits: FREE_CREDITS, created: Date.now() };
+
+  // No free credits — hard gate (pro users from oracle store bypass)
+  if (!isPro && record.credits <= 0) {
     return json({ credits: 0, denied: true, error: 'No credits remaining' }, 402);
   }
 
   // Decrement (pro users don't consume credits)
-  if (!record.pro) {
+  if (!isPro) {
     record.credits = Math.max(0, record.credits - 1);
     await store.setJSON(fp, record);
   }
@@ -108,7 +113,7 @@ Explain why this strike and premium were selected at risk level ${risk}/10, what
   } catch (err) {
     // Restore credit on API failure
     if (!record.pro) {
-      record.credits = Math.min(record.credits + 1, FREE_CREDITS);
+      record.credits = record.credits + 1;
       await store.setJSON(fp, record);
     }
     return json({ error: 'Analysis engine error: ' + err.message }, 500);
@@ -118,7 +123,7 @@ Explain why this strike and premium were selected at risk level ${risk}/10, what
     success: true,
     analysis,
     credits: record.credits,
-    pro: record.pro || null,
+    pro: isPro,
   });
 };
 

@@ -1,6 +1,6 @@
 // QuantAudit.jsx — Tesla Quant Audit section (shared desktop + mobile)
-import { useState } from 'react';
-import { getCredits, isPro, syncCredits } from './creditManager';
+import { useState, useEffect } from 'react';
+import { syncCredits } from './creditManager';
 import { getFingerprint } from './fingerprint';
 
 const F = "'Space Grotesk', sans-serif";
@@ -23,6 +23,23 @@ export default function QuantAudit({ isMobile = false }) {
   const [risk, setRisk] = useState(5);
   const [showUpgrade, setShowUpgrade] = useState(false);
   const [cardState, setCard] = useCardAnalysis();
+  const [quantCredits, setQuantCredits] = useState(null); // null = unknown, 0 = none, >0 = has credits
+  const [quantPro, setQuantPro] = useState(false);
+
+  // Pre-fetch quant credit status on mount
+  useEffect(() => {
+    (async () => {
+      try {
+        const fp = await getFingerprint();
+        const res = await fetch(`/api/quant-credits?fp=${encodeURIComponent(fp)}`);
+        const json = await res.json();
+        setQuantCredits(json.credits ?? 0);
+        setQuantPro(!!json.pro);
+      } catch {
+        setQuantCredits(0);
+      }
+    })();
+  }, []);
 
   async function runAudit() {
     setStatus('loading');
@@ -46,8 +63,8 @@ export default function QuantAudit({ isMobile = false }) {
   }
 
   async function explainTrade(r, i) {
-    // Credit check (client-side fast path)
-    if (!isPro() && getCredits() <= 0) {
+    // Client-side fast path using server-fetched quant credits
+    if (!quantPro && quantCredits !== null && quantCredits <= 0) {
       setShowUpgrade(true);
       return;
     }
@@ -74,11 +91,15 @@ export default function QuantAudit({ isMobile = false }) {
 
       if (json.denied || res.status === 402) {
         setCard(i, { status: 'idle', text: '' });
+        setQuantCredits(0);
         setShowUpgrade(true);
         return;
       }
       if (json.success && json.analysis) {
-        if (typeof json.credits === 'number') syncCredits(json.credits);
+        if (typeof json.credits === 'number') {
+          syncCredits(json.credits);
+          setQuantCredits(json.credits);
+        }
         setCard(i, { status: 'done', text: json.analysis });
       } else {
         setCard(i, { status: 'error', text: '' });

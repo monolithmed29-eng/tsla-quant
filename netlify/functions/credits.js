@@ -82,6 +82,12 @@ export default async (req) => {
     if (action === 'add_credits') {
       record.credits = (record.credits || 0) + 1;
       await store.setJSON(key, record);
+      // Also add 1 credit to quant-credits store (Single Query unlocks both Oracle + Quant Audit)
+      const quantStore = getStore('quant-credits');
+      let quantRecord = await quantStore.get(key, { type: 'json' }).catch(() => null);
+      if (!quantRecord) quantRecord = { credits: 0, created: Date.now() };
+      quantRecord.credits = (quantRecord.credits || 0) + 1;
+      await quantStore.setJSON(key, quantRecord);
       return json({ credits: record.credits, pro: record.pro || null });
     }
 
