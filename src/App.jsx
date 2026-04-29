@@ -294,7 +294,7 @@ function QuantAudit() {
     transition: 'border-color 0.15s',
   };
 
-  const scoreColor = (s) => s >= 99 ? '#00ff88' : s >= 95 ? '#00aaff' : '#f59e0b';
+  const scoreColor = (s) => Number(s) >= 99 ? '#00ff88' : Number(s) >= 95 ? '#00aaff' : '#f59e0b';
 
   return (
     <div style={{ fontFamily: F, background: '#030608', borderTop: '1px solid #0d1117' }}>
@@ -306,35 +306,35 @@ function QuantAudit() {
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
           <span style={{ fontSize: '10px', letterSpacing: '2.5px', textTransform: 'uppercase', color: '#00aaff', fontWeight: 800 }}>⚙️ Tesla Quant Audit</span>
-          <span style={{ fontSize: '8px', letterSpacing: '1.5px', textTransform: 'uppercase', color: '#f59e0b', border: '1px solid #f59e0b33', padding: '1px 6px', background: 'rgba(245,158,11,0.06)' }}>Phase 1 · POC</span>
+          <span style={{ fontSize: '8px', letterSpacing: '1.5px', textTransform: 'uppercase', color: '#f59e0b', border: '1px solid #f59e0b33', padding: '1px 6px', background: 'rgba(245,158,11,0.06)' }}>Phase 2 · Live Engine</span>
         </div>
-        <div style={{ fontSize: '11px', color: '#555', letterSpacing: '0.3px' }}>Enter your position to simulate optimal strategies</div>
+        <div style={{ fontSize: '11px', color: '#888', letterSpacing: '0.3px' }}>Enter your position to simulate optimal strategies</div>
       </div>
 
       {/* Inputs */}
       <div style={{ padding: '18px 28px', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', borderBottom: '1px solid #0d1117' }}>
         <div>
-          <div style={{ fontSize: '9px', color: '#aaa', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '6px', fontWeight: 700 }}>Shares Owned</div>
+          <div style={{ fontSize: '9px', color: '#bbb', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '6px', fontWeight: 700 }}>Shares Owned</div>
           <input type="number" placeholder="e.g. 200" value={shares} onChange={e => setShares(e.target.value)}
             style={inputStyle}
             onFocus={e => e.target.style.borderColor='#00aaff'}
             onBlur={e => e.target.style.borderColor='#1e2a3a'} />
         </div>
         <div>
-          <div style={{ fontSize: '9px', color: '#aaa', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '6px', fontWeight: 700 }}>Available Cash ($)</div>
+          <div style={{ fontSize: '9px', color: '#bbb', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '6px', fontWeight: 700 }}>Available Cash ($)</div>
           <input type="number" placeholder="e.g. 40000" value={cash} onChange={e => setCash(e.target.value)}
             style={inputStyle}
             onFocus={e => e.target.style.borderColor='#00aaff'}
             onBlur={e => e.target.style.borderColor='#1e2a3a'} />
         </div>
         <div>
-          <div style={{ fontSize: '9px', color: '#aaa', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '6px', fontWeight: 700 }}>Risk Level (1–10)</div>
+          <div style={{ fontSize: '9px', color: '#bbb', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '6px', fontWeight: 700 }}>Risk Level (1–10)</div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <input type="range" min="1" max="10" value={risk} onChange={e => setRisk(e.target.value)}
               style={{ flex: 1, accentColor: '#00aaff', cursor: 'pointer' }} />
             <span style={{ fontSize: '16px', fontWeight: 700, color: risk <= 3 ? '#00ff88' : risk <= 7 ? '#f59e0b' : '#ff4444', minWidth: '20px', textAlign: 'right' }}>{risk}</span>
           </div>
-          <div style={{ fontSize: '9px', color: '#444', marginTop: '4px' }}>{risk <= 3 ? 'Conservative' : risk <= 6 ? 'Moderate' : risk <= 8 ? 'Aggressive' : 'Max Risk'}</div>
+          <div style={{ fontSize: '9px', color: '#777', marginTop: '4px' }}>{risk <= 3 ? 'Conservative' : risk <= 6 ? 'Moderate' : risk <= 8 ? 'Aggressive' : 'Max Risk'}</div>
         </div>
       </div>
 
@@ -357,34 +357,34 @@ function QuantAudit() {
 
       {/* Results */}
       {status === 'done' && results.length > 0 && (
-        <div style={{ padding: '20px 28px' }}>
-          <div style={{ fontSize: '9px', color: '#aaa', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '14px', fontWeight: 700 }}>Simulation Results</div>
+        <div style={{ padding: '20px 28px', boxSizing: 'border-box', width: '100%', overflow: 'hidden' }}>
+          <div style={{ fontSize: '9px', color: '#bbb', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '14px', fontWeight: 700 }}>Simulation Results</div>
           <div style={{ display: 'grid', gridTemplateColumns: results.length > 1 ? 'repeat(auto-fill, minmax(280px, 1fr))' : '1fr', gap: '12px' }}>
             {results.map((r, i) => (
               <div key={i} style={{
                 background: '#060a10', border: '1px solid #1e2a3a',
-                borderTop: `2px solid ${scoreColor(r.score)}`,
+                borderTop: `2px solid ${scoreColor(r.match_score)}`,
                 padding: '18px 20px', borderRadius: '3px',
               }}>
                 {/* Strategy label */}
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
                   <span style={{ fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', color: '#00aaff', fontWeight: 800 }}>{r.strategy}</span>
                   <span style={{
-                    fontSize: '11px', fontWeight: 800, color: scoreColor(r.score),
-                    border: `1px solid ${scoreColor(r.score)}33`,
-                    background: `${scoreColor(r.score)}0d`,
+                    fontSize: '11px', fontWeight: 800, color: scoreColor(r.match_score),
+                    border: `1px solid ${scoreColor(r.match_score)}33`,
+                    background: `${scoreColor(r.match_score)}0d`,
                     padding: '2px 8px', letterSpacing: '1px',
-                  }}>Score {r.score}</span>
+                  }}>Score {r.match_score}</span>
                 </div>
 
                 {/* Key metrics row */}
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px', marginBottom: '12px' }}>
                   <div>
-                    <div style={{ fontSize: '9px', color: '#555', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '3px' }}>AROC</div>
-                    <div style={{ fontSize: '22px', fontWeight: 800, color: '#00ff88', letterSpacing: '-0.5px' }}>{r.aroc}</div>
+                    <div style={{ fontSize: '9px', color: '#aaa', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '3px' }}>AROC</div>
+                    <div style={{ fontSize: '22px', fontWeight: 800, color: '#00ff88', letterSpacing: '-0.5px' }}>{r.aroc_annualized}</div>
                   </div>
                   <div>
-                    <div style={{ fontSize: '9px', color: '#555', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '3px' }}>Strike</div>
+                    <div style={{ fontSize: '9px', color: '#aaa', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '3px' }}>Strike</div>
                     <div style={{ fontSize: '22px', fontWeight: 800, color: '#fff', letterSpacing: '-0.5px' }}>${r.strike}</div>
                   </div>
                 </div>
@@ -392,30 +392,33 @@ function QuantAudit() {
                 {/* Supporting details */}
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '8px', paddingTop: '12px', borderTop: '1px solid #0d1117' }}>
                   <div>
-                    <div style={{ fontSize: '9px', color: '#444', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '2px' }}>Expiry</div>
-                    <div style={{ fontSize: '12px', color: '#ccc', fontWeight: 600 }}>{r.expiry}</div>
+                    <div style={{ fontSize: '9px', color: '#aaa', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '2px' }}>Expiry</div>
+                    <div style={{ fontSize: '12px', color: '#e2e8f0', fontWeight: 600 }}>{r.exp}</div>
                   </div>
                   <div>
-                    <div style={{ fontSize: '9px', color: '#444', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '2px' }}>Premium</div>
-                    <div style={{ fontSize: '12px', color: '#ccc', fontWeight: 600 }}>{r.premium}</div>
+                    <div style={{ fontSize: '9px', color: '#aaa', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '2px' }}>Premium</div>
+                    <div style={{ fontSize: '12px', color: '#e2e8f0', fontWeight: 600 }}>${r.premium}</div>
                   </div>
                   <div>
-                    <div style={{ fontSize: '9px', color: '#444', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '2px' }}>Credit</div>
-                    <div style={{ fontSize: '12px', color: '#ccc', fontWeight: 600 }}>{r.total_credit}</div>
+                    <div style={{ fontSize: '9px', color: '#aaa', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '2px' }}>Credit</div>
+                    <div style={{ fontSize: '12px', color: '#e2e8f0', fontWeight: 600 }}>${r.total_credit}</div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-          {/* Disclaimer */}
-          <div style={{ fontSize: '9px', color: '#2a2a2a', marginTop: '14px', lineHeight: 1.6 }}>
-            This report is a mathematical simulation generated by the TSLA_QUANT engine based on user-provided constraints and current market data. For educational and simulation purposes only. Not financial advice. Options trading involves significant risk.
+          {/* Disclaimer — full width, no clip */}
+          <div style={{
+            fontSize: '9px', color: '#666', marginTop: '16px', lineHeight: 1.7,
+            width: '100%', boxSizing: 'border-box', whiteSpace: 'normal', wordBreak: 'break-word',
+          }}>
+            This report is a mathematical simulation generated by the TSLA_QUANT engine based on user-provided constraints and current market data. It is intended for educational and simulation purposes only and does not constitute personalized financial advice, a solicitation to buy/sell securities, or a guarantee of future performance. Options trading involves significant risk. Consult with a registered financial professional before making investment decisions.
           </div>
         </div>
       )}
 
       {status === 'done' && results.length === 0 && (
-        <div style={{ padding: '24px 28px', fontSize: '12px', color: '#555' }}>
+        <div style={{ padding: '24px 28px', fontSize: '12px', color: '#888' }}>
           No strategies matched your parameters. Try adjusting shares, cash, or risk level.
         </div>
       )}
