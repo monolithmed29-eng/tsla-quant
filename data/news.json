@@ -1,5 +1,19 @@
 [
   {
+    "headline": "Tesla Autonomy Pop-Up opens TODAY at F1 Miami Grand Prix — Cybercab and Optimus on display at Lummus Park Fan Fest through May 3; highest-visibility public showcase of Tesla's autonomous stack yet, timed to F1 Crypto.com race weekend crowds",
+    "category": "product",
+    "source": "Sawyer Merritt / basenor.com",
+    "timestamp": "Apr 29, 2026",
+    "url": "https://www.basenor.com/blogs/news/tesla-autonomy-pop-up-in-miami-see-cybercab-optimus-live"
+  },
+  {
+    "headline": "Musk: Optimus V3 is 'Special' — deliberate reveal delay to block competitor copying; Gen 3 on track for public unveiling later in 2026; Fremont factory retooling for Optimus production begins in early May",
+    "category": "robotics",
+    "source": "CoinCentral / CarBuzz / Q1 2026 Earnings Call",
+    "timestamp": "Apr 29, 2026",
+    "url": "https://coincentral.com/teslas-elon-musk-says-optimus-v3-is-special-will-optimus-be-the-spark-investors-need/"
+  },
+  {
     "headline": "Ross Gerber: Tesla + SpaceX merger would create 'Berkshire Hathaway of AI' — TSLA slips in premarket as speculation intensifies ahead of potential SpaceX IPO and H1 2027 merger timeline flagged by Wedbush",
     "category": "corporate",
     "source": "StockTwits / Wedbush",
@@ -14,11 +28,11 @@
     "url": "https://www.notateslaapp.com/software-updates/version/2026.14.3/release-notes"
   },
   {
-    "headline": "Dan Ives (Wedbush) forecasts Tesla-SpaceX merger in H1 2027 — Musk seeking to build unified AI conglomerate; Tesla's $2B SpaceX equity investment in Q1 seen as the financial bridge ahead of a formal combination",
-    "category": "corporate",
-    "source": "GuruFocus / Wedbush",
-    "timestamp": "Apr 27, 2026",
-    "url": "https://www.gurufocus.com/news/8819203/elon-musks-tesla-and-spacex-merger-predictions-by-dan-ives"
+    "headline": "Tesla AI5 chip design finalized in April 2026 — next-generation inference processor completed at Tesla's Research Fab at Giga Texas; will power future FSD + Optimus workloads; successor to HW4/AI4+",
+    "category": "autonomy",
+    "source": "Tesla Q1 2026 Update (IR deck)",
+    "timestamp": "Apr 28, 2026",
+    "url": "https://assets-ir.tesla.com/tesla-contents/IR/TSLA-Q1-2026-Update.pdf"
   },
   {
     "headline": "FSD v14.3.2 (2026.2.9.9) released — adds Blind Spot Warning While Parked, Supercharger Site Maps, and service mode improvements; marks rapid cadence of FSD point releases continuing post-v14 architecture launch",
@@ -28,31 +42,17 @@
     "url": "https://www.notateslaapp.com/software-updates/version/2026.2.9.9/release-notes"
   },
   {
-    "headline": "Tesla AI5 chip design finalized in April 2026 — next-generation inference processor completed at Tesla's Research Fab at Giga Texas; will power future FSD + Optimus workloads; successor to HW4/AI4+",
-    "category": "autonomy",
-    "source": "Tesla Q1 2026 Update (IR deck)",
-    "timestamp": "Apr 28, 2026",
-    "url": "https://assets-ir.tesla.com/tesla-contents/IR/TSLA-Q1-2026-Update.pdf"
-  },
-  {
-    "headline": "Sweden approves Tesla FSD Supervised for public testing — 2nd EU member state greenlight after Netherlands; confirms EU regulatory cascade accelerating ahead of summer EU-wide harmonization; Tesla also unveils AI4+ FSD computer with more memory and compute for improved inference on all new-build vehicles",
-    "category": "autonomy",
-    "source": "notateslaapp.com",
+    "headline": "Dan Ives (Wedbush) forecasts Tesla-SpaceX merger in H1 2027 — Musk seeking to build unified AI conglomerate; Tesla's $2B SpaceX equity investment in Q1 seen as the financial bridge ahead of a formal combination",
+    "category": "corporate",
+    "source": "GuruFocus / Wedbush",
     "timestamp": "Apr 27, 2026",
-    "url": "https://www.notateslaapp.com/news/4063/tesla-fsd-in-europe-sweden-approves-public-testing"
+    "url": "https://www.gurufocus.com/news/8819203/elon-musks-tesla-and-spacex-merger-predictions-by-dan-ives"
   },
   {
-    "headline": "Tesla delays large-scale Robotaxi expansion until FSD v15 — Musk confirms v14.3 is 'last piece of the puzzle' for autonomy but v15 architectural upgrade is the gate for nationwide commercial scale; 2027 now base case for material robotaxi revenue",
+    "headline": "HW3 vehicles confirmed incapable of Unsupervised FSD — Musk on Q1 call: 'Hardware 3 simply does not have the capability'; cites 1/8 the memory bandwidth of HW4 as choke point; FSD v14 Lite for HW3 owners by June 2026, discounted trade-in program offered",
     "category": "autonomy",
-    "source": "TeslaNorth / Seeking Alpha",
+    "source": "TeslaNorth / Tesla Oracle / Electrek",
     "timestamp": "Apr 22, 2026",
-    "url": "https://teslanorth.com/2026/04/22/tesla-to-delay-large-scale-robotaxi-expansion-until-fsd-15-software-release/"
-  },
-  {
-    "headline": "Tesla confirms Cybercab has NO production cap as ramp begins — Musk says volumes will scale 'exponentially by end of 2026'; demand-driven production model unlike any prior Tesla vehicle",
-    "category": "autonomy",
-    "source": "notateslaapp.com",
-    "timestamp": "Apr 25, 2026",
-    "url": "https://www.notateslaapp.com/news/4057/tesla-confirms-cybercab-has-no-production-cap-as-ramp-begins"
+    "url": "https://teslanorth.com/2026/04/22/tesla-confirms-hardware-3-lacks-unsupervised-fsd-capability-plans-hardware-upgrades-and-micro-factories/"
   }
 ]
