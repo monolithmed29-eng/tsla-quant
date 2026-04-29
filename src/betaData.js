@@ -14,4 +14,5 @@ export const betaHistory = [
   { date: "2026-04-24", tsla: 0.69, spy: 0.77, qqq: 1.95 },
   { date: "2026-04-27", tsla: 0.63, spy: 0.17, qqq: 0.05 },
   { date: "2026-04-28", tsla: -0.70, spy: -0.49, qqq: -1.01 },
+  { date: "2026-04-29", tsla: -0.86, spy: -0.04, qqq: 0.58 },
 ];

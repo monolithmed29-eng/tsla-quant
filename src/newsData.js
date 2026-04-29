@@ -1,7 +1,14 @@
 // Auto-updated 3x daily by cron — do not edit manually
-// Last updated: Apr 28, 2026 18:00 ET
+// Last updated: Apr 29, 2026 18:00 ET
 
 export const breakingNews = [
+  {
+    headline: "Tesla Semi production officially launched — volume production now live at Gigafactory Nevada; ahead of prior Q3 2026 guidance; Class 8 EV market disruption begins",
+    category: "product",
+    source: "Tesla",
+    timestamp: "Apr 29, 2026",
+    url: "https://www.tesla.com/semi",
+  },
   {
     headline: "NHTSA closes 3-year probe into 120,089 Model Y vehicles (2023) — no recall, no action required; steering wheel detachment risk from missing retaining bolt found non-defective; regulatory overhang removed",
     category: "regulatory",
