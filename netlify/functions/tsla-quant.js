@@ -41,40 +41,55 @@ export default async (req) => {
     // use fallback price
   }
 
+  // Percentage buffer model: Risk 1 = ~23% buffer, Risk 10 = ~5% buffer
+  const buffer = 0.25 - (risk * 0.02);
+  const dte = 30;
+
   const recommendations = [];
 
   // COVERED CALL
   if (shares >= 100) {
-    const upsideBuffer = 0.25 - (risk * 0.02);
-    const ccStrike = Math.ceil(currentPrice * (1 + upsideBuffer));
+    const contractCount = Math.floor(shares / 100);
+    const ccStrike = Math.ceil(currentPrice * (1 + buffer));
     const premium = parseFloat(((currentPrice * 0.008) * (risk * 0.7)).toFixed(2));
+    const totalCredit = parseFloat((premium * 100 * contractCount).toFixed(2));
+
     recommendations.push({
       category: "Monthly Income",
       strategy: "Covered Call",
       strike: ccStrike,
       exp: "30 Days Out",
       premium: premium.toFixed(2),
-      total_credit: (premium * 100).toFixed(2),
-      aroc_annualized: ((premium / currentPrice) * (365 / 30) * 100).toFixed(1) + "%",
+      contract_count: contractCount,
+      total_credit: totalCredit.toFixed(2),
+      aroc_annualized: ((premium / currentPrice) * (365 / dte) * 100).toFixed(1) + "%",
       match_score: (100 - (Math.abs(risk - 5) * 1.5)).toFixed(1),
+      current_price: currentPrice.toFixed(2),
     });
   }
 
   // CASH SECURED PUT
-  if (cash >= (currentPrice * 80)) {
-    const downBuffer = 0.25 - (risk * 0.02);
-    const cspStrike = Math.floor(currentPrice * (1 - downBuffer));
-    const premium = parseFloat(((currentPrice * 0.008) * (risk * 0.7) * 1.1).toFixed(2));
-    recommendations.push({
-      category: "Monthly Income",
-      strategy: "Cash Secured Put",
-      strike: cspStrike,
-      exp: "30 Days Out",
-      premium: premium.toFixed(2),
-      total_credit: (premium * 100).toFixed(2),
-      aroc_annualized: ((premium / cspStrike) * (365 / 30) * 100).toFixed(1) + "%",
-      match_score: (100 - (Math.abs(risk - 5) * 2)).toFixed(1),
-    });
+  if (cash > 0) {
+    const cspStrike = Math.floor(currentPrice * (1 - buffer));
+    // Only proceed if user has enough cash for at least 1 contract
+    if (cash >= cspStrike * 100) {
+      const contractCount = Math.floor(cash / (cspStrike * 100));
+      const premium = parseFloat(((currentPrice * 0.008) * (risk * 0.7) * 1.1).toFixed(2));
+      const totalCredit = parseFloat((premium * 100 * contractCount).toFixed(2));
+
+      recommendations.push({
+        category: "Monthly Income",
+        strategy: "Cash Secured Put",
+        strike: cspStrike,
+        exp: "30 Days Out",
+        premium: premium.toFixed(2),
+        contract_count: contractCount,
+        total_credit: totalCredit.toFixed(2),
+        aroc_annualized: ((premium / cspStrike) * (365 / dte) * 100).toFixed(1) + "%",
+        match_score: (100 - (Math.abs(risk - 5) * 2)).toFixed(1),
+        current_price: currentPrice.toFixed(2),
+      });
+    }
   }
 
   return new Response(JSON.stringify({ success: true, data: recommendations }), {
