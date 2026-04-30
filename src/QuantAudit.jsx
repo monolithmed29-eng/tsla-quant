@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { syncCredits } from './creditManager';
 import { getFingerprint } from './fingerprint';
+import RestoreAccess from './RestoreAccess';
 
 const F = "'Space Grotesk', sans-serif";
 const scoreColor = (s) => Number(s) >= 99 ? '#00ff88' : Number(s) >= 95 ? '#00aaff' : '#f59e0b';
@@ -22,6 +23,7 @@ export default function QuantAudit({ isMobile = false }) {
   const [cash, setCash] = useState('');
   const [risk, setRisk] = useState(5);
   const [showUpgrade, setShowUpgrade] = useState(false);
+  const [showRestore, setShowRestore] = useState(false);
   const [cardState, setCard] = useCardAnalysis();
   const [quantCredits, setQuantCredits] = useState(null); // null = unknown, 0 = none, >0 = has credits
   const [quantPro, setQuantPro] = useState(false);
@@ -123,6 +125,19 @@ export default function QuantAudit({ isMobile = false }) {
 
   return (
     <div style={{ fontFamily: F, background: '#030608', borderTop: '1px solid #0d1117', width: '100%', boxSizing: 'border-box' }}>
+
+      {/* Restore Access modal */}
+      {showRestore && (
+        <RestoreAccess
+          onClose={() => setShowRestore(false)}
+          onRestored={(data) => {
+            setShowRestore(false);
+            // Refresh pro/credit state after restore
+            if (data.tier && data.tier !== 'single_query') setQuantPro(true);
+            if (data.single_credits > 0) setQuantCredits(prev => (prev || 0) + data.single_credits);
+          }}
+        />
+      )}
 
       {/* Upgrade prompt */}
       {showUpgrade && (
@@ -290,22 +305,40 @@ export default function QuantAudit({ isMobile = false }) {
 
                       {/* Explain This Trade button */}
                       {cs.status !== 'done' && (
-                        <button
-                          onClick={() => explainTrade(r, i)}
-                          disabled={cs.status === 'loading'}
-                          style={{
-                            background: cs.status === 'loading' ? 'transparent' : 'rgba(0,255,136,0.06)',
-                            border: '1px solid #00ff8833', color: cs.status === 'loading' ? '#444' : '#00ff88',
-                            fontSize: '10px', letterSpacing: '1.5px', textTransform: 'uppercase',
-                            padding: '7px 14px', cursor: cs.status === 'loading' ? 'default' : 'pointer',
-                            fontFamily: F, fontWeight: 700, borderRadius: '3px', transition: 'all 0.15s',
-                            width: isMobile ? '100%' : 'auto',
-                          }}
-                          onMouseEnter={e => { if (cs.status !== 'loading') e.currentTarget.style.background = 'rgba(0,255,136,0.12)'; }}
-                          onMouseLeave={e => { if (cs.status !== 'loading') e.currentTarget.style.background = 'rgba(0,255,136,0.06)'; }}
-                        >
-                          {cs.status === 'loading' ? '⟳ Generating Analysis…' : '🧠 Explain This Trade'}
-                        </button>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: isMobile ? 'stretch' : 'flex-start' }}>
+                          <button
+                            onClick={() => explainTrade(r, i)}
+                            disabled={cs.status === 'loading'}
+                            style={{
+                              background: cs.status === 'loading' ? 'transparent' : 'rgba(0,255,136,0.06)',
+                              border: '1px solid #00ff8833', color: cs.status === 'loading' ? '#444' : '#00ff88',
+                              fontSize: '10px', letterSpacing: '1.5px', textTransform: 'uppercase',
+                              padding: '7px 14px', cursor: cs.status === 'loading' ? 'default' : 'pointer',
+                              fontFamily: F, fontWeight: 700, borderRadius: '3px', transition: 'all 0.15s',
+                              width: isMobile ? '100%' : 'auto',
+                            }}
+                            onMouseEnter={e => { if (cs.status !== 'loading') e.currentTarget.style.background = 'rgba(0,255,136,0.12)'; }}
+                            onMouseLeave={e => { if (cs.status !== 'loading') e.currentTarget.style.background = 'rgba(0,255,136,0.06)'; }}
+                          >
+                            {cs.status === 'loading' ? '⟳ Generating Analysis…' : '🧠 Explain This Trade'}
+                          </button>
+                          {/* Subscriber restore link — shown when credits are depleted */}
+                          {quantCredits === 0 && !quantPro && (
+                            <button
+                              onClick={() => setShowRestore(true)}
+                              style={{
+                                background: 'none', border: 'none', color: '#555',
+                                fontSize: '10px', cursor: 'pointer', fontFamily: F,
+                                textDecoration: 'underline', textUnderlineOffset: '3px',
+                                padding: 0, letterSpacing: '0.5px',
+                              }}
+                              onMouseEnter={e => e.currentTarget.style.color = '#888'}
+                              onMouseLeave={e => e.currentTarget.style.color = '#555'}
+                            >
+                              Already a subscriber? Restore access →
+                            </button>
+                          )}
+                        </div>
                       )}
                       {cs.status === 'error' && (
                         <div style={{ fontSize: '11px', color: '#ff4444', marginTop: '8px' }}>Analysis failed — retry.</div>
