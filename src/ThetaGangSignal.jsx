@@ -37,7 +37,9 @@ function SignalCard({ signal, updated, isMobile }) {
     ? new Date(signal.expiry + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
     : signal.expiry;
 
-  const premiumFormatted = signal.premium ? `$${Number(signal.premium).toFixed(2)}` : '—';
+  // Multiply by 100 — premium is per-share, display as per-contract (1 contract = 100 shares)
+  const premiumPerContract = signal.premium ? Number(signal.premium) * 100 : null;
+  const premiumFormatted = premiumPerContract ? `$${premiumPerContract.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}` : '—';
   const isHighConviction = signal.conviction === 'HIGH CONVICTION';
   const convictionColor = isHighConviction ? '#00ff88' : '#f59e0b';
   const convictionBg = isHighConviction ? 'rgba(0,255,136,0.08)' : 'rgba(245,158,11,0.08)';

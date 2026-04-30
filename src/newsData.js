@@ -1,7 +1,14 @@
 // Auto-updated 3x daily by cron — do not edit manually
-// Last updated: Apr 29, 2026 18:00 ET
+// Last updated: Apr 30, 2026 09:00 ET
 
 export const breakingNews = [
+  {
+    headline: "Unsupervised robotaxi fleet hits 25 vehicles across 3 cities — Austin: 19, Dallas: 3, Houston: 3; up from 17 on Apr 21; fleet growth accelerating sharply",
+    category: "autonomy",
+    source: "Autolane / robotaxitracker.com",
+    timestamp: "Apr 29, 2026",
+    url: "https://robotaxitracker.com",
+  },
   {
     headline: "Tesla Semi production officially launched — volume production now live at Gigafactory Nevada; ahead of prior Q3 2026 guidance; Class 8 EV market disruption begins",
     category: "product",

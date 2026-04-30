@@ -46,6 +46,7 @@ export const catalysts = [
       "Musk (Apr 7 context): Confirming robotaxi expansion to 9 cities in 2026; Cybercab production officially started; Megapack 3 announced",
       "LIVE — Austin fleet operational as of mid-2025",
       "🆕 Apr 18, 2026: Tesla officially launches unsupervised robotaxi service in Dallas and Houston — 573-vehicle Model Y fleet with no driver or monitor in front seats; full multi-city expansion executing on schedule; first cities beyond Austin to receive driverless service; confirmed by Reuters, notateslaapp, Wikipedia",
+      "🆕 Apr 29, 2026: Unsupervised fleet hits 25 total vehicles — Austin: 19, Dallas: 3, Houston: 3 (up from 17 on Apr 21); +8 vehicles in 8 days, fleet growth rate accelerating — source: Autolane / robotaxitracker.com",
       "🆕 Apr 21, 2026: Total cross-fleet unsupervised vehicles: 17 (up from 13 on Apr 17) — fleet growing steadily; Austin 96 total, Dallas 2, Houston 2 just launched — source: robotaxitracker.com / Autolane",
       "🆕 Apr 17, 2026: Austin unsupervised robotaxi fleet reaches 13 vehicles — up from 12 yesterday, 9 last week; slow but steady expansion continues; service area now 12x original launch size after 4 geofence expansions since mid-2025 — source: NextBigFuture / robotaxitracker.com",
       "🆕 Apr 16, 2026: Tesla added another unsupervised Model Y robotaxi to Austin fleet — total unsupervised vehicles now 12 (up from 9); fleet continues to expand ahead of commercial launch — source: robotaxitracker.com/unsupervised",
