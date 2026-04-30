@@ -4,6 +4,7 @@
 
 import { useState } from 'react';
 import { setProStatus, addCredits } from './creditManager';
+import { getFingerprint } from './fingerprint';
 
 export default function RestoreAccess({ onClose, onRestored }) {
   const [email, setEmail]   = useState('');
@@ -15,10 +16,12 @@ export default function RestoreAccess({ onClose, onRestored }) {
     if (!email.trim()) return;
     setState('loading');
     try {
+      // Include fingerprint so server can stamp oracle-credits for pro access
+      const fp = await getFingerprint().catch(() => '');
       const res = await fetch('/api/customer-lookup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email.trim() }),
+        body: JSON.stringify({ email: email.trim(), fp }),
       });
       const data = await res.json();
 
@@ -27,7 +30,7 @@ export default function RestoreAccess({ onClose, onRestored }) {
         return;
       }
 
-      // Apply tier locally
+      // Apply tier locally (localStorage fallback)
       if (data.tier && data.tier !== 'single_query') {
         setProStatus(data.tier);
       }
