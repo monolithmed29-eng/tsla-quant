@@ -8,7 +8,7 @@ export const catalysts = [
     status: "in_progress",
     expected: "Q2 2026",
     likelihood: 0.94,
-    updated: "Apr 17, 2026",
+    updated: "Apr 30, 2026",
     description: [
       "🆕 Apr 25, 2026: Tesla confirms Cybercab has NO production cap as ramp begins — unlike previous models with fixed production targets, Cybercab output will scale demand-driven; Musk confirmed on Q1 call that volumes will ramp 'exponentially by end of 2026'; signals extreme confidence in demand and manufacturing execution (notateslaapp)",
       "🆕 Apr 20, 2026: 14 Cybercab units WITHOUT steering wheels spotted at Giga Texas — strong confirmation that production-spec autonomous Cybercabs are now rolling off the line; no-steering-wheel design (original spec) being built alongside wheel-equipped units for regulatory purposes; production ramp accelerating",
@@ -37,7 +37,7 @@ export const catalysts = [
     status: "achieved",
     expected: "Q2 2025",
     likelihood: 0.95,
-    updated: "Apr 17, 2026",
+    updated: "Apr 30, 2026",
     description: [
       "🆕 Apr 14, 2026: Cybercab testing officially confirmed in Florida — first out-of-Texas state deployment; Miami, Orlando, Tampa all on 1H 2026 roadmap; Florida presence signals active pre-launch ops",
       "🆕 Apr 11, 2026: BofA (Alexander Perry) calls Tesla the 'clear leader in autonomous driving' — vision-only approach more cost-effective and scalable than lidar competitors. Morgan Stanley (Andrew Percoco) reiterates robotaxi flywheel thesis: fleet scaling → FSD improvement → re-accelerates core auto demand. Both analysts naming robotaxi as THE key 2026 catalyst for TSLA.",
@@ -497,8 +497,9 @@ export const catalysts = [
     status: "achieved",
     expected: "Q2 2026",
     likelihood: 1.0,
-    updated: "Apr 29, 2026",
+    updated: "Apr 30, 2026",
     description: [
+      "🆕 Apr 30, 2026: First Tesla Semi rolls off high-volume production line at dedicated 1.7M sq ft Gigafactory Nevada facility — confirmed by Electrek, TeslaNorth, electrive.com; marks transition from pilot builds to industrial-scale manufacturing; sales to enterprise fleets begin 2026 (Electrek / TeslaNorth)",
       "🚀 Apr 29, 2026: Tesla Semi production officially launched — volume production now live at Gigafactory Nevada; ahead of prior Q3 2026 guidance.",
       "✅ Apr 22, 2026 (Q1 Outlook): Tesla OFFICIAL: 'Cybercab, Tesla Semi and Megapack 3 are on schedule for volume production starting in 2026.' Explicit commitment in Outlook section.",
       "✅ Apr 22, 2026 (Q1 manufacturing table): Tesla Semi = 'Pilot Production' at Gigafactory Nevada.",
