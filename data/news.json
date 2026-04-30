@@ -1,5 +1,12 @@
 [
   {
+    "headline": "Electrek confirms Tesla unsupervised robotaxi fleet reaches 25 vehicles across Texas — 'finally shows signs of ramping'; Austin 19, Dallas 3, Houston 3; +47% growth in 8 days; fastest weekly expansion since multi-city launch; still pre-commercial scale but trajectory inflecting positively",
+    "category": "autonomy",
+    "source": "Electrek / Robotaxi Tracker",
+    "timestamp": "Apr 30, 2026",
+    "url": "https://electrek.co/2026/04/30/tesla-robotaxi-unsupervised-finally-signs-ramping-up/"
+  },
+  {
     "headline": "First Tesla Semi rolls off high-volume production line at Gigafactory Nevada — milestone for long-delayed Class 8 electric truck program; Reuters, Electrek, electrive.com all confirm image of first production-spec unit with workforce on the new line; full volume ramp targeted before June 30, 2026",
     "category": "product",
     "source": "Reuters / Electrek / electrive.com",
@@ -54,12 +61,5 @@
     "source": "GuruFocus / Wedbush",
     "timestamp": "Apr 27, 2026",
     "url": "https://www.gurufocus.com/news/8819203/elon-musks-tesla-and-spacex-merger-predictions-by-dan-ives"
-  },
-  {
-    "headline": "HW3 vehicles confirmed incapable of Unsupervised FSD — Musk on Q1 call: 'Hardware 3 simply does not have the capability'; cites 1/8 the memory bandwidth of HW4 as choke point; FSD v14 Lite for HW3 owners by June 2026, discounted trade-in program offered",
-    "category": "autonomy",
-    "source": "TeslaNorth / Tesla Oracle / Electrek",
-    "timestamp": "Apr 22, 2026",
-    "url": "https://teslanorth.com/2026/04/22/tesla-confirms-hardware-3-lacks-unsupervised-fsd-capability-plans-hardware-upgrades-and-micro-factories/"
   }
 ]
