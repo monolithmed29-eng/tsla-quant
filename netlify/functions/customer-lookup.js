@@ -46,15 +46,32 @@ export default async (req) => {
   const isPro    = isActive && PRO_TIERS.has(tier);
 
   // ── Stamp fingerprint as pro on server so analyze-trade gate passes ────────
+  // Also save fp into customer record so webhook can revoke it on cancel/lapse
   if (fp && isPro) {
     try {
+      // 1. Stamp oracle-credits so analyze-trade passes immediately
       const oracleStore = getStore('oracle-credits');
       const existing = await oracleStore.get(fp, { type: 'json' }).catch(() => null);
       const updated  = { ...(existing || {}), pro: tier, updated: Date.now() };
       await oracleStore.setJSON(fp, updated);
+
+      // 2. Save fp into customer record's fingerprints[] for future revocation
+      const custRecord = await store.get(email, { type: 'json' }).catch(() => null);
+      if (custRecord) {
+        if (!custRecord.fingerprints) custRecord.fingerprints = [];
+        if (!custRecord.fingerprints.includes(fp)) {
+          custRecord.fingerprints.push(fp);
+          // Keep max 10 fingerprints (prevent unbounded growth)
+          if (custRecord.fingerprints.length > 10) {
+            custRecord.fingerprints = custRecord.fingerprints.slice(-10);
+          }
+          custRecord.updated = Date.now();
+          await store.setJSON(email, custRecord);
+        }
+      }
     } catch (e) {
       // Non-fatal — log but don't fail the response
-      console.error('oracle-credits stamp failed:', e);
+      console.error('oracle-credits stamp / fp save failed:', e);
     }
   }
 

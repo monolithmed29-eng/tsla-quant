@@ -3,13 +3,14 @@
 //
 // Events handled:
 //   checkout.session.completed  → record customer, grant tier/credit
-//   invoice.paid                → renew monthly subscription
-//   customer.subscription.deleted → revoke pro access
-//   invoice.payment_failed      → mark as lapsed
+//   invoice.paid                → renew monthly subscription + re-stamp oracle-credits
+//   customer.subscription.deleted → revoke pro access + clear all fingerprints
+//   invoice.payment_failed      → mark as lapsed + clear all fingerprints
 //
 // Customer records stored in Netlify Blobs store: 'customers'
 //   key: email (lowercase)
-//   value: { stripe_customer_id, email, tier, status, subscription_id, created, updated }
+//   value: { stripe_customer_id, email, tier, status, subscription_id,
+//            single_credits, fingerprints[], created, updated }
 //
 // Tier discrimination by amount_total (cents):
 //   99    → single_query  (one-time)
@@ -39,6 +40,8 @@ function tierFromAmount(amountCents, mode) {
   return null;
 }
 
+const PRO_TIERS = new Set(['active_trader', 'institutional']);
+
 async function verifyStripeSignature(payload, sigHeader, secret) {
   const parts = sigHeader.split(',').reduce((acc, part) => {
     const [k, v] = part.split('=');
@@ -55,6 +58,39 @@ async function verifyStripeSignature(payload, sigHeader, secret) {
   const valid = signatures.some(s => s === expected);
   const age = Math.floor(Date.now() / 1000) - parseInt(timestamp, 10);
   return valid && age < 300;
+}
+
+// ── Clear pro status from oracle-credits for all stored fingerprints ──────────
+async function revokeAllFingerprints(fingerprints = []) {
+  if (!fingerprints.length) return;
+  const oracleStore = getStore('oracle-credits');
+  await Promise.all(fingerprints.map(async (fp) => {
+    try {
+      const existing = await oracleStore.get(fp, { type: 'json' }).catch(() => null);
+      if (existing) {
+        existing.pro = null;
+        existing.updated = Date.now();
+        await oracleStore.setJSON(fp, existing);
+      }
+    } catch (e) {
+      console.error(`revokeAllFingerprints failed for fp ${fp}:`, e);
+    }
+  }));
+}
+
+// ── Re-stamp all fingerprints as pro on renewal ───────────────────────────────
+async function restoreAllFingerprints(fingerprints = [], tier) {
+  if (!fingerprints.length) return;
+  const oracleStore = getStore('oracle-credits');
+  await Promise.all(fingerprints.map(async (fp) => {
+    try {
+      const existing = await oracleStore.get(fp, { type: 'json' }).catch(() => null);
+      const updated = { ...(existing || {}), pro: tier, updated: Date.now() };
+      await oracleStore.setJSON(fp, updated);
+    } catch (e) {
+      console.error(`restoreAllFingerprints failed for fp ${fp}:`, e);
+    }
+  }));
 }
 
 export default async (req) => {
@@ -91,15 +127,16 @@ export default async (req) => {
     if (email && tier) {
       let record = await store.get(email, { type: 'json' }).catch(() => null);
       if (!record) {
-        record = { email, stripe_customer_id: customerId, tier: null, status: 'active', subscription_id: null, single_credits: 0, created: now, updated: now };
+        record = { email, stripe_customer_id: customerId, tier: null, status: 'active',
+                   subscription_id: null, single_credits: 0, fingerprints: [], created: now, updated: now };
       }
+      if (!record.fingerprints) record.fingerprints = [];
       record.stripe_customer_id = customerId;
       record.updated = now;
 
       if (tier === 'single_query') {
         record.single_credits = (record.single_credits || 0) + 1;
         record.status = 'active';
-        // Don't overwrite a subscription tier with 'single_query'
         if (!record.tier || record.tier === 'single_query') record.tier = 'single_query';
       } else {
         record.tier = tier;
@@ -108,13 +145,12 @@ export default async (req) => {
       }
 
       await store.setJSON(email, record);
-      // Also index by stripe_customer_id for webhook lookups
       if (customerId) await store.setJSON(`cid_${customerId}`, { email });
     }
     return json({ received: true, tier, email });
   }
 
-  // ── invoice.paid → renew subscription ────────────────────────────────────
+  // ── invoice.paid → renew subscription + re-stamp all fps ─────────────────
   if (event.type === 'invoice.paid') {
     const invoice = event.data.object;
     const customerId = invoice.customer;
@@ -129,10 +165,16 @@ export default async (req) => {
     record.status = 'active';
     record.updated = now;
     await store.setJSON(idx.email, record);
+
+    // Re-stamp all known fingerprints as pro (handles renewal after lapse)
+    if (PRO_TIERS.has(record.tier) && record.fingerprints?.length) {
+      await restoreAllFingerprints(record.fingerprints, record.tier);
+    }
+
     return json({ received: true, renewed: idx.email });
   }
 
-  // ── customer.subscription.deleted → revoke ────────────────────────────────
+  // ── customer.subscription.deleted → revoke + clear all fps ───────────────
   if (event.type === 'customer.subscription.deleted') {
     const sub = event.data.object;
     const customerId = sub.customer;
@@ -144,15 +186,21 @@ export default async (req) => {
     const record = await store.get(idx.email, { type: 'json' }).catch(() => null);
     if (!record) return json({ received: true });
 
+    // Clear all fingerprints server-side before updating record
+    if (record.fingerprints?.length) {
+      await revokeAllFingerprints(record.fingerprints);
+    }
+
     record.tier = null;
     record.status = 'cancelled';
     record.subscription_id = null;
+    record.fingerprints = []; // wipe — they'll need to re-subscribe + restore
     record.updated = now;
     await store.setJSON(idx.email, record);
     return json({ received: true, cancelled: idx.email });
   }
 
-  // ── invoice.payment_failed → lapse ───────────────────────────────────────
+  // ── invoice.payment_failed → lapse + clear all fps ───────────────────────
   if (event.type === 'invoice.payment_failed') {
     const invoice = event.data.object;
     const customerId = invoice.customer;
@@ -163,6 +211,11 @@ export default async (req) => {
 
     const record = await store.get(idx.email, { type: 'json' }).catch(() => null);
     if (!record) return json({ received: true });
+
+    // Clear all fingerprints — access suspended until payment succeeds
+    if (record.fingerprints?.length) {
+      await revokeAllFingerprints(record.fingerprints);
+    }
 
     record.status = 'lapsed';
     record.updated = now;
