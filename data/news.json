@@ -1,5 +1,12 @@
 [
   {
+    "headline": "Tesla 10-K/A reveals $573M web of transactions between Elon Musk's companies — $573M revenue from SpaceX + xAI sales in 2025; Tesla's $2B xAI investment converted to SpaceX shares after SpaceX acquired xAI; analysts flagging conflict-of-interest risk as xAI and SpaceX move closer together",
+    "category": "corporate",
+    "source": "Electrek / Bloomberg / Silicon Valley",
+    "timestamp": "May 1, 2026",
+    "url": "https://electrek.co/2026/05/01/tesla-tsla-web-transactions-musk-companies-spacex-xai-10ka-2025/"
+  },
+  {
     "headline": "TSLA closes at $381.63 on Apr 30 (+2.37%) — first post-earnings green day; bounces from $372.80 Apr 29 low; pre-market May 1 at $383.77 (+0.56%); widest mega-cap analyst spread on Wall Street: $125 bear (JPMorgan) vs $600 bull, $420 consensus average",
     "category": "financials",
     "source": "StockAnalysis / Yahoo Finance",
@@ -40,13 +47,6 @@
     "source": "harianbasis.co / Tesla Q1 2026 IR Deck",
     "timestamp": "May 1, 2026",
     "url": "https://www.harianbasis.co/en/tesla-financial-performance-valuation-risks"
-  },
-  {
-    "headline": "TSLA closes near $373 — stock off ~4% on Apr 30, down ~15% YTD after Q1 beat-on-profit / miss-on-revenue; JPMorgan reiterates $145 Sell (60% downside); widest mega-cap analyst spread on Wall Street: $125 bear vs $600 bull, $420 average",
-    "category": "financials",
-    "source": "Watcher.guru / ForeignPolicyJournal / MEXC",
-    "timestamp": "Apr 30, 2026",
-    "url": "https://www.foreignpolicyjournal.com/2026/04/30/tesla-nasdaq-tsla-stock-price-falls-after-mixed-q1-as-jpmorgan-holds-145-sell-target/"
   },
   {
     "headline": "Musk on Q1 call: deliberate slow ramp of unsupervised FSD — 'It wouldn't be right for us to go to very large-scale unsupervised FSD when we know that there are software improvements in the pipeline that would improve safety'; signals conservative commercial pace despite Austin fleet live",
