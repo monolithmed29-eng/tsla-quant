@@ -1,31 +1,31 @@
 [
   {
+    "headline": "Tesla robotaxi mass-scale expansion gated to FSD V15 — execs confirm wide deployment won't proceed until V15 architectural overhaul (est. late 2026–early 2027); 5 cities still pending 1H ramp: Phoenix, Miami, Orlando, Tampa, Las Vegas",
+    "category": "autonomy",
+    "source": "Automotive World / notateslaapp",
+    "timestamp": "May 1, 2026",
+    "url": "https://www.automotiveworld.com/news/tesla-robotaxi-fleet-hits-25-as-musk-defers-scale-to-fsd-v15/"
+  },
+  {
+    "headline": "TSLA surges to $397.82 intraday high on May 1 — highest level since March 2026; day range $378.91–$397.82; closed ~$394 (+3.2% vs Apr 30 $381.63); market cap $1.47T on volume of 65.2M shares",
+    "category": "financials",
+    "source": "Robinhood / market data",
+    "timestamp": "May 1, 2026",
+    "url": null
+  },
+  {
+    "headline": "Optimus V3 reveal set for late July 2026 — major upgrades from V2.5 including new hand design; production line install at Fremont underway now; testing + validation period of 'several months' follows before volume ramp",
+    "category": "robotics",
+    "source": "basenor.com / Electrek",
+    "timestamp": "Apr 29, 2026",
+    "url": "https://www.basenor.com/blogs/news/tesla-optimus-v3-reveal-set-for-late-july-what-we-know"
+  },
+  {
     "headline": "Tesla 10-K/A reveals $573M web of transactions between Elon Musk's companies — $573M revenue from SpaceX + xAI sales in 2025; Tesla's $2B xAI investment converted to SpaceX shares after SpaceX acquired xAI; analysts flagging conflict-of-interest risk as xAI and SpaceX move closer together",
     "category": "corporate",
-    "source": "Electrek / Bloomberg / Silicon Valley",
+    "source": "Electrek / Bloomberg",
     "timestamp": "May 1, 2026",
     "url": "https://electrek.co/2026/05/01/tesla-tsla-web-transactions-musk-companies-spacex-xai-10ka-2025/"
-  },
-  {
-    "headline": "TSLA closes at $381.63 on Apr 30 (+2.37%) — first post-earnings green day; bounces from $372.80 Apr 29 low; pre-market May 1 at $383.77 (+0.56%); widest mega-cap analyst spread on Wall Street: $125 bear (JPMorgan) vs $600 bull, $420 consensus average",
-    "category": "financials",
-    "source": "StockAnalysis / Yahoo Finance",
-    "timestamp": "May 1, 2026",
-    "url": "https://stockanalysis.com/stocks/tsla/history/"
-  },
-  {
-    "headline": "Fremont Optimus retool begins early May — Model S/X production lines shutting down now; Musk confirmed 'at least a few months' to dismantle + install Optimus line; first robots targeted for late July or August; Fremont converting to 1M robot/yr gen-1 capacity",
-    "category": "robotics",
-    "source": "notateslaapp / Business Insider / humai.blog",
-    "timestamp": "May 1, 2026",
-    "url": "https://www.notateslaapp.com/news/3900/tesla-model-x-inventory-sold-out-in-us-model-s-nearly-gone"
-  },
-  {
-    "headline": "Tesla Model X US inventory sold out; Model S nearly depleted — retail clearing confirms Fremont wind-down is imminent; historic chapter closes for both halo vehicles as factory converts to Optimus production",
-    "category": "product",
-    "source": "notateslaapp.com",
-    "timestamp": "May 1, 2026",
-    "url": "https://www.notateslaapp.com/news/3900/tesla-model-x-inventory-sold-out-in-us-model-s-nearly-gone"
   },
   {
     "headline": "FSD v14 Light now rolling out globally for broader fleet — supervised-only v14 architecture expanding reach to wider hardware; bridges gap ahead of HW3 V14 Lite (end of June target); Grok wake word, Smart Summon upgrade included in 2026.14.3 rollout wave",
@@ -35,38 +35,24 @@
     "url": "https://www.youtube.com/watch?v=xF2Hzkgmte4"
   },
   {
-    "headline": "Musk Day 2 OpenAI lawsuit testimony — described as 'humiliating' for OpenAI legal team on key AI ownership documents; case centers on nonprofit-to-for-profit conversion; outcome has potential implications for AI ownership rights industry-wide",
-    "category": "corporate",
-    "source": "Solving The Money Problem / Reuters",
+    "headline": "Fremont Optimus retool begins early May — Model S/X production lines shutting down now; Musk confirmed 'at least a few months' to dismantle + install Optimus line; first robots targeted for late July or August; Fremont converting to 1M robot/yr gen-1 capacity",
+    "category": "robotics",
+    "source": "notateslaapp / Electrek",
     "timestamp": "May 1, 2026",
-    "url": "https://www.youtube.com/watch?v=RRktUBd66b8"
-  },
-  {
-    "headline": "Tesla FSD subscriptions surpass $546M ARR — 1.28M active subscribers (+51% YoY); Q1 2026 services revenue $3.75B (+42% YoY); analysts flagging high-margin software flywheel as underappreciated in current valuation vs EV-only comps",
-    "category": "financials",
-    "source": "harianbasis.co / Tesla Q1 2026 IR Deck",
-    "timestamp": "May 1, 2026",
-    "url": "https://www.harianbasis.co/en/tesla-financial-performance-valuation-risks"
-  },
-  {
-    "headline": "Musk on Q1 call: deliberate slow ramp of unsupervised FSD — 'It wouldn't be right for us to go to very large-scale unsupervised FSD when we know that there are software improvements in the pipeline that would improve safety'; signals conservative commercial pace despite Austin fleet live",
-    "category": "autonomy",
-    "source": "Yahoo Finance / Motley Fool (Q1 2026 Earnings Call)",
-    "timestamp": "Apr 30, 2026",
-    "url": "https://finance.yahoo.com/markets/stocks/articles/tesla-buy-sell-hold-2026-060500425.html"
-  },
-  {
-    "headline": "Electrek confirms Tesla unsupervised robotaxi fleet reaches 25 vehicles across Texas — Austin 19, Dallas 3, Houston 3; +47% growth in 8 days; fastest weekly expansion since multi-city launch; still pre-commercial scale but trajectory inflecting positively",
-    "category": "autonomy",
-    "source": "Electrek / Robotaxi Tracker",
-    "timestamp": "Apr 30, 2026",
-    "url": "https://electrek.co/2026/04/30/tesla-robotaxi-unsupervised-finally-signs-ramping-up/"
+    "url": "https://www.notateslaapp.com/news/3900/tesla-model-x-inventory-sold-out-in-us-model-s-nearly-gone"
   },
   {
     "headline": "First Tesla Semi rolls off high-volume production line at Gigafactory Nevada — milestone for long-delayed Class 8 electric truck program; Reuters, Electrek, electrive.com all confirm; full volume ramp targeted before June 30, 2026",
     "category": "product",
-    "source": "Reuters / Electrek / electrive.com",
+    "source": "Reuters / Electrek",
     "timestamp": "Apr 30, 2026",
     "url": "https://www.reuters.com/business/autos-transportation/first-tesla-semi-rolls-off-high-volume-production-line-2026-04-30/"
+  },
+  {
+    "headline": "Tesla FSD subscriptions surpass $546M ARR — 1.28M active subscribers (+51% YoY); Q1 2026 services revenue $3.75B (+42% YoY); analysts flagging high-margin software flywheel as underappreciated in current valuation vs EV-only comps",
+    "category": "financials",
+    "source": "Tesla Q1 2026 IR Deck",
+    "timestamp": "Apr 30, 2026",
+    "url": "https://www.harianbasis.co/en/tesla-financial-performance-valuation-risks"
   }
 ]
