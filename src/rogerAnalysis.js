@@ -2,32 +2,39 @@
 // chartImage: path to static annotated chart in public/ (null = show live TradingView widget)
 
 export const ANALYSIS = {
-  updatedAt: 'April 19, 2026',
+  updatedAt: 'May 3, 2026',
   timeframe: '1D',
-  chartImage: '/charts/tsla-1d-apr19.png', // set to null to use live TradingView widget
+  chartImage: null, // set to null to use live TradingView widget
 
   signals: [
-    { label: 'Trend Structure',   reading: 'Broke downtrend channel above ~$372',                         lean: 'bullish'  },
-    { label: 'Buy Signal',        reading: 'Triggered ~$340 — stock fell further = deeper discount',      lean: 'bullish'  },
-    { label: 'Mean Reversion',    reading: 'At −1.0 SD (oversold, 70% win rate)',                         lean: 'bullish'  },
-    { label: 'Optimized Trend',   reading: 'Just turning blue, steep upward slope — strong confirmation', lean: 'bullish'  },
-    { label: '200 SMA (~$400)',   reading: 'Price approaching major resistance zone',                     lean: 'neutral'  },
+    { label: 'Price Bottom',      reading: '~$340 confirmed bottom — 1.0 Fib retracement, ~100% discount from ATH. Institutional accumulation zone.',             lean: 'bullish'  },
+    { label: 'Mean Reversion',    reading: 'Hit −1.0 SD ~Apr 13 (oversold, 70.37% win rate). Now trending upward — bullish retracement underway.',               lean: 'bullish'  },
+    { label: 'Channel Breakout',  reading: 'Broke out of pink downward channel. Retested ~$370 (channel upper band + 0.7826 Fib) — held as support.',             lean: 'bullish'  },
+    { label: 'Trend Structure',   reading: 'Making higher highs + higher lows on daily. Upward trend forming on both daily and weekly timeframes.',               lean: 'bullish'  },
+    { label: 'BX Trender',        reading: 'Oscillator turned green on daily. Still red on monthly — laggiest indicator, normal at this stage of recovery.',       lean: 'bullish'  },
+    { label: 'Volume Resistance', reading: '$400 level is key resistance per volume profiler. Clean break above confirms next leg.',                                lean: 'neutral'  },
+    { label: 'Dark Pool / Whale', reading: 'Recent institutional flow skewing bullish. Supports accumulation thesis.',                                             lean: 'bullish'  },
+    { label: 'Beta vs Market',    reading: 'TSLA outperforming SPY + QQQ on the beta scatter over the past week — relative strength building.',                    lean: 'bullish'  },
   ],
 
   targets: [
-    { label: '61.8% Fib + POC', price: 435, description: 'Primary target — Fibonacci level aligns precisely with Volume Point of Control. Double confluence = natural institutional profit-taking zone.' },
+    { label: '61.8% Fib + POC', price: 435, description: 'Primary target — Fibonacci level aligns precisely with Volume Point of Control (~$432). Double confluence = natural institutional profit-taking zone.' },
     { label: '78–82% Fib',      price: 470, description: 'Greedy target — where institutions sell if momentum is strong. $460–$475 range.' },
   ],
 
-  commentary: `TSLA broke out of a months-long downtrend channel above ~$372 — a technically significant level. The daily setup is strongly bullish across multiple signals.
+  commentary: `TSLA appears to have found its floor near $340 — a technically significant level where the 1.0 Fibonacci retracement intersects with roughly a 100% discount from the all-time high. That kind of extreme dislocation historically draws institutional accumulation, and the price action confirms it.
 
-Mean reversion sits at −1.0 standard deviations (oversold), a zone with a 70% historical win rate on reversal. The trend indicator just confirmed a bullish flip on the daily — a slower signal that carries more weight precisely because it's harder to trigger.
+The mean reversion oscillator on the daily touched −1.0 standard deviations around April 13th — a zone with a 70.37% historical win rate on reversal — and has since turned upward. That upward retracement from oversold territory is the signal, not just the level itself.
 
-The buy signal fired at ~$340. When a buy triggers and price continues lower, that's not a failure — it means the stock got even more oversold, building a higher-conviction launch pad for the eventual reversal.
+Price has broken out of the pink descending channel and successfully retested ~$370, a level that doubles as both the channel's upper band and the 0.7826 Fibonacci retracement. Holding that retest as support is a constructive sign.
 
-First major target: $435 — where the 61.8% Fibonacci retracement level aligns precisely with the volume Point of Control (the most-traded price level over the past year). That double confluence makes it the natural institutional base exit. If momentum holds, the 78–82% zone ($460–$470) opens up.
+Structure on the daily and weekly is improving: higher highs and higher lows are printing. The BX Trender oscillator has flipped green on the daily. The monthly is still red — but that's the laggiest of the three and expected to lag at this stage of recovery.
 
-Near-term friction: the 200 SMA near $400. Watch for a clean break or rejection here — this is the first real test.`,
+Near-term: $400 is a resistance wall per the volume profiler. A clean break and hold there opens the door to the primary target.
+
+Primary target remains $435 — where the 61.8% Fibonacci level aligns tightly with the Volume Point of Control (~$432). That double confluence is the natural institutional exit zone. If momentum extends, the 78–82% zone ($460–$475) is the greedy target.
+
+Additional tailwinds: dark pool and whale activity has skewed bullish recently, and TSLA has been outperforming SPY and QQQ on the beta scatter over the past week — early signs of relative strength returning. Short-term consolidation is still possible, but the medium-to-long term thesis is intact.`,
 
   overallLean: 'bullish', // 'bullish' | 'bearish' | 'neutral'
 };
