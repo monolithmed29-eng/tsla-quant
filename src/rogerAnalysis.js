@@ -5,13 +5,14 @@ export const ANALYSIS = {
   updatedAt: 'May 3, 2026',
   timeframe: '1D',
   chartImage: null, // set to null to use live TradingView widget
+  chartImageAnnotated: '/charts/tsla-1d-may3.png', // Rooz's annotated chart
 
   signals: [
     { label: 'Price Bottom',      reading: '~$340 confirmed bottom — 1.0 Fib retracement, ~100% discount from ATH. Institutional accumulation zone.',             lean: 'bullish'  },
     { label: 'Mean Reversion',    reading: 'Hit −1.0 SD ~Apr 13 (oversold, 70.37% win rate). Now trending upward — bullish retracement underway.',               lean: 'bullish'  },
     { label: 'Channel Breakout',  reading: 'Broke out of pink downward channel. Retested ~$370 (channel upper band + 0.7826 Fib) — held as support.',             lean: 'bullish'  },
     { label: 'Trend Structure',   reading: 'Making higher highs + higher lows on daily. Upward trend forming on both daily and weekly timeframes.',               lean: 'bullish'  },
-    { label: 'BX Trender',        reading: 'Oscillator turned green on daily. Still red on monthly — laggiest indicator, normal at this stage of recovery.',       lean: 'bullish'  },
+    { label: 'BX Trender',        reading: 'Oscillator turned green on daily. Still red on monthly — laggiest of the three timeframes (daily, weekly, monthly), normal at this stage of recovery.',       lean: 'bullish'  },
     { label: 'Volume Resistance', reading: '$400 level is key resistance per volume profiler. Clean break above confirms next leg.',                                lean: 'neutral'  },
     { label: 'Dark Pool / Whale', reading: 'Recent institutional flow skewing bullish. Supports accumulation thesis.',                                             lean: 'bullish'  },
     { label: 'Beta vs Market',    reading: 'TSLA outperforming SPY + QQQ on the beta scatter over the past week — relative strength building.',                    lean: 'bullish'  },
@@ -28,7 +29,7 @@ The mean reversion oscillator on the daily touched −1.0 standard deviations ar
 
 Price has broken out of the pink descending channel and successfully retested ~$370, a level that doubles as both the channel's upper band and the 0.7826 Fibonacci retracement. Holding that retest as support is a constructive sign.
 
-Structure on the daily and weekly is improving: higher highs and higher lows are printing. The BX Trender oscillator has flipped green on the daily. The monthly is still red — but that's the laggiest of the three and expected to lag at this stage of recovery.
+Structure on the daily and weekly is improving: higher highs and higher lows are printing. The BX Trender oscillator has flipped green on the daily. The monthly BX Trender is still red — but of the three timeframes (daily, weekly, monthly), the monthly is the laggiest and expected to lag at this stage of recovery.
 
 Near-term: $400 is a resistance wall per the volume profiler. A clean break and hold there opens the door to the primary target.
 

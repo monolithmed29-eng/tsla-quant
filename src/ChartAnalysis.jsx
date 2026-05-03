@@ -269,12 +269,16 @@ export default function ChartAnalysis() {
   const a = ANALYSIS;
   const overallColor = LEAN_COLOR[a.overallLean] || '#aaa';
   const [lightbox, setLightbox] = useState(false);
+  const [lightboxSrc, setLightboxSrc] = useState(null);
+
+  function openLightbox(src) { setLightboxSrc(src); setLightbox(true); }
+  function closeLightbox() { setLightbox(false); setLightboxSrc(null); }
 
   return (
     <div className="ca-root" style={{ fontFamily: FONT, background: '#030608', WebkitFontSmoothing: 'antialiased' }}>
 
       {/* Lightbox */}
-      {lightbox && a.chartImage && <ChartLightbox src={a.chartImage} onClose={() => setLightbox(false)} />}
+      {lightbox && lightboxSrc && <ChartLightbox src={lightboxSrc} onClose={closeLightbox} />}
 
       {/* Section header */}
       <div style={{
@@ -305,7 +309,7 @@ export default function ChartAnalysis() {
       <div style={{ padding: '20px 24px 0', width: '100%', boxSizing: 'border-box' }}>
         {a.chartImage ? (
           <div
-            onClick={() => setLightbox(true)}
+            onClick={() => openLightbox(a.chartImage)}
             style={{
               position: 'relative', border: '1px solid #1a1a2a', borderRadius: '4px',
               overflow: 'hidden', lineHeight: 0, cursor: 'zoom-in',
@@ -316,7 +320,6 @@ export default function ChartAnalysis() {
               alt="TSLA Technical Analysis Chart"
               style={{ width: '100%', display: 'block' }}
             />
-            {/* Zoom hint */}
             <div style={{
               position: 'absolute', top: '10px', right: '12px',
               fontSize: '11px', color: '#ccc', letterSpacing: '0.5px',
@@ -342,6 +345,40 @@ export default function ChartAnalysis() {
               allowTransparency="true"
               scrolling="no"
             />
+          </div>
+        )}
+
+        {/* Rooz's Annotated Chart */}
+        {a.chartImageAnnotated && (
+          <div style={{ marginTop: '16px' }}>
+            <div style={{
+              fontSize: '11px', letterSpacing: '2px', color: '#888',
+              textTransform: 'uppercase', fontWeight: 700,
+              marginBottom: '10px', paddingLeft: '2px',
+            }}>
+              📐 Annotated Chart
+            </div>
+            <div
+              onClick={() => openLightbox(a.chartImageAnnotated)}
+              style={{
+                position: 'relative', border: '1px solid #1a1a2a', borderRadius: '4px',
+                overflow: 'hidden', lineHeight: 0, cursor: 'zoom-in',
+              }}
+            >
+              <img
+                src={a.chartImageAnnotated}
+                alt="TSLA Annotated Chart"
+                style={{ width: '100%', display: 'block' }}
+              />
+              <div style={{
+                position: 'absolute', top: '10px', right: '12px',
+                fontSize: '11px', color: '#ccc', letterSpacing: '0.5px',
+                background: 'rgba(0,0,0,0.65)', padding: '4px 10px', borderRadius: '12px',
+                display: 'flex', alignItems: 'center', gap: '5px',
+              }}>
+                🔍 Click to expand
+              </div>
+            </div>
           </div>
         )}
       </div>
