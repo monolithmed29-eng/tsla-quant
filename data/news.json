@@ -1,5 +1,33 @@
 [
   {
+    "headline": "Austin robotaxi fleet begins nighttime unsupervised operations for the first time — service previously restricted to daylight hours (ending mid-afternoon); night ops expansion materially widens Tesla's Operational Design Domain; Dallas and Houston had supported evening unsupervised runs since April launch; confirms neural-net vision stack handling low-light, headlight glare, and reduced pedestrian contrast without human intervention",
+    "category": "autonomy",
+    "source": "Teslarati / RtaxiTracker",
+    "timestamp": "May 4, 2026",
+    "url": "https://www.teslarati.com/tesla-robotaxi-service-austin-achieves-monumental-new-accomplishment/"
+  },
+  {
+    "headline": "Unsupervised robotaxi fleet surpasses 30 vehicles across Texas — Sunday set single-day record with 7 new unsupervised Model Ys spotted (Austin + Dallas + Houston); fleet growth accelerating as Android app launch expands rider access; each new unit tracked by unique plate via RtaxiTracker community",
+    "category": "autonomy",
+    "source": "notateslaapp / Sawyer Merritt",
+    "timestamp": "May 4, 2026",
+    "url": "https://www.notateslaapp.com/news/4083/teslas-unsupervised-robotaxi-fleet-grows-as-night-rides-begin"
+  },
+  {
+    "headline": "Tesla Cybercab displayed inside glass box at Miami F1 Grand Prix — 'Autonomy Pop-Up' at Lummus Park ran Apr 29–May 3; Cybertruck towed Cybercab through beachfront crowd marked 'Future is Autonomous'; Miami is confirmed 1H 2026 robotaxi expansion city; follows Optimus appearances at Boston Marathon finish line (Apr 19–20) and Miami Design District (Dec 2025)",
+    "category": "product",
+    "source": "Teslarati",
+    "timestamp": "May 4, 2026",
+    "url": "https://www.teslarati.com/tesla-cybercab-miami-f1-autonomy/"
+  },
+  {
+    "headline": "First Tesla Semi rolls off high-volume production line at Giga Nevada — 'First Semi off high volume line' posted to X by Tesla; all-electric long-haul truck targeting 500-mile range; marks third major production ramp active simultaneously (Cybercab at Giga Texas, Semi at Giga Nevada, Optimus at Fremont); large-scale manufacturing now officially underway for multiple new product lines",
+    "category": "manufacturing",
+    "source": "Reuters",
+    "timestamp": "April 30, 2026",
+    "url": "https://www.reuters.com/business/autos-transportation/first-tesla-semi-rolls-off-high-volume-production-line-2026-04-30/"
+  },
+  {
     "headline": "Tesla FSD fleet crosses 10 billion cumulative miles — Musk's own threshold for 'safe unsupervised' driving; fleet logging ~29M mi/day, up from 14M/day at start of year; analysts note milestone alone doesn't flip the autonomy switch but significantly strengthens the data case for v15",
     "category": "autonomy",
     "source": "Electrek",
@@ -7,39 +35,11 @@
     "url": "https://electrek.co/2026/05/03/tesla-fsd-10-billion-miles-no-magical-milestone-autonomy/"
   },
   {
-    "headline": "California enacts new law holding Cybercab and Robotaxi operators liable for ticketable violations — takes effect July 1; driverless fleet has no human to absorb legal accountability; unsupervised consumer FSD still targeted Q4 2026",
-    "category": "autonomy",
-    "source": "Teslarati",
-    "timestamp": "May 2, 2026",
-    "url": "https://www.teslarati.com/california-dmv-ticket-driverless-tesla-robotaxi/"
-  },
-  {
-    "headline": "EU regulatory clarity emerging as key 2026 Tesla catalyst — Sweden joins Netherlands in approving FSD Supervised; analysts cite EU subscriber ramp as 'good news' investors are underpricing; major ramp still gated to FSD V15 (est. 2027)",
+    "headline": "EU regulatory clarity emerging as key 2026 Tesla catalyst — Netherlands RDW formally seeking EU-wide FSD approval; Sweden joins as 2nd EU state to approve FSD Supervised; analysts cite EU subscriber ramp as 'good news' investors are underpricing; major ramp still gated to FSD V15 (est. 2027)",
     "category": "autonomy",
     "source": "The Motley Fool",
     "timestamp": "May 3, 2026",
     "url": "https://www.fool.com/investing/2026/05/03/finally-some-good-news-for-tesla-investors/"
-  },
-  {
-    "headline": "Tesla robotaxi mass-scale expansion gated to FSD V15 — execs confirm wide deployment won't proceed until V15 architectural overhaul (est. late 2026–early 2027); 5 cities still pending 1H ramp: Phoenix, Miami, Orlando, Tampa, Las Vegas",
-    "category": "autonomy",
-    "source": "Automotive World / notateslaapp",
-    "timestamp": "May 1, 2026",
-    "url": "https://www.automotiveworld.com/news/tesla-robotaxi-fleet-hits-25-as-musk-defers-scale-to-fsd-v15/"
-  },
-  {
-    "headline": "TSLA surges to $397.82 intraday high on May 1 — highest level since March 2026; closed $390.82 (+2.41%); market cap $1.47T on volume of 65.2M shares",
-    "category": "financials",
-    "source": "Robinhood / market data",
-    "timestamp": "May 1, 2026",
-    "url": null
-  },
-  {
-    "headline": "FSD v14 Light now rolling out globally for broader fleet — supervised-only v14 architecture expanding reach to wider hardware; bridges gap ahead of HW3 V14 Lite (end of June target); Grok wake word, Smart Summon upgrade included in 2026.14.3 rollout wave",
-    "category": "autonomy",
-    "source": "Brighter with Herbert / notateslaapp",
-    "timestamp": "May 1, 2026",
-    "url": "https://www.youtube.com/watch?v=xF2Hzkgmte4"
   },
   {
     "headline": "Fremont Optimus retool begins early May — Model S/X production lines shutting down now; Musk confirmed 'at least a few months' to dismantle + install Optimus line; first robots targeted for late July or August; Fremont converting to 1M robot/yr gen-1 capacity",
@@ -49,10 +49,10 @@
     "url": "https://www.notateslaapp.com/news/3900/tesla-model-x-inventory-sold-out-in-us-model-s-nearly-gone"
   },
   {
-    "headline": "Tesla 10-K/A reveals $573M web of transactions between Elon Musk's companies — $573M revenue from SpaceX + xAI sales in 2025; Tesla's $2B xAI investment converted to SpaceX shares after SpaceX acquired xAI; analysts flagging conflict-of-interest risk as xAI and SpaceX move closer together",
-    "category": "corporate",
-    "source": "Electrek / Bloomberg",
-    "timestamp": "May 1, 2026",
-    "url": "https://electrek.co/2026/05/01/tesla-tsla-web-transactions-musk-companies-spacex-xai-10ka-2025/"
+    "headline": "California enacts new law holding Cybercab and Robotaxi operators liable for ticketable violations — takes effect July 1; driverless fleet has no human to absorb legal accountability; unsupervised consumer FSD still targeted Q4 2026",
+    "category": "autonomy",
+    "source": "Teslarati",
+    "timestamp": "May 2, 2026",
+    "url": "https://www.teslarati.com/california-dmv-ticket-driverless-tesla-robotaxi/"
   }
 ]
