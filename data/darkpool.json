@@ -1,8 +1,8 @@
 {
-  "gauge_value": 82,
+  "gauge_value": 78,
   "needle_status": "Aggressive",
-  "roger_insight": "Heavily call-weighted on both contract count and dollar flow — one of the strongest institutional call signals seen this week. Dollar flow running more than 3:1 in favor of calls.",
-  "updated": "May 1 · 10am ET",
-  "calls": { "count": 659, "value": 28660000 },
-  "puts":  { "count": 137, "value": 7950000 }
+  "roger_insight": "Call-heavy on both contract count and dollar flow — institutions maintaining bullish positioning. Dollar flow running more than 3:1 in favor of calls, with call premium dominating the tape.",
+  "updated": "May 4 · 10am ET",
+  "calls": { "count": 375, "value": 17350000 },
+  "puts":  { "count": 130, "value": 5310000 }
 }
