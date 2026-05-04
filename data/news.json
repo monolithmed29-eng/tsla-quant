@@ -21,38 +21,38 @@
     "url": "https://www.teslarati.com/tesla-cybercab-miami-f1-autonomy/"
   },
   {
+    "headline": "Tesla Semi total cost of ownership analysis: $0.08/mile operating cost vs $0.38/mile diesel — Big F Transport orders 40 units citing Scope 3 emissions targets and WAIRE point incentives; Electrek TCO breakdown confirms Semi achieves breakeven vs diesel within 3–4 years at current electricity rates; enterprise fleet adoption accelerating alongside production ramp at Giga Nevada",
+    "category": "product",
+    "source": "Electrek",
+    "timestamp": "May 4, 2026",
+    "url": "https://electrek.co/2026/05/04/tesla-semi-tco-analysis-diesel-savings-electricity-price/"
+  },
+  {
+    "headline": "Netherlands RDW formally submits EU-wide FSD approval application — regulator moves beyond national greenlight to seek harmonized EU authorization; individual EU member states can still approve independently in parallel; analysts cite EU subscriber ramp as catalyst investors are underpricing; full continental rollout gating on FSD v15 but supervised access expanding now",
+    "category": "autonomy",
+    "source": "Motley Fool / Globe and Mail",
+    "timestamp": "May 3, 2026",
+    "url": "https://www.fool.com/investing/2026/05/03/finally-some-good-news-for-tesla-investors/"
+  },
+  {
+    "headline": "FSD v14.3.2 update (build 2026.2.9.10) rolling out fleet-wide — new RL training stage improves wide variety of driving scenarios; vision encoder upgraded for rare and low-visibility conditions; MLIR compiler rewrite delivers 20% faster reaction time; updated FSD disengagement feedback menu; mitigated lane biasing and tailgating behaviors; 6.8% of fleet already running the build",
+    "category": "autonomy",
+    "source": "notateslaapp",
+    "timestamp": "May 3, 2026",
+    "url": "https://www.notateslaapp.com/software-updates/version/2026.2.9.10/release-notes"
+  },
+  {
+    "headline": "Tariff and tax credit expiry eliminates 12+ EV competitors from US market — Hyundai, Kia, BMW, Volvo, Honda all pulling or pausing models due to 25% import tariff + $7,500 federal credit expiration; Tesla benefits as the only EV maker with full US domestic manufacturing scale; competitive moat widening by default as foreign brands retreat",
+    "category": "corporate",
+    "source": "The Next Web",
+    "timestamp": "May 2, 2026",
+    "url": "https://thenextweb.com/news/ev-models-discontinued-us-tariffs-2026"
+  },
+  {
     "headline": "First Tesla Semi rolls off high-volume production line at Giga Nevada — 'First Semi off high volume line' posted to X by Tesla; all-electric long-haul truck targeting 500-mile range; marks third major production ramp active simultaneously (Cybercab at Giga Texas, Semi at Giga Nevada, Optimus at Fremont); large-scale manufacturing now officially underway for multiple new product lines",
     "category": "manufacturing",
     "source": "Reuters",
     "timestamp": "April 30, 2026",
     "url": "https://www.reuters.com/business/autos-transportation/first-tesla-semi-rolls-off-high-volume-production-line-2026-04-30/"
-  },
-  {
-    "headline": "Tesla FSD fleet crosses 10 billion cumulative miles — Musk's own threshold for 'safe unsupervised' driving; fleet logging ~29M mi/day, up from 14M/day at start of year; analysts note milestone alone doesn't flip the autonomy switch but significantly strengthens the data case for v15",
-    "category": "autonomy",
-    "source": "Electrek",
-    "timestamp": "May 3, 2026",
-    "url": "https://electrek.co/2026/05/03/tesla-fsd-10-billion-miles-no-magical-milestone-autonomy/"
-  },
-  {
-    "headline": "EU regulatory clarity emerging as key 2026 Tesla catalyst — Netherlands RDW formally seeking EU-wide FSD approval; Sweden joins as 2nd EU state to approve FSD Supervised; analysts cite EU subscriber ramp as 'good news' investors are underpricing; major ramp still gated to FSD V15 (est. 2027)",
-    "category": "autonomy",
-    "source": "The Motley Fool",
-    "timestamp": "May 3, 2026",
-    "url": "https://www.fool.com/investing/2026/05/03/finally-some-good-news-for-tesla-investors/"
-  },
-  {
-    "headline": "Fremont Optimus retool begins early May — Model S/X production lines shutting down now; Musk confirmed 'at least a few months' to dismantle + install Optimus line; first robots targeted for late July or August; Fremont converting to 1M robot/yr gen-1 capacity",
-    "category": "robotics",
-    "source": "notateslaapp / Electrek",
-    "timestamp": "May 1, 2026",
-    "url": "https://www.notateslaapp.com/news/3900/tesla-model-x-inventory-sold-out-in-us-model-s-nearly-gone"
-  },
-  {
-    "headline": "California enacts new law holding Cybercab and Robotaxi operators liable for ticketable violations — takes effect July 1; driverless fleet has no human to absorb legal accountability; unsupervised consumer FSD still targeted Q4 2026",
-    "category": "autonomy",
-    "source": "Teslarati",
-    "timestamp": "May 2, 2026",
-    "url": "https://www.teslarati.com/california-dmv-ticket-driverless-tesla-robotaxi/"
   }
 ]
