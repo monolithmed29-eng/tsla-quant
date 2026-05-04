@@ -742,9 +742,10 @@ export const catalysts = [
     weight: 0.04,
     status: "in_progress",
     expected: "Q3 2026",
-    likelihood: 0.61,
-    updated: "Apr 22, 2026",
+    likelihood: 0.63,
+    updated: "May 4, 2026",
     description: [
+      "🆕 May 4, 2026: April EU sales data confirms acceleration — France +112%, Sweden +111%, Denmark +102%, Ireland +100%, Romania +53%, Belgium +47%, Netherlands +23%, Switzerland +15%. Europe BEV share hit 20.5% of new car registrations in Q1 2026 (vs 13.2% a year ago), trending toward 25% — structural tailwind for Tesla EU volume.",
       "⚠️ Apr 22, 2026: Independent lab finds hexavalent chromium + arsenic in TX lithium refinery discharge — cease & desist issued; environmental liability risk adds to ongoing anti-Musk brand headwinds",
       "🆕 Apr 20, 2026: Tesla opening first Estonia showroom April 24 at Ülemiste Center, Tallinn — Baltic states expansion; continues EU push post-brand-recovery",
       "🆕 Apr 19–20, 2026: Optimus robot appearing live at Tesla Boston Boylston Street showroom during Boston Marathon weekend — hundreds of thousands of spectators + international broadcast; zero ad spend PR at scale (Teslarati)",
