@@ -497,8 +497,9 @@ export const catalysts = [
     status: "achieved",
     expected: "Q2 2026",
     likelihood: 1.0,
-    updated: "Apr 30, 2026",
+    updated: "May 4, 2026",
     description: [
+      "🆕 May 4, 2026: Big F Transport orders 40 Tesla Semi trucks following live demo — drivers cited smoother and quieter operation; shippers driven by Scope 3 emissions targets and WAIRE point incentives in California. Signals enterprise fleet adoption accelerating alongside production ramp.",
       "🆕 Apr 30, 2026: First Tesla Semi rolls off high-volume production line at dedicated 1.7M sq ft Gigafactory Nevada facility — confirmed by Electrek, TeslaNorth, electrive.com; marks transition from pilot builds to industrial-scale manufacturing; sales to enterprise fleets begin 2026 (Electrek / TeslaNorth)",
       "🚀 Apr 29, 2026: Tesla Semi production officially launched — volume production now live at Gigafactory Nevada; ahead of prior Q3 2026 guidance.",
       "✅ Apr 22, 2026 (Q1 Outlook): Tesla OFFICIAL: 'Cybercab, Tesla Semi and Megapack 3 are on schedule for volume production starting in 2026.' Explicit commitment in Outlook section.",
