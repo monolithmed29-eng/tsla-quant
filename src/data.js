@@ -71,8 +71,9 @@ export const catalysts = [
     status: "in_progress",
     expected: "Q3 2026",
     likelihood: 0.95,
-    updated: "Apr 28, 2026",
+    updated: "May 5, 2026",
     description: [
+      "🆕 May 5, 2026: RDW presents Tesla FSD case to EU Technical Committee in Brussels — Nordic regulators (Sweden, Finland, Denmark, Norway) raise skepticism over FSD allowance of speeding, icy road performance, and driver distraction; Swedish official 'quite surprised' the system can exceed speed limits; Finnish official questions hands-free driving on icy 80 km/h roads; no vote today; Tesla needs 15/27 EU member states for bloc-wide approval; next vote windows: July and October 2026 (Reuters / Electrek / Ars Technica)",
       "🆕 Apr 27, 2026: Sweden approves Tesla FSD Supervised for public testing — 2nd EU member state greenlight after Netherlands; confirms EU regulatory cascade is accelerating; Sweden joins Netherlands ahead of summer EU-wide harmonization; simultaneously, Tesla announces AI4+ FSD computer with more memory and compute for improved inference performance on all new-build vehicles (notateslaapp)",
       "🆕 Apr 11, 2026: Tesla opens FSD outright purchase option in Europe following Netherlands RDW approval — first time EU customers can buy FSD, not just subscribe. Signals confidence in sustained EU regulatory status and unlocks a material new revenue stream from the EU's ~15M Tesla-addressable fleet.",
       "Apr 10, 2026: Netherlands RDW approval CONFIRMED — FSD Supervised now officially cleared for European roads, opening EU subscriber market for first time. First regulatory greenlight outside the US; sets precedent for EU-wide harmonization expected this summer.",
