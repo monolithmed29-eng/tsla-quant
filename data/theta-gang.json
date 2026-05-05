@@ -1,23 +1,23 @@
 {
-  "updated": "May 4, 2026 · 10am ET",
+  "updated": "May 5, 2026 · 10am ET",
   "csp": {
     "signal_type": "PUT",
-    "strike": 370.0,
-    "expiry": "2026-05-29",
-    "premium": 8.70,
-    "aroc": 35.76,
-    "delta": -0.27,
+    "strike": 375.0,
+    "expiry": "2026-06-05",
+    "premium": 10.32,
+    "aroc": 33.48,
+    "delta": -0.29,
     "conviction": "STANDARD",
-    "quant_note": "The $370 CSP May 29 leads all CSP candidates at 35.76% AROC with 24 DTE — top annualized yield in the scan. At -0.27 delta the strike sits ~5.8% OTM from $392.70, within optimal Theta decay range. Outperforms the Jun 5 and Jun 12 equivalents on annualized yield while keeping the same strike with a tighter expiry window."
+    "quant_note": "The $375 CSP Jun 5 leads all CSP candidates at 33.48% AROC with 30 DTE — top annualized yield in the scan. At -0.29 delta the strike sits ~5.9% OTM from $398.46, within optimal Theta decay range. Outperforms the Jun 5 $370 and Jun 12 $370 equivalents on annualized yield while maintaining the same expiry window."
   },
   "cc": {
     "signal_type": "CALL",
-    "strike": 420.0,
-    "expiry": "2026-05-29",
-    "premium": 6.38,
-    "aroc": 24.71,
-    "delta": 0.27,
+    "strike": 430.0,
+    "expiry": "2026-06-05",
+    "premium": 7.85,
+    "aroc": 23.97,
+    "delta": 0.29,
     "conviction": "STANDARD",
-    "quant_note": "The $420 CC May 29 tops the CC group at 24.71% AROC with 24 DTE. Strike sits ~$27 OTM (~6.9% above $392.70), providing solid upside buffer while collecting premium at peak Theta decay velocity. Outperforms the Jun 5 and lower-delta May 29 alternatives on annualized yield."
+    "quant_note": "The $430 CC Jun 5 tops the CC group at 23.97% AROC with 30 DTE. Strike sits ~$31.50 OTM (~7.9% above $398.46), providing solid upside buffer while collecting premium at peak Theta decay velocity. Outperforms the Jun 5 $435 and Jun 12 $440 alternatives on annualized yield."
   }
 }
