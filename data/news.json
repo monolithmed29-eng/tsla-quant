@@ -1,17 +1,38 @@
 [
   {
+    "headline": "Tesla FSD surpasses 10 billion cumulative miles — Musk's own stated threshold for 'safe unsupervised' self-driving; milestone confirmed by official Tesla X post; in January 2026 Musk revised the threshold upward from 6B to 10B miles after missing 2025 deadline; Electrek cautions 'no magical milestone' auto-unlocks unsupervised FSD, but data target has now been formally crossed",
+    "category": "autonomy",
+    "source": "Tesla / Electrek / The Verge / Drive Tesla Canada",
+    "timestamp": "May 3, 2026",
+    "url": "https://electrek.co/2026/05/03/tesla-fsd-10-billion-miles-no-magical-milestone-autonomy/"
+  },
+  {
+    "headline": "Unsupervised robotaxi fleet reaches 33+ vehicles with hundreds parked and ready across TX — fleet likely undercounted since crowdsourced tracker misses 50%+ of supervised vehicles; Tesla Robotaxi pricing ~$6.15/ride vs Waymo's $13.93; Dallas and Houston still well below Austin's fleet density but 100s of robotaxi-marked Model Ys staged in both cities; Cybercabs also staged and awaiting deployment authorization",
+    "category": "autonomy",
+    "source": "NextBigFuture / robotaxitracker.com",
+    "timestamp": "May 5, 2026",
+    "url": "https://www.nextbigfuture.com/2026/05/tesla-adding-unsupervised-robotaxi-in-texas-to-reach-and-undercounted-33-with-100s-parked-and-ready.html"
+  },
+  {
+    "headline": "FSD v15 described as ~10x parameter upgrade targeting ~10 billion parameters — next architectural leap after v14.3's ground-up rewrite; Musk confirms v15 is the direct gate for mass robotaxi scale and unsupervised personal FSD; notateslaapp details v15 as a qualitative capability jump, not an incremental update; timeline aligns with Q3–Q4 2026 per Elluswamy",
+    "category": "autonomy",
+    "source": "notateslaapp",
+    "timestamp": "May 4, 2026",
+    "url": "https://www.notateslaapp.com/news/4083/teslas-unsupervised-robotaxi-fleet-grows-as-night-rides-begin"
+  },
+  {
+    "headline": "Tesla amended 10-K reveals $573M in related-party revenue: $430M from xAI (AI compute services) and $143M from SpaceX (vehicle sales) — deepens financial integration across Musk's empire; raises governance questions; revenue flows confirm Tesla-xAI-SpaceX as a unified commercial ecosystem, supporting the SpaceX merger thesis; critics flag conflicts of interest and lack of arm's-length pricing disclosure",
+    "category": "corporate",
+    "source": "Electrek / Business Insider / GuruFocus",
+    "timestamp": "May 1, 2026",
+    "url": "https://electrek.co/2026/05/01/tesla-tsla-web-transactions-musk-companies-spacex-xai-10ka-2025/"
+  },
+  {
     "headline": "Austin robotaxi fleet begins nighttime unsupervised operations for the first time — service previously restricted to daylight hours (ending mid-afternoon); night ops expansion materially widens Tesla's Operational Design Domain; Dallas and Houston had supported evening unsupervised runs since April launch; confirms neural-net vision stack handling low-light, headlight glare, and reduced pedestrian contrast without human intervention",
     "category": "autonomy",
     "source": "Teslarati / RtaxiTracker",
     "timestamp": "May 4, 2026",
     "url": "https://www.teslarati.com/tesla-robotaxi-service-austin-achieves-monumental-new-accomplishment/"
-  },
-  {
-    "headline": "Unsupervised robotaxi fleet surpasses 30 vehicles across Texas — Sunday set single-day record with 7 new unsupervised Model Ys spotted (Austin + Dallas + Houston); fleet growth accelerating as Android app launch expands rider access; each new unit tracked by unique plate via RtaxiTracker community",
-    "category": "autonomy",
-    "source": "notateslaapp / Sawyer Merritt",
-    "timestamp": "May 4, 2026",
-    "url": "https://www.notateslaapp.com/news/4083/teslas-unsupervised-robotaxi-fleet-grows-as-night-rides-begin"
   },
   {
     "headline": "Tesla Cybercab displayed inside glass box at Miami F1 Grand Prix — 'Autonomy Pop-Up' at Lummus Park ran Apr 29–May 3; Cybertruck towed Cybercab through beachfront crowd marked 'Future is Autonomous'; Miami is confirmed 1H 2026 robotaxi expansion city; follows Optimus appearances at Boston Marathon finish line (Apr 19–20) and Miami Design District (Dec 2025)",
@@ -21,32 +42,11 @@
     "url": "https://www.teslarati.com/tesla-cybercab-miami-f1-autonomy/"
   },
   {
-    "headline": "Tesla Semi total cost of ownership analysis: $0.08/mile operating cost vs $0.38/mile diesel — Big F Transport orders 40 units citing Scope 3 emissions targets and WAIRE point incentives; Electrek TCO breakdown confirms Semi achieves breakeven vs diesel within 3–4 years at current electricity rates; enterprise fleet adoption accelerating alongside production ramp at Giga Nevada",
-    "category": "product",
-    "source": "Electrek",
-    "timestamp": "May 4, 2026",
-    "url": "https://electrek.co/2026/05/04/tesla-semi-tco-analysis-diesel-savings-electricity-price/"
-  },
-  {
     "headline": "Netherlands RDW formally submits EU-wide FSD approval application — regulator moves beyond national greenlight to seek harmonized EU authorization; individual EU member states can still approve independently in parallel; analysts cite EU subscriber ramp as catalyst investors are underpricing; full continental rollout gating on FSD v15 but supervised access expanding now",
     "category": "autonomy",
     "source": "Motley Fool / Globe and Mail",
     "timestamp": "May 3, 2026",
     "url": "https://www.fool.com/investing/2026/05/03/finally-some-good-news-for-tesla-investors/"
-  },
-  {
-    "headline": "FSD v14.3.2 update (build 2026.2.9.10) rolling out fleet-wide — new RL training stage improves wide variety of driving scenarios; vision encoder upgraded for rare and low-visibility conditions; MLIR compiler rewrite delivers 20% faster reaction time; updated FSD disengagement feedback menu; mitigated lane biasing and tailgating behaviors; 6.8% of fleet already running the build",
-    "category": "autonomy",
-    "source": "notateslaapp",
-    "timestamp": "May 3, 2026",
-    "url": "https://www.notateslaapp.com/software-updates/version/2026.2.9.10/release-notes"
-  },
-  {
-    "headline": "Tariff and tax credit expiry eliminates 12+ EV competitors from US market — Hyundai, Kia, BMW, Volvo, Honda all pulling or pausing models due to 25% import tariff + $7,500 federal credit expiration; Tesla benefits as the only EV maker with full US domestic manufacturing scale; competitive moat widening by default as foreign brands retreat",
-    "category": "corporate",
-    "source": "The Next Web",
-    "timestamp": "May 2, 2026",
-    "url": "https://thenextweb.com/news/ev-models-discontinued-us-tariffs-2026"
   },
   {
     "headline": "First Tesla Semi rolls off high-volume production line at Giga Nevada — 'First Semi off high volume line' posted to X by Tesla; all-electric long-haul truck targeting 500-mile range; marks third major production ramp active simultaneously (Cybercab at Giga Texas, Semi at Giga Nevada, Optimus at Fremont); large-scale manufacturing now officially underway for multiple new product lines",
