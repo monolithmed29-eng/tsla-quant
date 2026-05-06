@@ -2,9 +2,9 @@
   "strike": 350.0,
   "expiry": "2027-06-17",
   "type": "CALL",
-  "premium": 11067,
-  "efficiency": 3.6,
-  "iv": 54.1,
-  "quant_note": "Top efficiency score at $350 strike — model identifies this as the optimal balance of leverage and capital deployment at 3.6. At $110.67 premium with TSLA at $398.46, strike sits ~12.2% OTM with 408 DTE. IV at 54.1% is favorable relative to deeper strikes, keeping cost basis efficient while maintaining strong delta exposure into the 2027 Cybercab and Optimus catalyst window.",
-  "updated": "May 5, 2026 · 10am ET"
+  "premium": 10410,
+  "efficiency": 3.77,
+  "iv": 52.6,
+  "quant_note": "Top efficiency score at $350 strike — model identifies this as the optimal balance of leverage and capital deployment at 3.77. At $104.10 premium with TSLA at $392.47, strike sits ~10.8% OTM with 407 DTE. IV at 52.6% is favorable relative to deeper strikes, keeping cost basis efficient while maintaining strong delta exposure into the 2027 Cybercab and Optimus catalyst window.",
+  "updated": "May 6, 2026 · 10am ET"
 }

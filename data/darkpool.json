@@ -1,8 +1,8 @@
 {
-  "gauge_value": 85,
+  "gauge_value": 88,
   "needle_status": "Aggressive",
-  "roger_insight": "Heavily call-weighted on both contract count and dollar flow — institutions leaning into calls at an elevated conviction level. Dollar flow running more than 5:1 in favor of calls, with put activity notably thin relative to call premium deployed.",
-  "updated": "May 5 · 10am ET",
-  "calls": { "count": 392, "value": 20450000 },
-  "puts":  { "count": 57, "value": 3720000 }
+  "roger_insight": "Call-heavy positioning with an exceptionally lopsided dollar flow ratio — institutions deploying significantly more premium into calls than puts. One of the strongest directional signals seen in recent sessions, with put activity near minimal levels relative to call commitment.",
+  "updated": "May 6 · 10am ET",
+  "calls": { "count": 278, "value": 14650000 },
+  "puts":  { "count": 55, "value": 1690000 }
 }
