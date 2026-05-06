@@ -37,8 +37,9 @@ export const catalysts = [
     status: "achieved",
     expected: "Q2 2025",
     likelihood: 0.95,
-    updated: "Apr 30, 2026",
+    updated: "May 6, 2026",
     description: [
+      "🆕 May 6, 2026: Unsupervised robotaxi fleet grows to 30 total vehicles — Austin: 22 fully driverless (up from 19 on Apr 29), Houston: 6 (up from 3), Dallas: 2; +5 vehicles in 7 days; Austin operating day and evening hours; Cybercab also marketing to public at Miami F1 Grand Prix in a glass box display; fleet ramp steady ahead of commercial Cybercab launch (Wikipedia / robotaxitracker.com / Teslarati)",
       "🆕 Apr 14, 2026: Cybercab testing officially confirmed in Florida — first out-of-Texas state deployment; Miami, Orlando, Tampa all on 1H 2026 roadmap; Florida presence signals active pre-launch ops",
       "🆕 Apr 11, 2026: BofA (Alexander Perry) calls Tesla the 'clear leader in autonomous driving' — vision-only approach more cost-effective and scalable than lidar competitors. Morgan Stanley (Andrew Percoco) reiterates robotaxi flywheel thesis: fleet scaling → FSD improvement → re-accelerates core auto demand. Both analysts naming robotaxi as THE key 2026 catalyst for TSLA.",
       "Morgan Stanley (Apr 5, 2026): 'Scaling the unsupervised robotaxi fleet is the most important catalyst for $TSLA this year' — each incremental mile accelerates FSD learning → higher attach rates → re-accelerates auto demand → improves FCF. Stock expected to trade in close correlation to robotaxi fleet scaling + 7-city expansion by end of June.",
@@ -498,8 +499,9 @@ export const catalysts = [
     status: "achieved",
     expected: "Q2 2026",
     likelihood: 1.0,
-    updated: "May 4, 2026",
+    updated: "May 6, 2026",
     description: [
+      "🆕 May 6, 2026: WattEV orders 370 Tesla Semi trucks in a landmark $100M deal — California's largest-ever single electric truck order; 50 trucks deliver in 2026 with full fleet by end 2027; 300+ units to support Port of Oakland freight electrification; WattEV CEO cited Tesla Semi's 'cost, performance, and availability' as decisive factors vs. competitors; signals major fleet-scale enterprise adoption accelerating alongside Gigafactory Nevada volume ramp (Teslarati / ACT Expo)",
       "🆕 May 4, 2026: Big F Transport orders 40 Tesla Semi trucks following live demo — drivers cited smoother and quieter operation; shippers driven by Scope 3 emissions targets and WAIRE point incentives in California. Signals enterprise fleet adoption accelerating alongside production ramp.",
       "🆕 Apr 30, 2026: First Tesla Semi rolls off high-volume production line at dedicated 1.7M sq ft Gigafactory Nevada facility — confirmed by Electrek, TeslaNorth, electrive.com; marks transition from pilot builds to industrial-scale manufacturing; sales to enterprise fleets begin 2026 (Electrek / TeslaNorth)",
       "🚀 Apr 29, 2026: Tesla Semi production officially launched — volume production now live at Gigafactory Nevada; ahead of prior Q3 2026 guidance.",
@@ -745,8 +747,9 @@ export const catalysts = [
     status: "in_progress",
     expected: "Q3 2026",
     likelihood: 0.63,
-    updated: "May 4, 2026",
+    updated: "May 6, 2026",
     description: [
+      "🆕 May 6, 2026: Tesla wins S&P Global Mobility 'Overall Loyalty to Make' award for 4th consecutive year — owners returning to the brand at class-leading rates despite Musk political controversy; structural brand loyalty floor confirmed even amid DOGE-related demand headwinds; loyalty data validates that product quality is overcoming political backlash (S&P Global Mobility / Teslarati)",
       "🆕 May 4, 2026: April EU sales data confirms acceleration — France +112%, Sweden +111%, Denmark +102%, Ireland +100%, Romania +53%, Belgium +47%, Netherlands +23%, Switzerland +15%. Europe BEV share hit 20.5% of new car registrations in Q1 2026 (vs 13.2% a year ago), trending toward 25% — structural tailwind for Tesla EU volume.",
       "⚠️ Apr 22, 2026: Independent lab finds hexavalent chromium + arsenic in TX lithium refinery discharge — cease & desist issued; environmental liability risk adds to ongoing anti-Musk brand headwinds",
       "🆕 Apr 20, 2026: Tesla opening first Estonia showroom April 24 at Ülemiste Center, Tallinn — Baltic states expansion; continues EU push post-brand-recovery",
