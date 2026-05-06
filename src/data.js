@@ -72,8 +72,10 @@ export const catalysts = [
     status: "in_progress",
     expected: "Q3 2026",
     likelihood: 0.95,
-    updated: "May 5, 2026",
+    updated: "May 6, 2026",
     description: [
+      "🆕 May 6, 2026: Tesla ending €7,500 one-time FSD purchase option in Netherlands on May 15 — after that date FSD only available via €99/month subscription; customers must order by May 15 and take delivery by June 30 to retain lifetime license; signals Tesla aggressively funneling new EU users into ARR-accretive subscription pipeline as FSD ARR hits $546M/yr (+51% YoY) (notateslaapp / basenor)",
+      "🆕 May 6, 2026: Tesla FSD (Supervised) crosses 10 billion cumulative miles — Musk's previously stated threshold for 'safe unsupervised driving'; 3.7B miles on city streets; no immediate unsupervised rollout triggered post-milestone; Electrek notes 'no magical milestone' as Austin robotaxi fleet crash rate reported ~4x human urban baseline in NHTSA filings; milestone bolsters training data for v15 development but regulatory and reliability hurdles remain (Electrek / The Verge / Drive Tesla Canada)",
       "🆕 May 5, 2026: RDW presents Tesla FSD case to EU Technical Committee in Brussels — Nordic regulators (Sweden, Finland, Denmark, Norway) raise skepticism over FSD allowance of speeding, icy road performance, and driver distraction; Swedish official 'quite surprised' the system can exceed speed limits; Finnish official questions hands-free driving on icy 80 km/h roads; no vote today; Tesla needs 15/27 EU member states for bloc-wide approval; next vote windows: July and October 2026 (Reuters / Electrek / Ars Technica)",
       "🆕 Apr 27, 2026: Sweden approves Tesla FSD Supervised for public testing — 2nd EU member state greenlight after Netherlands; confirms EU regulatory cascade is accelerating; Sweden joins Netherlands ahead of summer EU-wide harmonization; simultaneously, Tesla announces AI4+ FSD computer with more memory and compute for improved inference performance on all new-build vehicles (notateslaapp)",
       "🆕 Apr 11, 2026: Tesla opens FSD outright purchase option in Europe following Netherlands RDW approval — first time EU customers can buy FSD, not just subscribe. Signals confidence in sustained EU regulatory status and unlocks a material new revenue stream from the EU's ~15M Tesla-addressable fleet.",
