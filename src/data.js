@@ -39,6 +39,7 @@ export const catalysts = [
     likelihood: 0.95,
     updated: "May 6, 2026",
     description: [
+      "🆕 May 6, 2026 (PM): Unsupervised robotaxi fleet hits 38 vehicles — Austin: 27 (71% of total fleet), Houston: 6, Dallas: 5. Ramp accelerating; +8 vehicles since morning count.",
       "🆕 May 6, 2026: Unsupervised robotaxi fleet grows to 30 total vehicles — Austin: 22 fully driverless (up from 19 on Apr 29), Houston: 6 (up from 3), Dallas: 2; +5 vehicles in 7 days; Austin operating day and evening hours; Cybercab also marketing to public at Miami F1 Grand Prix in a glass box display; fleet ramp steady ahead of commercial Cybercab launch (Wikipedia / robotaxitracker.com / Teslarati)",
       "🆕 Apr 14, 2026: Cybercab testing officially confirmed in Florida — first out-of-Texas state deployment; Miami, Orlando, Tampa all on 1H 2026 roadmap; Florida presence signals active pre-launch ops",
       "🆕 Apr 11, 2026: BofA (Alexander Perry) calls Tesla the 'clear leader in autonomous driving' — vision-only approach more cost-effective and scalable than lidar competitors. Morgan Stanley (Andrew Percoco) reiterates robotaxi flywheel thesis: fleet scaling → FSD improvement → re-accelerates core auto demand. Both analysts naming robotaxi as THE key 2026 catalyst for TSLA.",
@@ -778,9 +779,11 @@ export const catalysts = [
     weight: 0.06,
     status: "in_progress",
     expected: "Q3 2026",
-    likelihood: 0.75,
-    updated: "Apr 16, 2026",
+    likelihood: 0.77,
+    updated: "May 6, 2026",
     description: [
+      "🆕 May 6, 2026: SpaceX proposes $55 billion to begin construction of Terafab chip factory — joint Tesla/SpaceX venture moves from announcement to active funding/construction phase. Significant capital commitment signals project execution is underway, not just planned.",
+      "🆕 May 6, 2026: SpaceXAI signs compute access agreement with Anthropic for Colossus 1 (220,000 NVIDIA GPUs — H100/H200/GB200); Anthropic also expressed interest in orbital AI compute capacity. External monetization of Colossus validates frontier compute demand — strengthens Terafab thesis. Tesla energy infrastructure underpins Colossus; xAI paid Tesla $430M in related-party revenue (Q1 10-K).",
       "Announced by Elon Musk on March 21, 2026 — joint Tesla/SpaceX venture",
       "Goal: build a vertically integrated facility producing 1+ terawatt of AI compute per year",
       "Initial cost: $20B–$25B — NOT included in Tesla's 2026 CapEx guidance",
