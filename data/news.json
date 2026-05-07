@@ -1,5 +1,33 @@
 [
   {
+    "headline": "SpaceX formally files plan revealing Terafab chip factory costs $55B–$119B — joint Tesla/SpaceX semiconductor facility in Texas enters formal planning phase; research fab at Giga Texas (~$3B) will produce AI5-class chips in small batches; full Terafab scope $55B minimum with total exceeding $119B; Intel 14A process confirmed; SpaceX filing notes 'no assurance' on timeline execution; one of the largest private infrastructure investments in history if fully built",
+    "category": "robotics",
+    "source": "CNBC / Bloomberg / Reuters",
+    "timestamp": "May 7, 2026",
+    "url": "https://www.cnbc.com/2026/05/06/elon-musks-spacex-chip-fab-in-texas-to-cost-up-to-119-billion.html"
+  },
+  {
+    "headline": "Germany April 2026 best April ever for Tesla — 3,149 units, 1.3% overall market share, 4.9% of BEV segment; BEV national penetration hit 25.8%; +256% YoY vs April 2025, +142% vs January 2026; highest first-month-of-quarter since Q1 2024 (9 quarters); YTD already at 82% of full-year 2025 total; last 3 months +188% vs Nov–Jan; EU recovery now structural across all major markets",
+    "category": "product",
+    "source": "KBA / Teslarati",
+    "timestamp": "May 7, 2026",
+    "url": null
+  },
+  {
+    "headline": "Tesla files two new Roadster trademarks with USPTO — stylized wordmark + distinctive triangular badge filed May 1, 2026; badge departs sharply from Tesla's standard T-bar identity; Electrek calls it 'clearest signal yet' Tesla is preparing to bring the long-delayed supercar to market; aligns with Musk's 'month or so' reveal hint from Apr 23 earnings call; summer 2026 unveil now appears imminent",
+    "category": "product",
+    "source": "Electrek / USPTO",
+    "timestamp": "May 7, 2026",
+    "url": "https://electrek.co/2026/05/06/tesla-files-new-roadster-trademarks-unique-badge/"
+  },
+  {
+    "headline": "Tesla recalls 218,868 vehicles (Model 3, Y, S, X) over rearview camera delay — NHTSA confirms software bug in build 2026.8.6 causes backup camera image to delay up to 11 seconds, increasing crash risk; OTA remedy issued free of charge; no injuries reported; resolved remotely without physical service visit",
+    "category": "corporate",
+    "source": "Reuters / NHTSA",
+    "timestamp": "May 6, 2026",
+    "url": "https://www.reuters.com/legal/litigation/tesla-recall-over-218800-us-vehicles-rearview-image-issue-2026-05-06/"
+  },
+  {
     "headline": "Tesla Semi filmed hauling first Cybercab delivery batch out of Giga Texas — multiple Cybercabs secured on flatbed trailer being transported by a production-spec Semi (82,000 lbs GCW); follows 60 units staged in outbound lot on Apr 30; first documented delivery run confirms Cybercab manufacturing cadence advancing from pilot builds to active distribution; units likely heading to fleet staging and testing sites",
     "category": "product",
     "source": "Teslarati",
@@ -40,33 +68,5 @@
     "source": "Electrek / The Verge / Drive Tesla Canada",
     "timestamp": "May 4, 2026",
     "url": "https://electrek.co/2026/05/03/tesla-fsd-10-billion-miles-no-magical-milestone-autonomy/"
-  },
-  {
-    "headline": "Musk settles SEC Twitter disclosure lawsuit for $1.5M — removes long-running SEC overhang on Musk; settlement does not require admission of wrongdoing; legal exposure clears as Q2 2026 operational focus intensifies on Tesla",
-    "category": "corporate",
-    "source": "Washington Post / Politico / Yahoo Finance",
-    "timestamp": "May 5, 2026",
-    "url": "https://www.washingtonpost.com/technology/2026/05/04/elon-musk-sec-settlement/"
-  },
-  {
-    "headline": "RDW presents Tesla FSD to EU Technical Committee in Brussels — Nordic regulators (Sweden, Finland, Denmark, Norway) raise concerns over FSD speeding allowance, icy road performance, and driver distraction; Reuters separately reveals Tesla lobbied Sweden aggressively just 4 days after Netherlands approval before documentation was reviewed; no vote taken; next EU vote windows: July and October 2026; EU-wide approval by summer 2026 now 'increasingly uncertain'",
-    "category": "autonomy",
-    "source": "Reuters / Electrek / Ars Technica",
-    "timestamp": "May 5, 2026",
-    "url": "https://electrek.co/2026/05/05/tesla-fsd-eu-regulators-skepticism-speeding-approval/"
-  },
-  {
-    "headline": "Unsupervised robotaxi fleet reaches 33+ vehicles with hundreds parked and ready across TX — Tesla Robotaxi pricing ~$6.15/ride vs Waymo's $13.93; Dallas and Houston below Austin's fleet density but 100s of robotaxi-marked Model Ys staged in both cities; Cybercabs also staged awaiting deployment authorization",
-    "category": "autonomy",
-    "source": "NextBigFuture / robotaxitracker.com",
-    "timestamp": "May 5, 2026",
-    "url": "https://www.nextbigfuture.com/2026/05/tesla-adding-unsupervised-robotaxi-in-texas-to-reach-and-undercounted-33-with-100s-parked-and-ready.html"
-  },
-  {
-    "headline": "April EU sales surge confirms brand recovery acceleration — France +112% YoY, Sweden +111%, Denmark +102%, Ireland +100%, Romania +53%, Belgium +47%, Netherlands +23%, Switzerland +15%; Europe BEV share hit 20.5% of new car registrations in Q1 2026 (vs 13.2% a year ago)",
-    "category": "product",
-    "source": "Teslarati / ACEA data",
-    "timestamp": "May 5, 2026",
-    "url": null
   }
 ]
