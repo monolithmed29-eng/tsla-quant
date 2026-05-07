@@ -1,5 +1,19 @@
 [
   {
+    "headline": "Tesla Semi filmed hauling first Cybercab delivery batch out of Giga Texas — multiple Cybercabs secured on flatbed trailer being transported by a production-spec Semi (82,000 lbs GCW); follows 60 units staged in outbound lot on Apr 30; first documented delivery run confirms Cybercab manufacturing cadence advancing from pilot builds to active distribution; units likely heading to fleet staging and testing sites",
+    "category": "product",
+    "source": "Teslarati",
+    "timestamp": "May 7, 2026",
+    "url": "https://www.teslarati.com/tesla-semi-transport-cybercab-deliveries/"
+  },
+  {
+    "headline": "Tesla China-made EV sales jump 36% YoY in April to 79,478 units — sixth consecutive monthly gain as recovery accelerates from 2025 lows; figures include GigaShanghai exports to Europe and other markets; Reuters notes FSD approval delays and aggressive Chinese rival launches as potential limits on further momentum; Q2 delivery pace now well above Q2 2025 baseline",
+    "category": "product",
+    "source": "Reuters / CPCA",
+    "timestamp": "May 7, 2026",
+    "url": "https://www.reuters.com/business/autos-transportation/teslas-china-made-ev-sales-rise-36-april-year-on-year-2026-05-07/"
+  },
+  {
     "headline": "WattEV orders 370 Tesla Semi trucks in $100M deal — California's largest-ever single electric truck order; 50 units to be delivered in 2026 with full fleet by end of 2027; 300+ trucks supporting Port of Oakland freight electrification; WattEV CEO said Tesla Semi was chosen based on 'cost, performance, and availability' in a public RFP process — signals accelerating enterprise fleet adoption as Nevada production ramps",
     "category": "product",
     "source": "Teslarati / ACT Expo",
@@ -14,11 +28,11 @@
     "url": "https://www.teslarati.com/tesla-brand-loyalty-winner/"
   },
   {
-    "headline": "Unsupervised robotaxi fleet grows to 30 total vehicles — Austin: 22 fully driverless (up from 19 on Apr 29), Houston: 6 (up from 3), Dallas: 2; net +5 vehicles in 7 days; fleet operating day and evening hours; Tesla simultaneously parades Cybercab in glass box at Miami's F1 Grand Prix, reaching millions of motorsport fans globally at zero ad spend",
+    "headline": "Unsupervised robotaxi fleet grows to 38 vehicles — Austin: 27 (71% of total), Houston: 6, Dallas: 5; net +8 vehicles since May 6 morning count; 38 Cybercabs in test fleet staged and ready; unsupervised rides now 47.8% of Austin trips (last 7 days) vs <30% weeks prior; fleet ramp accelerating ahead of commercial Cybercab launch",
     "category": "autonomy",
-    "source": "Wikipedia / robotaxitracker.com / Teslarati",
+    "source": "robotaxitracker.com / NextBigFuture",
     "timestamp": "May 6, 2026",
-    "url": null
+    "url": "https://www.nextbigfuture.com/2026/05/tesla-now-has-at-least-38-unsupervised-robotaxi.html"
   },
   {
     "headline": "Tesla FSD crosses 10 billion cumulative miles — Musk's previously stated threshold for 'safe unsupervised driving'; 3.7B miles driven on city streets; no immediate unsupervised rollout triggered post-milestone; Electrek notes 'no magical milestone' as Austin robotaxi crash rate reported ~4x human urban baseline per NHTSA filings; data bolsters v15 training case but regulatory and reliability hurdles remain",
@@ -40,13 +54,6 @@
     "source": "Reuters / Electrek / Ars Technica",
     "timestamp": "May 5, 2026",
     "url": "https://electrek.co/2026/05/05/tesla-fsd-eu-regulators-skepticism-speeding-approval/"
-  },
-  {
-    "headline": "Tesla ending €7,500 one-time FSD purchase option in Netherlands on May 15 — after that date FSD accessible only via €99/month subscription; customers must order by May 15 and take delivery by June 30 to lock in lifetime license; signals Tesla aggressively funneling new EU users into subscription ARR pipeline as FSD subscriptions hit $546M/yr (+51% YoY)",
-    "category": "autonomy",
-    "source": "notateslaapp / basenor",
-    "timestamp": "May 1, 2026",
-    "url": "https://www.notateslaapp.com/news/4075/tesla-to-end-one-time-fsd-purchases-in-the-netherlands"
   },
   {
     "headline": "Unsupervised robotaxi fleet reaches 33+ vehicles with hundreds parked and ready across TX — Tesla Robotaxi pricing ~$6.15/ride vs Waymo's $13.93; Dallas and Houston below Austin's fleet density but 100s of robotaxi-marked Model Ys staged in both cities; Cybercabs also staged awaiting deployment authorization",

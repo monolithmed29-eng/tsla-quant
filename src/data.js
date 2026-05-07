@@ -8,8 +8,9 @@ export const catalysts = [
     status: "in_progress",
     expected: "Q2 2026",
     likelihood: 0.94,
-    updated: "Apr 30, 2026",
+    updated: "May 7, 2026",
     description: [
+      "🆕 May 7, 2026: Tesla Semi filmed hauling fresh Cybercab batch out of Giga Texas — first documented delivery run of Tesla's autonomous two-seater; multiple Cybercabs secured on flatbed trailer being transported by a production-spec Semi rated for 82,000 lbs GCW; units staged in outbound lot confirms manufacturing cadence advancing from pilot builds to active distribution phase; follows drone footage of 60 Cybercabs staged in outbound lot on Apr 30 (Teslarati)",
       "🆕 Apr 25, 2026: Tesla confirms Cybercab has NO production cap as ramp begins — unlike previous models with fixed production targets, Cybercab output will scale demand-driven; Musk confirmed on Q1 call that volumes will ramp 'exponentially by end of 2026'; signals extreme confidence in demand and manufacturing execution (notateslaapp)",
       "🆕 Apr 20, 2026: 14 Cybercab units WITHOUT steering wheels spotted at Giga Texas — strong confirmation that production-spec autonomous Cybercabs are now rolling off the line; no-steering-wheel design (original spec) being built alongside wheel-equipped units for regulatory purposes; production ramp accelerating",
       "🆕 Apr 17, 2026: Teslarati confirms Tesla's 'Cybercab robotaxi golden era is officially underway' — volume production ramp live at Giga Texas, autonomous Robotaxi service confirmed for 7 new U.S. cities, late 2026 commercial Austin launch reaffirmed; production timeline validated by drone footage + crash testing evidence",
@@ -379,8 +380,9 @@ export const catalysts = [
     status: "upcoming",
     expected: "Q2 2026",
     likelihood: 0.40,
-    updated: "Apr 28, 2026",
+    updated: "May 7, 2026",
     description: [
+      "🆕 May 7, 2026: Tesla China-made EV sales jump 36% YoY in April — 79,478 units from GigaShanghai (includes exports to Europe/other markets); sixth consecutive monthly gain signals sustained recovery after a weak 2025; FSD approval delays and aggressive Chinese rival launches flagged as potential headwinds limiting further upside; Q2 delivery pace tracking above Q2 2025 baseline (Reuters / CPCA)",
       "🆕 Apr 23, 2026: Giga Berlin records best-ever Q1 with 61,000+ vehicles built — announces 20% production increase and 1,000 new hires; factory still at ~65% of 375K stated capacity per Electrek, but ramp signals European volume recovering ahead of Q2; Model Y-L spotted testing in US for first time, hinting at expanded product lineup (notateslaapp / Electrek)",
       "🆕 Apr 23, 2026: Tesla opens direct sales to 50,000 government agencies via Sourcewell contract — first institutional bulk-purchase channel; cities, counties, schools, utilities all eligible; adds a structured incremental delivery pipeline outside retail (notateslaapp)",
       "⚠️ Apr 22, 2026 (Q1 deck): Inventory 27 days of supply (+23% YoY). Cumulative all-time: 9.2M. Model YL rolling out globally. Demand rebound in APAC, South America, EMEA, North America.",
