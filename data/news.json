@@ -1,5 +1,19 @@
 [
   {
+    "headline": "EU FSD bloc-wide vote set for July 2026 at earliest — no vote scheduled this week; Tesla faces Nordic bloc skepticism over speeding allowance, icy road performance, and hands-free driving at 80 km/h; TCMV requires 55% of member states + 65% of EU population to approve; Reuters/Ars Technica/Electrek report October 2026 as likely backup date; Netherlands now sharing approval details via non-public regulatory exchange; individual nations may provisionally approve ahead of bloc-wide vote; Tesla needs 15 of 27 EU member states to say yes",
+    "category": "autonomy",
+    "source": "Reuters / Ars Technica / Electrek / electrive.com",
+    "timestamp": "May 6, 2026",
+    "url": "https://www.reuters.com/business/finance/teslas-road-full-self-driving-approval-europe-2026-05-05/"
+  },
+  {
+    "headline": "Austin robotaxi begins unsupervised evening operation for first time — fleet previously limited to daytime hours ending by mid-afternoon; now operating into evening hours per RtaxiTracker; 47.8% of Austin trips were unsupervised in the last 7 days (up from <30% weeks prior); Sunday set new high for unsupervised sightings with 7 new vehicles spotted across Dallas, Houston, and Austin; operational envelope expansion signals growing FSD confidence across varied lighting and traffic conditions",
+    "category": "autonomy",
+    "source": "Not a Tesla App / RtaxiTracker / Teslarati",
+    "timestamp": "May 5, 2026",
+    "url": "https://www.notateslaapp.com/news/4083/teslas-unsupervised-robotaxi-fleet-grows-as-night-rides-begin"
+  },
+  {
     "headline": "SpaceX formally files plan revealing Terafab chip factory costs $55B–$119B — joint Tesla/SpaceX semiconductor facility in Texas enters formal planning phase; research fab at Giga Texas (~$3B) will produce AI5-class chips in small batches; full Terafab scope $55B minimum with total exceeding $119B; Intel 14A process confirmed; SpaceX filing notes 'no assurance' on timeline execution; one of the largest private infrastructure investments in history if fully built",
     "category": "robotics",
     "source": "CNBC / Bloomberg / Reuters",
@@ -54,19 +68,5 @@
     "source": "S&P Global Mobility / Teslarati",
     "timestamp": "May 6, 2026",
     "url": "https://www.teslarati.com/tesla-brand-loyalty-winner/"
-  },
-  {
-    "headline": "Unsupervised robotaxi fleet grows to 38 vehicles — Austin: 27 (71% of total), Houston: 6, Dallas: 5; net +8 vehicles since May 6 morning count; 38 Cybercabs in test fleet staged and ready; unsupervised rides now 47.8% of Austin trips (last 7 days) vs <30% weeks prior; fleet ramp accelerating ahead of commercial Cybercab launch",
-    "category": "autonomy",
-    "source": "robotaxitracker.com / NextBigFuture",
-    "timestamp": "May 6, 2026",
-    "url": "https://www.nextbigfuture.com/2026/05/tesla-now-has-at-least-38-unsupervised-robotaxi.html"
-  },
-  {
-    "headline": "Tesla FSD crosses 10 billion cumulative miles — Musk's previously stated threshold for 'safe unsupervised driving'; 3.7B miles driven on city streets; no immediate unsupervised rollout triggered post-milestone; Electrek notes 'no magical milestone' as Austin robotaxi crash rate reported ~4x human urban baseline per NHTSA filings; data bolsters v15 training case but regulatory and reliability hurdles remain",
-    "category": "autonomy",
-    "source": "Electrek / The Verge / Drive Tesla Canada",
-    "timestamp": "May 4, 2026",
-    "url": "https://electrek.co/2026/05/03/tesla-fsd-10-billion-miles-no-magical-milestone-autonomy/"
   }
 ]
