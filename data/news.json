@@ -1,17 +1,45 @@
 [
   {
+    "headline": "TSLA gains +2% to ~$420 on May 8, outperforming S&P 500 by +2.43% — stock recovering toward March 2026 highs as traders monitor FSD China approval timeline; intraday range $402–$415 with momentum building into the afternoon session; dark pool call flow remains 2.5:1 vs puts signaling continued institutional accumulation (TheStreet / Investing.com)",
+    "category": "financials",
+    "source": "TheStreet / Investing.com",
+    "timestamp": "May 8, 2026",
+    "url": "https://www.investing.com/news/company-news/why-is-tesla-stock-rallying-today-93CH-4673360"
+  },
+  {
+    "headline": "Tesla recalls 218,868 US vehicles over rearview camera software delay — software bug in update 2026.8.6 caused delayed or blocked rearview image for up to 11 seconds when shifting into reverse, violating NHTSA rear visibility standards; all affected Model 3, Y, S, X units already received OTA software fix; no dealership visit required; market shrugged off recall — stock gained 2% on the day (Reuters / Teslarati / NHTSA)",
+    "category": "corporate",
+    "source": "Reuters / NHTSA",
+    "timestamp": "May 7, 2026",
+    "url": "https://www.reuters.com/legal/litigation/tesla-recall-over-218800-us-vehicles-rearview-image-issue-2026-05-06/"
+  },
+  {
+    "headline": "Tesla begins internal testing of FSD v14.3.2 in China — first concrete testing milestone after repeated regulatory delays; Q3 2026 approval now cited as official target after missing Q1 and Q2 windows; Tesla building Baidu HD map integration per Beijing requirement that foreign firms not conduct independent HD mapping in China; only partial public-road test authorization held; China represents Tesla's largest untapped FSD subscriber market (eletric-vehicles.com / letsdatascience)",
+    "category": "autonomy",
+    "source": "eletric-vehicles.com / Let's Data Science",
+    "timestamp": "May 7, 2026",
+    "url": "https://eletric-vehicles.com/tesla/tesla-reportedly-begins-internal-testing-of-fsd-v14-3-2-in-china/"
+  },
+  {
+    "headline": "Tesla unsupervised robotaxi fleet hits 33 vehicles with extended evening hours — six new vehicles added in a single day across Austin, Dallas, and Houston; Austin now running driverless rides past 4pm for the first time; Drive Tesla Canada notes growth curve 'beginning to resemble classic slow-then-all-at-once exponential scaling'; fleet at 38+ per NextBigFuture (Austin: 27, majority of 53 total); trajectory accelerating ahead of Cybercab production ramp (Drive Tesla Canada / robotaxitracker.com)",
+    "category": "autonomy",
+    "source": "Drive Tesla Canada / robotaxitracker.com",
+    "timestamp": "May 6, 2026",
+    "url": "https://driveteslacanada.ca/news/tesla-expands-robotaxi-operations-as-unsupervised-fleet-growth-accelerates/"
+  },
+  {
+    "headline": "Tesla Roadster reveal now targeting late May or early June 2026 — delayed from Musk's 'month or so' hint on Apr 23 earnings call; represents the 8th delay since 2017 per Electrek; new USPTO trademark filings (May 1) with stylized badge signal Tesla locking down Roadster visual identity ahead of imminent reveal; production deliveries remain 2027+ (topelectricsuv.com / Electrek)",
+    "category": "product",
+    "source": "topelectricsuv.com / Electrek",
+    "timestamp": "May 7, 2026",
+    "url": "https://topelectricsuv.com/news/tesla/tesla-roadster-update/"
+  },
+  {
     "headline": "EU FSD adoption surges — Dutch users alone drive 10M km in first month after Netherlands RDW approval; one city in one country generating more FSD miles than most national fleets combined; signals explosive European subscriber uptake ahead of summer EU-wide vote; Tesla ending one-time purchase option in Netherlands May 15, funneling new EU owners into €99/month ARR pipeline",
     "category": "autonomy",
     "source": "Tesla Oracle / notateslaapp",
     "timestamp": "May 7, 2026",
     "url": "https://www.teslaoracle.com/2026/05/06/european-tesla-owners-drive-10-million-kilometers-on-fsd-in-just-one-month-test-videos/"
-  },
-  {
-    "headline": "Tesla FSD update 2026.14 renders European-style vehicles in visualization for first time — cab-over semi-trucks and regional vehicle silhouettes now accurately displayed on EU center screens; quiet but meaningful step toward EU-wide FSD deployment readiness; signals neural network is being trained on European road environments, not just US data",
-    "category": "autonomy",
-    "source": "Teslarati",
-    "timestamp": "May 7, 2026",
-    "url": "https://www.teslarati.com/tesla-begins-factoring-international-designs-in-full-self-driving-visualization/"
   },
   {
     "headline": "SpaceX formally files plan revealing Terafab chip factory costs $55B–$119B — joint Tesla/SpaceX semiconductor facility in Texas enters formal planning phase; research fab at Giga Texas (~$3B) will produce AI5-class chips in small batches; full Terafab scope $55B minimum with total exceeding $119B; Intel 14A process confirmed; SpaceX filing notes 'no assurance' on timeline execution; one of the largest private infrastructure investments in history if fully built",
@@ -28,13 +56,6 @@
     "url": null
   },
   {
-    "headline": "Tesla files two new Roadster trademarks with USPTO — stylized wordmark + distinctive triangular badge filed May 1, 2026; badge departs sharply from Tesla's standard T-bar identity; Electrek calls it 'clearest signal yet' Tesla is preparing to bring the long-delayed supercar to market; aligns with Musk's 'month or so' reveal hint from Apr 23 earnings call; summer 2026 unveil now appears imminent",
-    "category": "product",
-    "source": "Electrek / USPTO",
-    "timestamp": "May 7, 2026",
-    "url": "https://electrek.co/2026/05/06/tesla-files-new-roadster-trademarks-unique-badge/"
-  },
-  {
     "headline": "Tesla China-made EV sales jump 36% YoY in April to 79,478 units — sixth consecutive monthly gain as recovery accelerates from 2025 lows; figures include GigaShanghai exports to Europe and other markets; Reuters notes FSD approval delays and aggressive Chinese rival launches as potential limits on further momentum; Q2 delivery pace now well above Q2 2025 baseline",
     "category": "product",
     "source": "Reuters / CPCA",
@@ -42,31 +63,10 @@
     "url": "https://www.reuters.com/business/autos-transportation/teslas-china-made-ev-sales-rise-36-april-year-on-year-2026-05-07/"
   },
   {
-    "headline": "Tesla Semi filmed hauling first Cybercab delivery batch out of Giga Texas — multiple Cybercabs secured on flatbed trailer being transported by a production-spec Semi (82,000 lbs GCW); follows 60 units staged in outbound lot on Apr 30; first documented delivery run confirms Cybercab manufacturing cadence advancing from pilot builds to active distribution; units likely heading to fleet staging and testing sites",
-    "category": "product",
-    "source": "Teslarati",
-    "timestamp": "May 7, 2026",
-    "url": "https://www.teslarati.com/tesla-semi-transport-cybercab-deliveries/"
-  },
-  {
     "headline": "WattEV orders 370 Tesla Semi trucks in $100M deal — California's largest-ever single electric truck order; 50 units to be delivered in 2026 with full fleet by end of 2027; 300+ trucks supporting Port of Oakland freight electrification; WattEV CEO said Tesla Semi was chosen based on 'cost, performance, and availability' in a public RFP process — signals accelerating enterprise fleet adoption as Nevada production ramps",
     "category": "product",
     "source": "Teslarati / ACT Expo",
     "timestamp": "May 6, 2026",
     "url": "https://www.teslarati.com/tesla-massive-order-semi-370-units-100m/"
-  },
-  {
-    "headline": "EU FSD bloc-wide vote set for July 2026 at earliest — no vote scheduled this week; Tesla faces Nordic bloc skepticism over speeding allowance, icy road performance, and hands-free driving at 80 km/h; TCMV requires 55% of member states + 65% of EU population to approve; Reuters/Ars Technica/Electrek report October 2026 as likely backup date; Netherlands now sharing approval details via non-public regulatory exchange; individual nations may provisionally approve ahead of bloc-wide vote; Tesla needs 15 of 27 EU member states to say yes",
-    "category": "autonomy",
-    "source": "Reuters / Ars Technica / Electrek / electrive.com",
-    "timestamp": "May 6, 2026",
-    "url": "https://www.reuters.com/business/finance/teslas-road-full-self-driving-approval-europe-2026-05-05/"
-  },
-  {
-    "headline": "Austin robotaxi unsupervised fleet hits 38 vehicles — Austin: 27 (majority of 53 total Austin fleet), evening operations now confirmed; 47.8% of Austin trips unsupervised in last 7 days; fleet ramp accelerating across Dallas and Houston as well; Sunday set new sighting record across all 3 TX cities; signals growing FSD confidence across varied lighting and traffic conditions",
-    "category": "autonomy",
-    "source": "RtaxiTracker / NextBigFuture / Not a Tesla App",
-    "timestamp": "May 6, 2026",
-    "url": "https://www.nextbigfuture.com/2026/05/tesla-now-has-at-least-38-unsupervised-robotaxi.html"
   }
 ]
