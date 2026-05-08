@@ -1,8 +1,8 @@
 {
-  "gauge_value": 84,
+  "gauge_value": 86,
   "needle_status": "Aggressive",
-  "roger_insight": "Call-heavy on dollar flow with the highest raw call premium deployed in recent sessions — institutions committing meaningfully to the upside. Dollar flow running nearly 4:1 in favor of calls, with put activity present but clearly subordinate.",
-  "updated": "May 7 · 10am ET",
-  "calls": { "count": 336, "value": 31060000 },
-  "puts":  { "count": 130, "value": 8200000 }
+  "roger_insight": "Highest raw call premium deployed in any session tracked — institutions committing heavily to the upside on elevated overall volume. Dollar flow running 2.5:1 in favor of calls, with put activity also elevated, suggesting broad institutional repositioning rather than one-sided flow. Call conviction remains dominant.",
+  "updated": "May 8 · 10am ET",
+  "calls": { "count": 925, "value": 63060000 },
+  "puts":  { "count": 524, "value": 25200000 }
 }
