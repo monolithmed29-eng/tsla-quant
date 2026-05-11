@@ -38,8 +38,9 @@ export const catalysts = [
     status: "achieved",
     expected: "Q2 2025",
     likelihood: 0.95,
-    updated: "May 8, 2026",
+    updated: "May 11, 2026",
     description: [
+      "🆕 May 11, 2026: Austin robotaxi fleet: 50 active rider vehicles + 38 Cybercabs in test fleet — unsupervised ride rate climbs to 66.7% (28 of 42 rides in last 7 days), up from 59.0% on May 8 and 27.8% on May 6; fleet now operating unsupervised during evening hours for first time (milestone confirmed May 4); three-week trajectory: 27.8% → 59.0% → 66.7% unsupervised rate signals accelerating autonomous operational maturity beyond daytime-only operations (robotaxitracker.com / Teslarati)",
       "🆕 May 8, 2026: Austin robotaxi fleet hits 52 active rider vehicles + 38 Cybercabs in active test fleet — unsupervised ride rate surges to 59.0% (23 of 39 rides in last 7 days), up sharply from 27.8% reported May 6; operational maturity accelerating at pace well ahead of prior trajectory; Cybercab test fleet doubling signals imminent transition from test to commercial integration (robotaxitracker.com)",
       "🆕 May 6, 2026 (PM): Unsupervised robotaxi fleet hits 38 vehicles — Austin: 27 (71% of total fleet), Houston: 6, Dallas: 5. Ramp accelerating; +8 vehicles since morning count.",
       "🆕 May 6, 2026: Unsupervised robotaxi fleet grows to 30 total vehicles — Austin: 22 fully driverless (up from 19 on Apr 29), Houston: 6 (up from 3), Dallas: 2; +5 vehicles in 7 days; Austin operating day and evening hours; Cybercab also marketing to public at Miami F1 Grand Prix in a glass box display; fleet ramp steady ahead of commercial Cybercab launch (Wikipedia / robotaxitracker.com / Teslarati)",

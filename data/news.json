@@ -1,5 +1,19 @@
 [
   {
+    "headline": "Austin robotaxi fleet: 50 active rider vehicles + 38 Cybercabs in test fleet; unsupervised ride rate hits 66.7% — 28 of 42 rides in last 7 days with no safety driver; up from 59.0% on May 8 and 27.8% on May 6; fleet now operating unsupervised during evening hours for first time as of May 4; pace of autonomous operational maturity accelerating sharply across both daytime and night sessions (robotaxitracker.com / Teslarati)",
+    "category": "autonomy",
+    "source": "robotaxitracker.com / Teslarati",
+    "timestamp": "May 11, 2026",
+    "url": "https://robotaxitracker.com/"
+  },
+  {
+    "headline": "Analyst projects 95M Tesla FSD subscribers and $1 trillion annual revenue by 2038 — near-term gating milestone: 10.6M subscribers by 2030 (vs ~1.28M active today); model assumes dramatic FSD adoption acceleration as robotaxi network scales and unsupervised driving matures; gap between today and 2030 target requires ~8x subscriber growth in 4 years; bull-case valuation framework reinforces Tesla as AI platform rather than automaker (basenor.com)",
+    "category": "autonomy",
+    "source": "basenor.com",
+    "timestamp": "May 11, 2026",
+    "url": "https://www.basenor.com/blogs/news/analyst-projects-95m-tesla-fsd-subs-and-1t-revenue-by-2038"
+  },
+  {
     "headline": "Tesla builds last-ever Model S and Model X at Fremont — factory line now converting to Optimus production; Fremont line targeting 1M robots/year at full capacity; Signature Edition final delivery event for existing reservation holders originally set May 12 but has since been postponed; end of Tesla's flagship luxury EV era marks the beginning of its robotics-first manufacturing era (evxl.co / notateslaapp / Electrek / TeslaNorth)",
     "category": "manufacturing",
     "source": "evxl.co / Electrek / TeslaNorth",
@@ -7,25 +21,18 @@
     "url": "https://evxl.co/2026/05/10/tesla-last-model-s-x-fremont-optimus/"
   },
   {
-    "headline": "TSLA closes at $428.35 on May 8 (+4.02%) — 4-week high; strongest single-session gain since April; driven by resilient April jobs report lifting all risk assets (SPY +0.83%, QQQ +2.34%), China April deliveries +36% YoY, and ongoing Intel 14A/Terafab chip partnership narrative; stock recovered ~15% from post-earnings $373 low in under 3 weeks (primaryignition.com / stockanalysis.com)",
+    "headline": "TSLA closes at $428.35 on May 8 (+4.02%) — 4-week high; strongest single-session gain since April; driven by resilient April jobs report lifting all risk assets (SPY +0.83%, QQQ +2.34%), China April deliveries +36% YoY, and ongoing Intel 14A/Terafab chip partnership narrative; stock recovered ~15% from post-earnings $373 low in under 3 weeks (primaryignition.com / Yahoo Finance)",
     "category": "financials",
     "source": "primaryignition.com / Yahoo Finance",
     "timestamp": "May 10, 2026",
     "url": "https://primaryignition.com/2026/05/10/tesla-stock-climbs-back-to-428-but-the-bigger-question-is-what-wall-street-believes-now/"
   },
   {
-    "headline": "Austin robotaxi fleet hits 52 active vehicles + 38 Cybercabs in test fleet; unsupervised ride rate surges to 59% — up from 27.8% on May 6; operational maturity accelerating sharply; 23 of 39 rides last 7 days completed with no safety driver; Cybercab test fleet size doubling signals imminent commercial integration (robotaxitracker.com)",
-    "category": "autonomy",
-    "source": "robotaxitracker.com",
-    "timestamp": "May 8, 2026",
-    "url": "https://robotaxitracker.com/"
-  },
-  {
-    "headline": "EU FSD bloc-wide approval confirmed July at earliest, October more realistic — TCMV has no vote scheduled this week; Tesla needs representatives of 15/27 EU member states AND 65% of bloc population to vote yes; Nordic regulators (Sweden, Finland, Denmark, Norway) raised concerns over FSD allowing speeding and hands-free driving on icy roads at Brussels session; Tesla's internal target of Q2/Q3 2026 EU-wide approval now under material uncertainty (Reuters / Ars Technica / Automotive World)",
+    "headline": "EU FSD bloc-wide approval confirmed July at earliest, October more realistic — TCMV has no vote scheduled; Tesla needs representatives of 15/27 EU member states AND 65% of bloc population to vote yes; Nordic regulators raised concerns over FSD allowing speeding and hands-free driving on icy roads at Brussels session; Ars Technica: 'Chinese and European regulators require premarket approval' and European FSD product differs meaningfully from US version; Tesla's Q2/Q3 internal approval target under material uncertainty (Reuters / Ars Technica)",
     "category": "autonomy",
     "source": "Reuters / Ars Technica",
     "timestamp": "May 8, 2026",
-    "url": "https://www.reuters.com/business/finance/teslas-road-full-self-driving-approval-europe-2026-05-05/"
+    "url": "https://arstechnica.com/cars/2026/05/tesla-fsd-other-european-regulators-skeptical-despite-dutch-approval/"
   },
   {
     "headline": "Tesla begins internal testing of FSD v14.3.2 in China — first concrete testing milestone after repeated regulatory delays; Q3 2026 approval now cited as official target after missing Q1 and Q2 windows; Tesla building Baidu HD map integration per Beijing requirement that foreign firms not conduct independent HD mapping in China; only partial public-road test authorization held; China represents Tesla's largest untapped FSD subscriber market (eletric-vehicles.com / letsdatascience)",
@@ -35,7 +42,7 @@
     "url": "https://eletric-vehicles.com/tesla/tesla-reportedly-begins-internal-testing-of-fsd-v14-3-2-in-china/"
   },
   {
-    "headline": "SpaceX formally files plan revealing Terafab chip factory costs $55B–$119B — joint Tesla/SpaceX semiconductor facility in Texas enters formal planning phase; research fab at Giga Texas (~$3B) will produce AI5-class chips in small batches; full Terafab scope $55B minimum with total exceeding $119B; Intel 14A process confirmed; SpaceX filing notes 'no assurance' on timeline execution; one of the largest private infrastructure investments in history if fully built",
+    "headline": "SpaceX formally files plan revealing Terafab chip factory costs $55B–$119B — joint Tesla/SpaceX semiconductor facility in Texas enters formal planning phase; research fab at Giga Texas (~$3B) will produce AI5-class chips in small batches; full Terafab scope $55B minimum with total exceeding $119B; Intel 14A process confirmed; SpaceX filing notes 'no assurance' on timeline execution; one of the largest private infrastructure investments in history if fully built (CNBC / Bloomberg / Reuters)",
     "category": "robotics",
     "source": "CNBC / Bloomberg / Reuters",
     "timestamp": "May 7, 2026",
@@ -47,12 +54,5 @@
     "source": "Teslarati / ACT Expo",
     "timestamp": "May 6, 2026",
     "url": "https://www.teslarati.com/wattev-orders-370-tesla-semi-trucks/"
-  },
-  {
-    "headline": "EU FSD adoption surges — Dutch users alone drive 10M km in first month after Netherlands RDW approval; one city in one country generating more FSD miles than most national fleets combined; signals explosive European subscriber uptake ahead of summer EU-wide vote; Tesla ending one-time purchase option in Netherlands May 15, funneling new EU owners into €99/month ARR pipeline",
-    "category": "autonomy",
-    "source": "Tesla Oracle / notateslaapp",
-    "timestamp": "May 7, 2026",
-    "url": "https://www.teslaoracle.com/2026/05/06/european-tesla-owners-drive-10-million-kilometers-on-fsd-in-just-one-month-test-videos/"
   }
 ]
