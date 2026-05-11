@@ -1,5 +1,19 @@
 [
   {
+    "headline": "Tesla builds last-ever Model S and Model X at Fremont — factory line now converting to Optimus production; Fremont line targeting 1M robots/year at full capacity; Signature Edition final delivery event for existing reservation holders originally set May 12 but has since been postponed; end of Tesla's flagship luxury EV era marks the beginning of its robotics-first manufacturing era (evxl.co / notateslaapp / Electrek / TeslaNorth)",
+    "category": "manufacturing",
+    "source": "evxl.co / Electrek / TeslaNorth",
+    "timestamp": "May 10, 2026",
+    "url": "https://evxl.co/2026/05/10/tesla-last-model-s-x-fremont-optimus/"
+  },
+  {
+    "headline": "TSLA closes at $428.35 on May 8 (+4.02%) — 4-week high; strongest single-session gain since April; driven by resilient April jobs report lifting all risk assets (SPY +0.83%, QQQ +2.34%), China April deliveries +36% YoY, and ongoing Intel 14A/Terafab chip partnership narrative; stock recovered ~15% from post-earnings $373 low in under 3 weeks (primaryignition.com / stockanalysis.com)",
+    "category": "financials",
+    "source": "primaryignition.com / Yahoo Finance",
+    "timestamp": "May 10, 2026",
+    "url": "https://primaryignition.com/2026/05/10/tesla-stock-climbs-back-to-428-but-the-bigger-question-is-what-wall-street-believes-now/"
+  },
+  {
     "headline": "Austin robotaxi fleet hits 52 active vehicles + 38 Cybercabs in test fleet; unsupervised ride rate surges to 59% — up from 27.8% on May 6; operational maturity accelerating sharply; 23 of 39 rides last 7 days completed with no safety driver; Cybercab test fleet size doubling signals imminent commercial integration (robotaxitracker.com)",
     "category": "autonomy",
     "source": "robotaxitracker.com",
@@ -14,46 +28,11 @@
     "url": "https://www.reuters.com/business/finance/teslas-road-full-self-driving-approval-europe-2026-05-05/"
   },
   {
-    "headline": "TSLA gains +2% to ~$420 on May 8, outperforming S&P 500 by +2.43% — stock recovering toward March 2026 highs as traders monitor FSD China approval timeline; intraday range $402–$415 with momentum building into the afternoon session; dark pool call flow remains 2.5:1 vs puts signaling continued institutional accumulation (TheStreet / Investing.com)",
-    "category": "financials",
-    "source": "TheStreet / Investing.com",
-    "timestamp": "May 8, 2026",
-    "url": "https://www.investing.com/news/company-news/why-is-tesla-stock-rallying-today-93CH-4673360"
-  },
-  {
-    "headline": "Tesla recalls 218,868 US vehicles over rearview camera software delay — software bug in update 2026.8.6 caused delayed or blocked rearview image for up to 11 seconds when shifting into reverse, violating NHTSA rear visibility standards; all affected Model 3, Y, S, X units already received OTA software fix; no dealership visit required; market shrugged off recall — stock gained 2% on the day (Reuters / Teslarati / NHTSA)",
-    "category": "corporate",
-    "source": "Reuters / NHTSA",
-    "timestamp": "May 7, 2026",
-    "url": "https://www.reuters.com/legal/litigation/tesla-recall-over-218800-us-vehicles-rearview-image-issue-2026-05-06/"
-  },
-  {
     "headline": "Tesla begins internal testing of FSD v14.3.2 in China — first concrete testing milestone after repeated regulatory delays; Q3 2026 approval now cited as official target after missing Q1 and Q2 windows; Tesla building Baidu HD map integration per Beijing requirement that foreign firms not conduct independent HD mapping in China; only partial public-road test authorization held; China represents Tesla's largest untapped FSD subscriber market (eletric-vehicles.com / letsdatascience)",
     "category": "autonomy",
     "source": "eletric-vehicles.com / Let's Data Science",
     "timestamp": "May 7, 2026",
     "url": "https://eletric-vehicles.com/tesla/tesla-reportedly-begins-internal-testing-of-fsd-v14-3-2-in-china/"
-  },
-  {
-    "headline": "Tesla unsupervised robotaxi fleet hits 33 vehicles with extended evening hours — six new vehicles added in a single day across Austin, Dallas, and Houston; Austin now running driverless rides past 4pm for the first time; Drive Tesla Canada notes growth curve 'beginning to resemble classic slow-then-all-at-once exponential scaling'; fleet at 38+ per NextBigFuture (Austin: 27, majority of 53 total); trajectory accelerating ahead of Cybercab production ramp (Drive Tesla Canada / robotaxitracker.com)",
-    "category": "autonomy",
-    "source": "Drive Tesla Canada / robotaxitracker.com",
-    "timestamp": "May 6, 2026",
-    "url": "https://driveteslacanada.ca/news/tesla-expands-robotaxi-operations-as-unsupervised-fleet-growth-accelerates/"
-  },
-  {
-    "headline": "Tesla Roadster reveal now targeting late May or early June 2026 — delayed from Musk's 'month or so' hint on Apr 23 earnings call; represents the 8th delay since 2017 per Electrek; new USPTO trademark filings (May 1) with stylized badge signal Tesla locking down Roadster visual identity ahead of imminent reveal; production deliveries remain 2027+ (topelectricsuv.com / Electrek)",
-    "category": "product",
-    "source": "topelectricsuv.com / Electrek",
-    "timestamp": "May 7, 2026",
-    "url": "https://topelectricsuv.com/news/tesla/tesla-roadster-update/"
-  },
-  {
-    "headline": "EU FSD adoption surges — Dutch users alone drive 10M km in first month after Netherlands RDW approval; one city in one country generating more FSD miles than most national fleets combined; signals explosive European subscriber uptake ahead of summer EU-wide vote; Tesla ending one-time purchase option in Netherlands May 15, funneling new EU owners into €99/month ARR pipeline",
-    "category": "autonomy",
-    "source": "Tesla Oracle / notateslaapp",
-    "timestamp": "May 7, 2026",
-    "url": "https://www.teslaoracle.com/2026/05/06/european-tesla-owners-drive-10-million-kilometers-on-fsd-in-just-one-month-test-videos/"
   },
   {
     "headline": "SpaceX formally files plan revealing Terafab chip factory costs $55B–$119B — joint Tesla/SpaceX semiconductor facility in Texas enters formal planning phase; research fab at Giga Texas (~$3B) will produce AI5-class chips in small batches; full Terafab scope $55B minimum with total exceeding $119B; Intel 14A process confirmed; SpaceX filing notes 'no assurance' on timeline execution; one of the largest private infrastructure investments in history if fully built",
@@ -63,11 +42,17 @@
     "url": "https://www.cnbc.com/2026/05/06/elon-musks-spacex-chip-fab-in-texas-to-cost-up-to-119-billion.html"
   },
   {
-    "headline": "Germany April 2026 best April ever for Tesla — 3,149 units, 1.3% overall market share, 4.9% of BEV segment; BEV national penetration hit 25.8%; +256% YoY vs April 2025, +142% vs January 2026; highest first-month-of-quarter since Q1 2024 (9 quarters); YTD already at 82% of full-year 2025 total; last 3 months +188% vs Nov–Jan; EU recovery now structural across all major markets",
+    "headline": "WattEV orders 370 Tesla Semi trucks in a landmark $100M deal — California's largest-ever single electric truck order; 50 trucks deliver in 2026 with full fleet by end 2027; 300+ units to support Port of Oakland freight electrification; WattEV CEO cited Tesla Semi's 'cost, performance, and availability' as decisive factors vs. competitors; signals major fleet-scale enterprise adoption accelerating alongside Gigafactory Nevada volume ramp (Teslarati / ACT Expo)",
     "category": "product",
-    "source": "KBA / Teslarati",
-    "timestamp": "May 7, 2026",
-    "url": null
+    "source": "Teslarati / ACT Expo",
+    "timestamp": "May 6, 2026",
+    "url": "https://www.teslarati.com/wattev-orders-370-tesla-semi-trucks/"
   },
+  {
+    "headline": "EU FSD adoption surges — Dutch users alone drive 10M km in first month after Netherlands RDW approval; one city in one country generating more FSD miles than most national fleets combined; signals explosive European subscriber uptake ahead of summer EU-wide vote; Tesla ending one-time purchase option in Netherlands May 15, funneling new EU owners into €99/month ARR pipeline",
+    "category": "autonomy",
+    "source": "Tesla Oracle / notateslaapp",
+    "timestamp": "May 7, 2026",
+    "url": "https://www.teslaoracle.com/2026/05/06/european-tesla-owners-drive-10-million-kilometers-on-fsd-in-just-one-month-test-videos/"
+  }
 ]
-

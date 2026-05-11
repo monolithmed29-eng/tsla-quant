@@ -237,8 +237,9 @@ export const catalysts = [
     status: "in_progress",
     expected: "Q2 2026",
     likelihood: 0.78,
-    updated: "Apr 24, 2026",
+    updated: "May 11, 2026",
     description: [
+      "🆕 May 9, 2026: Last Model S and Model X ever built at Fremont rolled off the assembly line Saturday evening — Tesla announced milestone on X with celebratory photos of final cars with factory workers; Fremont assembly space now fully cleared and actively converting to Optimus humanoid robot production lines; official Signature Edition final delivery event originally set for May 12 later postponed; Fremont line targeting 1M Optimus robots/year at full capacity; end of Tesla's flagship luxury EV era at Fremont marks the beginning of its robotics-first manufacturing era (evxl.co / Electrek / TeslaNorth / notateslaapp)",
       "🆕 Apr 24, 2026 (Q1 Earnings Call): Musk confirmed Optimus Fremont production starts 'late July or August' — most concrete timeline yet; second factory at Giga Texas targets summer 2027; Optimus Gen 3 reveal pushed closer to production start; Musk cautioned ramp rates are 'impossible to predict' with 10,000+ unique parts; initial output will be slow",
       "✅ Apr 22, 2026 (Q1 Outlook): Tesla OFFICIAL: 'First-generation production lines for Optimus are being installed in anticipation of volume production.' Fremont gen-1 line (1M/yr) + Giga Texas gen-2 (10M/yr long-term) both under construction per manufacturing table.",
       "✅ Apr 22, 2026 (Q1 shareholder deck): Fremont plant actively converting Model S/X production lines to Optimus factory — confirmed for Q2 start. Giga Texas being prepared for 2nd-gen Optimus line with long-term 10M robot/year capacity. No hard shipment numbers disclosed yet.",
