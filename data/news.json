@@ -1,5 +1,33 @@
 [
   {
+    "headline": "TSLA closes at $420.01 on May 11 (+3.89%) despite premarket pressure — stock slipped 1% at open on Cybertruck RWD recall + China retail sales data, then reversed to close +3.89% as robotaxi momentum narrative dominated; +33% off the post-earnings $373 low set Apr 23; stock approaching $425 resistance; +12.6% YTD; bull case: EV/energy at $400, Optimus/AI/robotaxi unpriced upside above that level (basenor.com / Yahoo Finance)",
+    "category": "financials",
+    "source": "basenor.com / Yahoo Finance",
+    "timestamp": "May 11, 2026",
+    "url": "https://www.basenor.com/blogs/news/tesla-stock-up-33-in-a-month-how-close-is-a-new-all-time-high"
+  },
+  {
+    "headline": "Piper Sandler reiterates Tesla Overweight / $500 PT — says at current ~$400/share, Tesla's EV and energy businesses alone justify the full price, meaning Optimus, robotaxi network, and AI inference are effectively 'free' for investors; analyst Alex Potter argues conventional DCF gives you the steel/battery business at fair value and the AI upside is unpriced option value; $100 of upside = pure robotics + autonomy premium (Seeking Alpha / Investing.com / Yahoo Finance)",
+    "category": "corporate",
+    "source": "Seeking Alpha / Piper Sandler",
+    "timestamp": "May 11, 2026",
+    "url": "https://seekingalpha.com/news/4590624-tesla-400-core-value-leaves-optimus-ai-upside-fully-unpriced-piper-analyst-view"
+  },
+  {
+    "headline": "Tesla China retail sales fell 10% YoY in April to 25,956 units — domestic sales fell 15% YoY; the widely reported '+36% April surge' was wholesale/export output from Giga Shanghai including European and APAC exports, NOT Chinese consumer purchases; Q1 2026 China retail crashed 16% YoY with January alone down 45%; Tesla now risks falling behind Xiaomi in China market share by end of 2026 as domestic BEV market grew +2.4% YoY in April; bear signal for the China delivery recovery thesis (Electrek / CnEVPost / basenor.com)",
+    "category": "financials",
+    "source": "Electrek / CnEVPost",
+    "timestamp": "May 11, 2026",
+    "url": "https://electrek.co/2026/05/11/tesla-china-retail-sales-decline-april-2026-wholesale-misleading/"
+  },
+  {
+    "headline": "Tesla recalls all 173 Cybertruck RWD units ever sold — faulty brake rotor stud holes crack under load, wheel studs can shear, wheels can fall off at speed; only base-18-inch RWD units affected; embarrassingly low total volume (173 total) confirms the ~$70K entry Cybertruck failed to find market traction; 3 warranty claims identified, no injuries; adds to pattern of Cybertruck production quality concerns and SpaceX-inflated sales data; stock slipped 1% premarket on the news (NHTSA / KBB / Carscoops)",
+    "category": "product",
+    "source": "NHTSA / KBB / Carscoops",
+    "timestamp": "May 11, 2026",
+    "url": "https://www.kbb.com/car-news/tesla-recalls-cybertruck-because-wheels-may-fall-off/"
+  },
+  {
     "headline": "Austin robotaxi fleet: 50 active rider vehicles + 38 Cybercabs in test fleet; unsupervised ride rate hits 66.7% — 28 of 42 rides in last 7 days with no safety driver; up from 59.0% on May 8 and 27.8% on May 6; fleet now operating unsupervised during evening hours for first time as of May 4; pace of autonomous operational maturity accelerating sharply across both daytime and night sessions (robotaxitracker.com / Teslarati)",
     "category": "autonomy",
     "source": "robotaxitracker.com / Teslarati",
@@ -7,39 +35,11 @@
     "url": "https://robotaxitracker.com/"
   },
   {
-    "headline": "Analyst projects 95M Tesla FSD subscribers and $1 trillion annual revenue by 2038 — near-term gating milestone: 10.6M subscribers by 2030 (vs ~1.28M active today); model assumes dramatic FSD adoption acceleration as robotaxi network scales and unsupervised driving matures; gap between today and 2030 target requires ~8x subscriber growth in 4 years; bull-case valuation framework reinforces Tesla as AI platform rather than automaker (basenor.com)",
-    "category": "autonomy",
-    "source": "basenor.com",
-    "timestamp": "May 11, 2026",
-    "url": "https://www.basenor.com/blogs/news/analyst-projects-95m-tesla-fsd-subs-and-1t-revenue-by-2038"
-  },
-  {
     "headline": "Tesla builds last-ever Model S and Model X at Fremont — factory line now converting to Optimus production; Fremont line targeting 1M robots/year at full capacity; Signature Edition final delivery event for existing reservation holders originally set May 12 but has since been postponed; end of Tesla's flagship luxury EV era marks the beginning of its robotics-first manufacturing era (evxl.co / notateslaapp / Electrek / TeslaNorth)",
     "category": "manufacturing",
     "source": "evxl.co / Electrek / TeslaNorth",
     "timestamp": "May 10, 2026",
     "url": "https://evxl.co/2026/05/10/tesla-last-model-s-x-fremont-optimus/"
-  },
-  {
-    "headline": "TSLA closes at $428.35 on May 8 (+4.02%) — 4-week high; strongest single-session gain since April; driven by resilient April jobs report lifting all risk assets (SPY +0.83%, QQQ +2.34%), China April deliveries +36% YoY, and ongoing Intel 14A/Terafab chip partnership narrative; stock recovered ~15% from post-earnings $373 low in under 3 weeks (primaryignition.com / Yahoo Finance)",
-    "category": "financials",
-    "source": "primaryignition.com / Yahoo Finance",
-    "timestamp": "May 10, 2026",
-    "url": "https://primaryignition.com/2026/05/10/tesla-stock-climbs-back-to-428-but-the-bigger-question-is-what-wall-street-believes-now/"
-  },
-  {
-    "headline": "EU FSD bloc-wide approval confirmed July at earliest, October more realistic — TCMV has no vote scheduled; Tesla needs representatives of 15/27 EU member states AND 65% of bloc population to vote yes; Nordic regulators raised concerns over FSD allowing speeding and hands-free driving on icy roads at Brussels session; Ars Technica: 'Chinese and European regulators require premarket approval' and European FSD product differs meaningfully from US version; Tesla's Q2/Q3 internal approval target under material uncertainty (Reuters / Ars Technica)",
-    "category": "autonomy",
-    "source": "Reuters / Ars Technica",
-    "timestamp": "May 8, 2026",
-    "url": "https://arstechnica.com/cars/2026/05/tesla-fsd-other-european-regulators-skeptical-despite-dutch-approval/"
-  },
-  {
-    "headline": "Tesla begins internal testing of FSD v14.3.2 in China — first concrete testing milestone after repeated regulatory delays; Q3 2026 approval now cited as official target after missing Q1 and Q2 windows; Tesla building Baidu HD map integration per Beijing requirement that foreign firms not conduct independent HD mapping in China; only partial public-road test authorization held; China represents Tesla's largest untapped FSD subscriber market (eletric-vehicles.com / letsdatascience)",
-    "category": "autonomy",
-    "source": "eletric-vehicles.com / Let's Data Science",
-    "timestamp": "May 7, 2026",
-    "url": "https://eletric-vehicles.com/tesla/tesla-reportedly-begins-internal-testing-of-fsd-v14-3-2-in-china/"
   },
   {
     "headline": "SpaceX formally files plan revealing Terafab chip factory costs $55B–$119B — joint Tesla/SpaceX semiconductor facility in Texas enters formal planning phase; research fab at Giga Texas (~$3B) will produce AI5-class chips in small batches; full Terafab scope $55B minimum with total exceeding $119B; Intel 14A process confirmed; SpaceX filing notes 'no assurance' on timeline execution; one of the largest private infrastructure investments in history if fully built (CNBC / Bloomberg / Reuters)",
