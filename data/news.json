@@ -1,5 +1,19 @@
 [
   {
+    "headline": "TSLA surges ~3.7% to ~$461 as US-China trade talks spark broad market rally — Trump delegation (including Musk) arrives in Beijing for May 13–15 summit with Xi Jinping; investors pricing in potential trade normalization that could fast-track Tesla's China FSD approval, reduce tariff headwinds on Giga Shanghai exports, and improve broader EV market conditions; Piper Sandler (Alex Potter) simultaneously reiterates $500 PT stating 'at ~$400/share, investors get Optimus for free' — EV + energy businesses alone justify ~$400/share, making robotics and AI inference pure optionality; TSLA up ~15% in five sessions through May 12 (CNN / Piper Sandler / TipRanks)",
+    "category": "financials",
+    "source": "CNN / Piper Sandler / TipRanks",
+    "timestamp": "May 12, 2026",
+    "url": "https://finance.yahoo.com/sectors/technology/article/tesla-buying-at-these-levels-means-you-get-optimus-for-free-piper-sandler-says-145422275.html"
+  },
+  {
+    "headline": "Reuters investigation: Tesla robotaxi faces Texas-sized wait times and safety bottleneck — ~50 vehicles in Austin vs Waymo's 250+; Dallas reporter spent 2 hours on a 20-min trip (avoided main expressway, surface streets only); Houston app canceled bookings with no car available for 30+ min; Austin: zero cars available in 27% of checks, 15+ min waits half the time; Electrek argues 'convenience issues' mask the real constraint — Musk admitted on Q1 earnings call that SAFETY validation is what limits fleet expansion, not operations; 25 total unsupervised vehicles across all three Texas cities (Reuters / Electrek)",
+    "category": "autonomy",
+    "source": "Reuters / Electrek",
+    "timestamp": "May 12, 2026",
+    "url": "https://www.reuters.com/business/autos-transportation/teslas-robotaxi-rollout-features-texas-sized-wait-times-2026-05-12/"
+  },
+  {
     "headline": "TSLA slips ~2% premarket as Musk joins Trump's China delegation (May 13–15) — Elon Musk confirmed in Beijing party alongside Apple CEO Tim Cook, BlackRock CEO Larry Fink, Goldman Sachs CEO David Solomon, and others; Tesla's China FSD approval has slipped from Q2 to Q3 2026 target after Musk suggested Feb/Mar timing last year; diplomatic access to Chinese leadership viewed as potential near-term unlock for Tesla's largest untapped FSD market; TSLA closed at $445 on May 11 (+3.89%) and is ripping above its 200-day moving average (BBC / Stocktwits / NDTV Profit)",
     "category": "autonomy",
     "source": "BBC / Stocktwits / NDTV Profit",
@@ -12,13 +26,6 @@
     "source": "Teslarati / RTE",
     "timestamp": "May 12, 2026",
     "url": "https://www.teslarati.com/tesla-full-self-driving-gains-momentum-europe-new-country-mulling-approval/"
-  },
-  {
-    "headline": "Tesla Spring 2026 software update 2026.14 rolling out — flagship feature: dedicated 'Hey Grok' wake word for xAI voice assistant integrated directly into vehicle UI; new standalone Self-Driving subscription app; Pet Mode with custom avatars; larger navigation dock icons; Blind Spot Warning Accent Lights; Immersive Sound Upgrade; rear display improvements; AI-powered cabin camera now assessing driver age for safety compliance; one of Tesla's biggest OTA updates of the year (notateslaapp / tesla-info.com)",
-    "category": "product",
-    "source": "notateslaapp / tesla-info.com",
-    "timestamp": "May 10, 2026",
-    "url": "https://tesla-info.com/release/2026.14"
   },
   {
     "headline": "TSLA closes at $445 on May 11 (+3.89%) — stock ripping above 200-day moving average; +33% off the post-earnings $373 low set Apr 23; +12.6% YTD; approaching $450–$460 resistance zone; Piper Sandler (Alex Potter) reiterates that Tesla's core EV and energy businesses justify ~$400/share alone, making Optimus, robotaxi, and AI inference 'essentially free' optionality at current prices; bull case reinforced by accelerating Austin robotaxi unsupervised rate and Cybercab production ramp (Yahoo Finance / IBTimes)",
@@ -42,17 +49,10 @@
     "url": "https://electrek.co/2026/05/11/tesla-china-retail-sales-decline-april-2026-wholesale-misleading/"
   },
   {
-    "headline": "Tesla builds last-ever Model S and Model X at Fremont — factory line now converting to Optimus production; Fremont line targeting 1M robots/year at full capacity; Signature Edition final delivery event for existing reservation holders postponed; end of Tesla's flagship luxury EV era marks the beginning of its robotics-first manufacturing era (evxl.co / Electrek / TeslaNorth)",
-    "category": "manufacturing",
-    "source": "evxl.co / Electrek / TeslaNorth",
+    "headline": "Tesla Spring 2026 software update 2026.14 rolling out — flagship feature: dedicated 'Hey Grok' wake word for xAI voice assistant integrated directly into vehicle UI; new standalone Self-Driving subscription app; Pet Mode with custom avatars; larger navigation dock icons; Blind Spot Warning Accent Lights; Immersive Sound Upgrade; rear display improvements; AI-powered cabin camera now assessing driver age for safety compliance; one of Tesla's biggest OTA updates of the year (notateslaapp / tesla-info.com)",
+    "category": "product",
+    "source": "notateslaapp / tesla-info.com",
     "timestamp": "May 10, 2026",
-    "url": "https://evxl.co/2026/05/10/tesla-last-model-s-x-fremont-optimus/"
-  },
-  {
-    "headline": "SpaceX formally files plan for Terafab chip factory costing $55B–$119B — joint Tesla/SpaceX semiconductor facility in Texas enters formal planning phase; research fab at Giga Texas (~$3B) will produce AI5-class chips in small batches; full Terafab scope $55B minimum with total exceeding $119B; Intel 14A process confirmed; SpaceX filing notes 'no assurance' on timeline; one of the largest private infrastructure investments in history if fully built (CNBC / Bloomberg / Reuters)",
-    "category": "robotics",
-    "source": "CNBC / Bloomberg / Reuters",
-    "timestamp": "May 7, 2026",
-    "url": "https://www.cnbc.com/2026/05/06/elon-musks-spacex-chip-fab-in-texas-to-cost-up-to-119-billion.html"
+    "url": "https://tesla-info.com/release/2026.14"
   }
 ]
