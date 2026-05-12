@@ -1,31 +1,31 @@
 [
   {
-    "headline": "TSLA closes at $420.01 on May 11 (+3.89%) despite premarket pressure — stock slipped 1% at open on Cybertruck RWD recall + China retail sales data, then reversed to close +3.89% as robotaxi momentum narrative dominated; +33% off the post-earnings $373 low set Apr 23; stock approaching $425 resistance; +12.6% YTD; bull case: EV/energy at $400, Optimus/AI/robotaxi unpriced upside above that level (basenor.com / Yahoo Finance)",
-    "category": "financials",
-    "source": "basenor.com / Yahoo Finance",
-    "timestamp": "May 11, 2026",
-    "url": "https://www.basenor.com/blogs/news/tesla-stock-up-33-in-a-month-how-close-is-a-new-all-time-high"
+    "headline": "TSLA slips ~2% premarket as Musk joins Trump's China delegation (May 13–15) — Elon Musk confirmed in Beijing party alongside Apple CEO Tim Cook, BlackRock CEO Larry Fink, Goldman Sachs CEO David Solomon, and others; Tesla's China FSD approval has slipped from Q2 to Q3 2026 target after Musk suggested Feb/Mar timing last year; diplomatic access to Chinese leadership viewed as potential near-term unlock for Tesla's largest untapped FSD market; TSLA closed at $445 on May 11 (+3.89%) and is ripping above its 200-day moving average (BBC / Stocktwits / NDTV Profit)",
+    "category": "autonomy",
+    "source": "BBC / Stocktwits / NDTV Profit",
+    "timestamp": "May 12, 2026",
+    "url": "https://www.bbc.com/news/articles/c5yx757w048o"
   },
   {
-    "headline": "Piper Sandler reiterates Tesla Overweight / $500 PT — says at current ~$400/share, Tesla's EV and energy businesses alone justify the full price, meaning Optimus, robotaxi network, and AI inference are effectively 'free' for investors; analyst Alex Potter argues conventional DCF gives you the steel/battery business at fair value and the AI upside is unpriced option value; $100 of upside = pure robotics + autonomy premium (Seeking Alpha / Investing.com / Yahoo Finance)",
-    "category": "corporate",
-    "source": "Seeking Alpha / Piper Sandler",
-    "timestamp": "May 11, 2026",
-    "url": "https://seekingalpha.com/news/4590624-tesla-400-core-value-leaves-optimus-ai-upside-fully-unpriced-piper-analyst-view"
+    "headline": "Tesla FSD gains new European foothold — Ireland's Department of Transport confirms active engagement with Tesla and the National Standards Authority of Ireland (NSAI) ahead of potential FSD Supervised approval; follows Netherlands (April 10) and Sweden (April 27) greenlights; Tesla targeting broader EU deployment 'as early as summer 2026'; harmonized EU-wide clearance requires 15/27 member states — next Technical Committee vote: July 2026 (Teslarati / RTE)",
+    "category": "autonomy",
+    "source": "Teslarati / RTE",
+    "timestamp": "May 12, 2026",
+    "url": "https://www.teslarati.com/tesla-full-self-driving-gains-momentum-europe-new-country-mulling-approval/"
   },
   {
-    "headline": "Tesla China retail sales fell 10% YoY in April to 25,956 units — domestic sales fell 15% YoY; the widely reported '+36% April surge' was wholesale/export output from Giga Shanghai including European and APAC exports, NOT Chinese consumer purchases; Q1 2026 China retail crashed 16% YoY with January alone down 45%; Tesla now risks falling behind Xiaomi in China market share by end of 2026 as domestic BEV market grew +2.4% YoY in April; bear signal for the China delivery recovery thesis (Electrek / CnEVPost / basenor.com)",
-    "category": "financials",
-    "source": "Electrek / CnEVPost",
-    "timestamp": "May 11, 2026",
-    "url": "https://electrek.co/2026/05/11/tesla-china-retail-sales-decline-april-2026-wholesale-misleading/"
-  },
-  {
-    "headline": "Tesla recalls all 173 Cybertruck RWD units ever sold — faulty brake rotor stud holes crack under load, wheel studs can shear, wheels can fall off at speed; only base-18-inch RWD units affected; embarrassingly low total volume (173 total) confirms the ~$70K entry Cybertruck failed to find market traction; 3 warranty claims identified, no injuries; adds to pattern of Cybertruck production quality concerns and SpaceX-inflated sales data; stock slipped 1% premarket on the news (NHTSA / KBB / Carscoops)",
+    "headline": "Tesla Spring 2026 software update 2026.14 rolling out — flagship feature: dedicated 'Hey Grok' wake word for xAI voice assistant integrated directly into vehicle UI; new standalone Self-Driving subscription app; Pet Mode with custom avatars; larger navigation dock icons; Blind Spot Warning Accent Lights; Immersive Sound Upgrade; rear display improvements; AI-powered cabin camera now assessing driver age for safety compliance; one of Tesla's biggest OTA updates of the year (notateslaapp / tesla-info.com)",
     "category": "product",
-    "source": "NHTSA / KBB / Carscoops",
+    "source": "notateslaapp / tesla-info.com",
+    "timestamp": "May 10, 2026",
+    "url": "https://tesla-info.com/release/2026.14"
+  },
+  {
+    "headline": "TSLA closes at $445 on May 11 (+3.89%) — stock ripping above 200-day moving average; +33% off the post-earnings $373 low set Apr 23; +12.6% YTD; approaching $450–$460 resistance zone; Piper Sandler (Alex Potter) reiterates that Tesla's core EV and energy businesses justify ~$400/share alone, making Optimus, robotaxi, and AI inference 'essentially free' optionality at current prices; bull case reinforced by accelerating Austin robotaxi unsupervised rate and Cybercab production ramp (Yahoo Finance / IBTimes)",
+    "category": "financials",
+    "source": "Yahoo Finance / IBTimes",
     "timestamp": "May 11, 2026",
-    "url": "https://www.kbb.com/car-news/tesla-recalls-cybertruck-because-wheels-may-fall-off/"
+    "url": "https://www.ibtimes.com.au/tesla-stock-surges-389-445-china-sales-jump-optimus-bets-fuel-ai-optimism-1868637"
   },
   {
     "headline": "Austin robotaxi fleet: 50 active rider vehicles + 38 Cybercabs in test fleet; unsupervised ride rate hits 66.7% — 28 of 42 rides in last 7 days with no safety driver; up from 59.0% on May 8 and 27.8% on May 6; fleet now operating unsupervised during evening hours for first time as of May 4; pace of autonomous operational maturity accelerating sharply across both daytime and night sessions (robotaxitracker.com / Teslarati)",
@@ -35,24 +35,24 @@
     "url": "https://robotaxitracker.com/"
   },
   {
-    "headline": "Tesla builds last-ever Model S and Model X at Fremont — factory line now converting to Optimus production; Fremont line targeting 1M robots/year at full capacity; Signature Edition final delivery event for existing reservation holders originally set May 12 but has since been postponed; end of Tesla's flagship luxury EV era marks the beginning of its robotics-first manufacturing era (evxl.co / notateslaapp / Electrek / TeslaNorth)",
+    "headline": "Tesla China retail sales fell 10% YoY in April to 25,956 units — domestic sales fell 15% YoY; the widely reported '+36% April surge' was wholesale/export output from Giga Shanghai including European and APAC exports, NOT Chinese consumer purchases; Q1 2026 China retail crashed 16% YoY with January alone down 45%; Tesla now risks falling behind Xiaomi in China market share by end of 2026 as domestic BEV market grew +2.4% YoY in April; bear signal for the China delivery recovery thesis (Electrek / CnEVPost)",
+    "category": "financials",
+    "source": "Electrek / CnEVPost",
+    "timestamp": "May 11, 2026",
+    "url": "https://electrek.co/2026/05/11/tesla-china-retail-sales-decline-april-2026-wholesale-misleading/"
+  },
+  {
+    "headline": "Tesla builds last-ever Model S and Model X at Fremont — factory line now converting to Optimus production; Fremont line targeting 1M robots/year at full capacity; Signature Edition final delivery event for existing reservation holders postponed; end of Tesla's flagship luxury EV era marks the beginning of its robotics-first manufacturing era (evxl.co / Electrek / TeslaNorth)",
     "category": "manufacturing",
     "source": "evxl.co / Electrek / TeslaNorth",
     "timestamp": "May 10, 2026",
     "url": "https://evxl.co/2026/05/10/tesla-last-model-s-x-fremont-optimus/"
   },
   {
-    "headline": "SpaceX formally files plan revealing Terafab chip factory costs $55B–$119B — joint Tesla/SpaceX semiconductor facility in Texas enters formal planning phase; research fab at Giga Texas (~$3B) will produce AI5-class chips in small batches; full Terafab scope $55B minimum with total exceeding $119B; Intel 14A process confirmed; SpaceX filing notes 'no assurance' on timeline execution; one of the largest private infrastructure investments in history if fully built (CNBC / Bloomberg / Reuters)",
+    "headline": "SpaceX formally files plan for Terafab chip factory costing $55B–$119B — joint Tesla/SpaceX semiconductor facility in Texas enters formal planning phase; research fab at Giga Texas (~$3B) will produce AI5-class chips in small batches; full Terafab scope $55B minimum with total exceeding $119B; Intel 14A process confirmed; SpaceX filing notes 'no assurance' on timeline; one of the largest private infrastructure investments in history if fully built (CNBC / Bloomberg / Reuters)",
     "category": "robotics",
     "source": "CNBC / Bloomberg / Reuters",
     "timestamp": "May 7, 2026",
     "url": "https://www.cnbc.com/2026/05/06/elon-musks-spacex-chip-fab-in-texas-to-cost-up-to-119-billion.html"
-  },
-  {
-    "headline": "WattEV orders 370 Tesla Semi trucks in a landmark $100M deal — California's largest-ever single electric truck order; 50 trucks deliver in 2026 with full fleet by end 2027; 300+ units to support Port of Oakland freight electrification; WattEV CEO cited Tesla Semi's 'cost, performance, and availability' as decisive factors vs. competitors; signals major fleet-scale enterprise adoption accelerating alongside Gigafactory Nevada volume ramp (Teslarati / ACT Expo)",
-    "category": "product",
-    "source": "Teslarati / ACT Expo",
-    "timestamp": "May 6, 2026",
-    "url": "https://www.teslarati.com/wattev-orders-370-tesla-semi-trucks/"
   }
 ]
