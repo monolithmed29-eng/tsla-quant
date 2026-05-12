@@ -1,8 +1,8 @@
 {
-  "gauge_value": 76,
+  "gauge_value": 79,
   "needle_status": "Aggressive",
-  "roger_insight": "Call-heavy on dollar flow but with more balanced two-sided activity than recent sessions — institutions maintaining call bias while put hedging is more present. Dollar flow running nearly 2:1 in favor of calls.",
-  "updated": "May 11 · 10am ET",
-  "calls": { "count": 374, "value": 20430000 },
-  "puts":  { "count": 246, "value": 11820000 }
+  "roger_insight": "Call-heavy on dollar flow with elevated overall volume — institutions maintaining bullish positioning as TSLA pushes toward $440. Dollar flow running nearly 2:1 in favor of calls, with put hedging more present as price extends higher.",
+  "updated": "May 12 · 10am ET",
+  "calls": { "count": 384, "value": 28760000 },
+  "puts":  { "count": 161, "value": 15520000 }
 }
