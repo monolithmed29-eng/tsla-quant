@@ -1,5 +1,26 @@
 [
   {
+    "headline": "Waymo recalls all 3,791 U.S. robotaxis after autonomous vehicle drives into San Antonio floodwaters — one Waymo drove straight into a flooded high-speed road; OTA software fix deployed fleet-wide; recall highlights weather-edge-case perception failures as an industry-wide AV risk; Tesla faces the same challenge but benefits from competitor's public safety scrutiny shifting regulatory attention; incident follows Reuters investigation into Tesla's own robotaxi availability constraints published same day (Reuters / Electrek / Bloomberg)",
+    "category": "autonomy",
+    "source": "Reuters / Electrek / Bloomberg",
+    "timestamp": "May 12, 2026",
+    "url": "https://electrek.co/2026/05/12/waymo-recalls-3791-robotaxis-flooded-road-ota-software-fix/"
+  },
+  {
+    "headline": "TSLA falls ~4% on May 12 as hotter-than-expected US inflation print triggers broad tech selloff — macro headwind, not a fundamental break; CPI data signals higher-for-longer rate environment pressuring high-multiple growth stocks; TSLA retreats from ~$461 intraday high despite China FSD thesis intact; Invezz: 'selloff is macro-driven; key near-term driver remains the May 13–15 Beijing visit and push for Full Self-Driving approval'; TSLA still up ~15% over prior five sessions (Invezz / Yahoo Finance)",
+    "category": "financials",
+    "source": "Invezz / Yahoo Finance",
+    "timestamp": "May 12, 2026",
+    "url": "https://invezz.com/news/2026/05/12/tesla-stock-is-crashing-around-4percent-today-heres-why/"
+  },
+  {
+    "headline": "Barclays initiates TSLA with Hold rating — joins bulge-bracket consensus view that current valuation adequately reflects near-term robotaxi and FSD optionality; sell-side now spans JPMorgan Underweight ($145 PT) to Piper Sandler Bull ($500 PT) with consensus Hold near ~$400; key re-rating triggers cited: China FSD regulatory approval, Cybercab ramp velocity, and Q2 2026 delivery acceleration; Barclays note arrives as TSLA trades near 52-week highs following trade-summit-driven rally (TipRanks)",
+    "category": "financials",
+    "source": "TipRanks",
+    "timestamp": "May 12, 2026",
+    "url": null
+  },
+  {
     "headline": "TSLA surges ~3.7% to ~$461 as US-China trade talks spark broad market rally — Trump delegation (including Musk) arrives in Beijing for May 13–15 summit with Xi Jinping; investors pricing in potential trade normalization that could fast-track Tesla's China FSD approval, reduce tariff headwinds on Giga Shanghai exports, and improve broader EV market conditions; Piper Sandler (Alex Potter) simultaneously reiterates $500 PT stating 'at ~$400/share, investors get Optimus for free' — EV + energy businesses alone justify ~$400/share, making robotics and AI inference pure optionality; TSLA up ~15% in five sessions through May 12 (CNN / Piper Sandler / TipRanks)",
     "category": "financials",
     "source": "CNN / Piper Sandler / TipRanks",
@@ -28,13 +49,6 @@
     "url": "https://www.teslarati.com/tesla-full-self-driving-gains-momentum-europe-new-country-mulling-approval/"
   },
   {
-    "headline": "TSLA closes at $445 on May 11 (+3.89%) — stock ripping above 200-day moving average; +33% off the post-earnings $373 low set Apr 23; +12.6% YTD; approaching $450–$460 resistance zone; Piper Sandler (Alex Potter) reiterates that Tesla's core EV and energy businesses justify ~$400/share alone, making Optimus, robotaxi, and AI inference 'essentially free' optionality at current prices; bull case reinforced by accelerating Austin robotaxi unsupervised rate and Cybercab production ramp (Yahoo Finance / IBTimes)",
-    "category": "financials",
-    "source": "Yahoo Finance / IBTimes",
-    "timestamp": "May 11, 2026",
-    "url": "https://www.ibtimes.com.au/tesla-stock-surges-389-445-china-sales-jump-optimus-bets-fuel-ai-optimism-1868637"
-  },
-  {
     "headline": "Austin robotaxi fleet: 50 active rider vehicles + 38 Cybercabs in test fleet; unsupervised ride rate hits 66.7% — 28 of 42 rides in last 7 days with no safety driver; up from 59.0% on May 8 and 27.8% on May 6; fleet now operating unsupervised during evening hours for first time as of May 4; pace of autonomous operational maturity accelerating sharply across both daytime and night sessions (robotaxitracker.com / Teslarati)",
     "category": "autonomy",
     "source": "robotaxitracker.com / Teslarati",
@@ -42,17 +56,17 @@
     "url": "https://robotaxitracker.com/"
   },
   {
+    "headline": "TSLA closes at $445 on May 11 (+3.89%) — stock ripping above 200-day moving average; +33% off the post-earnings $373 low set Apr 23; +12.6% YTD; approaching $450–$460 resistance zone; Piper Sandler (Alex Potter) reiterates that Tesla's core EV and energy businesses justify ~$400/share alone, making Optimus, robotaxi, and AI inference 'essentially free' optionality at current prices; bull case reinforced by accelerating Austin robotaxi unsupervised rate and Cybercab production ramp (Yahoo Finance / IBTimes)",
+    "category": "financials",
+    "source": "Yahoo Finance / IBTimes",
+    "timestamp": "May 11, 2026",
+    "url": "https://www.ibtimes.com.au/tesla-stock-surges-389-445-china-sales-jump-optimus-bets-fuel-ai-optimism-1868637"
+  },
+  {
     "headline": "Tesla China retail sales fell 10% YoY in April to 25,956 units — domestic sales fell 15% YoY; the widely reported '+36% April surge' was wholesale/export output from Giga Shanghai including European and APAC exports, NOT Chinese consumer purchases; Q1 2026 China retail crashed 16% YoY with January alone down 45%; Tesla now risks falling behind Xiaomi in China market share by end of 2026 as domestic BEV market grew +2.4% YoY in April; bear signal for the China delivery recovery thesis (Electrek / CnEVPost)",
     "category": "financials",
     "source": "Electrek / CnEVPost",
     "timestamp": "May 11, 2026",
     "url": "https://electrek.co/2026/05/11/tesla-china-retail-sales-decline-april-2026-wholesale-misleading/"
-  },
-  {
-    "headline": "Tesla Spring 2026 software update 2026.14 rolling out — flagship feature: dedicated 'Hey Grok' wake word for xAI voice assistant integrated directly into vehicle UI; new standalone Self-Driving subscription app; Pet Mode with custom avatars; larger navigation dock icons; Blind Spot Warning Accent Lights; Immersive Sound Upgrade; rear display improvements; AI-powered cabin camera now assessing driver age for safety compliance; one of Tesla's biggest OTA updates of the year (notateslaapp / tesla-info.com)",
-    "category": "product",
-    "source": "notateslaapp / tesla-info.com",
-    "timestamp": "May 10, 2026",
-    "url": "https://tesla-info.com/release/2026.14"
   }
 ]
