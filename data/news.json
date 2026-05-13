@@ -1,69 +1,55 @@
 [
   {
-    "headline": "Waymo recalls all 3,791 U.S. robotaxis after autonomous vehicle drives into San Antonio floodwaters — one Waymo drove straight into a flooded high-speed road; OTA software fix deployed fleet-wide; recall highlights weather-edge-case perception failures as an industry-wide AV risk; Tesla faces the same challenge but benefits from competitor's public safety scrutiny shifting regulatory attention; incident follows Reuters investigation into Tesla's own robotaxi availability constraints published same day (Reuters / Electrek / Bloomberg)",
+    "headline": "Trump-Xi Beijing summit goes LIVE May 13 with Musk + Jensen Huang on Air Force One — first US presidential China visit in nearly a decade; Trump urging Xi to 'open up' China to US business; Musk the only Tesla CEO ever to accompany a US President to Beijing; for Tesla, FSD approval remains the primary negotiation objective — China is Tesla's largest untapped FSD subscriber market; Nvidia chip export regime, rare earth supply chains, and AI governance also on the agenda; summit runs May 13–15 with markets watching for breakthrough or disappointment; TSLA pre-market +0.24% at $434.50 as summit optimism partially offsets prior session decline (Financial Express / BBC / Reuters)",
+    "category": "autonomy",
+    "source": "Financial Express / BBC / Reuters",
+    "timestamp": "May 13, 2026",
+    "url": "https://www.financialexpress.com/world-news/trump-xi-meeting-china-summit-2026-live-updates-iran-trade-taiwan-ai-rare-earths-tariffs/4239402/"
+  },
+  {
+    "headline": "TSLA closes -2.60% at $433.45 on May 12 — three overhangs converge: (1) Panasonic battery production delays threatening Cybercab/Semi/Megapack 3 ramp, (2) Reuters investigation into Austin robotaxi wait times, (3) hot CPI print reinforcing higher-for-longer rate fears; stock had surged 28% in the prior month, making it vulnerable to any negative confluence; intraday low near $422; bull thesis intact — China summit and unsupervised fleet ramp remain the near-term binary catalysts (247wallst / invezz / Yahoo Finance)",
+    "category": "financials",
+    "source": "247wallst / invezz / Yahoo Finance",
+    "timestamp": "May 12, 2026",
+    "url": "https://247wallst.com/investing/2026/05/12/tesla-sinks-5-as-musk-heads-to-china-robotaxi-glitches-battery-delays-test-investor-patience/"
+  },
+  {
+    "headline": "Battery pack capacity flagged as Tesla's #1 production bottleneck in SEC filings — Panasonic 4680 delays add new risk to Cybercab, Tesla Semi, and Megapack 3 ramp timelines, all targeted for volume production in 2026; 247wallst analysis confirms Tesla's own language in filings: 'Battery pack capacity continues to be the limiting factor on vehicle production ramp'; 4680 at Giga Texas is at 40 GWh annual capacity but yield rates still below mass-production targets; Panasonic's commercial 4680 ramp has slipped multiple times since 2022; Tesla sourcing 2170 cells from Panasonic/CATL as hedge but Cybercab's structural pack requires 4680 (247wallst / Tesla 10-Q)",
+    "category": "manufacturing",
+    "source": "247wallst / Tesla 10-Q",
+    "timestamp": "May 12, 2026",
+    "url": "https://247wallst.com/investing/2026/05/12/tesla-sinks-5-as-musk-heads-to-china-robotaxi-glitches-battery-delays-test-investor-patience/"
+  },
+  {
+    "headline": "Waymo recalls all 3,791 U.S. robotaxis after autonomous vehicle drives straight into San Antonio floodwaters — OTA software fix deployed fleet-wide; incident highlights weather/edge-case perception failures as an industry-wide AV risk; Tesla faces the same challenge but benefits from competitor's public safety scrutiny shifting regulatory attention; recall follows Reuters investigation into Tesla's own robotaxi availability constraints published same day (Reuters / Electrek / Bloomberg)",
     "category": "autonomy",
     "source": "Reuters / Electrek / Bloomberg",
     "timestamp": "May 12, 2026",
     "url": "https://electrek.co/2026/05/12/waymo-recalls-3791-robotaxis-flooded-road-ota-software-fix/"
   },
   {
-    "headline": "TSLA falls ~4% on May 12 as hotter-than-expected US inflation print triggers broad tech selloff — macro headwind, not a fundamental break; CPI data signals higher-for-longer rate environment pressuring high-multiple growth stocks; TSLA retreats from ~$461 intraday high despite China FSD thesis intact; Invezz: 'selloff is macro-driven; key near-term driver remains the May 13–15 Beijing visit and push for Full Self-Driving approval'; TSLA still up ~15% over prior five sessions (Invezz / Yahoo Finance)",
-    "category": "financials",
-    "source": "Invezz / Yahoo Finance",
-    "timestamp": "May 12, 2026",
-    "url": "https://invezz.com/news/2026/05/12/tesla-stock-is-crashing-around-4percent-today-heres-why/"
-  },
-  {
-    "headline": "Barclays initiates TSLA with Hold rating — joins bulge-bracket consensus view that current valuation adequately reflects near-term robotaxi and FSD optionality; sell-side now spans JPMorgan Underweight ($145 PT) to Piper Sandler Bull ($500 PT) with consensus Hold near ~$400; key re-rating triggers cited: China FSD regulatory approval, Cybercab ramp velocity, and Q2 2026 delivery acceleration; Barclays note arrives as TSLA trades near 52-week highs following trade-summit-driven rally (TipRanks)",
-    "category": "financials",
-    "source": "TipRanks",
-    "timestamp": "May 12, 2026",
-    "url": null
-  },
-  {
-    "headline": "TSLA surges ~3.7% to ~$461 as US-China trade talks spark broad market rally — Trump delegation (including Musk) arrives in Beijing for May 13–15 summit with Xi Jinping; investors pricing in potential trade normalization that could fast-track Tesla's China FSD approval, reduce tariff headwinds on Giga Shanghai exports, and improve broader EV market conditions; Piper Sandler (Alex Potter) simultaneously reiterates $500 PT stating 'at ~$400/share, investors get Optimus for free' — EV + energy businesses alone justify ~$400/share, making robotics and AI inference pure optionality; TSLA up ~15% in five sessions through May 12 (CNN / Piper Sandler / TipRanks)",
-    "category": "financials",
-    "source": "CNN / Piper Sandler / TipRanks",
-    "timestamp": "May 12, 2026",
-    "url": "https://finance.yahoo.com/sectors/technology/article/tesla-buying-at-these-levels-means-you-get-optimus-for-free-piper-sandler-says-145422275.html"
-  },
-  {
-    "headline": "Reuters investigation: Tesla robotaxi faces Texas-sized wait times and safety bottleneck — ~50 vehicles in Austin vs Waymo's 250+; Dallas reporter spent 2 hours on a 20-min trip (avoided main expressway, surface streets only); Houston app canceled bookings with no car available for 30+ min; Austin: zero cars available in 27% of checks, 15+ min waits half the time; Electrek argues 'convenience issues' mask the real constraint — Musk admitted on Q1 earnings call that SAFETY validation is what limits fleet expansion, not operations; 25 total unsupervised vehicles across all three Texas cities (Reuters / Electrek)",
-    "category": "autonomy",
-    "source": "Reuters / Electrek",
-    "timestamp": "May 12, 2026",
-    "url": "https://www.reuters.com/business/autos-transportation/teslas-robotaxi-rollout-features-texas-sized-wait-times-2026-05-12/"
-  },
-  {
-    "headline": "TSLA slips ~2% premarket as Musk joins Trump's China delegation (May 13–15) — Elon Musk confirmed in Beijing party alongside Apple CEO Tim Cook, BlackRock CEO Larry Fink, Goldman Sachs CEO David Solomon, and others; Tesla's China FSD approval has slipped from Q2 to Q3 2026 target after Musk suggested Feb/Mar timing last year; diplomatic access to Chinese leadership viewed as potential near-term unlock for Tesla's largest untapped FSD market; TSLA closed at $445 on May 11 (+3.89%) and is ripping above its 200-day moving average (BBC / Stocktwits / NDTV Profit)",
-    "category": "autonomy",
-    "source": "BBC / Stocktwits / NDTV Profit",
-    "timestamp": "May 12, 2026",
-    "url": "https://www.bbc.com/news/articles/c5yx757w048o"
-  },
-  {
-    "headline": "Tesla FSD gains new European foothold — Ireland's Department of Transport confirms active engagement with Tesla and the National Standards Authority of Ireland (NSAI) ahead of potential FSD Supervised approval; follows Netherlands (April 10) and Sweden (April 27) greenlights; Tesla targeting broader EU deployment 'as early as summer 2026'; harmonized EU-wide clearance requires 15/27 member states — next Technical Committee vote: July 2026 (Teslarati / RTE)",
+    "headline": "Tesla FSD gains new European foothold — Ireland's Department of Transport confirms active engagement with Tesla and the National Standards Authority of Ireland (NSAI) ahead of potential FSD Supervised approval; follows Netherlands (April) and Sweden (April) greenlights; Tesla targeting broader EU deployment 'as early as summer 2026'; harmonized EU-wide clearance requires 15/27 member states — next Technical Committee vote: July 2026 (Teslarati / RTE)",
     "category": "autonomy",
     "source": "Teslarati / RTE",
     "timestamp": "May 12, 2026",
     "url": "https://www.teslarati.com/tesla-full-self-driving-gains-momentum-europe-new-country-mulling-approval/"
   },
   {
-    "headline": "Austin robotaxi fleet: 50 active rider vehicles + 38 Cybercabs in test fleet; unsupervised ride rate hits 66.7% — 28 of 42 rides in last 7 days with no safety driver; up from 59.0% on May 8 and 27.8% on May 6; fleet now operating unsupervised during evening hours for first time as of May 4; pace of autonomous operational maturity accelerating sharply across both daytime and night sessions (robotaxitracker.com / Teslarati)",
+    "headline": "Reuters investigation: Tesla robotaxi faces Texas-sized wait times — ~50 vehicles in Austin vs. Waymo's 250+; Dallas reporter spent 2 hours on a 20-min trip; Houston app canceled bookings with no car available for 30+ min; Austin: zero cars available in 27% of checks, 15+ min waits half the time; Electrek argues 'convenience issues' mask the real constraint — Musk admitted on Q1 earnings call that SAFETY validation is what limits fleet expansion, not operations; 25 total unsupervised vehicles across all three Texas cities (Reuters / Electrek)",
+    "category": "autonomy",
+    "source": "Reuters / Electrek",
+    "timestamp": "May 12, 2026",
+    "url": "https://www.reuters.com/business/autos-transportation/teslas-robotaxi-rollout-features-texas-sized-wait-times-2026-05-12/"
+  },
+  {
+    "headline": "Austin robotaxi unsupervised ride rate hits 66.7% — 28 of 42 rides in last 7 days with no safety driver; 50 active rider vehicles + 38 Cybercabs in test fleet; up from 59.0% on May 8 and 27.8% on May 6; fleet now operating unsupervised during evening hours for first time; pace of autonomous operational maturity accelerating sharply; three-week trajectory: 27.8% → 59.0% → 66.7% (robotaxitracker.com / Teslarati)",
     "category": "autonomy",
     "source": "robotaxitracker.com / Teslarati",
     "timestamp": "May 11, 2026",
     "url": "https://robotaxitracker.com/"
   },
   {
-    "headline": "TSLA closes at $445 on May 11 (+3.89%) — stock ripping above 200-day moving average; +33% off the post-earnings $373 low set Apr 23; +12.6% YTD; approaching $450–$460 resistance zone; Piper Sandler (Alex Potter) reiterates that Tesla's core EV and energy businesses justify ~$400/share alone, making Optimus, robotaxi, and AI inference 'essentially free' optionality at current prices; bull case reinforced by accelerating Austin robotaxi unsupervised rate and Cybercab production ramp (Yahoo Finance / IBTimes)",
-    "category": "financials",
-    "source": "Yahoo Finance / IBTimes",
-    "timestamp": "May 11, 2026",
-    "url": "https://www.ibtimes.com.au/tesla-stock-surges-389-445-china-sales-jump-optimus-bets-fuel-ai-optimism-1868637"
-  },
-  {
-    "headline": "Tesla China retail sales fell 10% YoY in April to 25,956 units — domestic sales fell 15% YoY; the widely reported '+36% April surge' was wholesale/export output from Giga Shanghai including European and APAC exports, NOT Chinese consumer purchases; Q1 2026 China retail crashed 16% YoY with January alone down 45%; Tesla now risks falling behind Xiaomi in China market share by end of 2026 as domestic BEV market grew +2.4% YoY in April; bear signal for the China delivery recovery thesis (Electrek / CnEVPost)",
+    "headline": "Tesla China retail sales -10% YoY in April (25,956 units) — domestic retail -15% YoY; the widely-reported +36% 'surge' was wholesale/export-inflated (Giga Shanghai output including European and APAC exports, NOT Chinese consumer purchases); Q1 2026 China retail was -16% YoY with January alone crashing -45%; on current trajectory, Tesla risks falling behind Xiaomi in China market share by end of 2026; bear signal directly contradicting the China delivery recovery thesis (Electrek / CnEVPost)",
     "category": "financials",
     "source": "Electrek / CnEVPost",
     "timestamp": "May 11, 2026",
