@@ -1,17 +1,31 @@
 [
   {
-    "headline": "Bloomberg: Tesla Robotaxi Fleet Totals Just 59 Vehicles Despite Musk Promises — comprehensive critical feature traces history of missed autonomy timelines from Jul 2025 earnings call; Musk had promised 'half the US population' with autonomous ride-hailing by end of 2025; 59 total unsupervised vehicles across Austin, Dallas, Houston; TSLA -1.43% today, daily range $384.24–$418.50, with Bloomberg coverage and SpaceX merger anxiety both weighing on sentiment (Bloomberg, Jun 10, 2026)",
+    "headline": "Bloomberg: Tesla Robotaxi Fleet Totals Just 59 Vehicles Despite Musk Promises — comprehensive critical feature traces history of missed autonomy timelines from Jul 2025 earnings call; Musk had promised 'half the US population' with autonomous ride-hailing by end of 2025; 59 total unsupervised vehicles across Austin, Dallas, Houston; LA Times echoes: 'robotaxis stall as self-driving hype hits real-world traffic'; TSLA -1.43% today, daily range $381.31–$397.09 (Bloomberg / LA Times, Jun 10, 2026)",
     "category": "autonomy",
-    "source": "Bloomberg",
+    "source": "Bloomberg / LA Times",
     "timestamp": "Jun 10, 2026",
     "url": "https://www.bloomberg.com/news/features/2026-06-10/tesla-robotaxi-fleet-totals-just-59-vehicles-despite-musk-promises"
   },
   {
-    "headline": "SpaceX-Tesla merger speculation surges — Wedbush's Dan Ives puts odds at 80%+, Fortune models a combined $3.4T entity; SpaceX IPO filing contains merger clues and $3.75B insider windfall; TSLA fell 1.43% on June 10 as investor concern mounts about dilution risk and regulatory complexity; Morningstar flags SpaceX defense contracts + Tesla China operations as potential blockade (Wedbush / Fortune / Morningstar)",
+    "headline": "SpaceX-Tesla merger speculation surges — Wedbush's Dan Ives puts odds at 80%+, Fortune models a combined $3.4T entity; SpaceX IPO filing contains merger clues and $3.75B insider windfall; Seeking Alpha upgrades TSLA to Buy on merger thesis; Kalshi prediction market tracking formal announcement; TSLA fell 1.43% on June 10 as investor concern mounts about dilution risk and regulatory complexity; Morningstar flags SpaceX defense contracts + Tesla China operations as potential blockade (Wedbush / Fortune / Seeking Alpha / Morningstar)",
     "category": "corporate",
-    "source": "Wedbush / Fortune / Morningstar",
+    "source": "Wedbush / Fortune / Seeking Alpha / Morningstar",
     "timestamp": "Jun 7–10, 2026",
     "url": "https://fortune.com/2026/05/31/spacex-tesla-odds-of-merging-could-it-happen/"
+  },
+  {
+    "headline": "40 purpose-built Cybercabs spotted staged at dedicated Dallas robotaxi hub — dramatic jump from handful operating weeks ago; fleet activation described as imminent; no Cybercab is yet carrying passengers (all current unsupervised rides still use Model Y); aggressive Cybercab commercial activation tied to FSD v15 release (late 2026 / early 2027); staging confirms production ramp delivering vehicles for deployment (basenor.com / Medium, Jun 7, 2026)",
+    "category": "autonomy",
+    "source": "basenor.com / Medium",
+    "timestamp": "Jun 7, 2026",
+    "url": "https://www.basenor.com/blogs/news/40-tesla-cybercabs-staged-in-dallas-fleet-activation-imminent"
+  },
+  {
+    "headline": "Tesla rolls out FSD v14.3.3 (build 2026.14.6.6) with unified Spring Update branch merge — FSD Streak feature added; v14 Lite for legacy HW3 hardware confirmed for late June 2026 North American rollout, then Australia/New Zealand and global markets; v15 (10x parameter upgrade) expected end of 2026 at earliest, likely slipping to early 2027 per notateslaapp analysis (notateslaapp / yeslak, Jun 4, 2026)",
+    "category": "autonomy",
+    "source": "notateslaapp / yeslak",
+    "timestamp": "Jun 4, 2026",
+    "url": "https://www.notateslaapp.com/news/4157/tesla-rolls-out-fsd-v1433-update-20261466-with-new-fsd-features-and-spring-update"
   },
   {
     "headline": "Tesla expands unsupervised Robotaxi to entire Austin metro area — full city now bookable for the first time since launch; however only ~20 active vehicles operating vs the full metro map; expansion happened in two stages on June 3 morning; service confirmed for both day and evening hours (Electrek / notateslaapp)",
@@ -28,25 +42,11 @@
     "url": "https://www.cnbc.com/2026/05/21/tesla-full-self-driving-china-launch-fsd.html"
   },
   {
-    "headline": "Trump-Xi Beijing summit goes LIVE May 13 with Musk + Jensen Huang on Air Force One — first US presidential China visit in nearly a decade; Trump urging Xi to 'open up' China to US business; Musk the only Tesla CEO ever to accompany a US President to Beijing; for Tesla, FSD approval remains the primary negotiation objective — China is Tesla's largest untapped FSD subscriber market; Nvidia chip export regime, rare earth supply chains, and AI governance also on the agenda; summit runs May 13–15 with markets watching for breakthrough or disappointment; TSLA pre-market +0.24% at $434.50 as summit optimism partially offsets prior session decline (Financial Express / BBC / Reuters)",
-    "category": "autonomy",
-    "source": "Financial Express / BBC / Reuters",
-    "timestamp": "May 13, 2026",
-    "url": "https://www.financialexpress.com/world-news/trump-xi-meeting-china-summit-2026-live-updates-iran-trade-taiwan-ai-rare-earths-tariffs/4239402/"
-  },
-  {
-    "headline": "Tesla FSD gains new European foothold — Ireland's Department of Transport confirms active engagement with Tesla and the National Standards Authority of Ireland (NSAI) ahead of potential FSD Supervised approval; follows Netherlands (April) and Sweden (April) greenlights; Tesla targeting broader EU deployment 'as early as summer 2026'; harmonized EU-wide clearance requires 15/27 member states — next Technical Committee vote: July 2026 (Teslarati / RTE)",
-    "category": "autonomy",
-    "source": "Teslarati / RTE",
-    "timestamp": "May 12, 2026",
-    "url": "https://www.teslarati.com/tesla-full-self-driving-gains-momentum-europe-new-country-mulling-approval/"
-  },
-  {
-    "headline": "Austin robotaxi unsupervised ride rate hits 66.7% — 28 of 42 rides in last 7 days with no safety driver; 50 active rider vehicles + 38 Cybercabs in test fleet; up from 59.0% on May 8 and 27.8% on May 6; fleet now operating unsupervised during evening hours for first time; pace of autonomous operational maturity accelerating sharply; three-week trajectory: 27.8% → 59.0% → 66.7% (robotaxitracker.com / Teslarati)",
-    "category": "autonomy",
-    "source": "robotaxitracker.com / Teslarati",
-    "timestamp": "May 11, 2026",
-    "url": "https://robotaxitracker.com/"
+    "headline": "Tesla Semi production live at Gigafactory Nevada + WattEV orders 370 trucks in $100M deal — first Tesla Semi rolls off high-volume line Apr 30; WattEV landmark order is California's largest-ever single electric truck purchase; 50 trucks in 2026, full fleet by end 2027 supporting Port of Oakland; Big F Transport also orders 40 units; fleet adoption accelerating across enterprise logistics sector (Electrek / Teslarati / ACT Expo)",
+    "category": "product",
+    "source": "Electrek / Teslarati",
+    "timestamp": "Apr 30–May 6, 2026",
+    "url": "https://electrek.co/2026/04/30/tesla-semi-production-launch-gigafactory-nevada/"
   },
   {
     "headline": "Tesla China retail sales -10% YoY in April (25,956 units) — domestic retail -15% YoY; the widely-reported +36% 'surge' was wholesale/export-inflated (Giga Shanghai output including European and APAC exports, NOT Chinese consumer purchases); Q1 2026 China retail was -16% YoY with January alone crashing -45%; on current trajectory, Tesla risks falling behind Xiaomi in China market share by end of 2026; bear signal directly contradicting the China delivery recovery thesis (Electrek / CnEVPost)",
