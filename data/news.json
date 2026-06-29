@@ -1,5 +1,26 @@
 [
   {
+    "headline": "TSLA +5.83% reclaims $400 mark as Morgan Stanley, Barclays raise Q2 delivery estimates above consensus — Morgan Stanley upgraded Q2 forecast from 373K to 413K citing European + China demand recovery; Barclays projected ~418K; both above prior consensus of 406K; Q2 delivery report due first days of July; market pricing in a beat as TSLA hit $401.84 intraday, first $400+ close since prior run (Morgan Stanley / Barclays / GuruFocus, Jun 29, 2026)",
+    "category": "financials",
+    "source": "Morgan Stanley / Barclays / GuruFocus",
+    "timestamp": "Jun 29, 2026",
+    "url": "https://www.gurufocus.com/news/8936635/tesla-tsla-stock-surges-over-5-ahead-of-q2-delivery-report"
+  },
+  {
+    "headline": "FSD v14 Lite HW3 first impressions overwhelmingly positive — early access users reporting zero interventions on complex routes (Culver City to Hollywood); Electrek confirms RL improvements, parking/unparking, pedestrian interactions, and navigation handling all translate well via model distillation from HW4; 'distilled the intelligence from HW4 V14 into HW3' per release notes; broader rollout to more HW3 customers over coming weeks pending validation (notateslaapp / Electrek / basenor, Jun 29, 2026)",
+    "category": "autonomy",
+    "source": "notateslaapp / Electrek / basenor",
+    "timestamp": "Jun 29, 2026",
+    "url": "https://www.notateslaapp.com/news/4369/tesla-launches-fsd-v14-lite-first-impressions"
+  },
+  {
+    "headline": "Grok 4.5 enters private beta at SpaceX and Tesla — 1.5T parameter V9 model enters exclusive private testing at Musk's two companies before public release; Musk claims surpasses Claude on key benchmarks; directly accelerates Digital Optimus/Macrohard AI integration: Grok serves as the reasoning 'conductor' layer that commands Tesla's physical AI agent; signals tightening xAI-Tesla operational integration ahead of Q4 2026 Digital Optimus target (Musk on X / xAI, Jun 28-29, 2026)",
+    "category": "robotics",
+    "source": "Musk on X / xAI",
+    "timestamp": "Jun 28-29, 2026",
+    "url": "https://www.thehansindia.com/business/grok-45-enters-private-testing-at-spacex-tesla-elon-musk-1091543"
+  },
+  {
     "headline": "FSD v14 Lite officially launches for HW3 hardware TODAY (build 2026.20.5.1) — first FSD update for HW3 vehicles in ~14 months; Tesla distilled HW4 v14 intelligence into legacy hardware via model distillation (HW3 has only ~15% of HW4's effective memory bandwidth); includes RL improvements and offline models from HW4 branch; early access rollout live, broader rollout pending validation; Elluswamy's end-of-June timeline commitment fulfilled exactly on schedule; HW3 remains supervised-only — not a path to unsupervised FSD, but validates Tesla's ability to extend its AI4 architecture to a 3M+ vehicle legacy fleet (notateslaapp / Musk on X, Jun 29, 2026)",
     "category": "autonomy",
     "source": "notateslaapp / Musk on X",
@@ -47,12 +68,5 @@
     "source": "notateslaapp",
     "timestamp": "Jun 26, 2026",
     "url": "https://www.notateslaapp.com/news/4361/tesla-plans-new-factory-building-and-rail-hub-at-giga-berlin"
-  },
-  {
-    "headline": "Bloomberg: Tesla Robotaxi Fleet Totals Just 59 Vehicles Despite Musk Promises — comprehensive critical feature traces history of missed autonomy timelines from Jul 2025 earnings call; Musk had promised 'half the US population' with autonomous ride-hailing by end of 2025; 59 total unsupervised vehicles across Austin, Dallas, Houston; LA Times echoes: 'robotaxis stall as self-driving hype hits real-world traffic'; TSLA -1.43% today, daily range $381.31–$397.09 (Bloomberg / LA Times, Jun 10, 2026)",
-    "category": "autonomy",
-    "source": "Bloomberg / LA Times",
-    "timestamp": "Jun 10, 2026",
-    "url": "https://www.bloomberg.com/news/features/2026-06-10/tesla-robotaxi-fleet-totals-just-59-vehicles-despite-musk-promises"
   }
 ]
