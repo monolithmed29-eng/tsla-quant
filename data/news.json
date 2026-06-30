@@ -1,5 +1,26 @@
 [
   {
+    "headline": "Tesla begins first public-road engineering tests of production Cybercab WITHOUT steering wheel, pedals, or any human controls in Austin — @Tesla official X account posted video of unit navigating Austin traffic autonomously; safety monitor in passenger seat only during testing phase; hundreds of Cybercabs simultaneously shipping to Dallas and Houston hubs; Tesla VP Lars Moravy teases 'big announcement' at Giga Texas July 7 with sources pointing to Cybercab production scaling or mid-July Houston commercial launch (@Tesla on X / notateslaapp / basenor, Jun 30, 2026)",
+    "category": "autonomy",
+    "source": "@Tesla on X / notateslaapp / basenor",
+    "timestamp": "Jun 30, 2026",
+    "url": "https://www.notateslaapp.com/news/4374/tesla-starts-testing-steering-wheel-less-cybercabs-in-austin"
+  },
+  {
+    "headline": "Texas regulatory stack for Cybercab commercial deployment now essentially complete — Tesla self-certified commercial robotaxi software as SAE Level 4 under Texas state law (May 28); Cybercab officially listed in Texas DPS Connected AV First Responder Interaction Plan registry; official Cybercab emergency handbook classifies it as 'completely driverless' with SAE Level 4 Autonomous Mode; combined with NHTSA brake pedal removal (Jun 24) and statewide TX AV Registry entry, Tesla has cleared all major regulatory gates for large-scale Cybercab commercial service in Texas (notateslaapp / basenor / Texas DPS, Jun 29-30, 2026)",
+    "category": "autonomy",
+    "source": "notateslaapp / basenor / Texas DPS",
+    "timestamp": "Jun 30, 2026",
+    "url": "https://www.notateslaapp.com/news/4372/inside-tesla-cybercabs-level-4-autonomous-mode"
+  },
+  {
+    "headline": "Deutsche Bank raises Tesla Q2 delivery estimate to ~416,000 — joins Goldman Sachs (420K), JPMorgan (420K), Barclays (~418K), Morgan Stanley (413K) all above Tesla IR consensus of 406,024; Bloomberg consensus at ~396,466 (20 analysts); Q2 report due July 2; Europe + international sales are the primary upside driver; a print above 413K would mark Tesla's first clear YoY delivery acceleration since 2023 (Deutsche Bank / Bloomberg / Yahoo Finance, Jun 30, 2026)",
+    "category": "financials",
+    "source": "Deutsche Bank / Bloomberg / Yahoo Finance",
+    "timestamp": "Jun 30, 2026",
+    "url": "https://www.zerohedge.com/markets/deutsche-bank-teslas-q2-vehicle-deliveries-tracking-above-consensus-expectations"
+  },
+  {
     "headline": "Tesla crashes into Urbane Café patio in Simi Valley, CA — 1 killed, 5 injured; driver (64-year-old woman) failed to make turn through parking lot; 4 juvenile passengers in white Tesla; FSD status under investigation (no autonomous mode confirmed); third high-profile Tesla crash in 3 weeks following Texas fatal (Jun 20, FSD active) and Arizona settlement (Jun 26); NHTSA EA26002 (3.2M-vehicle reduced-visibility FSD probe) remains active — accelerating regulatory scrutiny on the brand ahead of Q2 delivery report (ABC7 / NBC LA / Simi Valley PD, Jun 30, 2026)",
     "category": "autonomy",
     "source": "ABC7 / NBC LA / Simi Valley PD",
@@ -14,18 +35,11 @@
     "url": "https://finance.yahoo.com/markets/stocks/articles/tsla-q2-deliveries-may-miss-050046840.html"
   },
   {
-    "headline": "Tesla battery theft epidemic at Gigafactory Nevada — trailers with millions of dollars of Tesla car and Powerwall batteries being stolen from loading docks before leaving the factory; Storey County Sheriff's Detective: 'It's an epidemic right now'; organized theft ring suspected; supply chain security risk at Nevada's primary Semi, 4680, and Megapack production hub (WIRED / TipRanks, Jun 29, 2026)",
-    "category": "manufacturing",
-    "source": "WIRED / TipRanks",
+    "headline": "FSD v14 Lite HW3 first impressions overwhelmingly positive — early access users reporting zero interventions on complex routes (Culver City to Hollywood); Electrek confirms RL improvements, parking/unparking, pedestrian interactions, and navigation handling all translate well via model distillation from HW4; 'distilled the intelligence from HW4 V14 into HW3' per release notes; 2026.20.5.1 release notes also add Robotaxi-style drop-off arrival options; broader rollout to more HW3 customers over coming weeks pending validation (notateslaapp / Electrek / basenor, Jun 29, 2026)",
+    "category": "autonomy",
+    "source": "notateslaapp / Electrek / basenor",
     "timestamp": "Jun 29, 2026",
-    "url": "https://www.wired.com/story/truckloads-of-tesla-batteries-keep-getting-stolen-before-they-even-leave-the-factory/"
-  },
-  {
-    "headline": "SpaceX (SPCX) goes public, joins Nasdaq 100 effective July 6 — Tesla/SpaceX merger speculation reaches fever pitch as Wedbush puts odds above 80%; SPCX +7% on Nasdaq 100 inclusion news; Fortune models combined entity at $3.4T; SpaceX Charter Communications mobile partnership rumored (Bloomberg); Tesla holds direct SpaceX equity stake via $2B xAI-to-SpaceX conversion (Q1 2026); Morningstar flags regulatory conflict risk (defense contracts + China ops) but prediction markets pricing deal as increasingly plausible (Wedbush / Fortune / Bloomberg / Investopedia, Jun 29, 2026)",
-    "category": "corporate",
-    "source": "Wedbush / Fortune / Bloomberg / Investopedia",
-    "timestamp": "Jun 29, 2026",
-    "url": "https://www.investopedia.com/stock-market-today-dow-jones-s-and-p-500-06292026-12008268"
+    "url": "https://www.notateslaapp.com/news/4369/tesla-launches-fsd-v14-lite-first-impressions"
   },
   {
     "headline": "TSLA +8.5% closes $401.84 to lead Magnificent Seven as Morgan Stanley, Barclays raise Q2 delivery estimates above consensus — Morgan Stanley upgraded Q2 forecast from 373K to 413K citing European + China demand recovery; Barclays projected ~418K; both above prior consensus of 406K; Q2 delivery report confirmed for July 2; Nasdaq +2.1%, S&P 500 +1.2%, Dow closes above 52,000 for first time (Morgan Stanley / Barclays / GuruFocus / Investopedia, Jun 29, 2026)",
@@ -35,25 +49,11 @@
     "url": "https://www.gurufocus.com/news/8936635/tesla-tsla-stock-surges-over-5-ahead-of-q2-delivery-report"
   },
   {
-    "headline": "FSD v14 Lite HW3 first impressions overwhelmingly positive — early access users reporting zero interventions on complex routes (Culver City to Hollywood); Electrek confirms RL improvements, parking/unparking, pedestrian interactions, and navigation handling all translate well via model distillation from HW4; 'distilled the intelligence from HW4 V14 into HW3' per release notes; 2026.20.5.1 release notes also add Robotaxi-style drop-off arrival options; broader rollout to more HW3 customers over coming weeks pending validation (notateslaapp / Electrek / basenor, Jun 29, 2026)",
+    "headline": "Tesla quietly settles FSD pedestrian death lawsuit as NHTSA 3.2M-vehicle Engineering Analysis remains active — Tesla settled wrongful death suit over Nov 2023 Arizona crash (71-year-old pedestrian struck by Model Y in FSD mode); separately, June 20 fatal Texas crash (Model 3 through Houston-area home wall, victim 76-year-old Martha Avila) opens new federal probe; NHTSA EA26002 is the final step before agency can force a recall; Tesla admits FSD was active in Texas crash, blames driver override (Electrek / Autoblog / The Verge, Jun 26, 2026)",
     "category": "autonomy",
-    "source": "notateslaapp / Electrek / basenor",
-    "timestamp": "Jun 29, 2026",
-    "url": "https://www.notateslaapp.com/news/4369/tesla-launches-fsd-v14-lite-first-impressions"
-  },
-  {
-    "headline": "Grok 4.5 enters private beta at SpaceX and Tesla — 1.5T parameter V9 model enters exclusive private testing at Musk's two companies before public release; Musk claims surpasses Claude on key benchmarks; directly accelerates Digital Optimus/Macrohard AI integration: Grok serves as the reasoning 'conductor' layer that commands Tesla's physical AI agent; signals tightening xAI-Tesla operational integration ahead of Q4 2026 Digital Optimus target (Musk on X / xAI, Jun 28-29, 2026)",
-    "category": "robotics",
-    "source": "Musk on X / xAI",
-    "timestamp": "Jun 28-29, 2026",
-    "url": "https://www.thehansindia.com/business/grok-45-enters-private-testing-at-spacex-tesla-elon-musk-1091543"
-  },
-  {
-    "headline": "Tesla, Sunrun, and Renew Home announce 16 GW virtual power plant — largest distributed power plant in US history; aggregates Powerwall home batteries, smart thermostats, and connected devices targeting hyperscalers and data center operators; 300+ MW immediately deployable, scaling to 500+ MW by 2030; confirms Powerwall fleet as commercial-grade VPP backbone capable of enterprise-scale energy delivery; first concrete proof-point of Tesla's VPP as a revenue-generating grid asset beyond residential programs (Electrek / Globe Newswire, Jun 24, 2026)",
-    "category": "energy",
-    "source": "Electrek / Globe Newswire",
-    "timestamp": "Jun 24, 2026",
-    "url": "https://electrek.co/2026/06/24/tesla-sunrun-16gw-vpp-data-centers/"
+    "source": "Electrek / Autoblog / The Verge",
+    "timestamp": "Jun 26, 2026",
+    "url": "https://electrek.co/2026/06/26/tesla-fsd-pedestrian-death-settlement/"
   },
   {
     "headline": "NHTSA removes mandatory brake pedal requirement for fully autonomous vehicles — FMVSS 135 updated to allow ADS-exclusive cabins without manual brake controls; alternative stopping-distance testing still required; NHTSA Administrator Morrison: 'tearing down pointless barriers to innovative designs while strengthening fundamental safety requirements'; direct regulatory unlock for Cybercab's pedal-free, steering-wheel-free design; largest federal AV equipment rule reform in decades (NHTSA press release, Jun 24, 2026)",
@@ -63,10 +63,10 @@
     "url": "https://www.notateslaapp.com/news/4354/tesla-opens-first-500-kw-v4-supercharger-in-europe"
   },
   {
-    "headline": "Tesla quietly settles FSD pedestrian death lawsuit as NHTSA 3.2M-vehicle Engineering Analysis remains active — Tesla settled wrongful death suit over Nov 2023 Arizona crash (71-year-old pedestrian struck by Model Y in FSD mode); separately, June 20 fatal Texas crash (Model 3 through Houston-area home wall, victim 76-year-old Martha Avila) opens new federal probe; NHTSA EA26002 is the final step before agency can force a recall; Tesla admits FSD was active in Texas crash, blames driver override (Electrek / Autoblog / The Verge, Jun 26, 2026)",
-    "category": "autonomy",
-    "source": "Electrek / Autoblog / The Verge",
-    "timestamp": "Jun 26, 2026",
-    "url": "https://electrek.co/2026/06/26/tesla-fsd-pedestrian-death-settlement/"
+    "headline": "Tesla, Sunrun, and Renew Home announce 16 GW virtual power plant — largest distributed power plant in US history; aggregates Powerwall home batteries, smart thermostats, and connected devices targeting hyperscalers and data center operators; 300+ MW immediately deployable, scaling to 500+ MW by 2030; confirms Powerwall fleet as commercial-grade VPP backbone capable of enterprise-scale energy delivery; first concrete proof-point of Tesla's VPP as a revenue-generating grid asset beyond residential programs (Electrek / Globe Newswire, Jun 24, 2026)",
+    "category": "energy",
+    "source": "Electrek / Globe Newswire",
+    "timestamp": "Jun 24, 2026",
+    "url": "https://electrek.co/2026/06/24/tesla-sunrun-16gw-vpp-data-centers/"
   }
 ]
