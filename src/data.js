@@ -755,9 +755,10 @@ export const catalysts = [
     weight: 0.02,
     status: "upcoming",
     expected: "Q4 2026",
-    likelihood: 0.50,
-    updated: "Mar 22, 2026",
+    likelihood: 0.55,
+    updated: "Jun 30, 2026",
     description: [
+      "🆕 Jun 24, 2026: Tesla, Sunrun, and Renew Home announce 16 GW virtual power plant — largest distributed power plant in US history; aggregates Powerwall home batteries, smart thermostats, and connected devices targeting hyperscalers and data center operators; 300+ MW immediately deployable, scaling to 500+ MW by 2030; confirms Powerwall fleet as commercial-grade VPP backbone capable of enterprise-scale energy delivery; first concrete commercial proof-point of Tesla's VPP as a revenue-generating grid asset beyond residential programs (Electrek / Globe Newswire, Jun 24, 2026)",
       "Tesla VPP: aggregates Powerwall/Megapack fleet to dispatch grid energy during peak demand",
       "Active programs: CA (PG&E), TX (ERCOT), AUS (NEM) — early revenue generating",
       "Tesla earns grid payments for dispatching stored energy during emergencies",
