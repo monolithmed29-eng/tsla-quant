@@ -1,5 +1,33 @@
 [
   {
+    "headline": "Elon Musk walks Optimus production line at Fremont — VP Lars Moravy confirms modular, rapidly scalable line design; 'Walking the Optimus production line in Fremont' post garnered nearly 1M views; Moravy confirms dozens of lines planned, modular architecture means Tesla won't need to overhaul manufacturing each time the robot's design changes; volume production start still targeted late July / August 2026 per Q1 earnings call (Musk on X / basenor / SawyerMerritt on X, Jul 1, 2026)",
+    "category": "robotics",
+    "source": "Musk on X / basenor / Benzinga",
+    "timestamp": "Jul 1, 2026",
+    "url": "https://www.basenor.com/blogs/news/teslas-first-optimus-production-line-has-landed"
+  },
+  {
+    "headline": "Tesla Q2 deliveries due July 2 — maximum analyst divergence: Goldman (420K), JPMorgan (420K), Barclays (418K), Deutsche Bank (416K) all above IR consensus (406K); Cantor Fitzgerald projects miss at 397K; Bloomberg consensus 396K (20 analysts); Europe + international sales cited as primary upside driver; a beat above 413K would be Tesla's first clear YoY delivery acceleration since 2023; Q2 earnings report follows July 22 (Deutsche Bank / Bloomberg / Cantor / Yahoo Finance, Jul 1, 2026)",
+    "category": "financials",
+    "source": "Deutsche Bank / Goldman Sachs / Bloomberg / Yahoo Finance",
+    "timestamp": "Jul 1, 2026",
+    "url": "https://finance.yahoo.com/markets/stocks/article/tesla-q2-delivery-preview-europe-international-sales-the-driver-as-us-sales-in-decline-152919456.html"
+  },
+  {
+    "headline": "BYD set to crush Tesla in Q2 2026 with ~557,000 BEV deliveries — Electrek: 'BYD has now outsold Tesla in Europe'; Tesla EU registrations continue to slide; TSLA still dominant in US but global market share narrative shifting; BYD's pure-BEV tally (~557K) expected to be ~37% above Tesla's projected Q2 deliveries (~406K consensus); Tesla's competitive moat increasingly reliant on autonomy/AI premium rather than volume leadership (Electrek, Jul 1, 2026)",
+    "category": "financials",
+    "source": "Electrek",
+    "timestamp": "Jul 1, 2026",
+    "url": "https://electrek.co/2026/07/01/byd-tesla-q2-2026-bev-sales/"
+  },
+  {
+    "headline": "Tesla settles another FSD crash lawsuit; NHTSA finds system 'did not detect common roadway conditions that impaired camera visibility' until immediately before crash — settlement terms undisclosed; regulator language signals EA26002 (3.2M-vehicle probe) advancing toward formal findings; Business Insider deep-dive on missing crash data published same day; continued FSD litigation exposure into Q2 earnings (Claims Journal / Business Insider / The Star, Jul 1, 2026)",
+    "category": "autonomy",
+    "source": "Claims Journal / Business Insider",
+    "timestamp": "Jul 1, 2026",
+    "url": "https://www.claimsjournal.com/news/national/2026/07/01/338495.htm"
+  },
+  {
     "headline": "Tesla begins first public-road engineering tests of production Cybercab WITHOUT steering wheel, pedals, or any human controls in Austin — @Tesla official X account posted video of unit navigating Austin traffic autonomously; safety monitor in passenger seat only during testing phase; hundreds of Cybercabs simultaneously shipping to Dallas and Houston hubs; Tesla VP Lars Moravy teases 'big announcement' at Giga Texas July 7 with sources pointing to Cybercab production scaling or mid-July Houston commercial launch (@Tesla on X / notateslaapp / basenor, Jun 30, 2026)",
     "category": "autonomy",
     "source": "@Tesla on X / notateslaapp / basenor",
@@ -14,46 +42,11 @@
     "url": "https://www.notateslaapp.com/news/4372/inside-tesla-cybercabs-level-4-autonomous-mode"
   },
   {
-    "headline": "Deutsche Bank raises Tesla Q2 delivery estimate to ~416,000 — joins Goldman Sachs (420K), JPMorgan (420K), Barclays (~418K), Morgan Stanley (413K) all above Tesla IR consensus of 406,024; Bloomberg consensus at ~396,466 (20 analysts); Q2 report due July 2; Europe + international sales are the primary upside driver; a print above 413K would mark Tesla's first clear YoY delivery acceleration since 2023 (Deutsche Bank / Bloomberg / Yahoo Finance, Jun 30, 2026)",
-    "category": "financials",
-    "source": "Deutsche Bank / Bloomberg / Yahoo Finance",
-    "timestamp": "Jun 30, 2026",
-    "url": "https://www.zerohedge.com/markets/deutsche-bank-teslas-q2-vehicle-deliveries-tracking-above-consensus-expectations"
-  },
-  {
-    "headline": "Tesla crashes into Urbane Café patio in Simi Valley, CA — 1 killed, 5 injured; driver (64-year-old woman) failed to make turn through parking lot; 4 juvenile passengers in white Tesla; FSD status under investigation (no autonomous mode confirmed); third high-profile Tesla crash in 3 weeks following Texas fatal (Jun 20, FSD active) and Arizona settlement (Jun 26); NHTSA EA26002 (3.2M-vehicle reduced-visibility FSD probe) remains active — accelerating regulatory scrutiny on the brand ahead of Q2 delivery report (ABC7 / NBC LA / Simi Valley PD, Jun 30, 2026)",
-    "category": "autonomy",
-    "source": "ABC7 / NBC LA / Simi Valley PD",
-    "timestamp": "Jun 30, 2026",
-    "url": "https://abc7.com/post/simi-valley-crash-1-killed-5-injured-car-slams-urbane-cafe-restaurant/19416545/"
-  },
-  {
-    "headline": "Cantor Fitzgerald warns Q2 delivery miss — projects 397,414 deliveries vs 408,609 consensus; still bullish long-term: 'AI, robotics, and chips could drive transformational 2026'; contrasts with Morgan Stanley (413K) and Barclays (418K) bull estimates; Q2 delivery report due July 2; wide analyst divergence signals maximum uncertainty into the print — a beat could re-accelerate; a miss with inventory build would renew structural demand concerns (Cantor Fitzgerald / Yahoo Finance, Jun 30, 2026)",
-    "category": "financials",
-    "source": "Cantor Fitzgerald / Yahoo Finance",
-    "timestamp": "Jun 30, 2026",
-    "url": "https://finance.yahoo.com/markets/stocks/articles/tsla-q2-deliveries-may-miss-050046840.html"
-  },
-  {
     "headline": "FSD v14 Lite HW3 first impressions overwhelmingly positive — early access users reporting zero interventions on complex routes (Culver City to Hollywood); Electrek confirms RL improvements, parking/unparking, pedestrian interactions, and navigation handling all translate well via model distillation from HW4; 'distilled the intelligence from HW4 V14 into HW3' per release notes; 2026.20.5.1 release notes also add Robotaxi-style drop-off arrival options; broader rollout to more HW3 customers over coming weeks pending validation (notateslaapp / Electrek / basenor, Jun 29, 2026)",
     "category": "autonomy",
     "source": "notateslaapp / Electrek / basenor",
     "timestamp": "Jun 29, 2026",
     "url": "https://www.notateslaapp.com/news/4369/tesla-launches-fsd-v14-lite-first-impressions"
-  },
-  {
-    "headline": "TSLA +8.5% closes $401.84 to lead Magnificent Seven as Morgan Stanley, Barclays raise Q2 delivery estimates above consensus — Morgan Stanley upgraded Q2 forecast from 373K to 413K citing European + China demand recovery; Barclays projected ~418K; both above prior consensus of 406K; Q2 delivery report confirmed for July 2; Nasdaq +2.1%, S&P 500 +1.2%, Dow closes above 52,000 for first time (Morgan Stanley / Barclays / GuruFocus / Investopedia, Jun 29, 2026)",
-    "category": "financials",
-    "source": "Morgan Stanley / Barclays / Investopedia",
-    "timestamp": "Jun 29, 2026",
-    "url": "https://www.gurufocus.com/news/8936635/tesla-tsla-stock-surges-over-5-ahead-of-q2-delivery-report"
-  },
-  {
-    "headline": "Tesla quietly settles FSD pedestrian death lawsuit as NHTSA 3.2M-vehicle Engineering Analysis remains active — Tesla settled wrongful death suit over Nov 2023 Arizona crash (71-year-old pedestrian struck by Model Y in FSD mode); separately, June 20 fatal Texas crash (Model 3 through Houston-area home wall, victim 76-year-old Martha Avila) opens new federal probe; NHTSA EA26002 is the final step before agency can force a recall; Tesla admits FSD was active in Texas crash, blames driver override (Electrek / Autoblog / The Verge, Jun 26, 2026)",
-    "category": "autonomy",
-    "source": "Electrek / Autoblog / The Verge",
-    "timestamp": "Jun 26, 2026",
-    "url": "https://electrek.co/2026/06/26/tesla-fsd-pedestrian-death-settlement/"
   },
   {
     "headline": "NHTSA removes mandatory brake pedal requirement for fully autonomous vehicles — FMVSS 135 updated to allow ADS-exclusive cabins without manual brake controls; alternative stopping-distance testing still required; NHTSA Administrator Morrison: 'tearing down pointless barriers to innovative designs while strengthening fundamental safety requirements'; direct regulatory unlock for Cybercab's pedal-free, steering-wheel-free design; largest federal AV equipment rule reform in decades (NHTSA press release, Jun 24, 2026)",
