@@ -1,10 +1,10 @@
 [
   {
-    "headline": "Tesla Q2 2026 deliveries due today (Jul 2) — TSLA pre-market +1.07% at $429.87 ahead of report; analyst range 396,500–420,000 vs 406,024 consensus; beat above 413K would mark Tesla's first clear YoY delivery acceleration since 2023; Michael Burry discloses short positions against TSLA, Nvidia, and Caterpillar warning of AI bubble; Cantor Fitzgerald targets 397K below consensus; Giga Texas 'significant announcement' July 7 adds to near-term catalyst stack; Q2 earnings report July 22 (TipRanks / CNBC / Yahoo Finance, Jul 2, 2026)",
+    "headline": "Tesla Q2 2026 BLOWOUT: 480,126 deliveries (+25% YoY, +34% QoQ) — smashes 406K consensus by 74K and beats even the most bullish Wall St estimates (Goldman/JPMorgan 420K, Barclays 418K); Tesla's best-ever Q2 and first YoY delivery growth since 2023; drew down inventory (delivered 28K more than produced — reversal of Q1's 50K inventory build); Model 3/Y: 467,762; Other: 12,364; energy: 13.5 GWh +40% YoY; BYD BEV gap narrows from 220K to 77K (BYD 557K BEV, -8% YoY; Tesla +25%); TSLA stock dropped — market awaits Jul 22 earnings to see if volume recovery translated to margin (Electrek / CNBC / Yahoo Finance, Jul 2, 2026)",
     "category": "financials",
-    "source": "TipRanks / CNBC / Yahoo Finance",
+    "source": "Electrek / CNBC / Yahoo Finance",
     "timestamp": "Jul 2, 2026",
-    "url": "https://finance.yahoo.com/quote/TSLA/"
+    "url": "https://electrek.co/2026/07/02/tesla-q2-2026-deliveries-480126/"
   },
   {
     "headline": "Tesla production vehicles now autonomously drive themselves through final factory quality checks — internal microphone arrays detect squeaks and rattles while cars self-navigate through inspection stations at Giga Texas without human drivers; Lars Moravy simultaneously confirms 'significant announcement' on Giga Texas production scaling for July 7 event; autonomous factory QC signals Tesla FSD intelligence now embedded in manufacturing efficiency; Moravy also revealed Optimus production line uses modular architecture adaptable as robot hardware evolves — dozens of lines planned (notateslaapp / Teslarati, Jul 2, 2026)",
@@ -21,21 +21,14 @@
     "url": "https://www.basenor.com/blogs/news/teslas-first-optimus-production-line-has-landed"
   },
   {
-    "headline": "Tesla Q2 deliveries due July 2 — maximum analyst divergence: Goldman (420K), JPMorgan (420K), Barclays (418K), Deutsche Bank (416K) all above IR consensus (406K); Cantor Fitzgerald projects miss at 397K; Bloomberg consensus 396K (20 analysts); Europe + international sales cited as primary upside driver; a beat above 413K would be Tesla's first clear YoY delivery acceleration since 2023; Q2 earnings report follows July 22 (Deutsche Bank / Bloomberg / Cantor / Yahoo Finance, Jul 1, 2026)",
-    "category": "financials",
-    "source": "Deutsche Bank / Goldman Sachs / Bloomberg / Yahoo Finance",
-    "timestamp": "Jul 1, 2026",
-    "url": "https://finance.yahoo.com/markets/stocks/article/tesla-q2-delivery-preview-europe-international-sales-the-driver-as-us-sales-in-decline-152919456.html"
-  },
-  {
-    "headline": "BYD set to crush Tesla in Q2 2026 with ~557,000 BEV deliveries — Electrek: 'BYD has now outsold Tesla in Europe'; Tesla EU registrations continue to slide; TSLA still dominant in US but global market share narrative shifting; BYD's pure-BEV tally (~557K) expected to be ~37% above Tesla's projected Q2 deliveries (~406K consensus); Tesla's competitive moat increasingly reliant on autonomy/AI premium rather than volume leadership (Electrek, Jul 1, 2026)",
+    "headline": "BYD Q2 2026 BEV deliveries fall 8% YoY to 557,090 as Tesla surges 25% to 480,126 — trajectories crossing; Tesla's BEV gap to BYD narrows from 220,000 units a year ago to just 77,000; Tesla gaining global BEV market share for first time since 2023; BYD still leads in pure volume but losing ground as Tesla's recovery accelerates (Electrek, Jul 1, 2026)",
     "category": "financials",
     "source": "Electrek",
     "timestamp": "Jul 1, 2026",
     "url": "https://electrek.co/2026/07/01/byd-tesla-q2-2026-bev-sales/"
   },
   {
-    "headline": "Tesla settles another FSD crash lawsuit; NHTSA finds system 'did not detect common roadway conditions that impaired camera visibility' until immediately before crash — settlement terms undisclosed; regulator language signals EA26002 (3.2M-vehicle probe) advancing toward formal findings; Business Insider deep-dive on missing crash data published same day; continued FSD litigation exposure into Q2 earnings (Claims Journal / Business Insider / The Star, Jul 1, 2026)",
+    "headline": "Tesla settles another FSD crash lawsuit; NHTSA finds system 'did not detect common roadway conditions that impaired camera visibility' until immediately before crash — settlement terms undisclosed; regulator language signals EA26002 (3.2M-vehicle probe) advancing toward formal findings; Business Insider deep-dive on missing crash data published same day; continued FSD litigation exposure into Q2 earnings (Claims Journal / Business Insider, Jul 1, 2026)",
     "category": "autonomy",
     "source": "Claims Journal / Business Insider",
     "timestamp": "Jul 1, 2026",
