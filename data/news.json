@@ -1,5 +1,12 @@
 [
   {
+    "headline": "Tesla bundles free 1-year FSD subscription + free Supercharging + free Premium Connectivity with Model Y L Launch Series ($61,990 US) — first time Tesla has packaged a full 12-month FSD trial into a new US vehicle launch; TSLA stock recovers to $418-$424 (+1-2%) on July 3 as market positions ahead of July 7 Giga Texas announcement and July 22 Q2 earnings call (officially confirmed by Tesla IR); Giga Texas July 7 announcement expected to cover Cybercab production scaling milestone per VP Lars Moravy's teaser (Benzinga / notateslaapp / basenor, Jul 3, 2026)",
+    "category": "product",
+    "source": "Benzinga / notateslaapp / basenor",
+    "timestamp": "Jul 3, 2026",
+    "url": "https://www.benzinga.com/markets/tech/26/07/60264194/tesla-just-launched-its-three-row-model-y-l-in-us-and-it-comes-with-free-fsd-supercharging-and-more"
+  },
+  {
     "headline": "Tesla officially launches Model Y Long Wheelbase (Model Y L) in the US and Puerto Rico — 3-row, 6-seat SUV starting at $61,990 for the limited-run Premium AWD Launch Series; 325-mile range, 0–60 in 4.4 seconds; stretched wheelbase vs standard Model Y; new third-row seating opens Tesla to family SUV buyers who previously opted for Model X; Giga Texas confirmed as primary US production site; Model Y L was already on sale in China and EU; US launch fills the gap between Model Y ($44K) and Model X ($79K); delivery rebound thesis strengthened by adding higher-ASP volume SKU to the lineup (Electrek / Forbes / notateslaapp, Jul 2, 2026)",
     "category": "product",
     "source": "Electrek / Forbes / notateslaapp",
@@ -7,18 +14,18 @@
     "url": "https://electrek.co/2026/07/02/tesla-model-y-l-us-launch-61990/"
   },
   {
-    "headline": "Tesla Semi involved in first fatal crash — driver fell asleep, rear-ended two vehicles stopped at red light on US-50 in Dayton, Nevada (Jul 1); married couple Sergio and Jennifer Villanueva killed, third victim critically injured; driver reportedly asleep at wheel (human error, not autonomous driving); Nevada State Police and NHTSA investigating; crash comes as NHTSA was already weighing mandatory automatic emergency braking (AEB) requirements for heavy trucks over 10,000 lbs — incident adds regulatory momentum to AEB mandates; Tesla Semi was in commercial fleet service; no vehicle defect cited; TSLA stock already down 7.49% Jul 2 on delivery-beat margin concerns (Electrek / SF Chronicle / Carscoops, Jul 1–2, 2026)",
-    "category": "product",
-    "source": "Electrek / SF Chronicle / Carscoops",
-    "timestamp": "Jul 2, 2026",
-    "url": "https://electrek.co/2026/07/01/tesla-semi-first-fatal-crash-nevada/"
-  },
-  {
     "headline": "Tesla Q2 2026 BLOWOUT: 480,126 deliveries (+25% YoY, +34% QoQ) — smashes 406K consensus by 74K and beats even the most bullish Wall St estimates (Goldman/JPMorgan 420K, Barclays 418K); Tesla's best-ever Q2 and first YoY delivery growth since 2023; drew down inventory (delivered 28K more than produced — reversal of Q1's 50K inventory build); Model 3/Y: 467,762; Other: 12,364; energy: 13.5 GWh +40% YoY; BYD BEV gap narrows from 220K to 77K (BYD 557K BEV, -8% YoY; Tesla +25%); TSLA stock dropped — market awaits Jul 22 earnings to see if volume recovery translated to margin (Electrek / CNBC / Yahoo Finance, Jul 2, 2026)",
     "category": "financials",
     "source": "Electrek / CNBC / Yahoo Finance",
     "timestamp": "Jul 2, 2026",
     "url": "https://electrek.co/2026/07/02/tesla-q2-2026-deliveries-480126/"
+  },
+  {
+    "headline": "Tesla Semi involved in first fatal crash — driver fell asleep, rear-ended two vehicles stopped at red light on US-50 in Dayton, Nevada (Jul 1); married couple Sergio and Jennifer Villanueva killed, third victim critically injured; driver reportedly asleep at wheel (human error, not autonomous driving); Nevada State Police and NHTSA investigating; crash comes as NHTSA was already weighing mandatory automatic emergency braking (AEB) requirements for heavy trucks over 10,000 lbs — incident adds regulatory momentum to AEB mandates; Tesla Semi was in commercial fleet service; no vehicle defect cited; TSLA stock already down 7.49% Jul 2 on delivery-beat margin concerns (Electrek / SF Chronicle / Carscoops, Jul 1–2, 2026)",
+    "category": "product",
+    "source": "Electrek / SF Chronicle / Carscoops",
+    "timestamp": "Jul 2, 2026",
+    "url": "https://electrek.co/2026/07/01/tesla-semi-first-fatal-crash-nevada/"
   },
   {
     "headline": "Tesla production vehicles now autonomously drive themselves through final factory quality checks — internal microphone arrays detect squeaks and rattles while cars self-navigate through inspection stations at Giga Texas without human drivers; Lars Moravy simultaneously confirms 'significant announcement' on Giga Texas production scaling for July 7 event; autonomous factory QC signals Tesla FSD intelligence now embedded in manufacturing efficiency; Moravy also revealed Optimus production line uses modular architecture adaptable as robot hardware evolves — dozens of lines planned (notateslaapp / Teslarati, Jul 2, 2026)",
@@ -33,20 +40,6 @@
     "source": "Musk on X / basenor / Benzinga",
     "timestamp": "Jul 1, 2026",
     "url": "https://www.basenor.com/blogs/news/teslas-first-optimus-production-line-has-landed"
-  },
-  {
-    "headline": "BYD Q2 2026 BEV deliveries fall 8% YoY to 557,090 as Tesla surges 25% to 480,126 — trajectories crossing; Tesla's BEV gap to BYD narrows from 220,000 units a year ago to just 77,000; Tesla gaining global BEV market share for first time since 2023; BYD still leads in pure volume but losing ground as Tesla's recovery accelerates (Electrek, Jul 1, 2026)",
-    "category": "financials",
-    "source": "Electrek",
-    "timestamp": "Jul 1, 2026",
-    "url": "https://electrek.co/2026/07/01/byd-tesla-q2-2026-bev-sales/"
-  },
-  {
-    "headline": "Tesla settles another FSD crash lawsuit; NHTSA finds system 'did not detect common roadway conditions that impaired camera visibility' until immediately before crash — settlement terms undisclosed; regulator language signals EA26002 (3.2M-vehicle probe) advancing toward formal findings; Business Insider deep-dive on missing crash data published same day; continued FSD litigation exposure into Q2 earnings (Claims Journal / Business Insider, Jul 1, 2026)",
-    "category": "autonomy",
-    "source": "Claims Journal / Business Insider",
-    "timestamp": "Jul 1, 2026",
-    "url": "https://www.claimsjournal.com/news/national/2026/07/01/338495.htm"
   },
   {
     "headline": "Tesla begins first public-road engineering tests of production Cybercab WITHOUT steering wheel, pedals, or any human controls in Austin — @Tesla official X account posted video of unit navigating Austin traffic autonomously; safety monitor in passenger seat only during testing phase; hundreds of Cybercabs simultaneously shipping to Dallas and Houston hubs; Tesla VP Lars Moravy teases 'big announcement' at Giga Texas July 7 with sources pointing to Cybercab production scaling or mid-July Houston commercial launch (@Tesla on X / notateslaapp / basenor, Jun 30, 2026)",
