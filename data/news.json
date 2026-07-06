@@ -1,5 +1,19 @@
 [
   {
+    "headline": "Tesla Miami Robotaxi goes LIVE for rider service — first driverless rides outside Texas completed July 5-6; Tesla officially announced 'service is now available in Miami' on X July 5; geofenced area covers West Miami, Doral, and Coral Gables including Miami International Airport (MIA); Model Y fleet operational with no driver or safety monitor; first public rider videos and walkaround footage circulating on social media; TechTimes notes Florida's tropical rain is the hardest test yet for camera-only FSD — operating in precipitation, high humidity, and complex multi-lane airport approach roads; confirms Miami is Tesla's first operational driverless city outside Texas (gurufocus / TipRanks / TechTimes, Jul 5–6, 2026)",
+    "category": "autonomy",
+    "source": "gurufocus / TipRanks / TechTimes",
+    "timestamp": "Jul 6, 2026",
+    "url": "https://www.gurufocus.com/news/8944904/tesla-launches-robotaxi-service-in-miami-tsla"
+  },
+  {
+    "headline": "Tesla caps employee AI tool spending at $200/week effective July 6 — Grok exempt; engineers had been burning thousands of tokens weekly before the policy; management approval required for overages; third-party AI products (ChatGPT, Claude, Copilot, etc.) subject to the cap while xAI's Grok remains uncapped — signals Tesla's preference for Musk's in-house AI as the enterprise standard and deepens xAI-Tesla operational integration; joins Uber, Meta, and Walmart in instituting token cost controls as enterprise AI bills soar (Electrek / The Information / TechTimes, Jul 3–6, 2026)",
+    "category": "corporate",
+    "source": "Electrek / The Information / TechTimes",
+    "timestamp": "Jul 6, 2026",
+    "url": "https://electrek.co/2026/07/02/tesla-caps-employee-ai-spending-200-week/"
+  },
+  {
     "headline": "Tesla launches unsupervised Robotaxi service in Miami, Florida — first expansion outside Texas, making Miami the 4th city and Florida the 1st state beyond Texas to offer fully driverless rides; geofenced area covers West Miami, Doral, and Coral Gables (~10–14 sq mi) including Miami International Airport (MIA); Model Y fleet initially, with Cybercab expected to join as production scales later in 2026; Coral Gables fire crews completed Tesla emergency response training ahead of launch; service is phased app-based rollout at introductory flat rate + applicable fees; Florida law permits fully driverless vehicles meeting federal standards; Miami's tropical climate, airport traffic, and multilingual rider base mark a distinct operating environment from Austin/Bay Area; confirms Tesla's multi-city expansion is accelerating beyond Texas as originally targeted in 1H 2026 roadmap (@Tesla Robotaxi / basenor / notateslaapp, Jul 3, 2026)",
     "category": "autonomy",
     "source": "@Tesla Robotaxi / basenor / notateslaapp",
@@ -54,19 +68,5 @@
     "source": "@Tesla on X / notateslaapp / basenor",
     "timestamp": "Jun 30, 2026",
     "url": "https://www.notateslaapp.com/news/4374/tesla-starts-testing-steering-wheel-less-cybercabs-in-austin"
-  },
-  {
-    "headline": "Texas regulatory stack for Cybercab commercial deployment now essentially complete — Tesla self-certified commercial robotaxi software as SAE Level 4 under Texas state law (May 28); Cybercab officially listed in Texas DPS Connected AV First Responder Interaction Plan registry; official Cybercab emergency handbook classifies it as 'completely driverless' with SAE Level 4 Autonomous Mode; combined with NHTSA brake pedal removal (Jun 24) and statewide TX AV Registry entry, Tesla has cleared all major regulatory gates for large-scale Cybercab commercial service in Texas (notateslaapp / basenor / Texas DPS, Jun 29-30, 2026)",
-    "category": "autonomy",
-    "source": "notateslaapp / basenor / Texas DPS",
-    "timestamp": "Jun 30, 2026",
-    "url": "https://www.notateslaapp.com/news/4372/inside-tesla-cybercabs-level-4-autonomous-mode"
-  },
-  {
-    "headline": "FSD v14 Lite HW3 first impressions overwhelmingly positive — early access users reporting zero interventions on complex routes (Culver City to Hollywood); Electrek confirms RL improvements, parking/unparking, pedestrian interactions, and navigation handling all translate well via model distillation from HW4; 'distilled the intelligence from HW4 V14 into HW3' per release notes; 2026.20.5.1 release notes also add Robotaxi-style drop-off arrival options; broader rollout to more HW3 customers over coming weeks pending validation (notateslaapp / Electrek / basenor, Jun 29, 2026)",
-    "category": "autonomy",
-    "source": "notateslaapp / Electrek / basenor",
-    "timestamp": "Jun 29, 2026",
-    "url": "https://www.notateslaapp.com/news/4369/tesla-launches-fsd-v14-lite-first-impressions"
   }
 ]
