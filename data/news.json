@@ -1,5 +1,19 @@
 [
   {
+    "headline": "Giga Texas July 6 aerial: 4 simultaneous production ramps confirmed — Cybercabs accumulating in outbound lot alongside Model Y L units and fresh Cybertrucks; drone journalist Joe Tegtmeyer captures 'everything building at once' just 24 hours ahead of VP Lars Moravy's promised July 7 announcement; Cybercab lot inventory confirms volume production pace building since April ramp; Model Y L units lined up less than a week after July 1 US launch; Tesla's most parallel production schedule ever — Cybercab + Cybertruck + Model Y L + Optimus factory construction all running simultaneously at a single site; community sources expect July 7 announcement to cover Cybercab production scaling milestone or commercial Cybercab launch confirmation for Houston (basenor / Joe Tegtmeyer on X, Jul 6, 2026)",
+    "category": "manufacturing",
+    "source": "basenor / Joe Tegtmeyer on X",
+    "timestamp": "Jul 6, 2026",
+    "url": "https://www.basenor.com/blogs/news/giga-texas-is-building-everything-at-once-4-signs-of-a-major-ramp"
+  },
+  {
+    "headline": "Tesla Q2 2026 earnings July 22 preview — automotive gross margin the single most-watched metric after stock dropped ~7% on an 18% delivery beat; market questions whether 480K deliveries came with higher ASPs or incremental discounting; Q1 2026 auto gross margin was 21.1%; consensus expects Q2 margin pressure from Model Y L launch costs, Semi ramp, and Cybercab early production inefficiencies; bulls argue delivery leverage should improve margins while bears cite China price war; near-100% margin robotaxi economics could provide a Q2 upside surprise if Cybercab commercial revenue registers for first time; July 7 Giga Texas production milestone may set the pre-earnings narrative (TradingKey / MEXC / MarketBeat, Jul 6, 2026)",
+    "category": "financials",
+    "source": "TradingKey / MEXC / MarketBeat",
+    "timestamp": "Jul 6, 2026",
+    "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262011294-tesla-tsla-stock-price-forecast-2026-q2-deliveries-tradingkey"
+  },
+  {
     "headline": "Morningstar raises TSLA fair value estimate to $450 (from $425) post Q2 delivery blowout — says robotaxi accounts for 35%, FSD subscriptions ~20%, and Optimus sales/subscriptions ~30% of fair value estimate; maintains 'narrow-moat' designation; separate analyst (Equal Weight, $415 PT) calls stock 'fully-priced' at current levels; TSLA trading $389–$438 intraday July 6 (+3.63%) as market recovers from post-Q2-report selloff and positions ahead of July 7 Giga Texas announcement; stock has surrendered ~6% YTD 2026, trading between $337–$458 in H1 (Morningstar / Yahoo Finance / TradingKey, Jul 6, 2026)",
     "category": "financials",
     "source": "Morningstar / Yahoo Finance / TradingKey",
@@ -54,19 +68,5 @@
     "source": "Electrek / SF Chronicle / Carscoops",
     "timestamp": "Jul 2, 2026",
     "url": "https://electrek.co/2026/07/01/tesla-semi-first-fatal-crash-nevada/"
-  },
-  {
-    "headline": "Tesla production vehicles now autonomously drive themselves through final factory quality checks — internal microphone arrays detect squeaks and rattles while cars self-navigate through inspection stations at Giga Texas without human drivers; Lars Moravy simultaneously confirms 'significant announcement' on Giga Texas production scaling for July 7 event; autonomous factory QC signals Tesla FSD intelligence now embedded in manufacturing efficiency; Moravy also revealed Optimus production line uses modular architecture adaptable as robot hardware evolves — dozens of lines planned (notateslaapp / Teslarati, Jul 2, 2026)",
-    "category": "autonomy",
-    "source": "notateslaapp / Teslarati",
-    "timestamp": "Jul 2, 2026",
-    "url": "https://www.notateslaapp.com/news/4380/tesla-vehicles-now-drive-themselves-through-final-factory-checks"
-  },
-  {
-    "headline": "Elon Musk walks Optimus production line at Fremont — VP Lars Moravy confirms modular, rapidly scalable line design; 'Walking the Optimus production line in Fremont' post garnered nearly 1M views; Moravy confirms dozens of lines planned, modular architecture means Tesla won't need to overhaul manufacturing each time the robot's design changes; volume production start still targeted late July / August 2026 per Q1 earnings call (Musk on X / basenor / SawyerMerritt on X, Jul 1, 2026)",
-    "category": "robotics",
-    "source": "Musk on X / basenor / Benzinga",
-    "timestamp": "Jul 1, 2026",
-    "url": "https://www.basenor.com/blogs/news/teslas-first-optimus-production-line-has-landed"
   }
 ]
