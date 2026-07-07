@@ -1,5 +1,26 @@
 [
   {
+    "headline": "Analyst upgrade wave hits TSLA: Morningstar raises FV to $450 from $425; Gary Black (Future Fund) predicts sell-side estimate tsunami following Q2 delivery blowout; Morgan Stanley maintains Equal Weight $415 — Morningstar says 'majority' of Tesla value now in AI/robotics (robotaxi 35%, FSD subs 20%, Optimus 30%); Gary Black: 'I expect TSLA to rebound this week as sell-side climbs over one another to raise 2Q/FY26 ests'; caution: TSLA trades at 200x+ 2026 P/E with a 6x PEG ratio — 'continues to suggest TSLA is fully priced'; Q2 beat was partly gasoline-price driven (avg US gas spike from $2.98 to $3.86 over July 4 weekend) per Black; Morgan Stanley noted Q2 deliveries beat consensus by 18% and were the highest automotive growth rate since Q3 2023 (ForeignPolicyJournal / Morgan Stanley, Jul 7, 2026)",
+    "category": "financials",
+    "source": "ForeignPolicyJournal / Morgan Stanley / Morningstar",
+    "timestamp": "Jul 7, 2026",
+    "url": "https://www.foreignpolicyjournal.com/2026/07/07/tesla-nasdaq-tsla-stock-price-climbs-as-analyst-predicts-wall-street-estimate-upgrades/"
+  },
+  {
+    "headline": "Lars Moravy podcast interview reveals: Cybercab lines at Giga Texas running 90%+ automated, ~150 units built — most now serving as training vehicles for unsupervised FSD; a dedicated burn-in track is now live on the Giga Texas campus perimeter for validation; Moravy teased a 'Scaling Big' announcement at Giga Texas today (Jul 7) expected to cover production rate milestone or next-city commercial launch; separately, Moravy confirmed next-gen Roadster will also be built at Giga Texas and owners will 'start to see things unfold in the next months'; Cybercab production architecture 90%+ automated underscores Tesla's unboxed manufacturing execution ahead of commercial service (podcastalpha / notateslaapp / basenor, Jul 2–7, 2026)",
+    "category": "manufacturing",
+    "source": "podcastalpha / notateslaapp / basenor",
+    "timestamp": "Jul 7, 2026",
+    "url": "https://podcastalpha.substack.com/p/tesla-cybercab-july-7-av-cost-gap"
+  },
+  {
+    "headline": "Optimus production ramp accelerating at Fremont: 100–150 units/week targeted in July, ~300/week in August, 1,000/week by September — a potential 10x scale in 60 days that would be the steepest humanoid robot production ramp in history; Moravy confirmed Fremont line uses modular architecture that adapts as hardware evolves without teardown, enabling faster iteration; ex-Tesla Optimus AI scientist unveiled European humanoid startup Uma Robotics (Electrek, Jul 7) citing talent density as maturation signal; Q2 earnings call Jul 22 is expected to provide the first official production rate confirmation; if trajectories hold, Optimus transitions from R&D program to genuine volume production in Q3 2026 (BigGo Finance / Electrek, Jul 7, 2026)",
+    "category": "robotics",
+    "source": "BigGo Finance / Electrek",
+    "timestamp": "Jul 7, 2026",
+    "url": "https://finance.biggo.com/news/3bf8df38-4754-4491-bed4-5e018280441f"
+  },
+  {
     "headline": "Tesla Cybercab demoed at National Federation of the Blind 2026 Convention — Braille labels on door releases and emergency stop button confirmed; space for service animals; visually impaired attendees tested the steering-wheel-free cabin firsthand at the NFB annual conference in Austin; Tesla Robotaxi account posted demo footage; accessibility-first design positions Cybercab as a transformative mobility tool for the 7M+ legally blind Americans who cannot independently operate conventional vehicles; confirms Tesla is actively pursuing ADA-compliant autonomous ride service ahead of commercial launch (Teslarati / KLIF / Tesla Robotaxi on X, Jul 6–7, 2026)",
     "category": "product",
     "source": "Teslarati / KLIF / Tesla Robotaxi on X",
@@ -7,25 +28,11 @@
     "url": "https://www.teslarati.com/tesla-flexes-help-blind-cybercab/"
   },
   {
-    "headline": "Pre-earnings analyst debate: 'Should you buy TSLA before July 22?' — Motley Fool (Jul 7) characterizes TSLA as an 'expensive momentum stock' whose valuation rests more on hype than tangible near-term financials; Q2 earnings unlikely to resolve bull/bear tensions regardless of EPS beat; market wants proof that robotaxi/Optimus produce real revenue, not just delivery records; separately, second Motley Fool piece notes Q2 480K delivery blowout 'didn't rescue the stock' — bears argue the selloff reaction confirms the market is paying for autonomy, not EVs; analysts broadly agree July 22 gross margin print is the sole swing factor for the stock into Q3 (Motley Fool / Tikr.com, Jul 7, 2026)",
+    "headline": "Pre-earnings analyst debate: 'Should you buy TSLA before July 22?' — Motley Fool characterizes TSLA as an 'expensive momentum stock' whose valuation rests more on hype than near-term financials; Q2 480K delivery blowout 'didn't rescue the stock'; bears argue the selloff confirms market is paying for autonomy, not EVs; bulls expect gross margin recovery on Jul 22 as delivery leverage kicks in; automotive gross margin print is the single swing factor for the stock into Q3 — Q1 was 21.1%, and the question is whether Q2 volume at lower incentives improves or degrades that figure (Motley Fool / Tikr.com, Jul 7, 2026)",
     "category": "financials",
     "source": "Motley Fool / Tikr.com",
     "timestamp": "Jul 7, 2026",
     "url": "https://www.fool.com/investing/2026/07/07/should-you-buy-tesla-stock-before-july-22/"
-  },
-  {
-    "headline": "JUNI x Tesla Battery Cell Giga Challenge opens — Tesla-backed startup competition targeting breakthrough battery cell manufacturing solutions; applications open with July 24, 2026 deadline; seeking innovations that make cell manufacturing faster, cheaper, safer, and higher-yield; directly relevant to Tesla's 4680 ramp bottleneck and the battery pack capacity constraint flagged as #1 production limiter in SEC filings; confirms Tesla is actively sourcing external R&D to solve yield and cost challenges beyond internal programs (Teslarati, Jul 7, 2026)",
-    "category": "manufacturing",
-    "source": "Teslarati",
-    "timestamp": "Jul 7, 2026",
-    "url": "https://www.teslarati.com/tesla-flexes-help-blind-cybercab/"
-  },
-  {
-    "headline": "Lars Moravy July 7 Giga Texas 'cool news' announcement AWAITED — Tesla VP of Vehicle Engineering teased a production scaling milestone at Giga Texas for today; as of midday ET no official announcement released; community sources expect a Cybercab production rate milestone, new production line activation, or mid-July Houston Cybercab commercial launch confirmation; Q2 2026 data shows Tesla produced 8,822 non-Model 3/Y units (includes Cybercab + Cybertruck) — Cybercab outbound lot inventory confirms manufacturing cadence is building; announcement expected this afternoon or via social media; market will use this as a pre-earnings narrative anchor ahead of Jul 22 Q2 call (basenor / Motley Fool / Phemex, Jul 7, 2026)",
-    "category": "manufacturing",
-    "source": "basenor / Motley Fool / Phemex",
-    "timestamp": "Jul 7, 2026",
-    "url": "https://www.basenor.com/blogs/news/giga-texas-is-building-everything-at-once-4-signs-of-a-major-ramp"
   },
   {
     "headline": "TSLA surges +6.69% on July 6 — biggest Magnificent 7 gainer as market anticipates Lars Moravy's July 7 Giga Texas 'cool news' announcement on Cybercab production scaling; Dow crosses 53,000 for first time in history; AI-tied stocks lead broad rally (AMD +6.5%, QCOM +6%); Nasdaq-100 +1.43%, S&P 500 +0.87%; TSLA closed $419.77 (+$26.32) vs prior close of $393.45; stock now up ~6.7% YTD and +33% over past year (Investopedia / Yahoo Finance, Jul 6, 2026)",
@@ -47,13 +54,6 @@
     "source": "gurufocus / TipRanks / TechTimes",
     "timestamp": "Jul 6, 2026",
     "url": "https://www.gurufocus.com/news/8944904/tesla-launches-robotaxi-service-in-miami-tsla"
-  },
-  {
-    "headline": "Tesla Q2 2026 earnings July 22 preview — automotive gross margin the single most-watched metric after stock dropped ~7% on an 18% delivery beat; market questions whether 480K deliveries came with higher ASPs or incremental discounting; Q1 2026 auto gross margin was 21.1%; consensus expects Q2 margin pressure from Model Y L launch costs, Semi ramp, and Cybercab early production inefficiencies; bulls argue delivery leverage should improve margins while bears cite China price war; near-100% margin robotaxi economics could provide a Q2 upside surprise if Cybercab commercial revenue registers for first time; July 7 Giga Texas production milestone may set the pre-earnings narrative (TradingKey / MEXC / MarketBeat, Jul 6, 2026)",
-    "category": "financials",
-    "source": "TradingKey / MEXC / MarketBeat",
-    "timestamp": "Jul 6, 2026",
-    "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262011294-tesla-tsla-stock-price-forecast-2026-q2-deliveries-tradingkey"
   },
   {
     "headline": "Tesla Q2 2026 BLOWOUT: 480,126 deliveries (+25% YoY, +34% QoQ) — smashes 406K consensus by 74K and beats even the most bullish Wall St estimates (Goldman/JPMorgan 420K, Barclays 418K); Tesla's best-ever Q2 and first YoY delivery growth since 2023; drew down inventory (delivered 28K more than produced — reversal of Q1's 50K inventory build); Model 3/Y: 467,762; Other: 12,364; energy: 13.5 GWh +40% YoY; BYD BEV gap narrows from 220K to 77K (BYD 557K BEV, -8% YoY; Tesla +25%); TSLA stock dropped — market awaits Jul 22 earnings to see if volume recovery translated to margin (Electrek / CNBC / Yahoo Finance, Jul 2, 2026)",
