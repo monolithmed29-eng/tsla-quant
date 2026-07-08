@@ -1,31 +1,38 @@
 [
   {
-    "headline": "TSLA falls -4.02% on July 7 as broader tech selloff sweeps Magnificent 7 — S&P 500 -0.45%, Nasdaq Composite -1.16% dragged by chip stock concerns and KOSPI (-4.9%) contagion after South Korea's market plunged; SpaceX (SPCX) fell 5% on its fast-track addition to the Nasdaq-100 index (effective July 7), triggering index-rebalancing outflows across large-cap tech; TSLA closed at $402.90 after tagging a $419.55 intraday high, giving back all of Monday's Tesla-specific optimism from Moravy's Giga Texas announcement; TSLA pre-market July 8 indicating further weakness to ~$398; market squarely focused on July 22 Q2 earnings as the definitive margin catalyst — forward P/E of 204x means TSLA trades as an AI/robotics company, not an automaker, and gross margin print is the single swing factor heading into Q3 (TheStreet / CNBC / Investopedia / StockAnalysis, Jul 7, 2026)",
+    "headline": "EXCLUSIVE: Production Cybercabs ship with enhanced FSD compute — >32GB RAM vs. consumer fleet's 32GB ceiling; likely AI4+ (64GB) or dual-AI4 config; gives Cybercab headroom to run next-gen neural networks (FSD v15+) without hardware retrofit; confirms Cybercab is hardware-differentiated from consumer Model 3/Y at launch; whether AI4+, dual-board, or early AI5 engineering sample, the extra memory directly enables larger autonomous driving models fleet-wide (notateslaapp, Jul 7–8, 2026)",
+    "category": "autonomy",
+    "source": "notateslaapp",
+    "timestamp": "Jul 8, 2026",
+    "url": "https://www.notateslaapp.com/news/4409/exclusive-tesla-cybercab-includes-more-powerful-fsd-hardware"
+  },
+  {
+    "headline": "Tesla app 4.58.5 adds live 'Self-Driving' blue indicator — app now shows real-time FSD active status beneath speed readout; works across HW3/HW4; vehicle requires firmware 2026.20.6.1 (at ~49% fleet rollout as of Jul 7); critical for robotaxi fleet owners to monitor vehicle autonomy state remotely; concurrent app 4.58.6 adds new FSD state APIs (requires vehicle 2026.26+) for programmatic fleet monitoring; direct infrastructure for Cybercab fleet management at scale (notateslaapp / Teslarati, Jul 7–8, 2026)",
+    "category": "autonomy",
+    "source": "notateslaapp / Teslarati",
+    "timestamp": "Jul 8, 2026",
+    "url": "https://www.teslarati.com/tesla-app-update-sefl-driving-robotaxi/"
+  },
+  {
+    "headline": "TSLA recovers to $418–$424 on July 8 (+1–2%) as stock breaks above resistance line — TradingView cites $450 as next technical target; multi-day winning streak ahead of July 22 Q2 earnings; Yahoo Finance confirms analyst expectations for revenue growth and EPS upside vs. Q1; market digesting record Q2 delivery beat (480K, +25% YoY) while awaiting margin confirmation from July 22 report (TradingView / Yahoo Finance, Jul 8, 2026)",
+    "category": "financials",
+    "source": "TradingView / Yahoo Finance",
+    "timestamp": "Jul 8, 2026",
+    "url": "https://finance.yahoo.com/quote/TSLA/"
+  },
+  {
+    "headline": "Polymarket assigns 10.5% odds on Tesla CA robotaxi by Dec 31, 2026 — and just 13% odds on Optimus external release by year-end; 247wallst notes 'crowd calling [Tesla's] timeline aspirational'; despite Q1 gross margin recovery to 21.1% and FSD subs +51% YoY, operating expenses jumped 37% on AI R&D and CEO SBC; bear/bull debate sharpening into July 22 earnings (247wallst / Polymarket, Jul 8, 2026)",
+    "category": "financials",
+    "source": "247wallst / Polymarket",
+    "timestamp": "Jul 8, 2026",
+    "url": "https://247wallst.com/investing/2026/07/08/tesla-vs-byd-here-is-my-pick-in-this-ev-showdown/"
+  },
+  {
+    "headline": "TSLA falls -4.02% on July 7 as broader tech selloff sweeps Magnificent 7 — S&P 500 -0.45%, Nasdaq Composite -1.16% dragged by chip stock concerns and KOSPI (-4.9%) contagion after South Korea's market plunged; SpaceX (SPCX) fell 5% on its fast-track addition to the Nasdaq-100 index (effective July 7), triggering index-rebalancing outflows across large-cap tech; TSLA closed at $402.90 after tagging a $419.55 intraday high, giving back all of Monday's Tesla-specific optimism from Moravy's Giga Texas announcement; market squarely focused on July 22 Q2 earnings as the definitive margin catalyst — forward P/E of 204x means TSLA trades as an AI/robotics company, not an automaker, and gross margin print is the single swing factor heading into Q3 (TheStreet / CNBC / Investopedia / StockAnalysis, Jul 7, 2026)",
     "category": "financials",
     "source": "TheStreet / CNBC / Investopedia",
     "timestamp": "Jul 7, 2026",
     "url": "https://www.investopedia.com/stock-market-today-dow-jones-s-and-p-500-07072026-12013187"
-  },
-  {
-    "headline": "Tesla bulls crystallize '2026 = the new 2018 Model 3 ramp' thesis — longtime Tesla investor @wholemars (Jul 7) draws the parallel: in 2018 Tesla burned capital to scale Model 3 into the world's best-selling premium car; in 2026 the same intensity is being redirected to turn Robotaxi from a geofenced pilot into a national autonomous ride-hailing network; $25B+ 2026 capex split across AI compute, Cybercab production, Robotaxi city deployments, and Optimus; Musk warned Robotaxi revenue 'probably not super material this year' but expects it 'material in a significant way next year'; paid Robotaxi miles nearly doubled QoQ in Q1 2026; TIKR analysis (Jul 7): at 204x forward P/E, TSLA trades on AI/autonomy optionality — the 480K Q2 delivery beat alone couldn't sustain the price; July 22 Q2 earnings remains the next definitive test of whether volume converts to margin (basenor / TIKR / @wholemars, Jul 7, 2026)",
-    "category": "financials",
-    "source": "basenor / TIKR / @wholemars",
-    "timestamp": "Jul 7, 2026",
-    "url": "https://www.basenor.com/blogs/news/tesla-calls-2026-its-biggest-investment-year-since-model-3-all-in-on-robotaxi"
-  },
-  {
-    "headline": "Analyst upgrade wave hits TSLA: Morningstar raises FV to $450 from $425; Gary Black (Future Fund) predicts sell-side estimate tsunami following Q2 delivery blowout; Morgan Stanley maintains Equal Weight $415 — Morningstar says 'majority' of Tesla value now in AI/robotics (robotaxi 35%, FSD subs 20%, Optimus 30%); Gary Black: 'I expect TSLA to rebound this week as sell-side climbs over one another to raise 2Q/FY26 ests'; caution: TSLA trades at 200x+ 2026 P/E with a 6x PEG ratio — 'continues to suggest TSLA is fully priced'; Q2 beat was partly gasoline-price driven (avg US gas spike from $2.98 to $3.86 over July 4 weekend) per Black; Morgan Stanley noted Q2 deliveries beat consensus by 18% and were the highest automotive growth rate since Q3 2023 (ForeignPolicyJournal / Morgan Stanley, Jul 7, 2026)",
-    "category": "financials",
-    "source": "ForeignPolicyJournal / Morgan Stanley / Morningstar",
-    "timestamp": "Jul 7, 2026",
-    "url": "https://www.foreignpolicyjournal.com/2026/07/07/tesla-nasdaq-tsla-stock-price-climbs-as-analyst-predicts-wall-street-estimate-upgrades/"
-  },
-  {
-    "headline": "Lars Moravy podcast interview reveals: Cybercab lines at Giga Texas running 90%+ automated, ~150 units built — most now serving as training vehicles for unsupervised FSD; a dedicated burn-in track is now live on the Giga Texas campus perimeter for validation; Moravy teased a 'Scaling Big' announcement at Giga Texas today (Jul 7) expected to cover production rate milestone or next-city commercial launch; separately, Moravy confirmed next-gen Roadster will also be built at Giga Texas and owners will 'start to see things unfold in the next months'; Cybercab production architecture 90%+ automated underscores Tesla's unboxed manufacturing execution ahead of commercial service (podcastalpha / notateslaapp / basenor, Jul 2–7, 2026)",
-    "category": "manufacturing",
-    "source": "podcastalpha / notateslaapp / basenor",
-    "timestamp": "Jul 7, 2026",
-    "url": "https://podcastalpha.substack.com/p/tesla-cybercab-july-7-av-cost-gap"
   },
   {
     "headline": "Optimus production ramp accelerating at Fremont: 100–150 units/week targeted in July, ~300/week in August, 1,000/week by September — a potential 10x scale in 60 days that would be the steepest humanoid robot production ramp in history; Moravy confirmed Fremont line uses modular architecture that adapts as hardware evolves without teardown, enabling faster iteration; ex-Tesla Optimus AI scientist unveiled European humanoid startup Uma Robotics (Electrek, Jul 7) citing talent density as maturation signal; Q2 earnings call Jul 22 is expected to provide the first official production rate confirmation; if trajectories hold, Optimus transitions from R&D program to genuine volume production in Q3 2026 (BigGo Finance / Electrek, Jul 7, 2026)",
@@ -35,25 +42,11 @@
     "url": "https://finance.biggo.com/news/3bf8df38-4754-4491-bed4-5e018280441f"
   },
   {
-    "headline": "Tesla Cybercab demoed at National Federation of the Blind 2026 Convention — Braille labels on door releases and emergency stop button confirmed; space for service animals; visually impaired attendees tested the steering-wheel-free cabin firsthand at the NFB annual conference in Austin; Tesla Robotaxi account posted demo footage; accessibility-first design positions Cybercab as a transformative mobility tool for the 7M+ legally blind Americans who cannot independently operate conventional vehicles; confirms Tesla is actively pursuing ADA-compliant autonomous ride service ahead of commercial launch (Teslarati / KLIF / Tesla Robotaxi on X, Jul 6–7, 2026)",
-    "category": "product",
-    "source": "Teslarati / KLIF / Tesla Robotaxi on X",
-    "timestamp": "Jul 7, 2026",
-    "url": "https://www.teslarati.com/tesla-flexes-help-blind-cybercab/"
-  },
-  {
-    "headline": "Pre-earnings analyst debate: 'Should you buy TSLA before July 22?' — Motley Fool characterizes TSLA as an 'expensive momentum stock' whose valuation rests more on hype than near-term financials; Q2 480K delivery blowout 'didn't rescue the stock'; bears argue the selloff confirms market is paying for autonomy, not EVs; bulls expect gross margin recovery on Jul 22 as delivery leverage kicks in; automotive gross margin print is the single swing factor for the stock into Q3 — Q1 was 21.1%, and the question is whether Q2 volume at lower incentives improves or degrades that figure (Motley Fool / Tikr.com, Jul 7, 2026)",
-    "category": "financials",
-    "source": "Motley Fool / Tikr.com",
-    "timestamp": "Jul 7, 2026",
-    "url": "https://www.fool.com/investing/2026/07/07/should-you-buy-tesla-stock-before-july-22/"
-  },
-  {
-    "headline": "TSLA surges +6.69% on July 6 — biggest Magnificent 7 gainer as market anticipates Lars Moravy's July 7 Giga Texas 'cool news' announcement on Cybercab production scaling; Dow crosses 53,000 for first time in history; AI-tied stocks lead broad rally (AMD +6.5%, QCOM +6%); Nasdaq-100 +1.43%, S&P 500 +0.87%; TSLA closed $419.77 (+$26.32) vs prior close of $393.45; stock now up ~6.7% YTD and +33% over past year (Investopedia / Yahoo Finance, Jul 6, 2026)",
-    "category": "financials",
-    "source": "Investopedia / Yahoo Finance",
+    "headline": "Tesla Miami Robotaxi goes LIVE for rider service — first driverless rides outside Texas completed July 5-6; Tesla officially announced 'service is now available in Miami' on X July 5; geofenced area covers West Miami, Doral, and Coral Gables including Miami International Airport (MIA); Model Y fleet operational with no driver or safety monitor; first public rider videos and walkaround footage circulating on social media; TechTimes notes Florida's tropical rain is the hardest test yet for camera-only FSD — operating in precipitation, high humidity, and complex multi-lane airport approach roads; confirms Miami is Tesla's first operational driverless city outside Texas (gurufocus / TipRanks / TechTimes, Jul 5–6, 2026)",
+    "category": "autonomy",
+    "source": "gurufocus / TipRanks / TechTimes",
     "timestamp": "Jul 6, 2026",
-    "url": "https://www.investopedia.com/stock-market-today-dow-jones-s-and-p-500-07062026-12012248"
+    "url": "https://www.gurufocus.com/news/8944904/tesla-launches-robotaxi-service-in-miami-tsla"
   },
   {
     "headline": "Electrek: Cybercab — 100+ units in Giga Texas outbound lot but unsupervised fleet shrinking to ~14 vehicles — Tesla is mass-producing a steering-wheel-less Cybercab it cannot yet sell or drive itself at scale; production-before-autonomy tension crystallized; Austin unsupervised fleet slid from peak ~25 active vehicles to ~14 as safety validation lags manufacturing; FSD crash rate ~4x human urban baseline per NHTSA; Musk confirmed robotaxi 'not material until 2027'; NHTSA self-cert path eliminates 2,500-unit cap so production scaling is uncapped; commercial passenger service gated by FSD v15 (end-2026/early 2027); manufacturing S-curve executing ahead of software timeline (Electrek, Jul 6, 2026)",
@@ -61,12 +54,5 @@
     "source": "Electrek",
     "timestamp": "Jul 6, 2026",
     "url": "https://electrek.co/2026/07/06/tesla-cybercab-production-before-autonomy/"
-  },
-  {
-    "headline": "Tesla Miami Robotaxi goes LIVE for rider service — first driverless rides outside Texas completed July 5-6; Tesla officially announced 'service is now available in Miami' on X July 5; geofenced area covers West Miami, Doral, and Coral Gables including Miami International Airport (MIA); Model Y fleet operational with no driver or safety monitor; first public rider videos and walkaround footage circulating on social media; TechTimes notes Florida's tropical rain is the hardest test yet for camera-only FSD — operating in precipitation, high humidity, and complex multi-lane airport approach roads; confirms Miami is Tesla's first operational driverless city outside Texas (gurufocus / TipRanks / TechTimes, Jul 5–6, 2026)",
-    "category": "autonomy",
-    "source": "gurufocus / TipRanks / TechTimes",
-    "timestamp": "Jul 6, 2026",
-    "url": "https://www.gurufocus.com/news/8944904/tesla-launches-robotaxi-service-in-miami-tsla"
   }
 ]
