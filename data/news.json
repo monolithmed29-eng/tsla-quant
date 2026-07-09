@@ -1,17 +1,31 @@
 [
   {
+    "headline": "TSLA -2.19% on July 8 as US-Iran conflict escalation sends oil +5% and sparks broad risk-off sell-off — Trump confirmed ceasefire is over after US launched fresh strikes on Iran; Iran targeted US military sites in Bahrain and Kuwait; oil spiked on Strait of Hormuz fears; S&P 500 -0.28%, Nasdaq Composite +0.20% (bounced from -1.5% futures lows); large-cap tech dragged — AMZN, TSLA, GOOGL, META, MSFT all down over 1%; TSLA closed $394.06 (prev. $402.90); FOMC June minutes released simultaneously showed officials split on inflation — 'almost all' considered rate hike if inflation persists; macro headwinds compound with stock already rangebound below $400 ahead of Jul 22 Q2 earnings call where gross margin confirmation is the single swing factor (Investrade / Yahoo Finance / Reuters, Jul 8, 2026)",
+    "category": "financials",
+    "source": "Investrade / Yahoo Finance / Reuters",
+    "timestamp": "Jul 8, 2026",
+    "url": "https://investrade.com/market-review-july-08-2026/"
+  },
+  {
+    "headline": "RBC Capital raises TSLA price target $475 → $500, maintains Outperform — latest in a series of PT raises heading into Q2 earnings; 1-year average analyst PT now $424 per Yahoo Finance; bull/bear gap remains extreme ($600 high vs $125 low); consensus neutral-to-bullish with market focused on Jul 22 gross margin print and Optimus ramp timeline; forward P/E compresses to 175x as FY26 EPS estimates have risen — still pricing in AI/robotics re-rating; market cap $1.48T as of Jul 8 close (RBC Capital / Yahoo Finance, Jul 7–8, 2026)",
+    "category": "financials",
+    "source": "RBC Capital / Yahoo Finance",
+    "timestamp": "Jul 8, 2026",
+    "url": null
+  },
+  {
+    "headline": "Q2 2026 earnings preview: gross margin is the key question — delivery beat (480,126 units, +25% YoY) is already priced in; market wants margin confirmation above 21% to validate Q1 wasn't a one-time beat; FSD monetization trajectory (ARR, subscriber growth), Optimus production rate reveal, and Q3/Q4 guidance language are the other swing factors; TSLA trading at 175x forward earnings with near-zero FCF yield, making Jul 22 a high-stakes margin/guidance report; analyst consensus: revenue ~$25–26B, non-GAAP EPS ~$0.45–0.50, gross margin 20.5–22.0% (TradingKey / earezki.com / Motley Fool, Jul 8–9, 2026)",
+    "category": "financials",
+    "source": "TradingKey / Motley Fool",
+    "timestamp": "Jul 9, 2026",
+    "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262018485-tesla-q2-2026-deliveries-fsd-robotaxi-margin-analysis-tradingkey"
+  },
+  {
     "headline": "Cybercab manufacturing breakthrough: Reaction Injection Molding (RIM) embeds color into panels during production — eliminates traditional paint shop entirely; Tesla confirmed on X that RIM panels cut cycle times from hours to minutes; Cybercab is manufactured from lightweight RIM panels that also remove the need for a conventional body-in-white stamping and paint process; Tesla's 2025 Impact Report (Jul 7) confirms RIM as one of Cybercab's core cost-reduction innovations alongside the Unboxed process; Sawyer Merritt notes the combined manufacturing approach makes Cybercab 'already the most efficient production EV Tesla has certified'; structural cost reduction with no traditional paint shop directly supports Cybercab's sub-$40K unit economics target (Teslarati / evwire / Tesla 2025 Impact Report / Sawyer Merritt on X, Jul 7–8, 2026)",
     "category": "manufacturing",
     "source": "Teslarati / Tesla 2025 Impact Report",
     "timestamp": "Jul 8, 2026",
     "url": "https://www.teslarati.com/tesla-reaction-injection-molding-cybercab-gold-paint/"
-  },
-  {
-    "headline": "Two Cybercabs spotted in Minneapolis suburb — nobody knows why; early production-spec Gold units (VINs suggest 2026 build) found parked outside a Tesla-owned office in Brooklyn Park, Minnesota; The Drive reader confirmed the two-seaters present on July 7; could indicate pre-deployment regulatory scouting, winter/cold-climate validation testing, or advance staging for upper-Midwest expansion; technical data from filings revealed: 219 HP front motor, 3,113 lb curb weight, ~50 kWh battery pack, ~280-mile range; first confirmed Cybercab sighting in a northern US market outside Texas/Florida — adds color to the geographic expansion thesis heading into July 22 earnings (The Drive, Jul 7–8, 2026)",
-    "category": "autonomy",
-    "source": "The Drive",
-    "timestamp": "Jul 8, 2026",
-    "url": "https://www.thedrive.com/news/two-tesla-cybercabs-just-landed-in-minneapolis-nobody-knows-why"
   },
   {
     "headline": "EXCLUSIVE: Production Cybercabs ship with enhanced FSD compute — >32GB RAM vs. consumer fleet's 32GB ceiling; likely AI4+ (64GB) or dual-AI4 config; gives Cybercab headroom to run next-gen neural networks (FSD v15+) without hardware retrofit; confirms Cybercab is hardware-differentiated from consumer Model 3/Y at launch; whether AI4+, dual-board, or early AI5 engineering sample, the extra memory directly enables larger autonomous driving models fleet-wide (notateslaapp, Jul 7–8, 2026)",
@@ -28,18 +42,11 @@
     "url": "https://www.teslarati.com/tesla-app-update-sefl-driving-robotaxi/"
   },
   {
-    "headline": "Tesla releases 2025 Impact Report (Jul 7) — headline stat: 37 million metric tons of CO2e avoided by Tesla customers in 2025 (~90 billion miles of ICE avoided); report confirms Cybercab's RIM panel manufacturing eliminates traditional paint shop; FSD Supervised expanded to Australia, China, NZ, South Korea in 2025, followed by Belgium, Denmark, Estonia, Lithuania, Netherlands into 2026; Cybercab confirmed as 'most efficient production EV Tesla has certified'; report frames Tesla's mission around AI-driven sustainable energy and autonomy, not just EVs — an investor-facing re-positioning toward the AI platform narrative ahead of July 22 earnings (Tesla / basenor / evwire / blockchain.news, Jul 7, 2026)",
-    "category": "corporate",
-    "source": "Tesla / basenor",
-    "timestamp": "Jul 7, 2026",
-    "url": "https://www.basenor.com/blogs/news/5-standout-numbers-from-teslas-2025-impact-report"
-  },
-  {
-    "headline": "Tesla teases Cybercab launch on Chinese social media — official Tesla China posts deliberate present-tense language described by basenor as reading 'less like a teaser and more like a countdown'; imagery distributed ahead of anticipated formal China Cybercab reveal; China is Tesla's second-largest market and GigaShanghai is the world's most productive Tesla factory; a China Cybercab launch announcement would open Tesla's largest international fleet-expansion market; timing aligned with July 7 Giga Texas announcement momentum and July 22 Q2 earnings (basenor, Jul 7, 2026)",
-    "category": "product",
-    "source": "basenor",
-    "timestamp": "Jul 7, 2026",
-    "url": "https://www.basenor.com/blogs/news/tesla-teases-cybercab-launch-with-official-images-on-chinese-social-media"
+    "headline": "Two Cybercabs spotted in Minneapolis suburb — nobody knows why; early production-spec Gold units (VINs suggest 2026 build) found parked outside a Tesla-owned office in Brooklyn Park, Minnesota; The Drive reader confirmed the two-seaters present on July 7; could indicate pre-deployment regulatory scouting, winter/cold-climate validation testing, or advance staging for upper-Midwest expansion; technical data from filings revealed: 219 HP front motor, 3,113 lb curb weight, ~50 kWh battery pack, ~280-mile range; first confirmed Cybercab sighting in a northern US market outside Texas/Florida — adds color to the geographic expansion thesis heading into July 22 earnings (The Drive, Jul 7–8, 2026)",
+    "category": "autonomy",
+    "source": "The Drive",
+    "timestamp": "Jul 8, 2026",
+    "url": "https://www.thedrive.com/news/two-tesla-cybercabs-just-landed-in-minneapolis-nobody-knows-why"
   },
   {
     "headline": "Optimus production ramp accelerating at Fremont: 100–150 units/week targeted in July, ~300/week in August, 1,000/week by September — a potential 10x scale in 60 days that would be the steepest humanoid robot production ramp in history; Moravy confirmed Fremont line uses modular architecture that adapts as hardware evolves without teardown, enabling faster iteration; ex-Tesla Optimus AI scientist unveiled European humanoid startup Uma Robotics (Electrek, Jul 7) citing talent density as maturation signal; Q2 earnings call Jul 22 is expected to provide the first official production rate confirmation; if trajectories hold, Optimus transitions from R&D program to genuine volume production in Q3 2026 (BigGo Finance / Electrek, Jul 7, 2026)",
@@ -49,11 +56,11 @@
     "url": "https://finance.biggo.com/news/3bf8df38-4754-4491-bed4-5e018280441f"
   },
   {
-    "headline": "TSLA falls -4.02% on July 7 as broader tech selloff sweeps Magnificent 7 — S&P 500 -0.45%, Nasdaq Composite -1.16% dragged by chip stock concerns and KOSPI (-4.9%) contagion after South Korea's market plunged; SpaceX (SPCX) fell 5% on its fast-track addition to the Nasdaq-100 index (effective July 7), triggering index-rebalancing outflows across large-cap tech; TSLA closed at $402.90 after tagging a $419.55 intraday high; market squarely focused on July 22 Q2 earnings as the definitive margin catalyst — forward P/E of 204x means TSLA trades as an AI/robotics company, not an automaker, and gross margin print is the single swing factor heading into Q3 (TheStreet / CNBC / Investopedia, Jul 7, 2026)",
-    "category": "financials",
-    "source": "TheStreet / CNBC / Investopedia",
+    "headline": "Tesla releases 2025 Impact Report (Jul 7) — headline stat: 37 million metric tons of CO2e avoided by Tesla customers in 2025 (~90 billion miles of ICE avoided); report confirms Cybercab's RIM panel manufacturing eliminates traditional paint shop; FSD Supervised expanded to Australia, China, NZ, South Korea in 2025, followed by Belgium, Denmark, Estonia, Lithuania, Netherlands into 2026; Cybercab confirmed as 'most efficient production EV Tesla has certified'; report frames Tesla's mission around AI-driven sustainable energy and autonomy, not just EVs — an investor-facing re-positioning toward the AI platform narrative ahead of July 22 earnings (Tesla / basenor / evwire / blockchain.news, Jul 7, 2026)",
+    "category": "corporate",
+    "source": "Tesla / basenor",
     "timestamp": "Jul 7, 2026",
-    "url": "https://www.investopedia.com/stock-market-today-dow-jones-s-and-p-500-07072026-12013187"
+    "url": "https://www.basenor.com/blogs/news/5-standout-numbers-from-teslas-2025-impact-report"
   },
   {
     "headline": "Tesla Miami Robotaxi goes LIVE for rider service — first driverless rides outside Texas completed July 5-6; Tesla officially announced 'service is now available in Miami' on X July 5; geofenced area covers West Miami, Doral, and Coral Gables including Miami International Airport (MIA); Model Y fleet operational with no driver or safety monitor; TechTimes notes Florida's tropical rain is the hardest test yet for camera-only FSD — operating in precipitation, high humidity, and complex multi-lane airport approach roads; confirms Miami is Tesla's first operational driverless city outside Texas (gurufocus / TipRanks / TechTimes, Jul 5–6, 2026)",
@@ -61,12 +68,5 @@
     "source": "gurufocus / TipRanks / TechTimes",
     "timestamp": "Jul 6, 2026",
     "url": "https://www.gurufocus.com/news/8944904/tesla-launches-robotaxi-service-in-miami-tsla"
-  },
-  {
-    "headline": "Electrek: Cybercab — 100+ units in Giga Texas outbound lot but unsupervised fleet shrinking to ~14 vehicles — Tesla is mass-producing a steering-wheel-less Cybercab it cannot yet sell or drive itself at scale; production-before-autonomy tension crystallized; Austin unsupervised fleet slid from peak ~25 active vehicles to ~14 as safety validation lags manufacturing; FSD crash rate ~4x human urban baseline per NHTSA; Musk confirmed robotaxi 'not material until 2027'; NHTSA self-cert path eliminates 2,500-unit cap so production scaling is uncapped; commercial passenger service gated by FSD v15 (end-2026/early 2027); manufacturing S-curve executing ahead of software timeline (Electrek, Jul 6, 2026)",
-    "category": "manufacturing",
-    "source": "Electrek",
-    "timestamp": "Jul 6, 2026",
-    "url": "https://electrek.co/2026/07/06/tesla-cybercab-production-before-autonomy/"
   }
 ]
