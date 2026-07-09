@@ -1,5 +1,26 @@
 [
   {
+    "headline": "TSLA +1.87% to $401.44 on July 9, recovering from Iran-driven sell-off; pre-earnings setup: stock down 6.7% YTD in 2026 despite Q2 delivery blowout (+25% YoY) and Miami robotaxi launch — Motley Fool analysis (Jul 9) flags robotaxi rollout as behind schedule: 7-city H1 2026 commitment reduced to just 4 cities in operation (Austin + Dallas + Houston + Miami); Phoenix, Orlando, Tampa, Las Vegas still 'preparations underway'; Musk's July 2025 'half the US population' promise remains far from achieved; all eyes on Jul 22 Q2 earnings — market wants gross margin confirmation >21% and forward guidance on Optimus production ramp + FSD monetization to justify 175–204x forward P/E (Motley Fool / Robinhood / Yahoo Finance, Jul 9, 2026)",
+    "category": "financials",
+    "source": "Motley Fool / Yahoo Finance",
+    "timestamp": "Jul 9, 2026",
+    "url": "https://www.fool.com/investing/2026/07/09/some-good-and-bad-news-for-tesla-investors/"
+  },
+  {
+    "headline": "Tesla FSD EU cascade reaches 4 markets — Germany live May 22, Denmark approved Jun 9, Belgium Jun 10; EU mutual recognition framework (Netherlands/RDW as primary technical arbiter) enables faster subsequent approvals without full country-by-country review; Tesla confirms FSD will also roll out to AI3-equipped European vehicles post-approval (Jun 29); EU Technical Committee next vote window July 2026 with 15/27 member states needed for bloc-wide harmonization; European Tesla registrations +107.9% YoY in May to 28,610 units and +57.2% YTD to 118,068 units — brand and product recovery translating to sales across FSD-enabled markets (basenor / eleport.com / StocksToTrade, May–Jul 2026)",
+    "category": "autonomy",
+    "source": "basenor / eleport.com",
+    "timestamp": "Jul 9, 2026",
+    "url": "https://www.basenor.com/blogs/news/tesla-fsd-is-now-live-in-germany-what-european-owners-need-to-know"
+  },
+  {
+    "headline": "NHTSA closes 2022 investigation into ~695,000 Tesla Model 3 and Model Y vehicles for unexpected braking — no safety defect found; complaints dropped after software updates resolved the issue; second major NHTSA probe closure for Tesla in 2026, following the Jun 27 steering investigation closure; combined with NHTSA's Jun 29 brake pedal mandate removal and Texas Level 4 self-certification (May 28), Tesla's federal regulatory environment is materially improving ahead of Jul 22 Q2 earnings; NHTSA EA26002 (3.2M-vehicle FSD probe opened Apr 2026) remains the single primary open federal investigation (NHTSA / StocksToTrade, Jul 2026)",
+    "category": "corporate",
+    "source": "NHTSA / StocksToTrade",
+    "timestamp": "Jul 9, 2026",
+    "url": null
+  },
+  {
     "headline": "TSLA -2.19% on July 8 as US-Iran conflict escalation sends oil +5% and sparks broad risk-off sell-off — Trump confirmed ceasefire is over after US launched fresh strikes on Iran; Iran targeted US military sites in Bahrain and Kuwait; oil spiked on Strait of Hormuz fears; S&P 500 -0.28%, Nasdaq Composite +0.20% (bounced from -1.5% futures lows); large-cap tech dragged — AMZN, TSLA, GOOGL, META, MSFT all down over 1%; TSLA closed $394.06 (prev. $402.90); FOMC June minutes released simultaneously showed officials split on inflation — 'almost all' considered rate hike if inflation persists; macro headwinds compound with stock already rangebound below $400 ahead of Jul 22 Q2 earnings call where gross margin confirmation is the single swing factor (Investrade / Yahoo Finance / Reuters, Jul 8, 2026)",
     "category": "financials",
     "source": "Investrade / Yahoo Finance / Reuters",
@@ -47,26 +68,5 @@
     "source": "The Drive",
     "timestamp": "Jul 8, 2026",
     "url": "https://www.thedrive.com/news/two-tesla-cybercabs-just-landed-in-minneapolis-nobody-knows-why"
-  },
-  {
-    "headline": "Optimus production ramp accelerating at Fremont: 100–150 units/week targeted in July, ~300/week in August, 1,000/week by September — a potential 10x scale in 60 days that would be the steepest humanoid robot production ramp in history; Moravy confirmed Fremont line uses modular architecture that adapts as hardware evolves without teardown, enabling faster iteration; ex-Tesla Optimus AI scientist unveiled European humanoid startup Uma Robotics (Electrek, Jul 7) citing talent density as maturation signal; Q2 earnings call Jul 22 is expected to provide the first official production rate confirmation; if trajectories hold, Optimus transitions from R&D program to genuine volume production in Q3 2026 (BigGo Finance / Electrek, Jul 7, 2026)",
-    "category": "robotics",
-    "source": "BigGo Finance / Electrek",
-    "timestamp": "Jul 7, 2026",
-    "url": "https://finance.biggo.com/news/3bf8df38-4754-4491-bed4-5e018280441f"
-  },
-  {
-    "headline": "Tesla releases 2025 Impact Report (Jul 7) — headline stat: 37 million metric tons of CO2e avoided by Tesla customers in 2025 (~90 billion miles of ICE avoided); report confirms Cybercab's RIM panel manufacturing eliminates traditional paint shop; FSD Supervised expanded to Australia, China, NZ, South Korea in 2025, followed by Belgium, Denmark, Estonia, Lithuania, Netherlands into 2026; Cybercab confirmed as 'most efficient production EV Tesla has certified'; report frames Tesla's mission around AI-driven sustainable energy and autonomy, not just EVs — an investor-facing re-positioning toward the AI platform narrative ahead of July 22 earnings (Tesla / basenor / evwire / blockchain.news, Jul 7, 2026)",
-    "category": "corporate",
-    "source": "Tesla / basenor",
-    "timestamp": "Jul 7, 2026",
-    "url": "https://www.basenor.com/blogs/news/5-standout-numbers-from-teslas-2025-impact-report"
-  },
-  {
-    "headline": "Tesla Miami Robotaxi goes LIVE for rider service — first driverless rides outside Texas completed July 5-6; Tesla officially announced 'service is now available in Miami' on X July 5; geofenced area covers West Miami, Doral, and Coral Gables including Miami International Airport (MIA); Model Y fleet operational with no driver or safety monitor; TechTimes notes Florida's tropical rain is the hardest test yet for camera-only FSD — operating in precipitation, high humidity, and complex multi-lane airport approach roads; confirms Miami is Tesla's first operational driverless city outside Texas (gurufocus / TipRanks / TechTimes, Jul 5–6, 2026)",
-    "category": "autonomy",
-    "source": "gurufocus / TipRanks / TechTimes",
-    "timestamp": "Jul 6, 2026",
-    "url": "https://www.gurufocus.com/news/8944904/tesla-launches-robotaxi-service-in-miami-tsla"
   }
 ]
