@@ -1,5 +1,40 @@
 [
   {
+    "headline": "EXCLUSIVE: Production Cybercabs ship with DUAL GPS — redundant positioning system (two independent GPS receivers) added for high-precision location tracking; no consumer Tesla has shipped with dual GPS; Level 4 self-certification requires navigation redundancy and the dual-GPS design directly satisfies that requirement; combined with the previously confirmed enhanced FSD computer (>32GB RAM), Cybercab is now confirmed to have at least three hardware differentiators vs consumer Model 3/Y: dual GPS, stronger FSD compute, and 48V architecture — underscoring that Cybercab is purpose-engineered for unsupervised autonomy, not a retrofitted consumer platform (notateslaapp, Jul 9–10, 2026)",
+    "category": "autonomy",
+    "source": "notateslaapp",
+    "timestamp": "Jul 10, 2026",
+    "url": "https://www.notateslaapp.com/news/4414/exclusive-tesla-cybercab-includes-dual-gps"
+  },
+  {
+    "headline": "Cybercab confirmed: ultra-efficient powertrain + 4680 structural battery pack + 48V architecture — notateslaapp reveals Cybercab's powertrain is a clean-sheet design optimized for robotaxi duty cycles; 4680 cells confirm structural pack cost reduction path (target sub-$60/kWh); 48V system (vs legacy 12V in Model 3/Y) enables more efficient power distribution and lowers wiring complexity; same 48V architecture as Cybertruck but more aggressively integrated for autonomous platform; hardware stack (4680 + 48V + dual GPS + AI4+) confirms Cybercab's unit economics thesis is structurally sound, not aspirational (notateslaapp, Jul 9–10, 2026)",
+    "category": "manufacturing",
+    "source": "notateslaapp",
+    "timestamp": "Jul 10, 2026",
+    "url": "https://www.notateslaapp.com/news/4415/tesla-cybercab-has-new-ultra-efficient-powertrain-4680-batteries-48v-more"
+  },
+  {
+    "headline": "SpaceX IPO prices at $135/share raising ~$85B at $1.77T valuation — largest IPO in history; JPMorgan (analyst Rajat Gupta) immediately publishes note calling Tesla-SpaceX merger 'strategically coherent,' citing deep operational integration already in place across AI, robotics, energy, and transport; SpaceX President Gwynne Shotwell also floated the idea publicly; SPCX now trading on NASDAQ; JPMorgan highlights two enabling catalysts: (1) SpaceX now has high-value acquisition currency, and (2) both companies already share Musk's AI/robotics roadmap and manufacturing infrastructure; governance hurdle remains: Musk controls ~85% of SPCX voting power vs only ~20% of TSLA voting power; Bloomberg reports TSLA stock has held its ground in the month since the IPO (CNBC / Benzinga / Bloomberg, Jul 8–10, 2026)",
+    "category": "corporate",
+    "source": "CNBC / JPMorgan / Benzinga",
+    "timestamp": "Jul 10, 2026",
+    "url": "https://www.cnbc.com/2026/07/08/jpmorgan-calls-the-possibility-of-a-spacex-tesla-merger-strategically-coherent-.html"
+  },
+  {
+    "headline": "Q2 earnings preview (Jul 22): 480K deliveries already priced in — market focus shifts to automotive gross margin, Cybercab commercial launch timeline, and $25B capex trajectory; Google Finance consensus: revenue $25.74B, EPS $0.50; MEXC range $24.5B–$25.4B revenue, $0.42–$0.48 EPS; Seeking Alpha bullish view: $550–600 PT on delivery-driven turnaround; TradingKey notes market needs confirmation that volume recovery is translating to margin expansion, not just top-line growth; Cybercab commercial scale announcement on the call would be the single largest potential positive catalyst; TSLA trading ~$406–412 range heading into earnings (TradingKey / MEXC / Seeking Alpha / Google Finance, Jul 10, 2026)",
+    "category": "financials",
+    "source": "TradingKey / Google Finance",
+    "timestamp": "Jul 10, 2026",
+    "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262021897-tesla-tsla-stock-forecast-july-2026-q2-earnings-margins-cybercab-tradingkey"
+  },
+  {
+    "headline": "Tesla opens Giga Berlin to battery startups — 'Battery Cell Giga Challenge' program invites early-stage companies to test 4680 cell innovations directly inside a live Giga Berlin manufacturing environment; applications open until July 24, 2026; program starts August 2026; focuses specifically on 4680 dry-electrode and cell chemistry improvements; Tesla achieved the first dry-process dual-electrode 4680 in Q4 2025 but yield rates remain below mass-production targets; opening the factory floor to external innovators signals Tesla is pragmatically crowdsourcing the last-mile yield improvements to break the 4680 bottleneck that is still the #1 production constraint on Cybercab, Semi, and Megapack 3 ramps (TechTimes, Jul 9, 2026)",
+    "category": "manufacturing",
+    "source": "TechTimes",
+    "timestamp": "Jul 9, 2026",
+    "url": "https://www.techtimes.com/articles/320029/20260709/tesla-opens-gigafactory-berlin-startups-crack-4680-battery-bottleneck.htm"
+  },
+  {
     "headline": "New Jersey bill would ban Tesla's camera-only Robotaxi — lawmakers advancing legislation requiring driverless commercial vehicles to use cameras plus two additional sensor types (e.g., lidar + radar); Tesla's vision-only stack can't meet the mandate without a hardware redesign; sponsored by Sen. Andrew Zwicker ('This is not anti-Tesla — I'm pro-New Jersey safety'); Waymo's multi-sensor suite complies; NJ has no current Tesla robotaxi service and bill hasn't passed, but if enacted would block Tesla from operating commercially in one of the US's most densely populated states; signals camera-only bet is becoming a legislative target as robotaxi competition intensifies (Electrek / The Verge / InsideEVs, Jul 8–9, 2026)",
     "category": "autonomy",
     "source": "Electrek / The Verge",
@@ -14,59 +49,10 @@
     "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262020147-tsla-musk-optimus-gen3-ai-tradingkey"
   },
   {
-    "headline": "Citizens Financial analyst: TSLA 2027–2028 revenue below consensus — Optimus investment cycle adds production complexity, delays, and elevated spending; firm initiated with Market Perform, flagging that current 200x+ forward earnings valuation prices in near-perfect execution; analyst explicitly cautious on pace of Optimus external sales ramp and robotaxi network effects materializing; TSLA stock slips overnight on the note; joins JPMorgan (Underweight/$145) as a voice of skepticism vs. predominantly bullish street (Stocktwits / Gurufocus, Jul 9–10, 2026)",
-    "category": "financials",
-    "source": "Citizens Financial / Stocktwits",
-    "timestamp": "Jul 10, 2026",
-    "url": null
-  },
-  {
     "headline": "UBS raises TSLA price target $364 → $442 (+21%), maintains Neutral — analyst Joseph Spak cites Tesla's long-term potential in physical AI and robotics as primary driver; UBS joins RBC ($500), Wedbush ($550+) in re-rating Tesla as an AI/robotics platform company rather than pure automaker; TSLA up ~3.4% Thursday to reclaim $405+ as Wall Street increasingly frames the Q2 delivery blowout (+25% YoY) through an AI lens ahead of Jul 22 earnings; consensus average PT now ~$424; UBS highlights Optimus production ramp (100–150 units/week in July, targeting 1,000/week by September) and robotaxi multi-city expansion as the two re-rating catalysts most likely to move the stock in H2 2026 (UBS / Yahoo Finance, Jul 9, 2026)",
     "category": "financials",
     "source": "UBS / Yahoo Finance",
     "timestamp": "Jul 9, 2026",
     "url": "https://finance.yahoo.com/technology/ai/articles/tesla-stock-gets-stunning-price-181408119.html"
-  },
-  {
-    "headline": "NHTSA closes 2022 investigation into ~695,000 Tesla Model 3 and Model Y vehicles for unexpected braking — no safety defect found; complaints dropped after software updates resolved the issue; second major NHTSA probe closure for Tesla in 2026, following the Jun 27 steering investigation closure; combined with NHTSA's Jun 29 brake pedal mandate removal and Texas Level 4 self-certification, Tesla's federal regulatory environment is materially improving ahead of Jul 22 Q2 earnings; NHTSA EA26002 (3.2M-vehicle FSD probe) remains the single primary open federal investigation (NHTSA / StocksToTrade, Jul 9, 2026)",
-    "category": "corporate",
-    "source": "NHTSA / StocksToTrade",
-    "timestamp": "Jul 9, 2026",
-    "url": null
-  },
-  {
-    "headline": "Tesla FSD EU cascade reaches 4 markets — Germany live May 22, Denmark approved Jun 9, Belgium Jun 10; EU mutual recognition framework enables faster subsequent approvals without full country-by-country review; Tesla confirms FSD will also roll out to AI3-equipped European vehicles post-approval; EU Technical Committee next vote window July 2026 with 15/27 member states needed for bloc-wide harmonization; European Tesla registrations +107.9% YoY in May to 28,610 units and +57.2% YTD to 118,068 units (basenor / eleport.com, Jul 9, 2026)",
-    "category": "autonomy",
-    "source": "basenor / eleport.com",
-    "timestamp": "Jul 9, 2026",
-    "url": "https://www.basenor.com/blogs/news/tesla-fsd-is-now-live-in-germany-what-european-owners-need-to-know"
-  },
-  {
-    "headline": "Tesla FSD to gain voice-intent driving decisions — VP of AI Ashok Elluswamy confirms 'Working on it' for spoken contextual instructions like 'It's the white house on the left'; FSD would remember neighborhood-level preferences and translate spoken intent into driving decisions; marks key architectural step: Grok moves into a supervisor role feeding contextual intent directly into FSD's autonomous decision loop — consistent with the Digital Optimus thesis; feature in active development, no rollout timeline (Teslarati / notateslaapp, Jul 8–9, 2026)",
-    "category": "autonomy",
-    "source": "Teslarati / notateslaapp",
-    "timestamp": "Jul 9, 2026",
-    "url": "https://www.teslarati.com/tesla-fsd-is-about-to-know-your-specific-house-and-neighborhood-better-than-any-map/"
-  },
-  {
-    "headline": "Cybercab manufacturing breakthrough: Reaction Injection Molding (RIM) embeds color into panels during production — eliminates traditional paint shop entirely; Tesla confirmed RIM panels cut cycle times from hours to minutes; Tesla's 2025 Impact Report confirms RIM as one of Cybercab's core cost-reduction innovations alongside the Unboxed process; structural cost reduction directly supports Cybercab's sub-$40K unit economics target (Teslarati / Tesla 2025 Impact Report, Jul 7–8, 2026)",
-    "category": "manufacturing",
-    "source": "Teslarati / Tesla 2025 Impact Report",
-    "timestamp": "Jul 8, 2026",
-    "url": "https://www.teslarati.com/tesla-reaction-injection-molding-cybercab-gold-paint/"
-  },
-  {
-    "headline": "EXCLUSIVE: Production Cybercabs ship with enhanced FSD compute — >32GB RAM vs. consumer fleet's 32GB ceiling; likely AI4+ (64GB) or dual-AI4 config; gives Cybercab headroom to run next-gen neural networks (FSD v15+) without hardware retrofit; confirms Cybercab is hardware-differentiated from consumer Model 3/Y at launch (notateslaapp, Jul 7–8, 2026)",
-    "category": "autonomy",
-    "source": "notateslaapp",
-    "timestamp": "Jul 8, 2026",
-    "url": "https://www.notateslaapp.com/news/4409/exclusive-tesla-cybercab-includes-more-powerful-fsd-hardware"
-  },
-  {
-    "headline": "Tesla app 4.58.5 adds live 'Self-Driving' blue indicator — app now shows real-time FSD active status beneath speed readout; works across HW3/HW4; vehicle requires firmware 2026.20.6.1 (~49% fleet rollout as of Jul 7); critical for robotaxi fleet owners to monitor vehicle autonomy state remotely; app 4.58.6 adds new FSD state APIs (requires vehicle 2026.26+) for programmatic fleet monitoring — direct infrastructure for Cybercab fleet management at scale (notateslaapp / Teslarati, Jul 7–8, 2026)",
-    "category": "autonomy",
-    "source": "notateslaapp / Teslarati",
-    "timestamp": "Jul 8, 2026",
-    "url": "https://www.teslarati.com/tesla-app-update-sefl-driving-robotaxi/"
   }
 ]
