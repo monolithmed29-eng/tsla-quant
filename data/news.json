@@ -1,5 +1,19 @@
 [
   {
+    "headline": "Citizens analyst Andrew Boone initiates TSLA at Market Perform — warns 2027/2028 revenue will land 4% and 12% below consensus, respectively, citing slower-than-expected Optimus and robotaxi ramp timelines; Boone flagged that Tesla's 'grand vision will take time to achieve' and that the vision-only FSD stack carries elevated accident risk vs. sensor-fusion peers; Musk himself acknowledged Optimus production will be 'extremely slow at first'; bearish initiation adds a notable Wall Street skeptic to the debate heading into Jul 22 Q2 earnings; TSLA slipped overnight on the note, trading in the $402–$412 range Jul 10; note contrasts sharply with Wedbush ($550+ PT), RBC ($500), and UBS ($442) bull camp (Citizens JMP / GuruFocus / BigGo Finance / Stocktwits, Jul 9–10, 2026)",
+    "category": "financials",
+    "source": "Citizens JMP / GuruFocus",
+    "timestamp": "Jul 10, 2026",
+    "url": "https://www.gurufocus.com/news/8951590/tesla-tsla-initiated-with-market-perform-rating-amid-cautious-outlook"
+  },
+  {
+    "headline": "Tesla AI chief Elluswamy confirms FSD natural-language neighborhood navigation is 'working on it' — responding on X to user request to teach FSD a specific house/driveway via voice description (e.g., 'it's the white house on the left'); feature would let FSD remember personalized endpoints beyond standard map pins, solving the 'last-mile precision' problem that frustrates owners and robotaxi riders alike; Grok's 'Hey Grok' voice layer (added Spring 2026 update) provides the natural-language interface; capability directly improves Cybercab pickup precision as fleet scales, and would deepen rider retention in the Tesla Robotaxi app by eliminating address ambiguity (notateslaapp / Teslarati / Yahoo Autos, Jul 8–9, 2026)",
+    "category": "autonomy",
+    "source": "notateslaapp / Teslarati",
+    "timestamp": "Jul 9, 2026",
+    "url": "https://www.notateslaapp.com/news/4413/tesla-ai-chief-confirms-fsd-integration-for-grok-is-coming-soon"
+  },
+  {
     "headline": "EXCLUSIVE: Production Cybercabs ship with DUAL GPS — redundant positioning system (two independent GPS receivers) added for high-precision location tracking; no consumer Tesla has shipped with dual GPS; Level 4 self-certification requires navigation redundancy and the dual-GPS design directly satisfies that requirement; combined with the previously confirmed enhanced FSD computer (>32GB RAM), Cybercab is now confirmed to have at least three hardware differentiators vs consumer Model 3/Y: dual GPS, stronger FSD compute, and 48V architecture — underscoring that Cybercab is purpose-engineered for unsupervised autonomy, not a retrofitted consumer platform (notateslaapp, Jul 9–10, 2026)",
     "category": "autonomy",
     "source": "notateslaapp",
