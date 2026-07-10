@@ -1,65 +1,72 @@
 [
   {
-    "headline": "UBS raises TSLA price target $364 → $442 (+21%), maintains Neutral — analyst Joseph Spak cites Tesla's long-term potential in physical AI and robotics as primary driver; UBS joins RBC ($500), Wedbush ($550+) in re-rating Tesla as an AI/robotics platform company rather than pure automaker; TSLA up ~1.5–3.4% Thursday to reclaim $401+ as Wall Street increasingly frames the Q2 delivery blowout (+25% YoY) through an AI lens ahead of Jul 22 earnings; consensus average PT now ~$424 per Yahoo Finance; UBS note specifically highlights Optimus production ramp (100–150 units/week in July, targeting 1,000/week by September) and robotaxi multi-city expansion as the two re-rating catalysts most likely to move the stock in H2 2026 (UBS / Yahoo Finance / basenor, Jul 9, 2026)",
+    "headline": "New Jersey bill would ban Tesla's camera-only Robotaxi — lawmakers advancing legislation requiring driverless commercial vehicles to use cameras plus two additional sensor types (e.g., lidar + radar); Tesla's vision-only stack can't meet the mandate without a hardware redesign; sponsored by Sen. Andrew Zwicker ('This is not anti-Tesla — I'm pro-New Jersey safety'); Waymo's multi-sensor suite complies; NJ has no current Tesla robotaxi service and bill hasn't passed, but if enacted would block Tesla from operating commercially in one of the US's most densely populated states; signals camera-only bet is becoming a legislative target as robotaxi competition intensifies (Electrek / The Verge / InsideEVs, Jul 8–9, 2026)",
+    "category": "autonomy",
+    "source": "Electrek / The Verge",
+    "timestamp": "Jul 9, 2026",
+    "url": "https://electrek.co/2026/07/09/new-jersey-bill-tesla-camera-robotaxi/"
+  },
+  {
+    "headline": "Optimus Gen 3 design initially finalized — Musk sets hard supply chain targets: 1,000 units/week by September 2026, scaling to 2,000–2,500/week by year-end; full-year 2026 target 50,000–100,000 units; Fremont currently tracking 100–150 units/week in July, ~300/week in August; if EOY target achieved, Tesla becomes the first company to mass-produce a humanoid robot at automotive scale; supply chain constraints (actuators, structural composites) remain the primary execution risk for the Sept–Dec ramp (TradingKey / BigGo Finance, Jul 9–10, 2026)",
+    "category": "robotics",
+    "source": "TradingKey / BigGo Finance",
+    "timestamp": "Jul 10, 2026",
+    "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262020147-tsla-musk-optimus-gen3-ai-tradingkey"
+  },
+  {
+    "headline": "Citizens Financial analyst: TSLA 2027–2028 revenue below consensus — Optimus investment cycle adds production complexity, delays, and elevated spending; firm initiated with Market Perform, flagging that current 200x+ forward earnings valuation prices in near-perfect execution; analyst explicitly cautious on pace of Optimus external sales ramp and robotaxi network effects materializing; TSLA stock slips overnight on the note; joins JPMorgan (Underweight/$145) as a voice of skepticism vs. predominantly bullish street (Stocktwits / Gurufocus, Jul 9–10, 2026)",
+    "category": "financials",
+    "source": "Citizens Financial / Stocktwits",
+    "timestamp": "Jul 10, 2026",
+    "url": null
+  },
+  {
+    "headline": "UBS raises TSLA price target $364 → $442 (+21%), maintains Neutral — analyst Joseph Spak cites Tesla's long-term potential in physical AI and robotics as primary driver; UBS joins RBC ($500), Wedbush ($550+) in re-rating Tesla as an AI/robotics platform company rather than pure automaker; TSLA up ~3.4% Thursday to reclaim $405+ as Wall Street increasingly frames the Q2 delivery blowout (+25% YoY) through an AI lens ahead of Jul 22 earnings; consensus average PT now ~$424; UBS highlights Optimus production ramp (100–150 units/week in July, targeting 1,000/week by September) and robotaxi multi-city expansion as the two re-rating catalysts most likely to move the stock in H2 2026 (UBS / Yahoo Finance, Jul 9, 2026)",
     "category": "financials",
     "source": "UBS / Yahoo Finance",
     "timestamp": "Jul 9, 2026",
     "url": "https://finance.yahoo.com/technology/ai/articles/tesla-stock-gets-stunning-price-181408119.html"
   },
   {
-    "headline": "Citizens Financial initiates TSLA with Market Perform rating — cautious on robotics and robotaxi timeline; analyst flags that Tesla's ambitious plans in humanoid robotics and autonomous ride-hailing carry significant execution risk and that current valuation (200x+ forward earnings) prices in near-perfect scenario; firm joins JPMorgan (Underweight/$145) as the cautious counterweight to a predominantly bullish street; Citizens' initiation adds a new voice of skepticism about the pace at which Optimus external sales and robotaxi network effects will materialize; stock has traded in a narrow range below $410 since the Q2 delivery beat as market awaits Jul 22 gross margin confirmation (Citizens Financial / Gurufocus, Jul 9, 2026)",
-    "category": "financials",
-    "source": "Citizens Financial / Gurufocus",
-    "timestamp": "Jul 9, 2026",
-    "url": "https://www.gurufocus.com/news/8951590/tesla-tsla-initiated-with-market-perform-rating-amid-cautious-outlook"
-  },
-  {
-    "headline": "Tesla FSD to gain voice-intent driving decisions — VP of AI Ashok Elluswamy confirms on X 'Working on it' in response to request for spoken contextual instructions ('It's the white house on the left, just past that SUV'); FSD would remember neighborhood-level preferences and translate spoken intent directly into driving decisions; marks a key architectural step: Grok currently handles in-cabin voice commands but has no authority over FSD driving behavior (lane changes, braking, speed, parking); Elluswamy's confirmation signals Grok is moving into a supervisor role that feeds contextual intent directly into FSD's autonomous decision loop — consistent with the Digital Optimus / Macrohard thesis where the LLM 'master conductor' directs the physical AI agent; feature in active development, no rollout timeline disclosed (Teslarati / Benzinga / letsdatascience, Jul 8–9, 2026)",
-    "category": "autonomy",
-    "source": "Teslarati / Benzinga",
-    "timestamp": "Jul 9, 2026",
-    "url": "https://www.teslarati.com/tesla-fsd-is-about-to-know-your-specific-house-and-neighborhood-better-than-any-map/"
-  },
-  {
-    "headline": "NHTSA closes 2022 investigation into ~695,000 Tesla Model 3 and Model Y vehicles for unexpected braking — no safety defect found; complaints dropped after software updates resolved the issue; second major NHTSA probe closure for Tesla in 2026, following the Jun 27 steering investigation closure; combined with NHTSA's Jun 29 brake pedal mandate removal and Texas Level 4 self-certification (May 28), Tesla's federal regulatory environment is materially improving ahead of Jul 22 Q2 earnings; NHTSA EA26002 (3.2M-vehicle FSD probe opened Apr 2026) remains the single primary open federal investigation (NHTSA / StocksToTrade, Jul 2026)",
+    "headline": "NHTSA closes 2022 investigation into ~695,000 Tesla Model 3 and Model Y vehicles for unexpected braking — no safety defect found; complaints dropped after software updates resolved the issue; second major NHTSA probe closure for Tesla in 2026, following the Jun 27 steering investigation closure; combined with NHTSA's Jun 29 brake pedal mandate removal and Texas Level 4 self-certification, Tesla's federal regulatory environment is materially improving ahead of Jul 22 Q2 earnings; NHTSA EA26002 (3.2M-vehicle FSD probe) remains the single primary open federal investigation (NHTSA / StocksToTrade, Jul 9, 2026)",
     "category": "corporate",
     "source": "NHTSA / StocksToTrade",
     "timestamp": "Jul 9, 2026",
     "url": null
   },
   {
-    "headline": "Tesla FSD EU cascade reaches 4 markets — Germany live May 22, Denmark approved Jun 9, Belgium Jun 10; EU mutual recognition framework (Netherlands/RDW as primary technical arbiter) enables faster subsequent approvals without full country-by-country review; Tesla confirms FSD will also roll out to AI3-equipped European vehicles post-approval (Jun 29); EU Technical Committee next vote window July 2026 with 15/27 member states needed for bloc-wide harmonization; European Tesla registrations +107.9% YoY in May to 28,610 units and +57.2% YTD to 118,068 units — brand and product recovery translating to sales across FSD-enabled markets (basenor / eleport.com / StocksToTrade, May–Jul 2026)",
+    "headline": "Tesla FSD EU cascade reaches 4 markets — Germany live May 22, Denmark approved Jun 9, Belgium Jun 10; EU mutual recognition framework enables faster subsequent approvals without full country-by-country review; Tesla confirms FSD will also roll out to AI3-equipped European vehicles post-approval; EU Technical Committee next vote window July 2026 with 15/27 member states needed for bloc-wide harmonization; European Tesla registrations +107.9% YoY in May to 28,610 units and +57.2% YTD to 118,068 units (basenor / eleport.com, Jul 9, 2026)",
     "category": "autonomy",
     "source": "basenor / eleport.com",
     "timestamp": "Jul 9, 2026",
     "url": "https://www.basenor.com/blogs/news/tesla-fsd-is-now-live-in-germany-what-european-owners-need-to-know"
   },
   {
-    "headline": "Cybercab manufacturing breakthrough: Reaction Injection Molding (RIM) embeds color into panels during production — eliminates traditional paint shop entirely; Tesla confirmed on X that RIM panels cut cycle times from hours to minutes; Cybercab is manufactured from lightweight RIM panels that also remove the need for a conventional body-in-white stamping and paint process; Tesla's 2025 Impact Report (Jul 7) confirms RIM as one of Cybercab's core cost-reduction innovations alongside the Unboxed process; Sawyer Merritt notes the combined manufacturing approach makes Cybercab 'already the most efficient production EV Tesla has certified'; structural cost reduction with no traditional paint shop directly supports Cybercab's sub-$40K unit economics target (Teslarati / evwire / Tesla 2025 Impact Report / Sawyer Merritt on X, Jul 7–8, 2026)",
+    "headline": "Tesla FSD to gain voice-intent driving decisions — VP of AI Ashok Elluswamy confirms 'Working on it' for spoken contextual instructions like 'It's the white house on the left'; FSD would remember neighborhood-level preferences and translate spoken intent into driving decisions; marks key architectural step: Grok moves into a supervisor role feeding contextual intent directly into FSD's autonomous decision loop — consistent with the Digital Optimus thesis; feature in active development, no rollout timeline (Teslarati / notateslaapp, Jul 8–9, 2026)",
+    "category": "autonomy",
+    "source": "Teslarati / notateslaapp",
+    "timestamp": "Jul 9, 2026",
+    "url": "https://www.teslarati.com/tesla-fsd-is-about-to-know-your-specific-house-and-neighborhood-better-than-any-map/"
+  },
+  {
+    "headline": "Cybercab manufacturing breakthrough: Reaction Injection Molding (RIM) embeds color into panels during production — eliminates traditional paint shop entirely; Tesla confirmed RIM panels cut cycle times from hours to minutes; Tesla's 2025 Impact Report confirms RIM as one of Cybercab's core cost-reduction innovations alongside the Unboxed process; structural cost reduction directly supports Cybercab's sub-$40K unit economics target (Teslarati / Tesla 2025 Impact Report, Jul 7–8, 2026)",
     "category": "manufacturing",
     "source": "Teslarati / Tesla 2025 Impact Report",
     "timestamp": "Jul 8, 2026",
     "url": "https://www.teslarati.com/tesla-reaction-injection-molding-cybercab-gold-paint/"
   },
   {
-    "headline": "EXCLUSIVE: Production Cybercabs ship with enhanced FSD compute — >32GB RAM vs. consumer fleet's 32GB ceiling; likely AI4+ (64GB) or dual-AI4 config; gives Cybercab headroom to run next-gen neural networks (FSD v15+) without hardware retrofit; confirms Cybercab is hardware-differentiated from consumer Model 3/Y at launch; whether AI4+, dual-board, or early AI5 engineering sample, the extra memory directly enables larger autonomous driving models fleet-wide (notateslaapp, Jul 7–8, 2026)",
+    "headline": "EXCLUSIVE: Production Cybercabs ship with enhanced FSD compute — >32GB RAM vs. consumer fleet's 32GB ceiling; likely AI4+ (64GB) or dual-AI4 config; gives Cybercab headroom to run next-gen neural networks (FSD v15+) without hardware retrofit; confirms Cybercab is hardware-differentiated from consumer Model 3/Y at launch (notateslaapp, Jul 7–8, 2026)",
     "category": "autonomy",
     "source": "notateslaapp",
     "timestamp": "Jul 8, 2026",
     "url": "https://www.notateslaapp.com/news/4409/exclusive-tesla-cybercab-includes-more-powerful-fsd-hardware"
   },
   {
-    "headline": "Tesla app 4.58.5 adds live 'Self-Driving' blue indicator — app now shows real-time FSD active status beneath speed readout; works across HW3/HW4; vehicle requires firmware 2026.20.6.1 (at ~49% fleet rollout as of Jul 7); critical for robotaxi fleet owners to monitor vehicle autonomy state remotely; concurrent app 4.58.6 adds new FSD state APIs (requires vehicle 2026.26+) for programmatic fleet monitoring; direct infrastructure for Cybercab fleet management at scale (notateslaapp / Teslarati, Jul 7–8, 2026)",
+    "headline": "Tesla app 4.58.5 adds live 'Self-Driving' blue indicator — app now shows real-time FSD active status beneath speed readout; works across HW3/HW4; vehicle requires firmware 2026.20.6.1 (~49% fleet rollout as of Jul 7); critical for robotaxi fleet owners to monitor vehicle autonomy state remotely; app 4.58.6 adds new FSD state APIs (requires vehicle 2026.26+) for programmatic fleet monitoring — direct infrastructure for Cybercab fleet management at scale (notateslaapp / Teslarati, Jul 7–8, 2026)",
     "category": "autonomy",
     "source": "notateslaapp / Teslarati",
     "timestamp": "Jul 8, 2026",
     "url": "https://www.teslarati.com/tesla-app-update-sefl-driving-robotaxi/"
-  },
-  {
-    "headline": "Two Cybercabs spotted in Minneapolis suburb — nobody knows why; early production-spec Gold units (VINs suggest 2026 build) found parked outside a Tesla-owned office in Brooklyn Park, Minnesota; The Drive reader confirmed the two-seaters present on July 7; could indicate pre-deployment regulatory scouting, winter/cold-climate validation testing, or advance staging for upper-Midwest expansion; technical data from filings revealed: 219 HP front motor, 3,113 lb curb weight, ~50 kWh battery pack, ~280-mile range; first confirmed Cybercab sighting in a northern US market outside Texas/Florida — adds color to the geographic expansion thesis heading into July 22 earnings (The Drive, Jul 7–8, 2026)",
-    "category": "autonomy",
-    "source": "The Drive",
-    "timestamp": "Jul 8, 2026",
-    "url": "https://www.thedrive.com/news/two-tesla-cybercabs-just-landed-in-minneapolis-nobody-knows-why"
   }
 ]
