@@ -1,17 +1,31 @@
 [
   {
+    "headline": "Tesla Austin Robotaxi Hub confirmed with autonomous cleaning robot — Texas state building permit (filed Jun 2025, closed Mar 2026) reveals first-ever automated cleaning robot deployed at Tesla's 5900 E Ben White Blvd Austin robotaxi hub alongside V4 Superchargers and an equipment inspection system; crews this week removed boundary fences and tarps, signaling the hub is entering active operations; fully autonomous cleaning infrastructure eliminates the human labor bottleneck for scaling a 24/7 Cybercab commercial fleet; no other robotaxi operator (Waymo, Zoox) has publicly disclosed autonomous vehicle cleaning at commercial hubs; operational cleaning robot confirms Tesla is engineering end-to-end automation of the robotaxi supply chain — from vehicle production to fleet maintenance — ahead of Cybercab commercial scale (notateslaapp / Teslarati / WindowsNews, Jul 11–12, 2026)",
+    "category": "autonomy",
+    "source": "notateslaapp / Teslarati",
+    "timestamp": "Jul 12, 2026",
+    "url": "https://www.notateslaapp.com/news/4424/tesla-robotaxi-hubs-start-adding-car-cleaning-robots"
+  },
+  {
+    "headline": "Musk mandates Grok 4.5 at Tesla; caps rival AI tools at $200/week per employee — Elon Musk directed all Tesla staff to adopt xAI's Grok 4.5 wherever possible and imposed a $200/week per-employee spending cap on third-party AI tools (Anthropic, OpenAI, Google); Grok 4.5 costs ~$0.13/task vs ~$1.57 for alternatives — a 12x cost advantage; Musk acknowledged Grok 4.5 is slightly behind 'Fable' (likely Anthropic Claude) on capability benchmarks but argued most tasks don't require top-tier models; plans confirmed for Grok 4.5 integration into Tesla vehicles by fall 2026; directive deepens xAI-Tesla operational integration and channels compute spend to xAI, cutting AI opex significantly ahead of Q2 earnings Jul 22; consistent with Tesla's Q1 10-K disclosure that xAI paid Tesla $430M in related-party revenue — a financial relationship that is now expanding further (The Information / Electrek / CryptoBriefing, Jul 10–11, 2026)",
+    "category": "corporate",
+    "source": "The Information / Electrek",
+    "timestamp": "Jul 11, 2026",
+    "url": "https://electrek.co/2026/07/10/musk-tells-tesla-staff-switch-grok/"
+  },
+  {
+    "headline": "Tesla Model Y L US order books open; first deliveries slip to October–November 2026 — Tesla officially began accepting US orders for Model Y L (long wheelbase, 3-row) on July 11; Launch Series AWD priced at $61,990 with $250 non-refundable deposit; base AWD $41,990; first US deliveries now set for October–November per Forbes tracking, later than the 'summer 2026' window initially implied at launch; the slippage is minor (weeks, not quarters) but reduces the Q3 volume uplift thesis; 3-row configuration directly targets Rivian R1S ($75,900), Kia EV9 ($55,900), and Hyundai Ioniq 9; bundled 1-year free FSD + Supercharging + Premium Connectivity retain as part of Launch Series; Giga Texas is primary US production site (TeslaOracle / Forbes / AutoBuyersGuide, Jul 11–12, 2026)",
+    "category": "product",
+    "source": "TeslaOracle / Forbes",
+    "timestamp": "Jul 11, 2026",
+    "url": "https://www.teslaoracle.com/2026/07/11/tesla-tsla-puts-model-y-l-launch-series-for-sale-in-the-us/"
+  },
+  {
     "headline": "Citizens analyst Andrew Boone initiates TSLA at Market Perform — warns 2027/2028 revenue will land 4% and 12% below consensus, respectively, citing slower-than-expected Optimus and robotaxi ramp timelines; Boone flagged that Tesla's 'grand vision will take time to achieve' and that the vision-only FSD stack carries elevated accident risk vs. sensor-fusion peers; Musk himself acknowledged Optimus production will be 'extremely slow at first'; bearish initiation adds a notable Wall Street skeptic to the debate heading into Jul 22 Q2 earnings; TSLA slipped overnight on the note, trading in the $402–$412 range Jul 10; note contrasts sharply with Wedbush ($550+ PT), RBC ($500), and UBS ($442) bull camp (Citizens JMP / GuruFocus / BigGo Finance / Stocktwits, Jul 9–10, 2026)",
     "category": "financials",
     "source": "Citizens JMP / GuruFocus",
     "timestamp": "Jul 10, 2026",
     "url": "https://www.gurufocus.com/news/8951590/tesla-tsla-initiated-with-market-perform-rating-amid-cautious-outlook"
-  },
-  {
-    "headline": "Tesla AI chief Elluswamy confirms FSD natural-language neighborhood navigation is 'working on it' — responding on X to user request to teach FSD a specific house/driveway via voice description (e.g., 'it's the white house on the left'); feature would let FSD remember personalized endpoints beyond standard map pins, solving the 'last-mile precision' problem that frustrates owners and robotaxi riders alike; Grok's 'Hey Grok' voice layer (added Spring 2026 update) provides the natural-language interface; capability directly improves Cybercab pickup precision as fleet scales, and would deepen rider retention in the Tesla Robotaxi app by eliminating address ambiguity (notateslaapp / Teslarati / Yahoo Autos, Jul 8–9, 2026)",
-    "category": "autonomy",
-    "source": "notateslaapp / Teslarati",
-    "timestamp": "Jul 9, 2026",
-    "url": "https://www.notateslaapp.com/news/4413/tesla-ai-chief-confirms-fsd-integration-for-grok-is-coming-soon"
   },
   {
     "headline": "EXCLUSIVE: Production Cybercabs ship with DUAL GPS — redundant positioning system (two independent GPS receivers) added for high-precision location tracking; no consumer Tesla has shipped with dual GPS; Level 4 self-certification requires navigation redundancy and the dual-GPS design directly satisfies that requirement; combined with the previously confirmed enhanced FSD computer (>32GB RAM), Cybercab is now confirmed to have at least three hardware differentiators vs consumer Model 3/Y: dual GPS, stronger FSD compute, and 48V architecture — underscoring that Cybercab is purpose-engineered for unsupervised autonomy, not a retrofitted consumer platform (notateslaapp, Jul 9–10, 2026)",
@@ -40,20 +54,6 @@
     "source": "TradingKey / Google Finance",
     "timestamp": "Jul 10, 2026",
     "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262021897-tesla-tsla-stock-forecast-july-2026-q2-earnings-margins-cybercab-tradingkey"
-  },
-  {
-    "headline": "Tesla opens Giga Berlin to battery startups — 'Battery Cell Giga Challenge' program invites early-stage companies to test 4680 cell innovations directly inside a live Giga Berlin manufacturing environment; applications open until July 24, 2026; program starts August 2026; focuses specifically on 4680 dry-electrode and cell chemistry improvements; Tesla achieved the first dry-process dual-electrode 4680 in Q4 2025 but yield rates remain below mass-production targets; opening the factory floor to external innovators signals Tesla is pragmatically crowdsourcing the last-mile yield improvements to break the 4680 bottleneck that is still the #1 production constraint on Cybercab, Semi, and Megapack 3 ramps (TechTimes, Jul 9, 2026)",
-    "category": "manufacturing",
-    "source": "TechTimes",
-    "timestamp": "Jul 9, 2026",
-    "url": "https://www.techtimes.com/articles/320029/20260709/tesla-opens-gigafactory-berlin-startups-crack-4680-battery-bottleneck.htm"
-  },
-  {
-    "headline": "New Jersey bill would ban Tesla's camera-only Robotaxi — lawmakers advancing legislation requiring driverless commercial vehicles to use cameras plus two additional sensor types (e.g., lidar + radar); Tesla's vision-only stack can't meet the mandate without a hardware redesign; sponsored by Sen. Andrew Zwicker ('This is not anti-Tesla — I'm pro-New Jersey safety'); Waymo's multi-sensor suite complies; NJ has no current Tesla robotaxi service and bill hasn't passed, but if enacted would block Tesla from operating commercially in one of the US's most densely populated states; signals camera-only bet is becoming a legislative target as robotaxi competition intensifies (Electrek / The Verge / InsideEVs, Jul 8–9, 2026)",
-    "category": "autonomy",
-    "source": "Electrek / The Verge",
-    "timestamp": "Jul 9, 2026",
-    "url": "https://electrek.co/2026/07/09/new-jersey-bill-tesla-camera-robotaxi/"
   },
   {
     "headline": "Optimus Gen 3 design initially finalized — Musk sets hard supply chain targets: 1,000 units/week by September 2026, scaling to 2,000–2,500/week by year-end; full-year 2026 target 50,000–100,000 units; Fremont currently tracking 100–150 units/week in July, ~300/week in August; if EOY target achieved, Tesla becomes the first company to mass-produce a humanoid robot at automotive scale; supply chain constraints (actuators, structural composites) remain the primary execution risk for the Sept–Dec ramp (TradingKey / BigGo Finance, Jul 9–10, 2026)",
