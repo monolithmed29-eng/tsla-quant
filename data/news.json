@@ -1,5 +1,33 @@
 [
   {
+    "headline": "TSLA -3.48% on July 13 — broad tech selloff ahead of heavy economic data week; Jefferies lifts Tesla PT to $400 on Q2 delivery beat and raises Q2 EBIT estimate to $1.45B (5.1% margin), increasing outer-year EBIT by ~6%; 7 analysts now have revised Q2 earnings higher; market focus fully on Jul 22 Q2 print — key questions: automotive gross margin (consensus 18–20% ex-credits), Cybercab commercial launch timeline, and $25B capex FCF impact; TSLA trading ~$394 (trading range: $391–$407) as bears wait for margin confirmation before committing (tradingkey / Jefferies / Daily Political / invezz, Jul 13, 2026)",
+    "category": "financials",
+    "source": "Jefferies / tradingkey",
+    "timestamp": "Jul 13, 2026",
+    "url": "https://www.investing.com/news/analyst-ratings/jefferies-raises-tesla-stock-price-target-to-400-on-q2-volume-beat-93CH-4787761"
+  },
+  {
+    "headline": "Tesla FSD inches toward Italy approval — Tesla submitted FSD homologation paperwork to Italy's Ministry of Infrastructure and Transport; General Director Servedio Gaetano confirmed on LinkedIn the filing is in active analysis; Italy applying Netherlands fast-track recognition path; follows Belgium, Denmark, Estonia, and Lithuania approvals since May; Italy is the 6th EU country to formally engage with FSD post-Netherlands clearance and the bloc's 4th-largest market; as each EU approval uses the Netherlands as foundational clearance, incremental approvals are coming faster; EU TCMV vote window still open in July (notateslaapp / TeslaNewswire / MirkoMontagna0 on X, Jul 13, 2026)",
+    "category": "autonomy",
+    "source": "notateslaapp / TeslaNewswire",
+    "timestamp": "Jul 13, 2026",
+    "url": "https://www.notateslaapp.com/news/4430/tesla-fsd-inches-closer-to-regulatory-approval-in-italy"
+  },
+  {
+    "headline": "Tesla Robotaxi fleet near-flawless in new NHTSA safety report (Apr 15–Jun 16) — Tesla logged only 1 incident in 62 days of unsupervised Austin operation: a zero-fault event where a stationary Robotaxi obeying a red arrow signal was rear-ended by a human-driven pickup truck; Zoox logged +6 incidents, Waymo +191 in the same period; data not normalized by fleet miles, but confirms Tesla's Austin operational envelope is performing at extremely high reliability; directly challenges the '4x human crash rate' framing from earlier NHTSA filings; strongest safety data point yet heading into Jul 22 Q2 earnings (notateslaapp / NHTSA filings, Jul 13, 2026)",
+    "category": "autonomy",
+    "source": "notateslaapp / NHTSA",
+    "timestamp": "Jul 13, 2026",
+    "url": "https://www.notateslaapp.com/news/4328/teslas-robotaxi-fleet-is-nearly-flawless-in-recent-report"
+  },
+  {
+    "headline": "Tesla tears down Model S/X production lines at Fremont for Optimus — official @gigafactories X account posts time-lapse: 'End of an era: Decommissioning the original Model S & X assembly line in just 46 days'; footage shows massive robotic arms removed, structural foundations cleared, concrete floor completely repoured; AI chief Ashok Elluswamy: 'Big shoes to fill, but I'm confident Optimus will not disappoint!!'; confirms Optimus production line installation is progressing on schedule toward late-July/August production start (notateslaapp / @gigafactories on X / Elluswamy on X, Jul 13, 2026)",
+    "category": "robotics",
+    "source": "notateslaapp / @gigafactories",
+    "timestamp": "Jul 13, 2026",
+    "url": "https://www.notateslaapp.com/news/4427/tesla-tears-down-model-sx-lines-for-optimus-production"
+  },
+  {
     "headline": "FSD v14.3.5 begins rolling out (build 2026.20.6.6) — camera preview now accessible at any time (not just during active FSD engagement); Tesla app now shows live FSD active status indicator while driving; concurrent v14.3.4 (2026.14.6.12) received mixed user reception per TeslaOracle; basenor confirmed rollout started July 13 morning; incremental UX improvements confirm Tesla maintaining aggressive FSD software cadence heading into the pivotal Jul 22 Q2 earnings report (basenor / TeslaOracle, Jul 13, 2026)",
     "category": "autonomy",
     "source": "basenor / TeslaOracle",
@@ -7,66 +35,38 @@
     "url": "https://www.basenor.com/blogs/news/tesla-update-2026-20-6-6"
   },
   {
-    "headline": "Tesla Q2 earnings setup 'just changed' — Seeking Alpha notes 480K delivery beat (18% above consensus) has forced analysts to raise EPS and revenue forecasts ahead of Jul 22; Motley Fool forecasts post-earnings gain if margins show expansion alongside volume; SpaceX IPO spotlight cited as new headwind — investors now have two Musk vehicles competing for allocation; TSLA trading ~$407 (Jul 12 range: $402–$413); pre-earnings analyst consensus shifting bullish 9 days before the print (Seeking Alpha / Motley Fool / Yahoo Finance, Jul 13, 2026)",
-    "category": "financials",
-    "source": "Seeking Alpha / Motley Fool",
-    "timestamp": "Jul 13, 2026",
-    "url": "https://seekingalpha.com/article/4921587-tesla-earnings-setup-just-changed"
-  },
-  {
-    "headline": "Tesla confirms Cybercab employee rides 'starting soon' at Giga Texas — official Tesla Robotaxi account posted video of production Cybercab (no steering wheel, no pedals) autonomously picking up and dropping off employees in the Giga Texas outbound lot; basenor: 'Tesla has quietly crossed a line that no major automaker has crossed before'; Electrek notes ambiguity on whether operations are parking-lot-only or public roads; original post included Robotaxi app vent-control UI clip (later edited out — sparking speculation about app feature depth); first time purpose-built Level 4 hardware has transported employees at commercial-adjacent scale (notateslaapp / basenor / Electrek / Mashable, Jul 11, 2026)",
-    "category": "autonomy",
-    "source": "notateslaapp / basenor / Electrek",
-    "timestamp": "Jul 11, 2026",
-    "url": "https://www.notateslaapp.com/news/4422/tesla-to-start-fully-autonomous-cybercab-employee-rides-soon"
-  },
-  {
-    "headline": "Tesla files new Model Y Performance with China MIIT — dual-motor AWD, 250 km/h top speed, 21-inch wheels; repositions as premium performance SUV to defend against BYD and fast-growing Chinese rivals (Leapmotor, Nio, XPeng); BYD H1 2026 total NEV sales fell 15.7% YoY while Tesla gained 25% YoY in Q2 — trajectories crossing; Tesla's China-first premium strategy targets the performance/tech segment rather than price-competing with mass-market domestic brands; TSLA slipped ~2% overnight Sunday as investors weighed execution risk (eletric-vehicles.com / Stocktwits / TradingView, Jul 11–12, 2026)",
-    "category": "product",
-    "source": "eletric-vehicles.com / Stocktwits",
-    "timestamp": "Jul 12, 2026",
-    "url": "https://eletric-vehicles.com/tesla/tesla-expected-to-bring-back-model-y-performance-in-china-filing-shows/"
-  },
-  {
-    "headline": "Tesla Austin Robotaxi Hub confirmed with autonomous cleaning robot — Texas state building permit (filed Jun 2025, closed Mar 2026) reveals first-ever automated cleaning robot deployed at Tesla's 5900 E Ben White Blvd Austin robotaxi hub alongside V4 Superchargers and an equipment inspection system; crews this week removed boundary fences and tarps, signaling the hub is entering active operations; fully autonomous cleaning infrastructure eliminates the human labor bottleneck for scaling a 24/7 Cybercab commercial fleet; no other robotaxi operator (Waymo, Zoox) has publicly disclosed autonomous vehicle cleaning at commercial hubs; operational cleaning robot confirms Tesla is engineering end-to-end automation of the robotaxi supply chain — from vehicle production to fleet maintenance — ahead of Cybercab commercial scale (notateslaapp / Teslarati / WindowsNews, Jul 11–12, 2026)",
+    "headline": "Tesla Austin Robotaxi Hub confirmed with autonomous cleaning robot — Texas state building permit reveals first-ever automated cleaning robot deployed at Tesla's 5900 E Ben White Blvd Austin robotaxi hub alongside V4 Superchargers and an equipment inspection system; crews removed boundary fences and tarps, signaling hub entering active operations; fully autonomous cleaning infrastructure eliminates the human labor bottleneck for scaling a 24/7 Cybercab commercial fleet; no other robotaxi operator (Waymo, Zoox) has publicly disclosed autonomous vehicle cleaning at commercial hubs (notateslaapp / Teslarati, Jul 12, 2026)",
     "category": "autonomy",
     "source": "notateslaapp / Teslarati",
     "timestamp": "Jul 12, 2026",
     "url": "https://www.notateslaapp.com/news/4424/tesla-robotaxi-hubs-start-adding-car-cleaning-robots"
   },
   {
-    "headline": "Musk mandates Grok 4.5 at Tesla; caps rival AI tools at $200/week per employee — Elon Musk directed all Tesla staff to adopt xAI's Grok 4.5 wherever possible and imposed a $200/week per-employee spending cap on third-party AI tools (Anthropic, OpenAI, Google); Grok 4.5 costs ~$0.13/task vs ~$1.57 for alternatives — a 12x cost advantage; plans confirmed for Grok 4.5 integration into Tesla vehicles by fall 2026; deepens xAI-Tesla operational integration and channels compute spend to xAI, cutting AI opex significantly ahead of Q2 earnings Jul 22 (The Information / Electrek / CryptoBriefing, Jul 10–11, 2026)",
+    "headline": "Tesla confirms Cybercab employee rides 'starting soon' at Giga Texas — official Tesla Robotaxi account posted video of production Cybercab (no steering wheel, no pedals) autonomously picking up and dropping off employees in the Giga Texas outbound lot; basenor: 'Tesla has quietly crossed a line that no major automaker has crossed before'; Electrek notes ambiguity on whether operations are parking-lot-only or public roads; original post included Robotaxi app vent-control UI clip (later edited out — sparking speculation about app feature depth); first time purpose-built Level 4 hardware has transported employees at commercial-adjacent scale (notateslaapp / basenor / Electrek, Jul 11, 2026)",
+    "category": "autonomy",
+    "source": "notateslaapp / basenor / Electrek",
+    "timestamp": "Jul 11, 2026",
+    "url": "https://www.notateslaapp.com/news/4422/tesla-to-start-fully-autonomous-cybercab-employee-rides-soon"
+  },
+  {
+    "headline": "Musk mandates Grok 4.5 at Tesla; caps rival AI tools at $200/week per employee — Elon Musk directed all Tesla staff to adopt xAI's Grok 4.5 wherever possible and imposed a $200/week per-employee spending cap on third-party AI tools; Grok 4.5 costs ~$0.13/task vs ~$1.57 for alternatives — a 12x cost advantage; plans confirmed for Grok 4.5 integration into Tesla vehicles by fall 2026; deepens xAI-Tesla operational integration and channels compute spend to xAI, cutting AI opex significantly ahead of Q2 earnings Jul 22 (The Information / Electrek, Jul 11, 2026)",
     "category": "corporate",
     "source": "The Information / Electrek",
     "timestamp": "Jul 11, 2026",
     "url": "https://electrek.co/2026/07/10/musk-tells-tesla-staff-switch-grok/"
   },
   {
-    "headline": "Tesla Model Y L US order books open; first deliveries slip to October–November 2026 — Tesla officially began accepting US orders for Model Y L (long wheelbase, 3-row) on July 11; Launch Series AWD priced at $61,990 with $250 non-refundable deposit; base AWD $41,990; first US deliveries now set for October–November per Forbes tracking, later than the 'summer 2026' window initially implied at launch; 3-row configuration directly targets Rivian R1S ($75,900), Kia EV9 ($55,900), and Hyundai Ioniq 9; bundled 1-year free FSD + Supercharging + Premium Connectivity retain as part of Launch Series (TeslaOracle / Forbes / AutoBuyersGuide, Jul 11–12, 2026)",
-    "category": "product",
-    "source": "TeslaOracle / Forbes",
-    "timestamp": "Jul 11, 2026",
-    "url": "https://www.teslaoracle.com/2026/07/11/tesla-tsla-puts-model-y-l-launch-series-for-sale-in-the-us/"
-  },
-  {
-    "headline": "Citizens analyst Andrew Boone initiates TSLA at Market Perform — warns 2027/2028 revenue will land 4% and 12% below consensus, respectively, citing slower-than-expected Optimus and robotaxi ramp timelines; Boone flagged that Tesla's 'grand vision will take time to achieve' and that the vision-only FSD stack carries elevated accident risk vs. sensor-fusion peers; bearish initiation adds a notable Wall Street skeptic heading into Jul 22 Q2 earnings; TSLA slipped overnight on the note, trading in the $402–$412 range Jul 10 (Citizens JMP / GuruFocus / BigGo Finance / Stocktwits, Jul 9–10, 2026)",
-    "category": "financials",
-    "source": "Citizens JMP / GuruFocus",
-    "timestamp": "Jul 10, 2026",
-    "url": "https://www.gurufocus.com/news/8951590/tesla-tsla-initiated-with-market-perform-rating-amid-cautious-outlook"
-  },
-  {
-    "headline": "EXCLUSIVE: Production Cybercabs ship with DUAL GPS — redundant positioning system (two independent GPS receivers) added for high-precision location tracking; no consumer Tesla has shipped with dual GPS; Level 4 self-certification requires navigation redundancy and the dual-GPS design directly satisfies that requirement; combined with the previously confirmed enhanced FSD computer (>32GB RAM), Cybercab is now confirmed to have at least three hardware differentiators vs consumer Model 3/Y: dual GPS, stronger FSD compute, and 48V architecture (notateslaapp, Jul 9–10, 2026)",
-    "category": "autonomy",
-    "source": "notateslaapp",
-    "timestamp": "Jul 10, 2026",
-    "url": "https://www.notateslaapp.com/news/4414/exclusive-tesla-cybercab-includes-dual-gps"
-  },
-  {
-    "headline": "SpaceX IPO prices at $135/share raising ~$85B at $1.77T valuation — largest IPO in history; JPMorgan (analyst Rajat Gupta) immediately publishes note calling Tesla-SpaceX merger 'strategically coherent,' citing deep operational integration already in place across AI, robotics, energy, and transport; SpaceX President Gwynne Shotwell also floated the idea publicly; governance hurdle remains: Musk controls ~85% of SPCX voting power vs only ~20% of TSLA voting power; Bloomberg reports TSLA stock has held its ground in the month since the IPO (CNBC / Benzinga / Bloomberg, Jul 8–10, 2026)",
+    "headline": "SpaceX IPO prices at $135/share raising ~$85B at $1.77T valuation — largest IPO in history; JPMorgan (Rajat Gupta) immediately publishes note calling Tesla-SpaceX merger 'strategically coherent,' citing deep operational integration across AI, robotics, energy, and transport; SpaceX President Gwynne Shotwell also floated the idea publicly; governance hurdle remains: Musk controls ~85% of SPCX voting power vs only ~20% of TSLA voting power; Bloomberg reports TSLA stock has held its ground in the month since the IPO (CNBC / JPMorgan / Benzinga, Jul 10, 2026)",
     "category": "corporate",
     "source": "CNBC / JPMorgan / Benzinga",
     "timestamp": "Jul 10, 2026",
     "url": "https://www.cnbc.com/2026/07/08/jpmorgan-calls-the-possibility-of-a-spacex-tesla-merger-strategically-coherent-.html"
+  },
+  {
+    "headline": "Citizens analyst Andrew Boone initiates TSLA at Market Perform — warns 2027/2028 revenue will land 4% and 12% below consensus, citing slower-than-expected Optimus and robotaxi ramp timelines; Boone: 'grand vision will take time to achieve'; vision-only FSD stack carries elevated accident risk vs. sensor-fusion peers; bearish initiation adds notable Wall Street skeptic heading into Jul 22 Q2 earnings; TSLA slipped on the note, trading $402–$412 range (Citizens JMP / GuruFocus, Jul 10, 2026)",
+    "category": "financials",
+    "source": "Citizens JMP / GuruFocus",
+    "timestamp": "Jul 10, 2026",
+    "url": "https://www.gurufocus.com/news/8951590/tesla-tsla-initiated-with-market-perform-rating-amid-cautious-outlook"
   }
 ]
