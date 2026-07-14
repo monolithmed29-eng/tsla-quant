@@ -1,5 +1,19 @@
 [
   {
+    "headline": "Tesla launches Guaranteed Future Value program for Model Y and Model 3 — buyers can lock in a minimum trade-in value at purchase, eliminating out-of-pocket risk at next vehicle swap; program designed to remove the residual-value uncertainty that has deterred EV buyers in a volatile used-car market; available in select markets; reduces effective total cost of ownership and addresses a key objection from mainstream ICE defectors; demand catalyst heading into Jul 22 Q2 earnings (Ground News / The West Australian, Jul 14, 2026)",
+    "category": "product",
+    "source": "Ground News / The West Australian",
+    "timestamp": "Jul 14, 2026",
+    "url": null
+  },
+  {
+    "headline": "FSD v14.3.5 first Teslascope-recorded drive completes 100% autonomously — Teslascope confirmed the very first logged drive on build 2026.20.6.6 was completed entirely on FSD with zero interventions; early user reports broadly positive on the new camera-preview-at-any-time feature; basenor confirmed rollout continuing; 100% completion rate on first logged drive is a notable early data point ahead of Jul 22 Q2 earnings where FSD reliability metrics will be a focus (basenor / Teslascope, Jul 14, 2026)",
+    "category": "autonomy",
+    "source": "basenor / Teslascope",
+    "timestamp": "Jul 14, 2026",
+    "url": "https://www.basenor.com/blogs/news/tesla-update-2026-20-6-6"
+  },
+  {
     "headline": "TSLA -3.48% on July 13 — broad tech selloff ahead of heavy economic data week; Jefferies lifts Tesla PT to $400 on Q2 delivery beat and raises Q2 EBIT estimate to $1.45B (5.1% margin), increasing outer-year EBIT by ~6%; 7 analysts now have revised Q2 earnings higher; market focus fully on Jul 22 Q2 print — key questions: automotive gross margin (consensus 18–20% ex-credits), Cybercab commercial launch timeline, and $25B capex FCF impact; TSLA trading ~$394 (trading range: $391–$407) as bears wait for margin confirmation before committing (tradingkey / Jefferies / Daily Political / invezz, Jul 13, 2026)",
     "category": "financials",
     "source": "Jefferies / tradingkey",
@@ -54,19 +68,5 @@
     "source": "The Information / Electrek",
     "timestamp": "Jul 11, 2026",
     "url": "https://electrek.co/2026/07/10/musk-tells-tesla-staff-switch-grok/"
-  },
-  {
-    "headline": "SpaceX IPO prices at $135/share raising ~$85B at $1.77T valuation — largest IPO in history; JPMorgan (Rajat Gupta) immediately publishes note calling Tesla-SpaceX merger 'strategically coherent,' citing deep operational integration across AI, robotics, energy, and transport; SpaceX President Gwynne Shotwell also floated the idea publicly; governance hurdle remains: Musk controls ~85% of SPCX voting power vs only ~20% of TSLA voting power; Bloomberg reports TSLA stock has held its ground in the month since the IPO (CNBC / JPMorgan / Benzinga, Jul 10, 2026)",
-    "category": "corporate",
-    "source": "CNBC / JPMorgan / Benzinga",
-    "timestamp": "Jul 10, 2026",
-    "url": "https://www.cnbc.com/2026/07/08/jpmorgan-calls-the-possibility-of-a-spacex-tesla-merger-strategically-coherent-.html"
-  },
-  {
-    "headline": "Citizens analyst Andrew Boone initiates TSLA at Market Perform — warns 2027/2028 revenue will land 4% and 12% below consensus, citing slower-than-expected Optimus and robotaxi ramp timelines; Boone: 'grand vision will take time to achieve'; vision-only FSD stack carries elevated accident risk vs. sensor-fusion peers; bearish initiation adds notable Wall Street skeptic heading into Jul 22 Q2 earnings; TSLA slipped on the note, trading $402–$412 range (Citizens JMP / GuruFocus, Jul 10, 2026)",
-    "category": "financials",
-    "source": "Citizens JMP / GuruFocus",
-    "timestamp": "Jul 10, 2026",
-    "url": "https://www.gurufocus.com/news/8951590/tesla-tsla-initiated-with-market-perform-rating-amid-cautious-outlook"
   }
 ]
