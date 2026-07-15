@@ -1,5 +1,19 @@
 [
   {
+    "headline": "FSD v14.3.5 third deployment wave pushes to ~1,210 additional AI4 vehicles July 15 — Tesla has now run three rapid deployment waves of build 2026.20.6.6 in quick succession; third wave reached approximately 1,210 more AI4-eligible vehicles as of ~7:26 PM UTC on July 15; aggressive three-wave rollout cadence signals Tesla is building confidence in the v14.3.5 branch ahead of July 22 Q2 earnings; key UX additions include camera preview accessible at any time (not just during active FSD) and live FSD status indicator in Tesla app; pace is consistent with Tesla's staged validation approach before broad fleet deployment to the full HW4 fleet (basenor, Jul 15, 2026)",
+    "category": "autonomy",
+    "source": "basenor",
+    "timestamp": "Jul 15, 2026",
+    "url": "https://www.basenor.com/blogs/news/tesla-update-2026-20-6-6"
+  },
+  {
+    "headline": "Wells Fargo raises TSLA PT to $130 from $125, still implies 67% downside — analyst Colin Langan lifted Tesla's price target on July 14 but maintained Underweight; at ~$399 current price, the $130 target implies roughly 67% decline; Langan's core bear case: stock already prices in a future Tesla has not yet delivered, negative FCF, and a $25B capex cycle with uncertain payback timeline; joins JPMorgan and GLJ Research as structural bears heading into July 22 Q2 earnings; consensus analyst PT now $402.69 across 29 analysts (TipRanks Jul 15), reflecting a historically wide $130–$650 spread as bull/bear divide intensifies pre-earnings (Yahoo Finance / Wells Fargo, Jul 14–15, 2026)",
+    "category": "financials",
+    "source": "Wells Fargo / Yahoo Finance",
+    "timestamp": "Jul 15, 2026",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/wells-fargo-raised-tesla-stock-142312325.html"
+  },
+  {
     "headline": "Chamath Palihapitiya calls Tesla-SpaceX merger 'very obvious industrial logic' — TSLA +0.4% overnight — in CNBC interview, Palihapitiya (early SpaceX investor via Founders Fund) said combining the two companies would create one capital structure and balance sheet for Musk's broader ambitions; he previously predicted SpaceX would reverse-merge into Tesla rather than pursue a traditional IPO; Jefferies simultaneously published a note saying SpaceX merger 'could hand shareholders a premium' with Musk retaining 55.3% voting control of the combined entity; both remarks reinforce that the SpaceX IPO (Jul 10, SPCX, $1.77T valuation) has removed the primary 'SpaceX is private' structural barrier to a deal; TSLA closed Tuesday at $396.18 (+0.40%); next major catalyst: Jul 22 Q2 earnings (Stocktwits / CNBC, Jul 15, 2026)",
     "category": "corporate",
     "source": "CNBC / Stocktwits",
@@ -14,7 +28,7 @@
     "url": "https://stocktwits.com/news-articles/markets/equity/tsla-jefferies-spacex-merger-shareholders-premium/cZZbLuGR7Yv"
   },
   {
-    "headline": "Q2 2026 earnings: options market implies 7.6% move on July 22 — Wall Street consensus EPS $0.52/share (+30% YoY) on revenue of $25.81B (+14.8% YoY); Morgan Stanley (Andrew Percoco) raised PT to $417 from $415, maintains Equal Weight; bears focused on $7.5B FCF outflow and $25B capex cycle; bulls watching for (1) automotive gross margin ex-credits vs Q1's 21.1% print, (2) first Optimus unit count, (3) Cybercab commercial launch timeline, (4) FSD ARR growth; TSLA at $396.10 is sitting below the consensus PT average of $425.23; 7 analysts revised Q2 estimates higher since Jul 13; overall analyst rating remains 'Buy' but with cautious optimism at current valuation; July 22 is the first earnings call where Optimus production units will be on the balance sheet (TipRanks / Blockonomi / Morgan Stanley, Jul 15, 2026)",
+    "headline": "Q2 2026 earnings: consensus EPS $0.52–$0.55 (vs $0.40 YoY), revenue $25.81B (+14.8%); options market implies 7.6% move on July 22 — Wall Street consensus spans $0.52/share (TipRanks: +30% YoY) to $0.55/share (Blockonomi/CoinCentral); revenue consensus $25.81B (+14.8% YoY); options pricing a 7.6% move either direction; Morgan Stanley (Andrew Percoco) raised PT to $417 from $415, maintains Equal Weight; bears focused on $7.5B FCF outflow and $25B capex cycle; bulls watching for (1) automotive gross margin ex-credits vs Q1's 21.1%, (2) first Optimus unit count, (3) Cybercab commercial launch timeline, (4) FSD ARR growth; 7 analysts revised Q2 estimates higher since Jul 13 (TipRanks / Blockonomi / Morgan Stanley, Jul 15, 2026)",
     "category": "financials",
     "source": "TipRanks / Blockonomi / Morgan Stanley",
     "timestamp": "Jul 15, 2026",
@@ -26,6 +40,13 @@
     "source": "teslaoracle.com / Tesla IR",
     "timestamp": "Jul 15, 2026",
     "url": "https://www.teslaoracle.com/2026/07/15/tesla-tsla-scores-the-best-2nd-quarter-ever-energy-business-spikes-announces-q2-2026-earnings-call-schedule/"
+  },
+  {
+    "headline": "FSD v14 Lite stays limited release on HW3 despite strong user performance — Tesla has not pushed v14 Lite (build 2026.20.5.1) to the broad HW3 fleet despite early-access recipients logging zero-intervention drives on complex routes including Culver City to Hollywood; Tesla Oracle reports Tesla is intentionally holding rollout while collecting additional safety validation data; HW3 represents ~3M global vehicles that are supervised-only and cannot achieve unsupervised FSD even with v14 Lite; broader rollout pending Tesla's internal quality threshold — widening gap between HW3 'good performance' and full fleet deployment highlights Tesla's conservative validation standard (Tesla Oracle, Jul 14, 2026)",
+    "category": "autonomy",
+    "source": "Tesla Oracle",
+    "timestamp": "Jul 14, 2026",
+    "url": "https://www.teslaoracle.com/2026/07/14/fsd-v14-lite-remains-limited-release-even-when-it-shows-good-performance-on-tesla-hw3-cars/"
   },
   {
     "headline": "EXCLUSIVE: Tesla HW4 consumer vehicles run distilled FSD models developed first on Cybercab hardware — sources confirm Tesla trains massive 'teacher' neural networks for the more powerful Cybercab compute, then distills them into smaller 'student' models for HW4 consumer vehicles; Cybercab's extra compute headroom serves as the frontier FSD development sandbox for each software generation; HW4 confirmed sufficient for unsupervised FSD via distillation while HW3 is not; reveals clear AI architecture hierarchy driving Tesla's moat: every Cybercab-tier improvement cascades to the entire consumer fleet; directly explains why Cybercab's hardware investment pays dividends across all vehicles, not just the robotaxi fleet (notateslaapp, Jul 14, 2026)",
@@ -42,31 +63,10 @@
     "url": "https://www.basenor.com/blogs/news/tesla-cybercab-hits-milestone-driverless-employee-rides-begin-at-gigatexas"
   },
   {
-    "headline": "FSD v14.3.5 first Teslascope-recorded drive completes 100% autonomously — Teslascope confirmed the very first logged drive on build 2026.20.6.6 was completed entirely on FSD with zero interventions; early user reports broadly positive on the new camera-preview-at-any-time feature; basenor confirmed rollout continuing; 100% completion rate on first logged drive is a notable early data point ahead of Jul 22 Q2 earnings where FSD reliability metrics will be a focus (basenor / Teslascope, Jul 14, 2026)",
-    "category": "autonomy",
-    "source": "basenor / Teslascope",
-    "timestamp": "Jul 14, 2026",
-    "url": "https://www.basenor.com/blogs/news/tesla-update-2026-20-6-6"
-  },
-  {
     "headline": "Tesla Robotaxi fleet near-flawless in new NHTSA safety report (Apr 15–Jun 16) — Tesla logged only 1 incident in 62 days of unsupervised Austin operation: a zero-fault event where a stationary Robotaxi obeying a red arrow signal was rear-ended by a human-driven pickup truck; Zoox logged +6 incidents, Waymo +191 in the same period; data not normalized by fleet miles, but confirms Tesla's Austin operational envelope is performing at extremely high reliability; directly challenges the '4x human crash rate' framing from earlier NHTSA filings; strongest safety data point yet heading into Jul 22 Q2 earnings (notateslaapp / NHTSA filings, Jul 13, 2026)",
     "category": "autonomy",
     "source": "notateslaapp / NHTSA",
     "timestamp": "Jul 13, 2026",
     "url": "https://www.notateslaapp.com/news/4328/teslas-robotaxi-fleet-is-nearly-flawless-in-recent-report"
-  },
-  {
-    "headline": "Tesla FSD inches toward Italy approval — Tesla submitted FSD homologation paperwork to Italy's Ministry of Infrastructure and Transport; General Director Servedio Gaetano confirmed on LinkedIn the filing is in active analysis; Italy applying Netherlands fast-track recognition path; follows Belgium, Denmark, Estonia, and Lithuania approvals since May; Italy is the 6th EU country to formally engage with FSD post-Netherlands clearance and the bloc's 4th-largest market; as each EU approval uses the Netherlands as foundational clearance, incremental approvals are coming faster; EU TCMV vote window still open in July (notateslaapp / TeslaNewswire / MirkoMontagna0 on X, Jul 13, 2026)",
-    "category": "autonomy",
-    "source": "notateslaapp / TeslaNewswire",
-    "timestamp": "Jul 13, 2026",
-    "url": "https://www.notateslaapp.com/news/4430/tesla-fsd-inches-closer-to-regulatory-approval-in-italy"
-  },
-  {
-    "headline": "Tesla tears down Model S/X production lines at Fremont for Optimus — official @gigafactories X account posts time-lapse: 'End of an era: Decommissioning the original Model S & X assembly line in just 46 days'; footage shows massive robotic arms removed, structural foundations cleared, concrete floor completely repoured; AI chief Ashok Elluswamy: 'Big shoes to fill, but I'm confident Optimus will not disappoint!!'; Elon Musk confirms first Optimus production line 'successfully put in place' at Fremont; initial output will be 'quite slow'; late-July/August production start target on schedule; first official Optimus unit count expected on Jul 22 Q2 earnings call (notateslaapp / @gigafactories / Musk on X, Jul 13–14, 2026)",
-    "category": "robotics",
-    "source": "notateslaapp / @gigafactories",
-    "timestamp": "Jul 13, 2026",
-    "url": "https://www.notateslaapp.com/news/4427/tesla-tears-down-model-sx-lines-for-optimus-production"
   }
 ]
