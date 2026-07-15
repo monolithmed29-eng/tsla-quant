@@ -14,9 +14,9 @@
     "url": "https://stocktwits.com/news-articles/markets/equity/tsla-jefferies-spacex-merger-shareholders-premium/cZZbLuGR7Yv"
   },
   {
-    "headline": "Multiple Wall Street analysts raise TSLA price targets cautiously ahead of July 22 Q2 earnings — analyst consensus PT now $424.01 with 23 Buy ratings; key debate: (1) Q2 automotive gross margin ex-credits, (2) Optimus production ramp unit count, (3) energy segment recovery (13.5 GWh confirmed, +53% QoQ), (4) Cybercab commercial launch timeline; TSLA trading ~$396 as market awaits the Jul 22 print for margin confirmation; bulls watching for first quarterly Optimus contribution to segment revenue; bears focused on $25B capex and FCF pressure (Yahoo Finance / 247wallst, Jul 14–15, 2026)",
+    "headline": "Q2 2026 earnings: options market implies 7.6% move on July 22 — Wall Street consensus EPS $0.52/share (+30% YoY) on revenue of $25.81B (+14.8% YoY); Morgan Stanley (Andrew Percoco) raised PT to $417 from $415, maintains Equal Weight; bears focused on $7.5B FCF outflow and $25B capex cycle; bulls watching for (1) automotive gross margin ex-credits vs Q1's 21.1% print, (2) first Optimus unit count, (3) Cybercab commercial launch timeline, (4) FSD ARR growth; TSLA at $396.10 is sitting below the consensus PT average of $425.23; 7 analysts revised Q2 estimates higher since Jul 13; overall analyst rating remains 'Buy' but with cautious optimism at current valuation; July 22 is the first earnings call where Optimus production units will be on the balance sheet (TipRanks / Blockonomi / Morgan Stanley, Jul 15, 2026)",
     "category": "financials",
-    "source": "Yahoo Finance / 247wallst",
+    "source": "TipRanks / Blockonomi / Morgan Stanley",
     "timestamp": "Jul 15, 2026",
     "url": null
   },
@@ -35,11 +35,11 @@
     "url": "https://www.notateslaapp.com/news/4435/exclusive-tesla-hw4-vehicles-also-run-distilled-fsd-models"
   },
   {
-    "headline": "Tesla Q2 2026 earnings preview: analysts focused on margins and Cybercab timeline — 480K delivery beat fully priced in; Jul 22 print is about (1) automotive gross margin ex-credits (Jefferies Q2 EBIT estimate: $1.45B / 5.1% margin), (2) Cybercab commercial launch timeline and first revenue recognition, (3) FSD ARR growth trajectory, and (4) whether $25B capex is tracking toward returns; 7 analysts revised Q2 earnings higher since Jul 13; average analyst PT $412.39 vs $396.52 close on Jul 14; TSLA +0.45% today as market positions for July 22; key bear questions: tariff impact on margins, Cybercab commercial revenue timing, FCF pressure from heavy capex cycle (Jefferies / tradingkey / 247wallst, Jul 14, 2026)",
-    "category": "financials",
-    "source": "Jefferies / tradingkey",
-    "timestamp": "Jul 14, 2026",
-    "url": null
+    "headline": "Tesla Cybercab confirmed giving employee rides at Giga Texas as of July 10 — Tesla official X account posted video of production Cybercab (no steering wheel, no pedals) autonomously picking up and dropping off employees in the Giga Texas outbound lot; basenor: 'Tesla has quietly crossed a line that no major automaker has crossed before'; Electrek raised ambiguity on whether operations are parking-lot-only or extend to public roads; a clip of Robotaxi app vent-control UI briefly visible in the original post was later edited out by Tesla, prompting speculation on app feature depth; first time purpose-built Level 4 hardware has transported actual passengers at commercial-adjacent scale; key operational bridge between production ramp and public commercial launch ahead of Jul 22 Q2 earnings (basenor / notateslaapp / Electrek, Jul 10–13, 2026)",
+    "category": "autonomy",
+    "source": "basenor / notateslaapp / Electrek",
+    "timestamp": "Jul 13, 2026",
+    "url": "https://www.basenor.com/blogs/news/tesla-cybercab-hits-milestone-driverless-employee-rides-begin-at-gigatexas"
   },
   {
     "headline": "FSD v14.3.5 first Teslascope-recorded drive completes 100% autonomously — Teslascope confirmed the very first logged drive on build 2026.20.6.6 was completed entirely on FSD with zero interventions; early user reports broadly positive on the new camera-preview-at-any-time feature; basenor confirmed rollout continuing; 100% completion rate on first logged drive is a notable early data point ahead of Jul 22 Q2 earnings where FSD reliability metrics will be a focus (basenor / Teslascope, Jul 14, 2026)",
