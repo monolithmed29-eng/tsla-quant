@@ -1,5 +1,12 @@
 [
   {
+    "headline": "NTSB exonerates Tesla FSD in fatal Texas house crash — driver at fault, not autonomy system; findings confirm FSD disengaged seconds before impact as driver failed to respond; confirms pattern of driver-error misattribution to Tesla's AI stack; bullish for FSD regulatory narrative heading into Jul 22 Q2 earnings (Teslarati, Jul 16, 2026)",
+    "category": "autonomy",
+    "source": "Teslarati",
+    "timestamp": "Jul 16, 2026",
+    "url": "https://www.teslarati.com/ntsb-findings-on-fatal-tesla-crash-tell-a-very-different-story/"
+  },
+  {
     "headline": "Tesla opens Q2 2026 earnings call Q&A portal ahead of July 22 report — shareholders pressing for robotaxi expansion milestones, first Optimus production unit count, Cybercab fleet targets and paid-ride revenue, unsupervised FSD point-to-point summon ETA, and whether Elon pay package milestones will be met before any merger/acquisition; options market still pricing 7.6% move either direction (Drive Tesla Canada / Benzinga, Jul 16, 2026)",
     "category": "financials",
     "source": "Drive Tesla Canada / Benzinga",
@@ -47,13 +54,6 @@
     "source": "Wells Fargo / Yahoo Finance",
     "timestamp": "Jul 15, 2026",
     "url": "https://finance.yahoo.com/markets/stocks/articles/wells-fargo-raised-tesla-stock-142312325.html"
-  },
-  {
-    "headline": "Tesla tears down Fremont Model S/X assembly lines in just 46 days for Optimus Gen 3 production — @gigafactories time-lapse: 'End of an era'; massive robotic arms removed, structural foundations cleared, concrete floor repoured; Musk confirmed first Optimus production line 'successfully put in place' (Jul 13-14); limited production underway, full-scale output expected August 2026; internal targets: 100-150 units/week July, 300/week August, 1,000/week September; Fremont line targeting 1M robots/year at full capacity (notateslaapp / Yahoo Finance / Teslarati, Jul 10-13, 2026)",
-    "category": "robotics",
-    "source": "notateslaapp / Teslarati",
-    "timestamp": "Jul 13, 2026",
-    "url": "https://www.notateslaapp.com/news/4427/tesla-tears-down-model-sx-lines-for-optimus-production"
   },
   {
     "headline": "Tesla Q2 2026 energy deployment: 13.5 GWh (+53% QoQ) — record Q2 in company history, confirms Q1 8.8 GWh miss was timing not demand — at Q2 run-rate Tesla tracking toward ~54 GWh full-year 2026 vs ~48 GWh consensus; energy gross margins to be revealed Jul 22; energy recovery removes key bear narrative from Q1 and directly supports $10B+ energy revenue thesis for full-year 2026 (teslaoracle.com / Tesla IR, Jul 15, 2026)",
