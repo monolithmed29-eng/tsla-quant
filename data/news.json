@@ -1,5 +1,19 @@
 [
   {
+    "headline": "Tesla opens Q2 2026 earnings call Q&A portal ahead of July 22 report — shareholders pressing for robotaxi expansion milestones, first Optimus production unit count, Cybercab fleet targets and paid-ride revenue, unsupervised FSD point-to-point summon ETA, and whether Elon pay package milestones will be met before any merger/acquisition; options market still pricing 7.6% move either direction (Drive Tesla Canada / Benzinga, Jul 16, 2026)",
+    "category": "financials",
+    "source": "Drive Tesla Canada / Benzinga",
+    "timestamp": "Jul 16, 2026",
+    "url": "https://driveteslacanada.ca/news/tesla-q2-2026-earnings-call-shareholder-questions/"
+  },
+  {
+    "headline": "IG International Q2 2026 earnings preview: LSEG consensus 7 strong buy, 17 buy, 24 hold, 6 sell — mean analyst PT $397.89; Q2 deliveries 480K a clear beat but analysts flagging lower ASPs, $25B capex cycle, and negative FCF risk as headwinds; key question is whether record deliveries translated to margin recovery above Q1's 21.1%; earnings July 22 after market close (IG International, Jul 16, 2026)",
+    "category": "financials",
+    "source": "IG International",
+    "timestamp": "Jul 16, 2026",
+    "url": "https://www.ig.com/en/news-and-trade-ideas/tesla-q2-2026-earnings-preview--can-musk-reignite-growth-amid-sl-260716"
+  },
+  {
     "headline": "TSLA eyes weekly loss (-3% WTD) as retail investors grill Musk on missed robotaxi targets — top Say Technologies questions ahead of Jul 22 Q2 earnings: 'Why has Tesla missed short-term robotaxi guidance 3 earnings in a row?' and 'When will Cybercab start customer rides?'; investors demanding concrete fleet size, paid rides, intervention rates, cost per mile, and revenue contribution instead of broader progress updates; Koyfin projects Q2 revenue +17% YoY, adjusted EPS +31% YoY; TSLA -0.3% premarket Thursday after closing at $394.46 (-0.43%) Wednesday as pre-earnings positioning weighs on stock (Stocktwits / Yahoo Finance, Jul 16, 2026)",
     "category": "financials",
     "source": "Stocktwits / Yahoo Finance",
@@ -7,66 +21,52 @@
     "url": "https://stocktwits.com/news-articles/markets/equity/tsla-retail-musk-robotaxi-targets-q2-earnings/cZZE55JR7rC"
   },
   {
-    "headline": "Tesla Q2 2026 earnings preview: TipRanks consensus EPS $0.52-0.55 (+30-38% YoY), revenue $25.81B (+14.8% YoY); top investor questions are unsupervised FSD point-to-point summon timeline, when Cybercab will start public customer rides, first Optimus production unit count, and automotive gross margin vs Q1's 21.1% — options market still pricing 7.6% move either direction; 7 analysts revised Q2 estimates higher since Jul 13; earnings July 22 after market close (TipRanks / Benzinga, Jul 15-16, 2026)",
+    "headline": "Tesla Q2 2026 earnings preview: TipRanks consensus EPS $0.52-0.55 (+30-38% YoY), revenue $25.81B (+14.8% YoY); top investor questions are unsupervised FSD point-to-point summon timeline, when Cybercab will start public customer rides, first Optimus production unit count, and automotive gross margin vs Q1's 21.1% — 7 analysts revised Q2 estimates higher since Jul 13; earnings July 22 after market close (TipRanks / Benzinga, Jul 15-16, 2026)",
     "category": "financials",
     "source": "TipRanks / Benzinga",
     "timestamp": "Jul 16, 2026",
     "url": "https://www.tipranks.com/news/tesla-stock-price-forecast-what-financial-analysts-expect-ahead-of-q2-earnings"
   },
   {
-    "headline": "Elon Musk announces product gallery at Texas ranch — 52 products spanning 1984-2025: from a $500 video game he coded at age 12 to the Tesla Cybercab and SpaceXAI; curated 'lifelong work that changed the world' exhibit; includes Tesla, SpaceX, Neuralink, Boring Company, and xAI milestones; announced July 15, 2026 (Teslarati, Jul 15, 2026)",
-    "category": "corporate",
-    "source": "Teslarati",
+    "headline": "FSD v14.3.5 new features confirmed (build 2026.20.6.6): blind spot warnings expanded to new Model Y, 2021+ Model S, and 2021+ Model X (previously Cybertruck/Highland Model 3 only); dashcam clip encryption added for all USB-stored footage and Sentry Mode files; camera preview accessible any time (not just during FSD); live FSD status in Tesla app; early testers report strong performance across complex real-world routes (notateslaapp / Teslarati, Jul 14-15, 2026)",
+    "category": "autonomy",
+    "source": "notateslaapp / Teslarati",
     "timestamp": "Jul 15, 2026",
-    "url": "https://www.teslarati.com/elon-musk-texas-ranch-tesla-spacex-product-gallery/"
+    "url": "https://www.notateslaapp.com/news/4434/tesla-rolls-out-fsd-v1435-whats-new"
   },
   {
-    "headline": "FSD v14.3.5 third deployment wave pushes to ~1,210 additional AI4 vehicles July 15 — Tesla has now run three rapid deployment waves of build 2026.20.6.6 in quick succession; third wave reached approximately 1,210 more AI4-eligible vehicles as of ~7:26 PM UTC on July 15; aggressive three-wave rollout cadence signals Tesla is building confidence in the v14.3.5 branch ahead of July 22 Q2 earnings; key UX additions include camera preview accessible at any time (not just during active FSD) and live FSD status indicator in Tesla app; pace is consistent with Tesla's staged validation approach before broad fleet deployment to the full HW4 fleet (basenor, Jul 15, 2026)",
+    "headline": "FSD v14.3.5 third deployment wave pushes to ~1,210 additional AI4 vehicles July 15 — three rapid deployment waves of build 2026.20.6.6 in quick succession; aggressive rollout cadence signals Tesla building confidence in v14.3.5 branch ahead of July 22 Q2 earnings; FSD v14 Lite (HW3) still at <0.1% of legacy fleet per TeslaFi/Tessie tracking — millions of HW3 owners waiting; staged validation approach before broad fleet deployment to full HW4 fleet (basenor / TeslaOracle, Jul 14-15, 2026)",
     "category": "autonomy",
-    "source": "basenor",
+    "source": "basenor / TeslaOracle",
     "timestamp": "Jul 15, 2026",
     "url": "https://www.basenor.com/blogs/news/tesla-update-2026-20-6-6"
   },
   {
-    "headline": "Wells Fargo raises TSLA PT to $130 from $125, still implies 67% downside — analyst Colin Langan lifted Tesla's price target on July 14 but maintained Underweight; at ~$399 current price, the $130 target implies roughly 67% decline; Langan's core bear case: stock already prices in a future Tesla has not yet delivered, negative FCF, and a $25B capex cycle with uncertain payback timeline; joins JPMorgan and GLJ Research as structural bears heading into July 22 Q2 earnings; consensus analyst PT now $402.69 across 29 analysts (TipRanks Jul 15), reflecting a historically wide $130–$650 spread as bull/bear divide intensifies pre-earnings (Yahoo Finance / Wells Fargo, Jul 14–15, 2026)",
+    "headline": "Wells Fargo raises TSLA PT to $130 from $125, still implies 67% downside — analyst Colin Langan lifted price target on July 14 but maintained Underweight; at ~$394 current price, $130 target implies ~67% decline; bear case: stock prices in a future Tesla has not yet delivered, negative FCF, and $25B capex cycle with uncertain payback; joins JPMorgan and GLJ Research as structural bears heading into July 22 Q2 earnings; LSEG mean consensus PT $397.89 (IG) vs $402.69 (TipRanks) across ~29-55 analysts, reflecting historically wide $130–$650 spread (Wells Fargo / Yahoo Finance, Jul 14-15, 2026)",
     "category": "financials",
     "source": "Wells Fargo / Yahoo Finance",
     "timestamp": "Jul 15, 2026",
     "url": "https://finance.yahoo.com/markets/stocks/articles/wells-fargo-raised-tesla-stock-142312325.html"
   },
   {
-    "headline": "Chamath Palihapitiya calls Tesla-SpaceX merger 'very obvious industrial logic' — TSLA +0.4% overnight — in CNBC interview, Palihapitiya (early SpaceX investor via Founders Fund) said combining the two companies would create one capital structure and balance sheet for Musk's broader ambitions; he previously predicted SpaceX would reverse-merge into Tesla rather than pursue a traditional IPO; Jefferies simultaneously published a note saying SpaceX merger 'could hand shareholders a premium' with Musk retaining 55.3% voting control of the combined entity; both remarks reinforce that the SpaceX IPO (Jul 10, SPCX, $1.77T valuation) has removed the primary 'SpaceX is private' structural barrier to a deal; TSLA closed Tuesday at $396.18 (+0.40%); next major catalyst: Jul 22 Q2 earnings (Stocktwits / CNBC, Jul 15, 2026)",
-    "category": "corporate",
-    "source": "CNBC / Stocktwits",
-    "timestamp": "Jul 15, 2026",
-    "url": "https://stocktwits.com/news-articles/markets/equity/tsla-chamath-palihapitiya-tesla-spacex-merger/cZZ2A2xR7AG"
+    "headline": "Tesla tears down Fremont Model S/X assembly lines in just 46 days for Optimus Gen 3 production — @gigafactories time-lapse: 'End of an era'; massive robotic arms removed, structural foundations cleared, concrete floor repoured; Musk confirmed first Optimus production line 'successfully put in place' (Jul 13-14); limited production underway, full-scale output expected August 2026; internal targets: 100-150 units/week July, 300/week August, 1,000/week September; Fremont line targeting 1M robots/year at full capacity (notateslaapp / Yahoo Finance / Teslarati, Jul 10-13, 2026)",
+    "category": "robotics",
+    "source": "notateslaapp / Teslarati",
+    "timestamp": "Jul 13, 2026",
+    "url": "https://www.notateslaapp.com/news/4427/tesla-tears-down-model-sx-lines-for-optimus-production"
   },
   {
-    "headline": "Jefferies raises TSLA PT to $400 (from $375), SpaceX merger could hand shareholders premium; Tesla Semi begins Chicago cold-weather pilot with Paper Transport — Jefferies cited Tesla's 'significant auto volume beat' (480K vs 406K consensus), raised Q2 EBIT to $1.45B / 5.1% margin, increased FY26 EBIT 4% to $6.2B; group revenue seen at $28.7B; Q2 capex $6.9B; still expects $7.5B FCF outflow; Jefferies says multi-year growth/earnings deterioration 'beginning to reverse'; Tesla Semi Chicago pilot with Paper Transport targets 500-mile cold-climate range validation — success would expand addressable market to harsh-winter regions; maintains Hold (Jefferies / Stocktwits, Jul 14–15, 2026)",
-    "category": "financials",
-    "source": "Jefferies",
-    "timestamp": "Jul 15, 2026",
-    "url": "https://stocktwits.com/news-articles/markets/equity/tsla-jefferies-spacex-merger-shareholders-premium/cZZbLuGR7Yv"
-  },
-  {
-    "headline": "Tesla Q2 2026 energy deployment: 13.5 GWh (+53% QoQ) — record Q2 in company history, confirms Q1 8.8 GWh miss was timing not demand — closest prior Q2 was Q3 2023's 12.5 GWh; Megapack backlog remains 2–3 years deep; at Q2 run-rate Tesla is tracking toward ~54 GWh full-year 2026 vs ~48 GWh consensus; energy gross margins to be revealed in Jul 22 Q2 financials; energy recovery removes a key bear narrative from Q1 and directly supports the $10B+ energy revenue thesis for full-year 2026; Model Y L launch (Jul 3) and Optimus ramp also add new 2H revenue streams (teslaoracle.com / Tesla IR, Jul 15, 2026)",
+    "headline": "Tesla Q2 2026 energy deployment: 13.5 GWh (+53% QoQ) — record Q2 in company history, confirms Q1 8.8 GWh miss was timing not demand — at Q2 run-rate Tesla tracking toward ~54 GWh full-year 2026 vs ~48 GWh consensus; energy gross margins to be revealed Jul 22; energy recovery removes key bear narrative from Q1 and directly supports $10B+ energy revenue thesis for full-year 2026 (teslaoracle.com / Tesla IR, Jul 15, 2026)",
     "category": "energy",
     "source": "teslaoracle.com / Tesla IR",
     "timestamp": "Jul 15, 2026",
     "url": "https://www.teslaoracle.com/2026/07/15/tesla-tsla-scores-the-best-2nd-quarter-ever-energy-business-spikes-announces-q2-2026-earnings-call-schedule/"
   },
   {
-    "headline": "Tesla Robotaxi fleet near-flawless in new NHTSA safety report (Apr 15–Jun 16) — Tesla logged only 1 incident in 62 days of unsupervised Austin operation: a zero-fault event where a stationary Robotaxi obeying a red arrow signal was rear-ended by a human-driven pickup truck; Zoox logged +6 incidents, Waymo +191 in the same period; data not normalized by fleet miles, but confirms Tesla's Austin operational envelope is performing at extremely high reliability; directly challenges the '4x human crash rate' framing from earlier NHTSA filings; strongest safety data point yet heading into Jul 22 Q2 earnings (notateslaapp / NHTSA filings, Jul 13, 2026)",
+    "headline": "Tesla Robotaxi fleet near-flawless in new NHTSA safety report (Apr 15–Jun 16) — Tesla logged only 1 incident in 62 days of unsupervised Austin operation: a zero-fault event where a stationary Robotaxi obeying a red arrow signal was rear-ended by a human-driven pickup truck; Zoox logged +6 incidents, Waymo +191 in the same period; strongest safety data point yet heading into Jul 22 Q2 earnings (notateslaapp / NHTSA filings, Jul 13, 2026)",
     "category": "autonomy",
     "source": "notateslaapp / NHTSA",
     "timestamp": "Jul 13, 2026",
     "url": "https://www.notateslaapp.com/news/4328/teslas-robotaxi-fleet-is-nearly-flawless-in-recent-report"
-  },
-  {
-    "headline": "Tesla Cybercab confirmed giving employee rides at Giga Texas as of July 10 — Tesla official X account posted video of production Cybercab (no steering wheel, no pedals) autonomously picking up and dropping off employees in the Giga Texas outbound lot; basenor: 'Tesla has quietly crossed a line that no major automaker has crossed before'; Electrek raised ambiguity on whether operations are parking-lot-only or extend to public roads; a clip of Robotaxi app vent-control UI briefly visible in the original post was later edited out by Tesla, prompting speculation on app feature depth; first time purpose-built Level 4 hardware has transported actual passengers at commercial-adjacent scale; key operational bridge between production ramp and public commercial launch ahead of Jul 22 Q2 earnings (basenor / notateslaapp / Electrek, Jul 10–13, 2026)",
-    "category": "autonomy",
-    "source": "basenor / notateslaapp / Electrek",
-    "timestamp": "Jul 13, 2026",
-    "url": "https://www.basenor.com/blogs/news/tesla-cybercab-hits-milestone-driverless-employee-rides-begin-at-gigatexas"
   }
 ]
