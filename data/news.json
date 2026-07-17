@@ -1,10 +1,38 @@
 [
   {
+    "headline": "BofA reiterates Buy / $460 PT: Texas robotaxi fleet hits 175 vehicles — fastest fleet growth tracked by any analyst; 22 total incidents since launch with zero serious injuries or fatalities; Tesla 21% cheaper than Waymo/Uber/Lyft in San Francisco despite 3–4x longer wait times; Optimus Fremont production start late July/August + Gen 3 reveal flagged as imminent catalyst; NatPower 25+ GWh European BESS deal highlighted as energy upside (BofA / Yahoo Finance / ProactiveInvestors, Jul 17, 2026)",
+    "category": "autonomy",
+    "source": "Bank of America / Yahoo Finance",
+    "timestamp": "Jul 17, 2026",
+    "url": "https://ca.finance.yahoo.com/news/tesla-rides-robotaxi-momentum-earnings-155400331.html"
+  },
+  {
+    "headline": "Tesla Texas robotaxi fleet expands 50%+ in a single day to 175 total unsupervised vehicles — fastest single-month growth (+100 vehicles) among all robotaxi operators tracked; now operational in 5 markets (Austin, Dallas, Houston, Miami, SF supervised); Morgan Stanley projects 1,000 vehicles by year-end 2026 — requires ~5x current Texas base (eletric-vehicles.com / Morgan Stanley, Jul 16–17, 2026)",
+    "category": "autonomy",
+    "source": "eletric-vehicles.com / Morgan Stanley",
+    "timestamp": "Jul 17, 2026",
+    "url": "https://eletric-vehicles.com/tesla/tesla-expands-model-y-robotaxi-fleet-in-texas-by-50-in-a-single-day/"
+  },
+  {
+    "headline": "notateslaapp: NTSB preliminary report DEFINITIVELY vindicates Tesla FSD in fatal Texas house crash — driver applied 100% accelerator override at moment of impact; FSD was not engaged; eliminates any ambiguity about system vs driver responsibility; reinforces bull narrative ahead of Jul 22 Q2 earnings; confirms pattern of driver-error misattribution to Tesla's AI stack (notateslaapp / TeslaNorth, Jul 16–17, 2026)",
+    "category": "autonomy",
+    "source": "notateslaapp / TeslaNorth",
+    "timestamp": "Jul 17, 2026",
+    "url": "https://www.notateslaapp.com/news/4452/ntsb-confirms-driver-overrode-fsd-in-house-crash-investigation"
+  },
+  {
     "headline": "Gary Black: SpaceX can't afford to buy Tesla — 'the math won't pass muster'; SPCX trading at ~$132 (below $135 IPO price) with further -1.82% premarket decline July 17; an equity-funded acquisition would dilute SPCX shareholders ~25%; Black: Musk's 82% voting control does not override board fiduciary duty to SpaceX shareholders; TSLA slipped 1% Thursday to $391.06 (2nd consecutive red session); Chamath Palihapitiya, Jefferies, and JPMorgan still argue strategic logic holds; Q2 EPS consensus $0.32 expected Jul 22 (Stocktwits / X, Jul 17, 2026)",
     "category": "corporate",
     "source": "Stocktwits / X",
     "timestamp": "Jul 17, 2026",
     "url": "https://stocktwits.com/news-articles/markets/equity/tsla-gary-black-spacex-tesla-math-wont-pass-muster/cZZ77RTR7tQ"
+  },
+  {
+    "headline": "Motley Fool: don't rush to buy Tesla before July 22 earnings — no game-changing Optimus or FSD v15 announcements expected; key investment case is recurring income from FSD subscriptions, Optimus robot-as-a-service, and robotaxi fleet revenue; stock has room to run long-term but no near-term catalyst demands immediate action ahead of the report (Motley Fool, Jul 17, 2026)",
+    "category": "financials",
+    "source": "Motley Fool",
+    "timestamp": "Jul 17, 2026",
+    "url": "https://www.fool.com/investing/2026/07/17/should-you-buy-tesla-stock-before-earnings-on-july/"
   },
   {
     "headline": "Electrek: Tesla shareholders begging Musk to explain missed goals ahead of Jul 22 Q2 earnings — most-upvoted Q&A portal questions demand Musk account for why Tesla has missed its own short-term targets 3 earnings in a row on robotaxi, FSD, and Optimus; tone shifted from 'when will the vision arrive?' to 'why aren't stated targets being met?'; Electrek calls it 'a bleak story' for retail investors promised commercial robotaxi scale by mid-2026 (Electrek, Jul 16, 2026)",
@@ -21,25 +49,11 @@
     "url": "https://www.notateslaapp.com/news/4453/teslas-2026-q2-earnings-call-how-to-listen"
   },
   {
-    "headline": "NTSB exonerates Tesla FSD in fatal Texas house crash — driver at fault, not autonomy system; findings confirm FSD disengaged seconds before impact as driver failed to respond; confirms pattern of driver-error misattribution to Tesla's AI stack; bullish for FSD regulatory narrative heading into Jul 22 Q2 earnings (Teslarati, Jul 16, 2026)",
-    "category": "autonomy",
-    "source": "Teslarati",
-    "timestamp": "Jul 16, 2026",
-    "url": "https://www.teslarati.com/ntsb-findings-on-fatal-tesla-crash-tell-a-very-different-story/"
-  },
-  {
-    "headline": "Tesla opens Q2 2026 earnings call Q&A portal ahead of July 22 report — shareholders pressing for robotaxi expansion milestones, first Optimus production unit count, Cybercab fleet targets and paid-ride revenue, unsupervised FSD point-to-point summon ETA, and whether Elon pay package milestones will be met before any merger/acquisition; options market still pricing 7.6% move either direction (Drive Tesla Canada / Benzinga, Jul 16, 2026)",
-    "category": "financials",
-    "source": "Drive Tesla Canada / Benzinga",
-    "timestamp": "Jul 16, 2026",
-    "url": "https://driveteslacanada.ca/news/tesla-q2-2026-earnings-call-shareholder-questions/"
-  },
-  {
-    "headline": "TSLA eyes third consecutive weekly loss (-3%+ WTD) as retail investors grill Musk on missed robotaxi targets — top Say Technologies questions ahead of Jul 22 Q2 earnings: 'Why has Tesla missed short-term robotaxi guidance 3 earnings in a row?' and 'When will Cybercab start customer rides?'; investors demanding concrete fleet size, paid rides, intervention rates, cost per mile, and revenue contribution instead of broader progress updates; Koyfin projects Q2 revenue +17% YoY, adjusted EPS +31% YoY; TSLA closed Thursday at $391.06 (-1.0%) as pre-earnings positioning weighs on stock (Stocktwits / Yahoo Finance, Jul 16, 2026)",
-    "category": "financials",
-    "source": "Stocktwits / Yahoo Finance",
-    "timestamp": "Jul 16, 2026",
-    "url": "https://stocktwits.com/news-articles/markets/equity/tsla-retail-musk-robotaxi-targets-q2-earnings/cZZE55JR7rC"
+    "headline": "Tesla + NatPower sign $4–5B multi-year supply agreement for 25+ GWh of Megapack BESS in Italy and UK — first phase of a 100+ GWh European program; largest cross-border battery storage deal in European history; agreement covers manufacturing capacity reservation, execution, and supply chain; directly adds forward revenue visibility to Tesla's energy business ahead of Megapack 3 ramp (NatPower / Energies Media / InvestorIdeas, Jun 23, 2026)",
+    "category": "energy",
+    "source": "NatPower / Energies Media",
+    "timestamp": "Jun 23, 2026",
+    "url": "https://natpower.com/2026/06/23/natpower-and-tesla-sign-a-strategic-agreement-for-more-than-25-gwh-of-battery-energy-storage-systems-in-europe-2/"
   },
   {
     "headline": "Tesla Q2 2026 energy deployment: 13.5 GWh (+53% QoQ) — record Q2 in company history, confirms Q1 8.8 GWh miss was timing not demand — at Q2 run-rate Tesla tracking toward ~54 GWh full-year 2026 vs ~48 GWh consensus; energy gross margins to be revealed Jul 22; energy recovery removes key bear narrative from Q1 and directly supports $10B+ energy revenue thesis for full-year 2026 (teslaoracle.com / Tesla IR, Jul 15, 2026)",
@@ -47,26 +61,5 @@
     "source": "teslaoracle.com / Tesla IR",
     "timestamp": "Jul 15, 2026",
     "url": "https://www.teslaoracle.com/2026/07/15/tesla-tsla-scores-the-best-2nd-quarter-ever-energy-business-spikes-announces-q2-2026-earnings-call-schedule/"
-  },
-  {
-    "headline": "FSD v14.3.5 new features confirmed (build 2026.20.6.6): blind spot warnings expanded to new Model Y, 2021+ Model S, and 2021+ Model X; dashcam clip encryption added for all USB-stored footage and Sentry Mode files; camera preview accessible any time; live FSD status in Tesla app; early testers report strong performance across complex real-world routes (notateslaapp / Teslarati, Jul 14-15, 2026)",
-    "category": "autonomy",
-    "source": "notateslaapp / Teslarati",
-    "timestamp": "Jul 15, 2026",
-    "url": "https://www.notateslaapp.com/news/4434/tesla-rolls-out-fsd-v1435-whats-new"
-  },
-  {
-    "headline": "Wells Fargo raises TSLA PT to $130 from $125, still implies 67% downside — analyst Colin Langan lifted price target on July 14 but maintained Underweight; at ~$391 current price, $130 target implies ~67% decline; bear case: stock prices in a future Tesla has not yet delivered, negative FCF, and $25B capex cycle with uncertain payback; joins JPMorgan and GLJ Research as structural bears heading into July 22 Q2 earnings (Wells Fargo / Yahoo Finance, Jul 14-15, 2026)",
-    "category": "financials",
-    "source": "Wells Fargo / Yahoo Finance",
-    "timestamp": "Jul 15, 2026",
-    "url": "https://finance.yahoo.com/markets/stocks/articles/wells-fargo-raised-tesla-stock-142312325.html"
-  },
-  {
-    "headline": "Tesla Robotaxi fleet near-flawless in new NHTSA safety report (Apr 15–Jun 16) — Tesla logged only 1 incident in 62 days of unsupervised Austin operation: a zero-fault event where a stationary Robotaxi obeying a red arrow signal was rear-ended by a human-driven pickup truck; Zoox logged +6 incidents, Waymo +191 in the same period; strongest safety data point yet heading into Jul 22 Q2 earnings (notateslaapp / NHTSA filings, Jul 13, 2026)",
-    "category": "autonomy",
-    "source": "notateslaapp / NHTSA",
-    "timestamp": "Jul 13, 2026",
-    "url": "https://www.notateslaapp.com/news/4328/teslas-robotaxi-fleet-is-nearly-flawless-in-recent-report"
   }
 ]
